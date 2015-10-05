@@ -87,6 +87,7 @@
 
 	/**
 	 * Sends a reqeust to the API to generate IBAN and BIC from bank data
+	 *
 	 * @param {Object} data
 	 * @return {Promise}
 	 *         Resolved parameter:
@@ -109,6 +110,7 @@
 
 	/**
 	 * Sends a reqeust to the API to check the validate of an IBAN
+	 *
 	 * @param {Object} data
 	 * @return {Promise}
 	 *         Resolved parameter:

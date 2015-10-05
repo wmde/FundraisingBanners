@@ -24,7 +24,7 @@
 	/**
 	 * Set the tracker lib
 	 *
-	 * @param Tracker an instance of Piwik's Tracker class
+	 * @param {Tracker} tracker an instance of Piwik's Tracker class
 	 */
 	TP.setTracker = function ( tracker ) {
 		this._tracker = tracker;
@@ -33,7 +33,7 @@
 	/**
 	 * Track a virtual page view
 	 *
-	 * @param eventName
+	 * @param {string} eventName
 	 */
 	TP.trackVirtualPageView = function ( eventName ) {
 		if ( this.shouldTrack( eventName, this.getRandomNumber() ) ) {
@@ -49,8 +49,8 @@
 	/**
 	 * Determines whether an event should be tracked
 	 *
-	 * @param eventName event name based on the property keys of Banner.tracking.events
-	 * @param randomNumber randomly generated number to compare against the configured sample size
+	 * @param {string} eventName event name based on the property keys of Banner.tracking.events
+	 * @param {number} randomNumber randomly generated number to compare against the configured sample size
 	 * @return {boolean}
 	 */
 	TP.shouldTrack = function ( eventName, randomNumber ) {

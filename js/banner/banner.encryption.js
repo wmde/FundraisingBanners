@@ -39,7 +39,7 @@
 	/**
 	 * Encrypts a message and puts the encrypted data into the given field
 	 *
-	 * @param data The message to encrypt
+	 * @param {string} data The message to encrypt
 	 * @return {Promise}
 	 */
 	EP.encrypt = function ( data ) {
