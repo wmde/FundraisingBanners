@@ -12,6 +12,8 @@
 			libUrl: '../js/lib/openpgp.min.js',
 			publicKey: ''
 		},
+		form: {
+		},
 		tracking: {
 			campaign: 'default',
 			keyword: 'default',
