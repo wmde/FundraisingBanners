@@ -24,8 +24,8 @@
 	}
 
 	Form.prototype._initSubmitHandler = function () {
-		var self = this;
-		var form = $( '#' + banner.config.form.formId );
+		var self = this,
+			form = $( '#' + banner.config.form.formId );
 		form.prop( 'action', banner.config.form.formAction );
 		form.on( 'submit', function () {
 			if ( !self.validated && !self.validationPending ) {
@@ -100,11 +100,11 @@
 			},
 			self = this,
 			data,
-			apiMethod;
+			apiMethod,
+			accNumElm = $( '#account-number' ),
+			bankCodeElm = $( '#bank-code' );
 
 		if ( evt.target.id === 'account-number' || evt.target.id === 'bank-code' ) {
-			var accNumElm = $( '#account-number' );
-			var bankCodeElm = $( '#bank-code' );
 
 			if ( accNumElm.val() === '' || bankCodeElm.val() === '' ) {
 				return;

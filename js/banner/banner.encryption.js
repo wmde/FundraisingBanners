@@ -43,8 +43,9 @@
 	 * @return {Promise}
 	 */
 	EP.encrypt = function ( data ) {
+		var publicKey;
 		if ( this.initialized ) {
-			var publicKey = openpgp.key.readArmored( Banner.config.encryption.publicKey );
+			publicKey = openpgp.key.readArmored( Banner.config.encryption.publicKey );
 
 			return openpgp.encryptMessage( publicKey.keys, data )
 				.then( function ( pgpMessage ) {
