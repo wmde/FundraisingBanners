@@ -1,0 +1,53 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="css/lightbox.css">
+	<link type="text/css" rel="stylesheet" href="css/icon.css">
+	<script type="text/javascript" src="http://localhost/fundraising/res/js/jquery-1.11.3.min.js"></script>
+	<script>
+		$( document ).ready( function () {
+			$( '.list-item-title' ).on( 'click', function() {
+				$( this ).toggleClass( 'opened' );
+				$( this ).next().toggle();
+			} );
+		});
+	</script>
+</head>
+
+<body>
+	<div class="banner-lightbox banner-lightbox-small">
+		<ul>
+			<li>
+				<div class="lightbox-list-item">
+					<img src="img/global-sign.png"></span>
+					<img style="float: right;" src="img/owasp.png"></span>
+					<div style="clear: right; height: 7px;"></div>
+				</div>
+			</li>
+			<li>
+				<div class="lightbox-list-item">
+					<span class="icon-list-item icon-lock"></span>
+					<span class="list-item-title">SSL-verschl&uuml;sselte Daten</span>
+					<p>
+						Ihre Spende wird &uuml;ber eine sichere SSL-
+						Verschl&uuml;sselung aufgenommen und liegt sp&auml;ter
+						auf deutschen Servern.
+					</p>
+				</div>
+			</li>
+			<li>
+				<div class="lightbox-list-item last">
+					<span class="icon-list-item icon-shield"></span>
+					<span class="list-item-title">Ihre Daten sind sicher</span>
+					<p>
+						Wir f&uuml;hlen uns dem Datenschutz verpflichtet.
+						Unsere Bestimmungen dazu k&ouml;nnen Sie 
+						<a href="https://spenden.wikimedia.de/spenden/Datenschutz">hier</a> einsehen.
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+
+</html>
