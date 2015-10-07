@@ -5,7 +5,8 @@ node_js:
 
 sudo: false
 
-install: travis_retry npm install jshint
+install: travis_retry npm install qunit-phantomjs-runner jshint
 
 script:
+  - phantomjs node_modules/qunit-phantomjs-runner/runner.js tests/ci-tests.html
   - ./node_modules/jshint/bin/jshint
