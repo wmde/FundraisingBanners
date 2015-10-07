@@ -120,7 +120,7 @@ function increaseBannerImpCount( bannerId ) {
 }
 
 function validateForm() {
-	var chkdPayment = $( 'input[name=pay]:checked', '#WMDE_FR2015_Banner-form' ).val();
+	var chkdPayment = $( 'input[name=pay]:checked', '#WMDE_BannerForm' ).val();
 	switch( chkdPayment ) {
 		case "BEZ":
 			$( '#form-page' ).val( 'Formularseite2-Lastschrift' );

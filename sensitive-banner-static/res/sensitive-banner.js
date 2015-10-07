@@ -3,34 +3,34 @@ var paySEPA = true;
 var addressType = 'private';
 
 $( function() {
-	var paymentButtons = $( '#WMDE_FR2015_Banner-payment button' );
+	var paymentButtons = $( '#WMDE_BannerFullForm-payment button' );
 
 	paymentButtons.on( 'click', function( e ) {
 		e.preventDefault();
 		toggleFullForm();
 	} );
 
-	$( '#WMDE_FR2015_Banner-form-next' ).on( 'click', function( e ) {
+	$( '#WMDE_BannerForm-next' ).on( 'click', function( e ) {
 		e.preventDefault();
 		debitNextStep();
 	} );
 
-	$( '#WMDE_FR2015_Banner-form-finish' ).on( 'click', function( e ) {
+	$( '#WMDE_BannerFullForm-finish' ).on( 'click', function( e ) {
 		e.preventDefault();
-		$( '#WMDE_FR2015_Banner-form-step2' ).slideToggle( 400, function() {
-			$( '#WMDE_FR2015_Banner-form-step1' ).slideToggle();
+		$( '#WMDE_BannerFullForm-step2' ).slideToggle( 400, function() {
+			$( '#WMDE_BannerFullForm-step1' ).slideToggle();
 		} );
 		toggleFullForm();
 	} );
 
-	$( '#WMDE_FR2015_Banner-form-close' ).on( 'click', function() {
+	$( '#WMDE_BannerFullForm-close' ).on( 'click', function() {
 		toggleFullForm();
 	} );
 	paymentButtons.hover( function() {
-			$( '#WMDE_FR2015_Banner-arrow' ).show();
+			$( '#WMDE_BannerFullForm-arrow' ).show();
 		},
 		function() {
-			$( '#WMDE_FR2015_Banner-arrow' ).hide();
+			$( '#WMDE_BannerFullForm-arrow' ).hide();
 		} );
 
 	$( 'input[name=\'debit-type\']' ).on( 'click', function() {
@@ -38,33 +38,33 @@ $( function() {
 	} );
 
 	$( '#address-type-1' ).on( 'click', function() {
-		$( '#WMDE_FR2015_Banner-company' ).slideUp();
-		$( '#WMDE_FR2015_Banner-person' ).slideDown();
-		$( '#WMDE_FR2015_Banner-address' ).slideDown();
+		$( '#WMDE_BannerFullForm-company' ).slideUp();
+		$( '#WMDE_Banner-person' ).slideDown();
+		$( '#WMDE_Banner-address' ).slideDown();
 		addressType = 'private';
 	} );
 
 	$( '#address-type-2' ).on( 'click', function() {
-		$( '#WMDE_FR2015_Banner-person' ).slideUp();
-		$( '#WMDE_FR2015_Banner-company' ).slideDown();
-		$( '#WMDE_FR2015_Banner-address' ).slideDown();
+		$( '#WMDE_Banner-person' ).slideUp();
+		$( '#WMDE_BannerFullForm-company' ).slideDown();
+		$( '#WMDE_Banner-address' ).slideDown();
 		addressType = 'company';
 	} );
 
 	$( '#address-type-3' ).on( 'click', function() {
-		$( '#WMDE_FR2015_Banner-company' ).slideUp();
-		$( '#WMDE_FR2015_Banner-person' ).slideUp();
-		$( '#WMDE_FR2015_Banner-address' ).slideUp();
+		$( '#WMDE_BannerFullForm-company' ).slideUp();
+		$( '#WMDE_Banner-person' ).slideUp();
+		$( '#WMDE_Banner-address' ).slideUp();
 		addressType = 'anonymous';
 	} );
 } );
 
 function toggleFullForm() {
-	$( '#WMDE_FR2015_Banner-form-details' ).slideToggle( 'slow' );
+	$( '#WMDE_BannerFullForm-details' ).slideToggle( 'slow' );
 	if ( isOpen ) {
-		$( '#WMDE_FR2015_Banner' ).css( 'position', 'fixed' );
+		$( '#WMDE_Banner' ).css( 'position', 'fixed' );
 	} else {
-		$( '#WMDE_FR2015_Banner' ).css( 'position', 'absolute' );
+		$( '#WMDE_Banner' ).css( 'position', 'absolute' );
 		$( "html, body" ).animate( {
 			scrollTop: 0
 		}, "slow" );
@@ -74,15 +74,15 @@ function toggleFullForm() {
 }
 
 function toggleDebitType() {
-	$( '#WMDE_FR2015_Banner-sepa' ).slideToggle();
-	$( '#WMDE_FR2015_Banner-nosepa' ).slideToggle();
+	$( '#WMDE_Banner-sepa' ).slideToggle();
+	$( '#WMDE_BannerFullForm-nosepa' ).slideToggle();
 
 	paySEPA = !paySEPA;
 }
 
 function debitNextStep() {
-	$( '#WMDE_FR2015_Banner-form-step1' ).slideToggle( 400, function() {
-		$( '#WMDE_FR2015_Banner-form-step2' ).slideToggle();
+	$( '#WMDE_BannerFullForm-step1' ).slideToggle( 400, function() {
+		$( '#WMDE_BannerFullForm-step2' ).slideToggle();
 	} );
 	$( "html, body" ).animate( {
 		scrollTop: 0

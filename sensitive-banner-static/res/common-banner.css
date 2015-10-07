@@ -1,43 +1,42 @@
-#centralNotice.collapsed #WMDE_FR2015_Banner {
+#centralNotice.collapsed #WMDE_Banner {
     display: none;
 }
 
 /*for mobile page*/
-#WMDE_FR2015_Banner div {
+#WMDE_Banner div {
     box-sizing: content-box;
 }
 
-#WMDE_FR2015_Banner td {
+#WMDE_Banner td {
     vertical-align: top;
 }
 
-#WMDE_FR2015_Banner input {
+#WMDE_Banner input {
     background: none repeat scroll 0 0 white;
     border: 1px solid #a9a9a9;
     border-radius: 4px;
     font-size: 13px;
 }
 
-#WMDE_FR2015_Banner button {
+#WMDE_Banner button {
     font-size: 14px;
 }
 
-#WMDE_FR2015_Banner input.focused {
+#WMDE_Banner input.focused {
     border-color: #545454;
 }
 
-#WMDE_FR2015_Banner input.invalid {
+#WMDE_Banner input.invalid {
     border-color: #C25959;
 }
 
-#WMDE_FR2015_Banner hr {
+#WMDE_Banner hr {
     background-color: #a9a9a9;
 }
 
-
 /*end for mobile page*/
 
-#WMDE_FR2015_Banner {
+#WMDE_Banner {
     background: transparent;
     display: none;
     font-family: Arial, Helvetica, Verdana, sans-serif;
@@ -48,26 +47,26 @@
     z-index: 9999;
 }
 
-#WMDE_FR2015_Banner-form-wrapper {
-    width:248px;
+#WMDE_BannerForm-wrapper {
+    width: 248px;
     height: 158px;
     background: #eef0fc;
-    padding: 0px 8px 4px;
+    padding: 0 8px 4px;
     border-left: 1px solid #c2cedb;
     border-right: 1px solid #c2cedb;
 }
 
-#WMDE_FR2015_Banner-form {
+#WMDE_BannerForm {
     height: 100%;
 }
 
-#WMDE_FR2015_Banner-form table {
+#WMDE_BannerForm table {
     border: none;
     border-collapse: collapse;
     width: 100%;
 }
 
-#WMDE_FR2015_Banner-form td {
+#WMDE_BannerForm td {
     font-size: 13px;
     font-weight: bold;
     min-width: 55px;
@@ -77,28 +76,28 @@
     padding: 2px;
 }
 
-#WMDE_FR2015_Banner-form .amount-label {
+#WMDE_BannerForm .amount-label {
     width: 36px;
     line-height: 22px;
 }
 
-#WMDE_FR2015_Banner-form .amount-radio {
+#WMDE_BannerForm .amount-radio {
     margin: 3px 0 0 3px;
 }
 
-#WMDE_FR2015_Banner-form #amount-other-input {
+#WMDE_BannerForm #amount-other-input {
     width: 36px;
 }
 
-#WMDE_FR2015_Banner-form span label {
+#WMDE_BannerForm span label {
     margin-left: 2px;
 }
 
-#WMDE_FR2015_Banner-form .amount-options {
+#WMDE_BannerForm .amount-options {
     height: 20%;
 }
 
-#WMDE_FR2015_Banner-form button {
+#WMDE_BannerForm button {
     cursor: pointer;
     display: inline-block;
     font-weight: bold;
@@ -107,34 +106,34 @@
     border-radius: 8px;
     background: #ffffff; /* Old browsers */
     background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e5e5e5', GradientType=0); /* IE6-9 */
     box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
     margin: 0 1px;
 }
 
-#WMDE_FR2015_Banner-form button.active {
+#WMDE_BannerForm button.active {
     color: #FF6C00;
     background: #e5e5e5; /* Old browsers */
     background: -moz-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #e5e5e5 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #e5e5e5 0%,#ffffff 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #e5e5e5 0%,#ffffff 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #e5e5e5 0%,#ffffff 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, #ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #e5e5e5 0%, #ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
     box-shadow: none;
 }
 
-#WMDE_FR2015_Banner-form button:hover {
+#WMDE_BannerForm button:hover {
     color: #0645ad;
 }
 
-#WMDE_FR2015_Banner-facts {
+#WMDE_Banner-facts {
     background: #CEDFF1 url(https://upload.wikimedia.org/wikipedia/donate/3/37/Information-icon-yellow.png) no-repeat 10px 8px;
     background-position: left 10px bottom 4px;
     height: 100%;
@@ -146,7 +145,7 @@
     border-collapse: collapse;
 }
 
-#WMDE_FR2015_Banner-text {
+#WMDE_Banner-text {
     color: #000;
     font-size: 17px;
     font-weight: bold;
@@ -156,7 +155,7 @@
     padding-bottom: 2px;
 }
 
-#WMDE_FR2015_Banner-legal {
+#WMDE_Banner-legal {
     font-family: Arial, Helvetica, Verdana, sans-serif;
     position: relative;
     margin: 0;
@@ -170,12 +169,12 @@
     text-align: center;
 }
 
-#WMDE_FR2015_Banner-close-wrapper {
+#WMDE_Banner-close-wrapper {
     padding: 0;
     width: 20px;
 }
 
-#WMDE_FR2015_Banner-close {
+#WMDE_Banner-close {
     background: url(https://upload.wikimedia.org/wikipedia/donate/2/27/Small-white-close.png) no-repeat center center;
     background-color: black;
     cursor: pointer;
@@ -186,17 +185,17 @@
     top: 0;
 }
 
-#WMDE_FR2015_Banner-facts p b {
+#WMDE_Banner-facts p b {
     background: yellow;
     color: black;
     padding: 1px 0.5em;
 }
 
-#WMDE_FR2015_Banner .interval-hidden {
+#WMDE_Banner .interval-hidden {
     display: none;
 }
 
-#WMDE_FR2015_Banner_info {
+#WMDE_Banner_info {
     margin: 0 10px 2px 35px;
     font-size: 13px;
     line-height: 16px;
@@ -206,23 +205,23 @@
     color: #000000;
 }
 
-#WMDE_FR2015_Banner_text {
+#WMDE_Banner_text {
     display: inline-block;
 }
 
-#WMDE_FR2015_Banner_info span {
+#WMDE_Banner_info span {
     margin-right: 10px;
 }
 
-#WMDE_FR2015_Banner_info span.binfo-ucase {
+#WMDE_Banner_info span.binfo-ucase {
     text-transform: uppercase;
 }
 
-#WMDE_FR2015_Banner_info span.binfo-bold {
+#WMDE_Banner_info span.binfo-bold {
     font-weight: bold;
 }
 
-#WMDE_FR2015_Banner span.btext-highlight {
+#WMDE_Banner span.btext-highlight {
     background-color: yellow;
     padding: 1px 5px;
 }
