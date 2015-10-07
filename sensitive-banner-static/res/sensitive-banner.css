@@ -1,47 +1,47 @@
-#WMDE_FR2015_Banner-form-step1 {
+#WMDE_BannerFullForm-step1 {
     /*display: none;*/
 }
 
-#WMDE_FR2015_Banner-form-step2 {
+#WMDE_BannerFullForm-step2 {
     display: none;
 }
 
-#WMDE_FR2015_Banner-nosepa {
+#WMDE_BannerFullForm-nosepa {
     display: none;
 }
 
-#WMDE_FR2015_Banner-company {
+#WMDE_BannerFullForm-company {
     display: none;
 }
 
-#WMDE_FR2015_Banner-form-details {
+#WMDE_BannerFullForm-details {
     display: none;
 }
 
-#WMDE_FR2015_Banner-arrow {
+#WMDE_BannerFullForm-arrow {
     display: none;
     height: 27px;
     background: transparent url('../img/form-arrow-down.png') no-repeat scroll right top;
     margin-right: 19px;
 }
 
-#WMDE_FR2015_Banner-fullform {
+#WMDE_BannerFullForm {
     position: absolute;
     right: 21px;
     margin-top: 0;
 }
 
-#WMDE_FR2015_Banner-fullform hr {
+#WMDE_BannerFullForm hr {
     width: 248px;
 }
 
-#WMDE_FR2015_Banner-fullform table {
+#WMDE_BannerFullForm table {
     border: none;
     border-collapse: collapse;
     width: 100%;
 }
 
-#WMDE_FR2015_Banner-fullform td {
+#WMDE_BannerFullForm td {
     background: #eef0fc;
     margin: 0;
     padding: 8px 8px 0 8px;
@@ -49,35 +49,35 @@
     white-space: nowrap;
 }
 
-#WMDE_FR2015_Banner-fullform .amount-options td {
-    padding: 2px;
-}
-
-td#WMDE_FR2015_Banner-fullform-wrapper {
+td#WMDE_BannerFullForm-wrapper {
     background: transparent;
     width: 248px;
     padding: 0;
 }
 
-#WMDE_FR2015_Banner-payment td {
+#WMDE_BannerFullForm-payment td {
     font-weight: bold;
     padding: 4px 8px 0 8px;
 }
 
-#WMDE_FR2015_Banner-payment .amount-label {
+#WMDE_BannerFullForm-payment .amount-options td {
+    padding: 2px;
+}
+
+#WMDE_BannerFullForm-payment .amount-label {
     width: 36px;
     line-height: 22px;
 }
 
-#WMDE_FR2015_Banner-payment .amount-radio {
+#WMDE_BannerFullForm-payment .amount-radio {
     margin: 3px 0 0 3px;
 }
 
-#WMDE_FR2015_Banner-payment #amount-other-input {
+#WMDE_BannerFullForm-payment #amount-other-input {
     width: 36px;
 }
 
-#WMDE_FR2015_Banner-payment button {
+#WMDE_BannerFullForm-payment button {
     cursor: pointer;
     display: inline-block;
     font-size: 13px !important;
@@ -97,7 +97,7 @@ td#WMDE_FR2015_Banner-fullform-wrapper {
     margin: 0 1px;
 }
 
-#WMDE_FR2015_Banner-payment button.active {
+#WMDE_BannerFullForm-payment button.active {
     color: #FF6C00;
     background: #e5e5e5; /* Old browsers */
     background: -moz-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* FF3.6+ */
@@ -110,11 +110,11 @@ td#WMDE_FR2015_Banner-fullform-wrapper {
     box-shadow: none;
 }
 
-#WMDE_FR2015_Banner-payment button:hover {
+#WMDE_BannerFullForm-payment button:hover {
     color: #0645ad;
 }
 
-#WMDE_FR2015_Banner-fullform td.form-heading {
+#WMDE_BannerFullForm td.form-heading {
     font-weight: bold;
     font-size: 13px;
     height: 9px;
@@ -122,41 +122,37 @@ td#WMDE_FR2015_Banner-fullform-wrapper {
     background-color: #dad9ed
 }
 
-#WMDE_FR2015_Banner-fullform span.form-heading-text {
+#WMDE_BannerFullForm span.form-heading-text {
     line-height: 9px;
     margin-left: 9px;
     padding: 0 9px;
     background-color: #eef0fc
 }
 
-#WMDE_FR2015_Banner-fullform label.salutation-label {
+#WMDE_BannerFullForm label.salutation-label {
     margin-right: 21px;
 }
 
-#WMDE_FR2015_Banner-fullform label.address-label {
+#WMDE_BannerFullForm label.address-label {
     margin-right: 3px;
 }
 
-#WMDE_FR2015_Banner-fullform input[type=text], #WMDE_FR2015_Banner-fullform input[type=tel], #WMDE_FR2015_Banner-fullform select {
+#WMDE_BannerFullForm input[type=text], #WMDE_BannerFullForm input[type=tel], #WMDE_BannerFullForm select {
     width: 244px;
 }
 
-#WMDE_FR2015_Banner-fullform input.small-input, #WMDE_FR2015_Banner-fullform select.small-input {
+#WMDE_BannerFullForm input.small-input, #WMDE_BannerFullForm select.small-input {
     width: auto;
     max-width: 111px;
 }
 
-#WMDE_FR2015_Banner-fullform button {
-    font-size: 12px;
-}
-
-#WMDE_FR2015_Banner-fullform #send-information {
+#WMDE_BannerFullForm #send-information {
     float: left;
     margin-top: 7px;
     margin-bottom: 12px;
 }
 
-#WMDE_FR2015_Banner-fullform #send-information-label {
+#WMDE_BannerFullForm #send-information-label {
     float: left;
     margin-top: 7px;
     margin-left: 4px;
@@ -166,7 +162,7 @@ td#WMDE_FR2015_Banner-fullform-wrapper {
     margin-bottom: 12px;
 }
 
-#WMDE_FR2015_Banner-fullform .icon-question-sign {
+#WMDE_BannerFullForm .icon-question-sign {
     position: relative;
     right: -227px;
     margin-top: 7px;
@@ -177,7 +173,7 @@ td#WMDE_FR2015_Banner-fullform-wrapper {
     display: block;
 }
 
-button[type="submit"] {
+#WMDE_BannerFullForm button[type="submit"] {
     background: #ffff00 url('../img/form-submit-ok.png') scroll 2px center;; /* Old browsers */
     background: -moz-linear-gradient(top, #ffff00 0%, #e5e500 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffff00), color-stop(100%, #e5e500)); /* Chrome,Safari4+ */
@@ -199,11 +195,11 @@ button[type="submit"] {
     margin-bottom: 15px;
 }
 
-#WMDE_FR2015_Banner-form-finish {
+#WMDE_BannerFullForm-finish {
     padding-right: 19px;
 }
 
-#WMDE_FR2015_Banner-form-finish .mark-ok {
+#WMDE_BannerFullForm-finish .mark-ok {
     width: 17px;
     height: 13px;
     position: absolute;
@@ -211,12 +207,12 @@ button[type="submit"] {
     background: transparent url('../img/form-submit-ok.png') scroll center center;
 }
 
-#WMDE_FR2015_Banner-fullform div.form-field-error-box {
+#WMDE_BannerFullForm div.form-field-error-box {
     margin-left: -30%;
     position: absolute;
 }
 
-#WMDE_FR2015_Banner-fullform span.form-field-error-text {
+#WMDE_BannerFullForm span.form-field-error-text {
     border: 1px solid #C25959;
     border-radius: 4px;
     background: #FFFFFF url('../img/form-error-excl.png') no-repeat scroll 2px center;
@@ -225,7 +221,7 @@ button[type="submit"] {
     font-size: 13px;
 }
 
-#WMDE_FR2015_Banner-fullform div.form-field-error-arrow {
+#WMDE_BannerFullForm div.form-field-error-arrow {
     position: relative;
     top: -2px;
     background: transparent url('../img/form-arrow-error.png') no-repeat scroll center center;
@@ -234,7 +230,7 @@ button[type="submit"] {
     margin: auto;
 }
 
-#WMDE_FR2015_Banner-fullform .validation {
+#WMDE_BannerFullForm .validation {
     position: absolute;
     height: 11px;
     width: 11px;
@@ -242,15 +238,15 @@ button[type="submit"] {
     margin-top: 3px;
 }
 
-#WMDE_FR2015_Banner-fullform .icon-bug {
+#WMDE_BannerFullForm .icon-bug {
     background: transparent url('../img/form-input-error.png') no-repeat scroll center center;
 }
 
-#WMDE_FR2015_Banner-fullform .icon-ok {
+#WMDE_BannerFullForm .icon-ok {
     background: transparent url('../img/form-input-valid.png') no-repeat scroll center center;
 }
 
-#WMDE_FR2015_Banner-form-close {
+#WMDE_BannerFullForm-close {
     background-color: #eef0fc;
     text-align: center;
     width: 90px;
@@ -260,23 +256,23 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-#WMDE_FR2015_Banner-fullform p {
+#WMDE_BannerFullForm p {
     white-space: normal;
     margin: 15px 5px;
 }
 
-#WMDE_FR2015_Banner-fullform a {
+#WMDE_BannerFullForm a {
     color: black;
     text-decoration: underline;
+}
+
+#WMDE_BannerFullForm-step2 {
+    margin-top: 12px;
 }
 
 #confirm_sepa, #confirm_shortterm {
     margin: 1px 3px 0 0;
     float: left;
-}
-
-#WMDE_FR2015_Banner-form-step2 {
-    margin-top: 12px;
 }
 
 #confirm_sepa {

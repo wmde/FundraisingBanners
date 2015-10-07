@@ -3,11 +3,11 @@
 <script type="text/javascript" src="res/common-banner.js"></script>
 <script type="text/javascript" src="res/sensitive-banner.js"></script>
 
-<div style="top: 0; display: block;" id="WMDE_FR2015_Banner">
+<div style="top: 0; display: block;" id="WMDE_Banner">
 	<form method="post" name="donationForm">
 		<div style="box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);">
 
-			<table id="WMDE_FR2015_Banner-facts">
+			<table id="WMDE_Banner-facts">
 				<tbody>
 				<tr>
 					<td>
@@ -15,7 +15,7 @@
 							<tbody>
 							<tr>
 								<td style="height: 1%" valign="top">
-									<p id="WMDE_FR2015_Banner-text"><i>Liebe Leserinnen und Leser:</i> Verzeihen Sie die
+									<p id="WMDE_Banner-text"><i>Liebe Leserinnen und Leser:</i> Verzeihen Sie die
 										Störung. Einmal im Jahr bitten wir Sie um Ihre Unterstützung. Um
 										Wikipedias Unabhängigkeit zu schützen, gibt es keine Werbung. Wir
 										finanzieren uns durch Spenden von durchschnittlich 20 €. <span
@@ -47,8 +47,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 							</tr>
 							<tr>
 								<td style="height: 1%;">
-									<div id="WMDE_FR2015_Banner_info">
-										<div id="WMDE_FR2015_Banner_text">
+									<div id="WMDE_Banner_info">
+										<div id="WMDE_Banner_text">
 											<span class="binfo-ucase">Spendenkonto</span>
 											<span>Wikimedia Foerdergesellschaft</span>
 											<span>BIC</span>
@@ -64,15 +64,15 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 						</table>
 					</td>
 
-					<td id="WMDE_FR2015_Banner-form-wrapper">
-						<div id="WMDE_FR2015_Banner-fullform">
+					<td id="WMDE_BannerForm-wrapper">
+						<div id="WMDE_BannerFullForm">
 							<table>
 								<tbody>
 								<tr>
-									<td id="WMDE_FR2015_Banner-fullform-wrapper">
-										<div id="WMDE_FR2015_Banner-form-step1">
+									<td id="WMDE_BannerFullForm-wrapper">
+										<div id="WMDE_BannerFullForm-step1">
 											<table>
-												<tbody id="WMDE_FR2015_Banner-payment">
+												<tbody id="WMDE_BannerFullForm-payment">
 												<tr class="frequency-options">
 													<td colspan="2">
 														<input checked="checked" class="amount-radio"
@@ -216,9 +216,9 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												</tbody>
 											</table>
-											<div id="WMDE_FR2015_Banner-form-details">
+											<div id="WMDE_BannerFullForm-details">
 												<table>
-													<tbody id="WMDE_FR2015_Banner-debit-type"
+													<tbody id="WMDE_Banner-debit-type"
 														>
 													<tr>
 														<td colspan="4">
@@ -238,7 +238,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													</tr>
 													</tbody>
 												</table>
-												<div id="WMDE_FR2015_Banner-sepa">
+												<div id="WMDE_Banner-sepa">
 													<table>
 														<tbody>
 														<tr>
@@ -263,7 +263,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														</tbody>
 													</table>
 												</div>
-												<div id="WMDE_FR2015_Banner-nosepa">
+												<div id="WMDE_BannerFullForm-nosepa">
 													<table>
 														<tbody>
 														<tr>
@@ -326,7 +326,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													</tr>
 													</tbody>
 												</table>
-												<div id="WMDE_FR2015_Banner-company">
+												<div id="WMDE_BannerFullForm-company">
 													<table>
 														<tbody>
 														<tr>
@@ -342,7 +342,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														</tbody>
 													</table>
 												</div>
-												<div id="WMDE_FR2015_Banner-person">
+												<div id="WMDE_Banner-person">
 													<table>
 														<tbody>
 														<tr>
@@ -397,7 +397,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														</tbody>
 													</table>
 												</div>
-												<div id="WMDE_FR2015_Banner-address">
+												<div id="WMDE_Banner-address">
 													<table>
 														<tbody>
 														<tr>
@@ -480,14 +480,14 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													</tr>
 													<tr>
 														<td colspan="4">
-															<button type="submit" id="WMDE_FR2015_Banner-form-next">
+															<button type="submit" id="WMDE_BannerForm-next">
 																Weiter um Spende abzuschließen
 															</button>
 														</td>
 													</tr>
 													<tr>
 														<td colspan="4" style="background: transparent; padding-top: 0">
-															<div id="WMDE_FR2015_Banner-form-close">Schließen
+															<div id="WMDE_BannerFullForm-close">Schließen
 																&#9652;</div>
 														</td>
 													</tr>
@@ -495,7 +495,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</table>
 											</div>
 										</div>
-										<div id="WMDE_FR2015_Banner-form-step2">
+										<div id="WMDE_BannerFullForm-step2">
 											<table>
 												<tbody>
 												<tr>
@@ -572,7 +572,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td>
-														<button type="submit" id="WMDE_FR2015_Banner-form-finish">
+														<button type="submit" id="WMDE_BannerFullForm-finish">
 															Jetzt f&uuml;r Wikipedia spenden <span
 																class="mark-ok"></span>
 														</button>
@@ -580,7 +580,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td style="background: transparent; padding-top: 0">
-														<div id="WMDE_FR2015_Banner-form-close">Schließen
+														<div id="WMDE_BannerFullForm-close">Schließen
 															&#9652;</div>
 													</td>
 												</tr>
@@ -594,15 +594,15 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 						</div>
 					</td>
 
-					<td id="WMDE_FR2015_Banner-close-wrapper">
-						<span id="WMDE_FR2015_Banner-close">&nbsp;</span>
+					<td id="WMDE_Banner-close-wrapper">
+						<span id="WMDE_Banner-close">&nbsp;</span>
 					</td>
 
 				</tr>
 				</tbody>
 			</table>
 		</div>
-		<div id="WMDE_FR2015_Banner-arrow"></div>
+		<div id="WMDE_BannerFullForm-arrow"></div>
 
 		<img id="banner-close-ct" src="" border="0" height="0" width="0">
 	</form>
@@ -629,7 +629,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			return validateForm();
 		} );
 
-		$( '#WMDE_FR2015_Banner-close' ).click( function() {
+		$( '#WMDE_Banner-close' ).click( function() {
 			if ( Math.random() < 0.01 ) {
 				$( '#banner-close-ct' ).attr( 'src', 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/org-43-141225-ctrl&rec=1' );
 			}
@@ -694,8 +694,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 	}
 
 	function addBannerSpace() {
-		var expandableBannerHeight = $( 'div#WMDE_FR2015_Banner' ).height() + 44;
-		var bannerDivElement = $( '#WMDE_FR2015_Banner' );
+		var expandableBannerHeight = $( 'div#WMDE_Banner' ).height() + 44;
+		var bannerDivElement = $( '#WMDE_Banner' );
 
 		switch ( skin ) {
 			case 'vector':
