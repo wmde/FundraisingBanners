@@ -1,3 +1,11 @@
+#WMDE_FR2015_Banner-form-step1 {
+    /*display: none;*/
+}
+
+#WMDE_FR2015_Banner-form-step2 {
+    display: none;
+}
+
 #WMDE_FR2015_Banner-nosepa {
     display: none;
 }
@@ -72,19 +80,19 @@ td#WMDE_FR2015_Banner-fullform-wrapper {
 #WMDE_FR2015_Banner-payment button {
     cursor: pointer;
     display: inline-block;
-    font-size: 13px!important;
+    font-size: 13px !important;
     font-weight: bold;
     width: 110px;
     border: 3px double #ddd;
     border-radius: 8px;
     background: #ffffff; /* Old browsers */
     background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e5e5e5', GradientType=0); /* IE6-9 */
     box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
     margin: 0 1px;
 }
@@ -93,12 +101,12 @@ td#WMDE_FR2015_Banner-fullform-wrapper {
     color: #FF6C00;
     background: #e5e5e5; /* Old browsers */
     background: -moz-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #e5e5e5 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #e5e5e5 0%,#ffffff 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #e5e5e5 0%,#ffffff 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #e5e5e5 0%,#ffffff 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, #ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #e5e5e5 0%, #ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
     box-shadow: none;
 }
 
@@ -170,7 +178,7 @@ td#WMDE_FR2015_Banner-fullform-wrapper {
 }
 
 button[type="submit"] {
-    background: #ffff00; /* Old browsers */
+    background: #ffff00 url('../img/form-submit-ok.png') scroll 2px center;; /* Old browsers */
     background: -moz-linear-gradient(top, #ffff00 0%, #e5e500 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffff00), color-stop(100%, #e5e500)); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, #ffff00 0%, #e5e500 100%); /* Chrome10+,Safari5.1+ */
@@ -189,6 +197,18 @@ button[type="submit"] {
     text-decoration: none;
     text-align: center;
     margin-bottom: 15px;
+}
+
+#WMDE_FR2015_Banner-form-finish {
+    padding-right: 19px;
+}
+
+#WMDE_FR2015_Banner-form-finish .mark-ok {
+    width: 17px;
+    height: 13px;
+    position: absolute;
+    margin-left: 2px;
+    background: transparent url('../img/form-submit-ok.png') scroll center center;
 }
 
 #WMDE_FR2015_Banner-fullform div.form-field-error-box {
@@ -238,4 +258,31 @@ button[type="submit"] {
     margin: -2px auto auto;
     border-radius: 4px;
     cursor: pointer;
+}
+
+#WMDE_FR2015_Banner-fullform p {
+    white-space: normal;
+    margin: 15px 5px;
+}
+
+#WMDE_FR2015_Banner-fullform a {
+    color: black;
+    text-decoration: underline;
+}
+
+#confirm_sepa, #confirm_shortterm {
+    margin: 1px 3px 0 0;
+    float: left;
+}
+
+#WMDE_FR2015_Banner-form-step2 {
+    margin-top: 12px;
+}
+
+#confirm_sepa {
+    margin-bottom: 240px;
+}
+
+#confirm_shortterm {
+    margin-bottom: 90px;
 }
