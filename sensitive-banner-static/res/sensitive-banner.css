@@ -1,4 +1,12 @@
-.WMDE_FR2015_Banner-form-details {
+#WMDE_FR2015_Banner-nosepa {
+    display: none;
+}
+
+#WMDE_FR2015_Banner-company {
+    display: none;
+}
+
+#WMDE_FR2015_Banner-form-details {
     display: none;
 }
 
@@ -23,7 +31,6 @@
     border: none;
     border-collapse: collapse;
     width: 100%;
-    height: 100%;
 }
 
 #WMDE_FR2015_Banner-fullform td {
@@ -39,6 +46,7 @@
 }
 
 td#WMDE_FR2015_Banner-fullform-wrapper {
+    background: transparent;
     width: 248px;
     padding: 0;
 }
@@ -220,4 +228,14 @@ button[type="submit"] {
 
 #WMDE_FR2015_Banner-fullform .icon-ok {
     background: transparent url('../img/form-input-valid.png') no-repeat scroll center center;
+}
+
+#WMDE_FR2015_Banner-form-close {
+    background-color: #eef0fc;
+    text-align: center;
+    width: 90px;
+    height: 20px;
+    margin: -2px auto auto;
+    border-radius: 4px;
+    cursor: pointer;
 }

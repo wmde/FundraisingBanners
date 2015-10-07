@@ -207,239 +207,276 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</td>
 											</tr>
 											</tbody>
-											<tbody id="WMDE_FR2015_Banner-debit-type"
-												   class="WMDE_FR2015_Banner-form-details">
-											<tr>
-												<td colspan="4">
-													<input type="radio" checked="" title="SEPA" name="debit-type"
-														   value="sepa" id="debit-type-1">
-													<label for="debit-type-1">IBAN</label>
-													<input type="radio" title="Konto/BLZ" name="debit-type"
-														   value="non-sepa" id="debit-type-2">
-													<label for="debit-type-2">Konto/Bankleitzahl</label>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="4">
-													<hr/>
-												</td>
-											</tr>
-											</tbody>
-											<tbody id="WMDE_FR2015_Banner-sepa" class="WMDE_FR2015_Banner-form-details">
-											<tr>
-												<td colspan="4">
-													<label for="iban">IBAN</label><br/>
-													<input type="text" title="Internationale Kontonummer"
-														   class="required"
-														   placeholder="IBAN" autocomplete="off" name="iban" id="iban">
-													<span class="validation"></span>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="4" style="padding-bottom: 20px;">
-													<label for="bic">BIC</label><br/>
-													<input type="text" title="BIC" placeholder="BIC"
-														   class="required"
-														   autocomplete="off" name="bic" id="bic">
-													<span class="validation"></span>
-												</td>
-											</tr>
-											</tbody>
-											<tbody id="WMDE_FR2015_Banner-nosepa"
-												   class="WMDE_FR2015_Banner-form-details">
-											<tr>
-												<td colspan="4">
-													<label for="account-number">Kontonummer</label><br/>
-													<input type="tel" title="Bis zu zehnstellige Kontonummer"
-														   placeholder="Kontonummer" autocomplete="off" name="konto"
-														   id="account-number"
-														   class="bank-check">
-													<span class="validation"></span>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="4" style="padding-bottom: 20px;">
-													<label for="bank-code">Bankleitzahl</label><br/>
-													<input type="tel" title="Achtstellige Bankleitzahl"
-														   placeholder="Bankleitzahl"
-														   autocomplete="off" name="blz" id="bank-code"
-														   class="bank-check"
-														>
-													<span class="validation"></span>
-												</td>
-											</tr>
-											</tbody>
-											<tbody class="WMDE_FR2015_Banner-form-details">
-											<tr>
-												<td colspan="4" class="form-heading">
-													<span class="form-heading-text">Pers&ouml;nliche Daten</span>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="4" style="padding-top: 16px;">
-													<input type="radio" id="address-type-1" checked="checked"
-														   title="privat"
-														   value="person"
-														   name="adresstyp"/>
-													<label for="address-type-1"
-														   class="address-label">Privatperson</label>
-													<input type="radio" id="address-type-2" title="geschäftlich"
-														   value="firma"
-														   name="adresstyp"/>
-													<label for="address-type-2" class="address-label">Firma</label>
-													<input type="radio" id="address-type-3" title="anonym"
-														   value="anonym"
-														   name="adresstyp"/>
-													<label for="address-type-3">Anonym</label>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="4">
-													<hr/>
-												</td>
-											</tr>
-											<tr id="WMDE_FR2015_Banner-company">
-												<td colspan="4">
-													<label for="company-name">Firma</label><br/>
-													<input type="text" placeholder="Firma" autocomplete="off"
-														   name="firma"
-														   id="company-name">
-													<span class="validation"></span>
-												</td>
-											</tr>
-											</tbody>
-											<tbody id="WMDE_FR2015_Banner-person" class="WMDE_FR2015_Banner-form-details">
-											<tr>
-												<td colspan="4">
-													<input type="radio" id="salutation-1" checked="checked" title="Frau"
-														   value="Frau"
-														   name="anrede"/>
-													<label for="salutation-1" class="salutation-label">Frau</label>
-													<input type="radio" id="salutation-2" title="Herr" value="Herr"
-														   name="anrede"/>
-													<label for="salutation-2" class="salutation-label">Herr</label>
-													<select name="titel" id="personal-title" class="small-input">
-														<option data-behavior="placeholder">Kein Titel</option>
-														<option value="Dr.">Dr.</option>
-														<option value="Prof.">Prof.</option>
-														<option value="Prof. Dr.">Prof. Dr.</option>
-													</select>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="2" style="padding:8px 0 0 8px">
-													<label for="first-name">Name</label><br/>
-													<input type="text" class="required small-input"
-														   placeholder="Vorname"
-														   title="Groß- und Kleinbuchstaben, Bindestriche und Leerzeichen"
-														   autocomplete="off" name="vorname" id="first-name">
-													<span class="validation icon-ok"></span>
-												</td>
-												<td colspan="2" style="padding:8px 8px 0 5px">
-													<br/>
-													<input type="text" class="required small-input focused"
-														   placeholder="Nachname"
-														   title="Groß- und Kleinbuchstaben, Bindestriche, Leerzeichen und Punkte"
-														   autocomplete="off" name="nachname" id="last-name">
-													<span class="validation"></span>
-
-													<div class="form-field-error-box">
-														<div class="form-field-error-arrow"></div>
-											<span
-												class="form-field-error-text">Bitte f&uuml;llen Sie dieses Feld aus.</span>
-													</div>
-												</td>
-											</tr>
-											</tbody>
-											<tbody id="WMDE_FR2015_Banner-address" class="WMDE_FR2015_Banner-form-details">
-											<tr>
-												<td colspan="4">
-													<label for="street">Straße</label><br/>
-													<input type="text" class="required invalid"
-														   placeholder="z.B. Musterstraße 123"
-														   autocomplete="off" name="strasse" id="street">
-													<span class="validation icon-bug"></span>
-
-													<div class="form-field-error-box">
-														<div class="form-field-error-arrow"></div>
-											<span
-												class="form-field-error-text">Bitte f&uuml;llen Sie dieses Feld aus.</span>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="2" style="padding:8px 0 0 8px">
-													<label for="post-code">PLZ &amp; Ort</label><br/>
-													<input type="text" class="required small-input"
-														   title="Fünfstellige Postleitzahl"
-														   placeholder="z.B. 10117" autocomplete="off" name="plz"
-														   id="post-code">
-													<span class="validation"></span>
-												</td>
-												<td colspan="2" style="padding:8px 8px 0 5px">
-													<br/>
-													<input type="text" class="required small-input"
-														   placeholder="z.B. Berlin"
-														   autocomplete="off" name="ort" id="city">
-													<span class="validation"></span>
-												</td>
-											<tr>
-												<td colspan="4">
-													<label for="country">Land</label><br/>
-													<select title="Land" name="country" id="country">
-														<option value="DE">Deutschland</option>
-														<option value="AT">Österreich</option>
-														<option value="CH">Schweiz</option>
-														<option value="BE">Belgien</option>
-														<option value="IT">Italien</option>
-														<option value="LI">Liechtenstein</option>
-														<option value="LU">Luxemburg</option>
-													</select>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="4">
-													<label for="email">E-Mail</label><br/>
-													<input type="text" placeholder="z.B. name@domain.de"
-														   class="required"
-														   autocomplete="off"
-														   name="email" id="email">
-													<span class="validation"></span>
-												</td>
-											</tr>
-											</tbody>
-											<tbody class="WMDE_FR2015_Banner-form-details">
-											<tr>
-												<td colspan="4">
-													<input type="checkbox"
-														   title="Bitte senden Sie mir Informationsmaterial."
-														   value="1"
-														   name="info"
-														   id="send-information">
-													<label id="send-information-label" for="send-information">Bitte
-														informiert mich
-														in
-														Zukunft, wenn
-														Wikipedia meine Hilfe
-														braucht.</label>
-													<a title="Einmal im Jahr bitten wir die Leserinnen und Leser Wikipedias um Unterstützung. Wir würden uns freuen, wenn wir in Zukunft auf Sie zählen können, wenn es um die Verbreitung Freien Wissens geht."
-													   href="#" class="icon-question-sign"></a>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="4">
-													<button name="action" type="submit" id="donFormSubmit">Weiter um
-														Spende
-														abzuschließen <span class="icon-ok"></span></button>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="4" style="background: transparent; padding-top: 0">
-													<div id="WMDE_FR2015_Banner-form-close">Schließen &#9652;</div>
-												</td>
-											</tr>
-											</tbody>
 										</table>
+										<div id="WMDE_FR2015_Banner-form-details">
+											<table>
+												<tbody id="WMDE_FR2015_Banner-debit-type"
+													>
+												<tr>
+													<td colspan="4">
+														<input type="radio" checked="" title="SEPA" name="debit-type"
+															   value="sepa" id="debit-type-1">
+														<label for="debit-type-1">IBAN</label>
+														<input type="radio" title="Konto/BLZ" name="debit-type"
+															   value="non-sepa" id="debit-type-2">
+														<label for="debit-type-2">Konto/Bankleitzahl</label>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="4">
+														<hr/>
+													</td>
+												</tr>
+												</tbody>
+											</table>
+											<div id="WMDE_FR2015_Banner-sepa">
+												<table>
+													<tbody>
+													<tr>
+														<td colspan="4">
+															<label for="iban">IBAN</label><br/>
+															<input type="text" title="Internationale Kontonummer"
+																   class="required"
+																   placeholder="IBAN" autocomplete="off" name="iban"
+																   id="iban">
+															<span class="validation"></span>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="4" style="padding-bottom: 20px;">
+															<label for="bic">BIC</label><br/>
+															<input type="text" title="BIC" placeholder="BIC"
+																   class="required"
+																   autocomplete="off" name="bic" id="bic">
+															<span class="validation"></span>
+														</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+											<div id="WMDE_FR2015_Banner-nosepa">
+												<table>
+													<tbody>
+													<tr>
+														<td colspan="4">
+															<label for="account-number">Kontonummer</label><br/>
+															<input type="tel" title="Bis zu zehnstellige Kontonummer"
+																   placeholder="Kontonummer" autocomplete="off"
+																   name="konto"
+																   id="account-number"
+																   class="bank-check">
+															<span class="validation"></span>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="4" style="padding-bottom: 20px;">
+															<label for="bank-code">Bankleitzahl</label><br/>
+															<input type="tel" title="Achtstellige Bankleitzahl"
+																   placeholder="Bankleitzahl"
+																   autocomplete="off" name="blz" id="bank-code"
+																   class="bank-check"
+																>
+															<span class="validation"></span>
+														</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+											<table>
+												<tbody>
+												<tr>
+													<td colspan="4" class="form-heading">
+														<span class="form-heading-text">Pers&ouml;nliche Daten</span>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="4" style="padding-top: 16px;">
+														<input type="radio" id="address-type-1" checked="checked"
+															   title="privat"
+															   value="person"
+															   name="adresstyp"/>
+														<label for="address-type-1"
+															   class="address-label">Privatperson</label>
+														<input type="radio" id="address-type-2" title="geschäftlich"
+															   value="firma"
+															   name="adresstyp"/>
+														<label for="address-type-2" class="address-label">Firma</label>
+														<input type="radio" id="address-type-3" title="anonym"
+															   value="anonym"
+															   name="adresstyp"/>
+														<label for="address-type-3">Anonym</label>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="4">
+														<hr/>
+													</td>
+												</tr>
+												</tbody>
+											</table>
+											<div id="WMDE_FR2015_Banner-company">
+												<table>
+													<tbody>
+													<tr>
+														<td colspan="4">
+															<label for="company-name">Firma</label><br/>
+															<input type="text" placeholder="Firma" autocomplete="off"
+																   name="firma"
+																   id="company-name">
+															<span class="validation"></span>
+														</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+											<div id="WMDE_FR2015_Banner-person">
+												<table>
+													<tbody>
+													<tr>
+														<td colspan="4">
+															<input type="radio" id="salutation-1" checked="checked"
+																   title="Frau"
+																   value="Frau"
+																   name="anrede"/>
+															<label for="salutation-1"
+																   class="salutation-label">Frau</label>
+															<input type="radio" id="salutation-2" title="Herr"
+																   value="Herr"
+																   name="anrede"/>
+															<label for="salutation-2"
+																   class="salutation-label">Herr</label>
+															<select name="titel" id="personal-title"
+																	class="small-input">
+																<option data-behavior="placeholder">Kein Titel</option>
+																<option value="Dr.">Dr.</option>
+																<option value="Prof.">Prof.</option>
+																<option value="Prof. Dr.">Prof. Dr.</option>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" style="padding:8px 0 0 8px">
+															<label for="first-name">Name</label><br/>
+															<input type="text" class="required small-input"
+																   placeholder="Vorname"
+																   title="Groß- und Kleinbuchstaben, Bindestriche und Leerzeichen"
+																   autocomplete="off" name="vorname" id="first-name">
+															<span class="validation icon-ok"></span>
+														</td>
+														<td colspan="2" style="padding:8px 8px 0 5px">
+															<br/>
+															<input type="text" class="required small-input focused"
+																   placeholder="Nachname"
+																   title="Groß- und Kleinbuchstaben, Bindestriche, Leerzeichen und Punkte"
+																   autocomplete="off" name="nachname" id="last-name">
+															<span class="validation"></span>
+
+															<div class="form-field-error-box">
+																<div class="form-field-error-arrow"></div>
+											<span
+												class="form-field-error-text">Bitte f&uuml;llen Sie dieses Feld aus.</span>
+															</div>
+														</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+											<div id="WMDE_FR2015_Banner-address">
+												<table>
+													<tbody>
+													<tr>
+														<td colspan="4">
+															<label for="street">Straße</label><br/>
+															<input type="text" class="required invalid"
+																   placeholder="z.B. Musterstraße 123"
+																   autocomplete="off" name="strasse" id="street">
+															<span class="validation icon-bug"></span>
+
+															<div class="form-field-error-box">
+																<div class="form-field-error-arrow"></div>
+											<span
+												class="form-field-error-text">Bitte f&uuml;llen Sie dieses Feld aus.</span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" style="padding:8px 0 0 8px">
+															<label for="post-code">PLZ &amp; Ort</label><br/>
+															<input type="text" class="required small-input"
+																   title="Fünfstellige Postleitzahl"
+																   placeholder="z.B. 10117" autocomplete="off"
+																   name="plz"
+																   id="post-code">
+															<span class="validation"></span>
+														</td>
+														<td colspan="2" style="padding:8px 8px 0 5px">
+															<br/>
+															<input type="text" class="required small-input"
+																   placeholder="z.B. Berlin"
+																   autocomplete="off" name="ort" id="city">
+															<span class="validation"></span>
+														</td>
+													<tr>
+														<td colspan="4">
+															<label for="country">Land</label><br/>
+															<select title="Land" name="country" id="country">
+																<option value="DE">Deutschland</option>
+																<option value="AT">Österreich</option>
+																<option value="CH">Schweiz</option>
+																<option value="BE">Belgien</option>
+																<option value="IT">Italien</option>
+																<option value="LI">Liechtenstein</option>
+																<option value="LU">Luxemburg</option>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="4">
+															<label for="email">E-Mail</label><br/>
+															<input type="text" placeholder="z.B. name@domain.de"
+																   class="required"
+																   autocomplete="off"
+																   name="email" id="email">
+															<span class="validation"></span>
+														</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+											<table>
+												<tbody>
+												<tr>
+													<td colspan="4">
+														<input type="checkbox"
+															   title="Bitte senden Sie mir Informationsmaterial."
+															   value="1"
+															   name="info"
+															   id="send-information">
+														<label id="send-information-label" for="send-information">Bitte
+															informiert mich
+															in
+															Zukunft, wenn
+															Wikipedia meine Hilfe
+															braucht.</label>
+														<a title="Einmal im Jahr bitten wir die Leserinnen und Leser Wikipedias um Unterstützung. Wir würden uns freuen, wenn wir in Zukunft auf Sie zählen können, wenn es um die Verbreitung Freien Wissens geht."
+														   href="#" class="icon-question-sign"></a>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="4">
+														<button name="action" type="submit" id="donFormSubmit">Weiter um
+															Spende
+															abzuschließen <span class="icon-ok"></span></button>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="4" style="background: transparent; padding-top: 0">
+														<div id="WMDE_FR2015_Banner-form-close">Schließen &#9652;</div>
+													</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
 									</td>
 								</tr>
 								</tbody>
