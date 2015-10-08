@@ -1,5 +1,5 @@
 /**
-* @license GNU GPL v2+
+* @licence GNU GPL v2+
 * @author Leszek Manicki <leszek.manicki@wikimedia.de>
 */
 ( function ( banner, QUnit ) {

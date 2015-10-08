@@ -1,7 +1,7 @@
 /**
  * Class handling submitting of the donation form embedded in the banner.
  *
- * @license GNU GPL v2+
+ * @licence GNU GPL v2+
  * @author Leszek Manicki <leszek.manicki@wikimedia.de>
  */
 ( function ( banner, $ ) {
