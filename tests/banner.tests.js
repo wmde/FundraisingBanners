@@ -4,7 +4,7 @@
  * @licence GNU GPL v2+
  * @author Kai Nissen <kai.nissen@wikimedia.de>
  */
-( function( Banner, QUnit ) {
+( function ( Banner, QUnit ) {
 
 	QUnit.module( 'Banner.tracking' );
 
@@ -58,7 +58,7 @@
 		}
 	} );
 
-	QUnit.test( 'setConfig() overrides configuration properly', function( assert ) {
+	QUnit.test( 'setConfig() overrides configuration properly', function ( assert ) {
 		assert.equal(
 			Banner.config.tracking.events.BANNER_CLOSED.sample,
 			0.8,
@@ -72,23 +72,23 @@
 		);
 	} );
 
-	QUnit.test( 'Banner.tracking.shouldTrack() returns correct values', function( assert ) {
+	QUnit.test( 'Banner.tracking.shouldTrack() returns correct values', function ( assert ) {
 		assert.equal( Banner.tracking.shouldTrack( 'BANNER_CLOSED', 0.05 ), true );
 		assert.equal( Banner.tracking.shouldTrack( 'BANNER_CLOSED', 0.85 ), false );
 		assert.equal( Banner.tracking.shouldTrack( 'BANNER_EXPANDED', 0.05 ), false );
 	} );
 
-	QUnit.test( 'Click handlers are set', function( assert ) {
+	QUnit.test( 'Click handlers are set', function ( assert ) {
 		assert.ok( $._data( $( '#qunit-fixture' ).get( 0 ), 'events' ) );
 		assert.notOk( $._data( $( '#qunit' ).get( 0 ), 'events' ) );
 	} );
 
 	QUnit.module( 'Banner.encryption' );
 
-	QUnit.test( 'Message can be encrypted', function( assert ) {
+	QUnit.test( 'Message can be encrypted', function ( assert ) {
 		var done = assert.async();
 
-		Banner.encryption.encrypt( 'Hello, Dexter Morgan!' ).then( function( pgpMessage ) {
+		Banner.encryption.encrypt( 'Hello, Dexter Morgan!' ).then( function ( pgpMessage ) {
 			assert.ok( pgpMessage.indexOf( 'BEGIN PGP MESSAGE' ) !== -1 );
 			done();
 		} );
