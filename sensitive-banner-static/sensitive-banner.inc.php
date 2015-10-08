@@ -224,7 +224,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<tbody id="WMDE_Banner-debit-type"
 														>
 													<tr>
-														<td colspan="4">
+														<td>
 															<input type="radio" checked="" title="SEPA"
 																   name="debit-type"
 																   value="sepa" id="debit-type-1">
@@ -235,7 +235,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														</td>
 													</tr>
 													<tr>
-														<td colspan="4">
+														<td>
 															<hr/>
 														</td>
 													</tr>
@@ -245,7 +245,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<table>
 														<tbody>
 														<tr>
-															<td colspan="4">
+															<td>
 																<label for="iban">IBAN</label><br/>
 																<input type="text" title="Internationale Kontonummer"
 																	   class="required"
@@ -255,7 +255,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</td>
 														</tr>
 														<tr>
-															<td colspan="4" style="padding-bottom: 20px;">
+															<td>
 																<label for="bic">BIC</label><br/>
 																<input type="text" title="BIC" placeholder="BIC"
 																	   class="required"
@@ -270,7 +270,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<table>
 														<tbody>
 														<tr>
-															<td colspan="4">
+															<td>
 																<label for="account-number">Kontonummer</label><br/>
 																<input type="tel"
 																	   title="Bis zu zehnstellige Kontonummer"
@@ -282,7 +282,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</td>
 														</tr>
 														<tr>
-															<td colspan="4" style="padding-bottom: 20px;">
+															<td style="padding-bottom: 20px;">
 																<label for="bank-code">Bankleitzahl</label><br/>
 																<input type="tel" title="Achtstellige Bankleitzahl"
 																	   placeholder="Bankleitzahl"
@@ -298,13 +298,13 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												<table>
 													<tbody>
 													<tr>
-														<td colspan="4" class="form-heading">
+														<td class="form-heading">
 															<span
 																class="form-heading-text">Pers&ouml;nliche Daten</span>
 														</td>
 													</tr>
 													<tr>
-														<td colspan="4" style="padding-top: 16px;">
+														<td style="padding-top: 16px;">
 															<input type="radio" id="address-type-1" checked="checked"
 																   title="privat"
 																   value="person"
@@ -323,7 +323,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														</td>
 													</tr>
 													<tr>
-														<td colspan="4">
+														<td>
 															<hr/>
 														</td>
 													</tr>
@@ -333,7 +333,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<table>
 														<tbody>
 														<tr>
-															<td colspan="4">
+															<td colspan="2">
 																<label for="company-name">Firma</label><br/>
 																<input type="text" placeholder="Firma"
 																	   autocomplete="off"
@@ -349,7 +349,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<table>
 														<tbody>
 														<tr>
-															<td colspan="4">
+															<td colspan="2">
 																<input type="radio" id="salutation-1" checked="checked"
 																	   title="Frau"
 																	   value="Frau"
@@ -372,7 +372,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</td>
 														</tr>
 														<tr>
-															<td colspan="2" style="padding:8px 0 0 8px">
+															<td style="padding:8px 0 0 8px">
 																<label for="first-name">Name</label><br/>
 																<input type="text" class="required small-input"
 																	   placeholder="Vorname"
@@ -381,7 +381,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																	   id="first-name">
 																<span class="validation icon-ok"></span>
 															</td>
-															<td colspan="2" style="padding:8px 8px 0 5px">
+															<td style="padding:8px 8px 0 5px">
 																<br/>
 																<input type="text" class="required small-input focused"
 																	   placeholder="Nachname"
@@ -404,7 +404,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<table>
 														<tbody>
 														<tr>
-															<td colspan="4">
+															<td colspan="2">
 																<label for="street">Straße</label><br/>
 																<input type="text" class="required invalid"
 																	   placeholder="z.B. Musterstraße 123"
@@ -419,7 +419,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</td>
 														</tr>
 														<tr>
-															<td colspan="2" style="padding:8px 0 0 8px">
+															<td style="padding:8px 0 0 8px">
 																<label for="post-code">PLZ &amp; Ort</label><br/>
 																<input type="text" class="required small-input"
 																	   title="Fünfstellige Postleitzahl"
@@ -428,7 +428,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																	   id="post-code">
 																<span class="validation"></span>
 															</td>
-															<td colspan="2" style="padding:8px 8px 0 5px">
+															<td style="padding:8px 8px 0 5px">
 																<br/>
 																<input type="text" class="required small-input"
 																	   placeholder="z.B. Berlin"
@@ -436,7 +436,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																<span class="validation"></span>
 															</td>
 														<tr>
-															<td colspan="4">
+															<td colspan="2">
 																<label for="country">Land</label><br/>
 																<select title="Land" name="country" id="country">
 																	<option value="DE">Deutschland</option>
@@ -450,7 +450,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</td>
 														</tr>
 														<tr>
-															<td colspan="4">
+															<td colspan="2">
 																<label for="email">E-Mail</label><br/>
 																<input type="text" placeholder="z.B. name@domain.de"
 																	   class="required"
@@ -465,7 +465,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												<table>
 													<tbody>
 													<tr>
-														<td colspan="4">
+														<td>
 															<input type="checkbox"
 																   title="Bitte senden Sie mir Informationsmaterial."
 																   value="1"
@@ -482,14 +482,14 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														</td>
 													</tr>
 													<tr>
-														<td colspan="4">
+														<td>
 															<button type="submit" id="WMDE_BannerForm-next">
 																Weiter um Spende abzuschließen
 															</button>
 														</td>
 													</tr>
 													<tr>
-														<td colspan="4" style="background: transparent; padding-top: 0">
+														<td style="background: transparent; padding-top: 0">
 															<div id="WMDE_BannerFullForm-close-step1">Schließen
 																&#9652;</div>
 														</td>
