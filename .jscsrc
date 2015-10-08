@@ -1,0 +1,23 @@
+{
+	"preset": "wikimedia",
+
+	"disallowDanglingUnderscores": null,
+
+	"jsDoc": {
+		"checkAnnotations": {
+			"preset": "jsduck5",
+			"extra": {
+				"licence": true
+			}
+		},
+		"checkParamNames": true,
+		"requireParamTypes": true,
+		"checkRedundantParams": true,
+		"checkReturnTypes": true,
+		"checkRedundantReturns": true,
+		"requireReturnTypes": true,
+		"checkTypes": "strictNativeCase",
+		"checkRedundantAccess": true,
+		"requireNewlineAfterDescription": true
+	}
+}
