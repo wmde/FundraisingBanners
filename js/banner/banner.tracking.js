@@ -60,7 +60,7 @@
 	};
 
 	/**
-	 * @returns {number}
+	 * @return {number}
 	 */
 	TP.getRandomNumber = function () {
 		return Math.random() * ( 1 - 0.01 ) + 0.01;
