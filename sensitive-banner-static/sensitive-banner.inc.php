@@ -1,7 +1,10 @@
 <link rel="stylesheet" href="res/common-banner.css">
 <link rel="stylesheet" href="res/sensitive-banner.css">
+<link rel="stylesheet" href="res/lightbox.css">
+<link rel="stylesheet" href="res/icon.css">
 <script type="text/javascript" src="res/common-banner.js"></script>
 <script type="text/javascript" src="res/sensitive-banner.js"></script>
+<script type="text/javascript" src="res/lightbox.js"></script>
 
 <div style="top: 0; display: block;" id="WMDE_Banner">
 	<form method="post" name="donationForm">
@@ -603,6 +606,66 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			</table>
 		</div>
 		<div id="WMDE_BannerFullForm-arrow"></div>
+
+		<div id="WMDE_BannerFullForm-info">
+
+		<div id="WMDE_BannerFullForm-infolinks" class="banner-lightbox banner-lightbox-small">
+			<ul>
+				<li>
+					<div class="lightbox-list-item">
+						<span class="icon-bar-chart"></span>
+						<span class="list-item-title">Wohin geht das Geld?</span>
+					</div>
+				</li>
+				<li>
+					<div class="lightbox-list-item">
+						<span class="icon-hand-right"></span>
+						<span class="list-item-title">Bitcoins spenden</span>
+					</div>
+				</li>
+				<li>
+					<div class="lightbox-list-item last">
+						<span class="icon-hand-right"></span>
+						<span class="list-item-title">Steuerlich absetzbar</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div id="WMDE_BannerFullForm-security" class="banner-lightbox banner-lightbox-small">
+			<ul>
+				<li>
+					<div class="lightbox-list-item">
+						<img src="img/global-sign.png"></span>
+						<img style="float: right;" src="img/owasp.png"></span>
+						<div style="clear: right; height: 7px;"></div>
+					</div>
+				</li>
+				<li>
+					<div class="lightbox-list-item">
+						<span class="icon-list-item icon-lock"></span>
+						<span class="list-item-title">SSL-verschl&uuml;sselte Daten</span>
+						<p>
+							Ihre Spende wird &uuml;ber eine sichere SSL-
+							Verschl&uuml;sselung aufgenommen und liegt sp&auml;ter
+							auf deutschen Servern.
+						</p>
+					</div>
+				</li>
+				<li>
+					<div class="lightbox-list-item last">
+						<span class="icon-list-item icon-shield"></span>
+						<span class="list-item-title">Ihre Daten sind sicher</span>
+						<p>
+							Wir f&uuml;hlen uns dem Datenschutz verpflichtet.
+							Unsere Bestimmungen dazu k&ouml;nnen Sie
+							<a href="https://spenden.wikimedia.de/spenden/Datenschutz">hier</a> einsehen.
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		</div>
 
 		<img id="banner-close-ct" src="" border="0" height="0" width="0">
 	</form>

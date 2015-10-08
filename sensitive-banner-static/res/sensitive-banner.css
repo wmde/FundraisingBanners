@@ -18,6 +18,10 @@
     display: none;
 }
 
+#WMDE_BannerFullForm-info {
+    display: none;
+}
+
 #WMDE_BannerFullForm-arrow {
     display: none;
     height: 27px;
@@ -281,4 +285,13 @@ td#WMDE_BannerFullForm-wrapper {
 
 #confirm_shortterm {
     margin-bottom: 90px;
+}
+
+#WMDE_BannerFullForm-info {
+    position: absolute;
+    right: 304px;
+}
+
+#WMDE_BannerFullForm-infolinks, #WMDE_BannerFullForm-security {
+    margin-top: 20px;
 }

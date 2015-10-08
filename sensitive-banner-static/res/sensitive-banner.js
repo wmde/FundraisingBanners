@@ -33,7 +33,7 @@ $( function() {
 		toggleFullForm();
 	} );
 	paymentButtons.hover( function() {
-			$( '#WMDE_BannerFullForm-arrow' ).show();
+			if(!isOpen) $( '#WMDE_BannerFullForm-arrow' ).show();
 		},
 		function() {
 			$( '#WMDE_BannerFullForm-arrow' ).hide();
@@ -67,15 +67,18 @@ $( function() {
 
 function toggleFullForm() {
 	$( '#WMDE_BannerFullForm-details' ).slideToggle( 'slow' );
+	$( '#WMDE_BannerFullForm-info' ).slideToggle( 'slow' );
+
 	if ( isOpen ) {
 		$( '#WMDE_Banner' ).css( 'position', 'fixed' );
+		$( '#WMDE_BannerFullForm-arrow' ).show();
 	} else {
 		$( '#WMDE_Banner' ).css( 'position', 'absolute' );
+		$( '#WMDE_BannerFullForm-arrow' ).hide();
 		$( "html, body" ).animate( {
 			scrollTop: 0
 		}, "slow" );
 	}
-
 	isOpen = !isOpen;
 }
 
