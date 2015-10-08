@@ -19,5 +19,14 @@
 		"checkTypes": "strictNativeCase",
 		"checkRedundantAccess": true,
 		"requireNewlineAfterDescription": true
-	}
+	},
+
+	"excludeFiles": [
+		"node_modules/**",
+		"js/lib/**",
+		"js/sensitive_banner_all.js",
+		"sensitive-banner-static/**",
+		"tests/lib/**",
+		"vendor/**"
+	]
 }
