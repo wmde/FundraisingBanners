@@ -487,7 +487,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													</tr>
 													<tr>
 														<td colspan="4" style="background: transparent; padding-top: 0">
-															<div id="WMDE_BannerFullForm-close">Schließen
+															<div id="WMDE_BannerFullForm-close-step1">Schließen
 																&#9652;</div>
 														</td>
 													</tr>
@@ -580,7 +580,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td style="background: transparent; padding-top: 0">
-														<div id="WMDE_BannerFullForm-close">Schließen
+														<div id="WMDE_BannerFullForm-close-step2">Schließen
 															&#9652;</div>
 													</td>
 												</tr>

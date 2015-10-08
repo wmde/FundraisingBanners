@@ -246,7 +246,7 @@ td#WMDE_BannerFullForm-wrapper {
     background: transparent url('../img/form-input-valid.png') no-repeat scroll center center;
 }
 
-#WMDE_BannerFullForm-close {
+#WMDE_BannerFullForm-close-step1, #WMDE_BannerFullForm-close-step2 {
     background-color: #eef0fc;
     text-align: center;
     width: 90px;

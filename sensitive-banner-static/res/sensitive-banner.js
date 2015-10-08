@@ -23,7 +23,13 @@ $( function() {
 		toggleFullForm();
 	} );
 
-	$( '#WMDE_BannerFullForm-close' ).on( 'click', function() {
+	$( '#WMDE_BannerFullForm-close-step1' ).on( 'click', function() {
+		toggleFullForm();
+	} );
+	$( '#WMDE_BannerFullForm-close-step2' ).on( 'click', function() {
+		$( '#WMDE_BannerFullForm-step2' ).slideToggle( 400, function() {
+			$( '#WMDE_BannerFullForm-step1' ).slideToggle();
+		} );
 		toggleFullForm();
 	} );
 	paymentButtons.hover( function() {
