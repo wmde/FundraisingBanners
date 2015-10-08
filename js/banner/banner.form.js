@@ -13,7 +13,6 @@
 		this.validationPending = false;
 		$( document ).ready( function() {
 			self._initSubmitHandler();
-			self._initChangeHandlers();
 		} );
 	}
 
@@ -39,18 +38,9 @@
 		} );
 	};
 
-	Form.prototype._initChangeHandlers = function() {
-		$( '#' + banner.config.form.formId + ' :input' ).each( function( index, element ) {
-			$( element ).on( 'change', function() {
-				element.setCustomValidity( '' );
-			} );
-		} );
-	};
-
 	Form.prototype._clearValidity = function() {
 		$( '#' + banner.config.form.formId + ' :input' ).each( function( index, element ) {
 			$( element ).removeClass( 'valid' ).removeClass( 'invalid' );
-			element.setCustomValidity( '' );
 		} );
 	};
 
@@ -131,17 +121,14 @@
 
 	Form.prototype._markInvalid = function( $element ) {
 		$element.removeClass( 'valid' ).addClass( 'invalid' );
-		$element.get( 0 ).setCustomValidity( 'Entered value is invalid' );
 	};
 
 	Form.prototype._markMissing = function( $element ) {
 		$element.removeClass( 'valid' ).addClass( 'invalid' );
-		$element.get( 0 ).setCustomValidity( 'This field is obligatory' );
 	};
 
 	Form.prototype._markValid = function( $element ) {
 		$element.removeClass( 'invalid' ).addClass( 'valid' );
-		$element.get( 0 ).setCustomValidity( '' );
 	};
 
 	banner.form = new Form();
