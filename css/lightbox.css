@@ -20,19 +20,13 @@
 }
 
 .banner-lightbox-title {
-    color: #666666;
+    color: #545454;
     font-size: 10pt;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.banner-lightbox-title .icon-bar-chart {
-    position: relative;
-    top: 4px;
-    margin-right: 8px;
-}
-
-.banner-lightbox-title .icon-hand-right {
+.banner-lightbox-title .icon-bar-chart, .banner-lightbox-title .icon-hand-right, .banner-lightbox-title .icon-parcel {
     position: relative;
     top: 4px;
     margin-right: 8px;
@@ -64,7 +58,7 @@
 }
 
 .banner-lightbox a {
-    color: #666666;
+    color: #545454;
     cursor: pointer;
     text-decoration: underline;
 }
@@ -110,6 +104,32 @@
     color: #545454;
     float: right;
     margin-right: -15px;
-    margin-top: -15px;
+    margin-top: -16px;
     cursor: pointer;
+}
+
+#bitpay-donate {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#bitpay-price {
+    padding: 0;
+    width: 90px;
+    margin-left: 20px;
+    margin-right: 1px;
+}
+
+#bitpay-amount {
+    margin-bottom: 20px;
+}
+
+#bitpay-info-text {
+    margin-top: 20px;
+    margin-bottom: 0;
+    color: #545454;
+}
+
+#bitpay-donate-button-wrapper {
+    text-align: right;
 }
