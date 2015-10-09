@@ -3,4 +3,8 @@ $( document ).ready( function () {
 		$( this ).toggleClass( 'opened' );
 		$( this ).next().toggle();
 	} );
+
+	$( '.banner-lightbox-close' ).on( 'click', function() {
+		$( this ).parent().slideToggle();
+	} );
 });
