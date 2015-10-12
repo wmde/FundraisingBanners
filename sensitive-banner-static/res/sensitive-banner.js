@@ -7,30 +7,29 @@ $( function() {
 
 	paymentButtons.on( 'click', function( e ) {
 		e.preventDefault();
-		toggleFullForm();
 	} );
 
-	$( '#WMDE_BannerForm-next' ).on( 'click', function( e ) {
+	$( '#WMDE_BannerFullForm-next' ).on( 'click', function( e ) {
 		e.preventDefault();
 		debitNextStep();
 	} );
 
-	$( '#WMDE_BannerFullForm-finish' ).on( 'click', function( e ) {
+	$( '#WMDE_BannerFullForm-finish-sepa' ).on( 'click', function( e ) {
 		e.preventDefault();
 		$( '#WMDE_BannerFullForm-step2' ).slideToggle( 400, function() {
 			$( '#WMDE_BannerFullForm-step1' ).slideToggle();
 		} );
-		toggleFullForm();
+		hideFullForm();
 	} );
 
 	$( '#WMDE_BannerFullForm-close-step1' ).on( 'click', function() {
-		toggleFullForm();
+		hideFullForm();
 	} );
 	$( '#WMDE_BannerFullForm-close-step2' ).on( 'click', function() {
 		$( '#WMDE_BannerFullForm-step2' ).slideToggle( 400, function() {
 			$( '#WMDE_BannerFullForm-step1' ).slideToggle();
 		} );
-		toggleFullForm();
+		hideFullForm();
 	} );
 
 
@@ -67,28 +66,31 @@ $( function() {
 	} );
 } );
 
-function toggleFullForm() {
-	$( '#WMDE_BannerFullForm-details' ).slideToggle( 'slow' );
-	$( '#WMDE_BannerFullForm-info' ).slideToggle( 'slow' );
-
-	if ( isOpen ) {
-		$( '#WMDE_Banner' ).css( 'position', 'fixed' );
-		$( '#WMDE_BannerFullForm-arrow' ).show();
-	} else {
-		$( '#WMDE_Banner' ).css( 'position', 'absolute' );
-		$( '#WMDE_BannerFullForm-arrow' ).hide();
-		$( "html, body" ).animate( {
-			scrollTop: 0
-		}, "slow" );
-	}
-	isOpen = !isOpen;
-}
-
 function toggleDebitType() {
 	$( '#WMDE_Banner-sepa' ).slideToggle();
 	$( '#WMDE_BannerFullForm-nosepa' ).slideToggle();
-
 	paySEPA = !paySEPA;
+}
+
+function showFullForm() {
+	$( '#WMDE_BannerFullForm-arrow' ).hide();
+	$( '#WMDE_BannerFullForm-details' ).slideDown();
+	$( '#WMDE_BannerFullForm-info' ).slideDown();
+	$( '#WMDE_Banner' ).css( 'position', 'absolute' );
+
+	$( 'html, body' ).animate( {
+		scrollTop: 0
+	}, 'slow' );
+	isOpen = true;
+}
+
+function hideFullForm() {
+	$( '#WMDE_BannerFullForm-details' ).slideUp( 400, function() {
+		$( '#WMDE_Banner' ).css( 'position', 'fixed' );
+		resetButtons();
+		isOpen = false;
+	} );
+	$( '#WMDE_BannerFullForm-info' ).slideUp();
 }
 
 function debitNextStep() {
@@ -99,6 +101,56 @@ function debitNextStep() {
 		scrollTop: 0
 	}, "slow" );
 }
+
+/* Payment methods show and hide */
+
+function showDebitDonation( button ) {
+	resetButtons();
+	$( button ).addClass( 'active' );
+	$( '#zahlweise' ).val( 'BEZ' );
+	$( '#WMDE_Banner-debit-type' ).slideDown();
+	$( '#WMDE_Banner-anonymous' ).slideUp();
+	$( '#WMDE_BannerFullForm-finish' ).hide();
+	$( '#WMDE_BannerFullForm-next' ).show();
+	resetAddressType();
+	showFullForm();
+}
+
+function resetAddressType() {
+	$( '#address-type-1' ).trigger( 'click' );
+}
+
+function showDepositDonation( button ) {
+	$( '#zahlweise' ).val( 'UEB' );
+	showNonDebitParts( button );
+}
+
+function showCreditDonation( button ) {
+	$( '#zahlweise' ).val( 'MCP' );
+	showNonDebitParts( button );
+}
+
+function showPayPalDonation( button ) {
+	$( '#zahlweise' ).val( 'PPL' );
+	showNonDebitParts( button );
+}
+
+function showNonDebitParts( button ) {
+	resetButtons();
+	$( button ).addClass( 'active' );
+	$( '#WMDE_Banner-debit-type' ).slideUp();
+	$( '#WMDE_Banner-anonymous' ).slideDown();
+	$( '#WMDE_BannerFullForm-finish' ).show();
+	$( '#WMDE_BannerFullForm-next' ).hide();
+	showFullForm();
+}
+
+function resetButtons() {
+	$( '#WMDE_BannerFullForm-payment button' ).trigger( "blur" );
+	$( '#WMDE_BannerFullForm-payment button' ).removeClass( 'active' );
+}
+
+/* LightBoxes show and hide */
 
 function toggleFundsBox() {
 	if ( $( '#WMDE_BannerFullForm-funds-link' ).hasClass( 'opened' ) ) {
@@ -165,7 +217,6 @@ function hideBitCoinBox( whenDone ) {
 	$( '#WMDE_BannerFullForm-bitcoin' ).slideUp( 400, function() {
 		$( '#WMDE_BannerFullForm-bitcoin-link' ).removeClass( 'opened' );
 		if ( $.isFunction( whenDone ) ) {
-
 			whenDone();
 		}
 

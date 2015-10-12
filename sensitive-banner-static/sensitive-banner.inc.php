@@ -195,24 +195,23 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td colspan="2" style="text-align: left">
-														<button class="active"
-																onclick="$('#zahlweise').val('BEZ');">Lastschrift
+														<button onclick="showDebitDonation(this)">Lastschrift
 														</button>
 													</td>
 													<td colspan="2" style="text-align: right">
-														<button onclick="$('#zahlweise').val('UEB');">Überweisung
+														<button onclick="showDepositDonation(this)">Überweisung
 														</button>
 														<br>
 													</td>
 												</tr>
 												<tr>
 													<td colspan="2" style="padding:8px 0 0 8px; text-align: left">
-														<button click="$('#zahlweise').val('MCP');">
+														<button onclick="showCreditDonation(this)">
 															Kreditkarte
 														</button>
 													</td>
 													<td colspan="2" style="padding:8px 8px 0 5px; text-align: right">
-														<button id="btn-ppl" onclick="$('#zahlweise').val('PPL');">
+														<button id="btn-ppl" onclick="showPayPalDonation(this)">
 															PayPal
 														</button>
 													</td>
@@ -220,83 +219,90 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tbody>
 											</table>
 											<div id="WMDE_BannerFullForm-details">
-												<table>
-													<tbody id="WMDE_Banner-debit-type"
-														>
-													<tr>
-														<td>
-															<input type="radio" checked="" title="SEPA"
-																   name="debit-type"
-																   value="sepa" id="debit-type-1">
-															<label for="debit-type-1">IBAN</label>
-															<input type="radio" title="Konto/BLZ" name="debit-type"
-																   value="non-sepa" id="debit-type-2">
-															<label for="debit-type-2">Konto/Bankleitzahl</label>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<hr/>
-														</td>
-													</tr>
-													</tbody>
-												</table>
-												<div id="WMDE_Banner-sepa">
+												<div id="WMDE_Banner-debit-type">
 													<table>
 														<tbody>
 														<tr>
-															<td>
-																<label for="iban">IBAN</label><br/>
-																<input type="text" title="Internationale Kontonummer"
-																	   class="required"
-																	   placeholder="IBAN" autocomplete="off" name="iban"
-																	   id="iban">
-																<span class="validation"></span>
+															<td style="padding-top: 17px">
+																<input type="radio" checked="" title="SEPA"
+																	   name="debit-type"
+																	   value="sepa" id="debit-type-1">
+																<label for="debit-type-1">IBAN</label>
+																<input type="radio" title="Konto/BLZ" name="debit-type"
+																	   value="non-sepa" id="debit-type-2">
+																<label for="debit-type-2">Konto/Bankleitzahl</label>
 															</td>
 														</tr>
 														<tr>
 															<td>
-																<label for="bic">BIC</label><br/>
-																<input type="text" title="BIC" placeholder="BIC"
-																	   class="required"
-																	   autocomplete="off" name="bic" id="bic">
-																<span class="validation"></span>
+																<hr/>
 															</td>
 														</tr>
 														</tbody>
 													</table>
-												</div>
-												<div id="WMDE_BannerFullForm-nosepa">
-													<table>
-														<tbody>
-														<tr>
-															<td>
-																<label for="account-number">Kontonummer</label><br/>
-																<input type="tel"
-																	   title="Bis zu zehnstellige Kontonummer"
-																	   placeholder="Kontonummer" autocomplete="off"
-																	   name="konto"
-																	   id="account-number"
-																	   class="bank-check">
-																<span class="validation"></span>
-															</td>
-														</tr>
-														<tr>
-															<td style="padding-bottom: 20px;">
-																<label for="bank-code">Bankleitzahl</label><br/>
-																<input type="tel" title="Achtstellige Bankleitzahl"
-																	   placeholder="Bankleitzahl"
-																	   autocomplete="off" name="blz" id="bank-code"
-																	   class="bank-check"
-																	>
-																<span class="validation"></span>
-															</td>
-														</tr>
-														</tbody>
-													</table>
+													<div id="WMDE_Banner-sepa">
+														<table>
+															<tbody>
+															<tr>
+																<td>
+																	<label for="iban">IBAN</label><br/>
+																	<input type="text"
+																		   title="Internationale Kontonummer"
+																		   class="required"
+																		   placeholder="IBAN" autocomplete="off"
+																		   name="iban"
+																		   id="iban">
+																	<span class="validation"></span>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<label for="bic">BIC</label><br/>
+																	<input type="text" title="BIC" placeholder="BIC"
+																		   class="required"
+																		   autocomplete="off" name="bic" id="bic">
+																	<span class="validation"></span>
+																</td>
+															</tr>
+															</tbody>
+														</table>
+													</div>
+													<div id="WMDE_BannerFullForm-nosepa">
+														<table>
+															<tbody>
+															<tr>
+																<td>
+																	<label for="account-number">Kontonummer</label><br/>
+																	<input type="tel"
+																		   title="Bis zu zehnstellige Kontonummer"
+																		   placeholder="Kontonummer" autocomplete="off"
+																		   name="konto"
+																		   id="account-number"
+																		   class="bank-check">
+																	<span class="validation"></span>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<label for="bank-code">Bankleitzahl</label><br/>
+																	<input type="tel" title="Achtstellige Bankleitzahl"
+																		   placeholder="Bankleitzahl"
+																		   autocomplete="off" name="blz" id="bank-code"
+																		   class="bank-check"
+																		>
+																	<span class="validation"></span>
+																</td>
+															</tr>
+															</tbody>
+														</table>
+													</div>
 												</div>
 												<table>
 													<tbody>
+													<tr>
+														<td style="height: 20px">
+														</td>
+													</tr>
 													<tr>
 														<td class="form-heading">
 															<span
@@ -316,10 +322,12 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																   name="adresstyp"/>
 															<label for="address-type-2"
 																   class="address-label">Firma</label>
-															<input type="radio" id="address-type-3" title="anonym"
-																   value="anonym"
-																   name="adresstyp"/>
-															<label for="address-type-3">Anonym</label>
+															<span id="WMDE_Banner-anonymous">
+																<input type="radio" id="address-type-3" title="anonym"
+																	   value="anonym"
+																	   name="adresstyp"/>
+																<label for="address-type-3">Anonym</label>
+															</span>
 														</td>
 													</tr>
 													<tr>
@@ -483,8 +491,12 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													</tr>
 													<tr>
 														<td>
-															<button type="submit" id="WMDE_BannerForm-next">
+															<button type="submit" id="WMDE_BannerFullForm-next">
 																Weiter um Spende abzuschließen
+															</button>
+															<button type="submit" id="WMDE_BannerFullForm-finish">
+																Jetzt f&uuml;r Wikipedia spenden <span
+																	class="mark-ok"></span>
 															</button>
 														</td>
 													</tr>
@@ -575,7 +587,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td>
-														<button type="submit" id="WMDE_BannerFullForm-finish">
+														<button type="submit" id="WMDE_BannerFullForm-finish-sepa">
 															Jetzt f&uuml;r Wikipedia spenden <span
 																class="mark-ok"></span>
 														</button>
@@ -737,6 +749,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 				</div>
 				<hr/>
 				<a title="Erfahren Sie mehr"
+				   target="_blank"
 				   href="https://meta.wikimedia.org/wiki/Wikimedia_Deutschland/2015_annual_plan/de"
 				   class="banner-lightbox-more">Erfahren Sie mehr</a>
 			</div>

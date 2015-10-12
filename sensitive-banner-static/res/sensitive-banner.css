@@ -65,6 +65,10 @@
     white-space: nowrap;
 }
 
+#WMDE_BannerFullForm button:focus {
+    outline: none;
+}
+
 td#WMDE_BannerFullForm-wrapper {
     background: transparent;
     width: 248px;
@@ -128,6 +132,10 @@ td#WMDE_BannerFullForm-wrapper {
 
 #WMDE_BannerFullForm-payment button:hover {
     color: #0645ad;
+}
+
+#WMDE_BannerFullForm-payment button.active:hover {
+    color: #FF6C00;
 }
 
 #WMDE_BannerFullForm td.form-heading {
@@ -201,8 +209,6 @@ td#WMDE_BannerFullForm-wrapper {
     border: 0 none;
     border-radius: 5px;
     color: #000;
-    font-family: sans-serif;
-    font-size: 1em;
     font-weight: bold;
     width: 248px;
     height: 25px;
@@ -211,11 +217,11 @@ td#WMDE_BannerFullForm-wrapper {
     margin-bottom: 15px;
 }
 
-#WMDE_BannerFullForm-finish {
+#WMDE_BannerFullForm-finish, #WMDE_BannerFullForm-finish-sepa {
     padding-right: 19px;
 }
 
-#WMDE_BannerFullForm-finish .mark-ok {
+.mark-ok {
     width: 17px;
     height: 13px;
     position: absolute;
