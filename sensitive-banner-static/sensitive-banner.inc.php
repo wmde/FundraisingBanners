@@ -899,29 +899,29 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 <script type="text/javascript">
 	$( document ).ready( function() {
 		$( 'body' ).prepend( $( '#centralNotice' ) );
+		$('#WMDE_Banner' ).hide();
+		removeBannerSpace();
 
-		var impCount = increaseImpCount();
-		$( "#impCount" ).val( impCount );
-		var bannerImpCount = increaseBannerImpCount( "B14WMDE_43_141225_ctrl" );
-		$( "#bImpCount" ).val( bannerImpCount );
+//		var impCount = increaseImpCount();
+//		$( "#impCount" ).val( impCount );
+//		var bannerImpCount = increaseBannerImpCount( "B14WMDE_43_141225_ctrl" );
+//		$( "#bImpCount" ).val( bannerImpCount );
 
-		if ( wgAction === "view" ) {
-			setTimeout( addBannerSpace, 7500 );
-		}
-		if ( wgUserName !== null ) $( '#wikilogin' ).val( 'yes' );
+//		if ( wgAction === "view" ) {
+//			setTimeout( addBannerSpace, 7500 );
+			setTimeout( addBannerSpace, 1500 );
+//		}
+//		if ( wgUserName !== null ) $( '#wikilogin' ).val( 'yes' );
 		$( window ).resize( function() {
 			animateProgressBar();
 		} );
 
-		$( ".send" ).click( function( e ) {
-			return validateForm();
-		} );
-
 		$( '#WMDE_Banner-close' ).click( function() {
 			if ( Math.random() < 0.01 ) {
-				$( '#banner-close-ct' ).attr( 'src', 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/org-43-141225-ctrl&rec=1' );
+//				$( '#banner-close-ct' ).attr( 'src', 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/org-43-141225-ctrl&rec=1' );
 			}
-			hideBanner();
+//			hideBanner();
+			$('#WMDE_Banner' ).hide();
 			removeBannerSpace();
 			return false;
 		} );
@@ -937,84 +937,4 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 		$( "span#numDaysLeft" ).text( getDaysRemaining() );
 		$( "span#donorsValue" ).html( addPointsToNum( Math.floor( getApprDonatorsRaw() ) ) );
 	} );
-
-	function animateProgressBar() {
-		var donationFillElement = $( "#donationFill" );
-		var preFillValue = 0;
-
-		donationFillElement.clearQueue();
-		donationFillElement.stop();
-		donationFillElement.width( preFillValue + "px" );
-
-		$( '#daysLeft' ).hide();
-
-		var barWidth = $( '#donationMeter' ).width();
-		var dTarget = parseInt( "8300000" );
-		var dCollected = getApprDonationsRaw();
-		var dRemaining = dTarget - dCollected;
-
-		var fWidth = dCollected / dTarget * barWidth;
-		var maxFillWidth = barWidth - $( '#donationRemaining' ).width() - 16;
-		widthToFill = (fWidth > maxFillWidth) ? maxFillWidth : fWidth;
-
-		donationFillElement.animate( { width: widthToFill + 'px' }, {
-			duration: 2500,
-			progress: function() {
-				var dFill = donationFillElement.width() / widthToFill * fWidth;
-				var pFill = dFill / barWidth;
-
-				var dColl = dTarget * pFill / 1000000;
-				var vRem = ( dTarget - ( dTarget * pFill ) ) / 1000000;
-
-				dColl = dColl.toFixed( 1 );
-				dColl = dColl.replace( ".", "," );
-
-				vRem = vRem.toFixed( 1 );
-				vRem = vRem.replace( ".", "," );
-
-				$( "#valRem" ).html( vRem );
-				$( "#donationValue" ).html( dColl );
-			},
-			complete: function() {
-				$( 'div#daysLeft' ).show();
-			}
-		} );
-	}
-
-	function addBannerSpace() {
-		var expandableBannerHeight = $( 'div#WMDE_Banner' ).height() + 44;
-		var bannerDivElement = $( '#WMDE_Banner' );
-
-		switch ( skin ) {
-			case 'vector':
-				bannerDivElement.css( 'top', 0 - expandableBannerHeight );
-				$( '#mw-panel' ).animate( { top: expandableBannerHeight + 160 }, 1000 );
-				$( '#mw-head' ).animate( { top: expandableBannerHeight }, 1000 );
-				$( '#mw-page-base' ).animate( { paddingTop: expandableBannerHeight }, 1000 );
-				break;
-			case 'monobook':
-				$( '#globalWrapper' ).css( 'position', 'relative' );
-				$( '#globalWrapper' ).css( 'top', expandableBannerHeight );
-				bannerDivElement.css( 'top', '-20px' );
-				bannerDivElement.css( 'background', 'none' );
-				break;
-		}
-		bannerDivElement.css( 'display', 'block' );
-		bannerDivElement.animate( { top: 0 }, 1000 );
-		setTimeout( animateProgressBar, 1000 );
-	}
-
-	function removeBannerSpace() {
-		switch ( skin ) {
-			case 'vector':
-				$( '#mw-panel' ).css( 'top', 160 );
-				$( '#mw-head' ).css( 'top', 0 );
-				$( '#mw-page-base' ).css( 'padding-top', 0 );
-				break;
-			case 'monobook':
-				$( '#globalWrapper' ).css( 'position', 'relative' );
-				$( '#globalWrapper' ).css( 'top', 0 );
-				break;
-		}
-	}
 </script>
