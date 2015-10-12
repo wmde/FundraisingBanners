@@ -240,6 +240,7 @@ td#WMDE_BannerFullForm-wrapper {
 #WMDE_BannerFullForm div.form-field-error-box {
     margin-left: -30%;
     position: absolute;
+    z-index: 1;
 }
 
 #WMDE_BannerFullForm span.form-field-error-text {
