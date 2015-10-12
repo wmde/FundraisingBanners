@@ -32,8 +32,10 @@ $( function() {
 		} );
 		toggleFullForm();
 	} );
+
+
 	paymentButtons.hover( function() {
-			if(!isOpen) $( '#WMDE_BannerFullForm-arrow' ).show();
+			if ( !isOpen ) $( '#WMDE_BannerFullForm-arrow' ).show();
 		},
 		function() {
 			$( '#WMDE_BannerFullForm-arrow' ).hide();
@@ -97,3 +99,88 @@ function debitNextStep() {
 		scrollTop: 0
 	}, "slow" );
 }
+
+function toggleFundsBox() {
+	if ( $( '#WMDE_BannerFullForm-funds-link' ).hasClass( 'opened' ) ) {
+		hideFundsBox();
+	} else {
+		showFundsBox();
+	}
+}
+
+function toggleBitCoinBox() {
+	if ( $( '#WMDE_BannerFullForm-bitcoin-link' ).hasClass( 'opened' ) ) {
+		hideBitCoinBox();
+	} else {
+		showBitCoinBox();
+	}
+}
+
+function toggleTaxBox() {
+	if ( $( '#WMDE_BannerFullForm-taxes-link' ).hasClass( 'opened' ) ) {
+		hideTaxBox();
+	} else {
+		showTaxBox();
+	}
+}
+
+function showFundsBox() {
+	hideBitCoinBox( function() {
+		hideTaxBox( function() {
+			$( '#WMDE_BannerFullForm-info' ).addClass( 'funds' );
+			$( '#WMDE_BannerFullForm-funds' ).slideDown();
+		} );
+	} );
+}
+
+function showBitCoinBox() {
+	hideFundsBox( function() {
+		hideTaxBox( function() {
+			$( '#WMDE_BannerFullForm-bitcoin' ).slideDown();
+		} );
+	} );
+}
+
+function showTaxBox() {
+	hideFundsBox( function() {
+		hideBitCoinBox( function() {
+			$( '#WMDE_BannerFullForm-info' ).addClass( 'taxes' );
+			$( '#WMDE_BannerFullForm-taxes' ).slideDown();
+		} );
+	} );
+}
+
+function hideFundsBox( whenDone ) {
+	$( '#WMDE_BannerFullForm-funds' ).slideUp( 400, function() {
+		$( '#WMDE_BannerFullForm-info' ).removeClass( 'funds' );
+		$( '#WMDE_BannerFullForm-funds-link' ).removeClass( 'opened' );
+		if ( $.isFunction( whenDone ) ) {
+			whenDone();
+		}
+	} );
+
+}
+
+function hideBitCoinBox( whenDone ) {
+	$( '#WMDE_BannerFullForm-bitcoin' ).slideUp( 400, function() {
+		$( '#WMDE_BannerFullForm-bitcoin-link' ).removeClass( 'opened' );
+		if ( $.isFunction( whenDone ) ) {
+
+			whenDone();
+		}
+
+	} );
+}
+
+function hideTaxBox( whenDone ) {
+
+	$( '#WMDE_BannerFullForm-taxes' ).slideUp( 400, function() {
+		$( '#WMDE_BannerFullForm-info' ).removeClass( 'taxes' );
+		$( '#WMDE_BannerFullForm-taxes-link' ).removeClass( 'opened' );
+		if ( $.isFunction( whenDone ) ) {
+			whenDone();
+		}
+	} );
+
+}
+

@@ -22,6 +22,18 @@
     display: none;
 }
 
+#WMDE_BannerFullForm-funds {
+    display: none;
+}
+
+#WMDE_BannerFullForm-bitcoin {
+    display: none;
+}
+
+#WMDE_BannerFullForm-taxes {
+    display: none;
+}
+
 #WMDE_BannerFullForm-arrow {
     display: none;
     height: 27px;
@@ -290,8 +302,37 @@ td#WMDE_BannerFullForm-wrapper {
 #WMDE_BannerFullForm-info {
     position: absolute;
     right: 304px;
+    width: 480px;
+}
+
+#WMDE_BannerFullForm-info.funds {
+    width: 690px;
+}
+
+#WMDE_BannerFullForm-info.taxes {
+    width: 430px;
+}
+
+@media screen and (min-width: 1000px) {
+    #WMDE_BannerFullForm-info.taxes {
+        width: 680px;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    #WMDE_BannerFullForm-info.funds {
+        width: 940px;
+    }
+}
+
+#WMDE_BannerFullForm-infolinks, #WMDE_BannerFullForm-security, #WMDE_BannerFullForm-taxes, #WMDE_BannerFullForm-bitcoin, #WMDE_BannerFullForm-funds {
+    margin-top: 20px;
 }
 
 #WMDE_BannerFullForm-infolinks, #WMDE_BannerFullForm-security {
-    margin-top: 20px;
+    float: right;
+}
+
+#WMDE_BannerFullForm-taxes, #WMDE_BannerFullForm-bitcoin, #WMDE_BannerFullForm-funds {
+    float: left;
 }
