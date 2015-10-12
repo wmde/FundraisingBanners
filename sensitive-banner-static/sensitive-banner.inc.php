@@ -8,8 +8,9 @@
 
 <div style="top: 0; display: block;" id="WMDE_Banner">
 	<form method="post" name="donationForm">
-		<div style="box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);">
+		<div id="WMDE_BannerFullForm-shadow"></div>
 
+		<div style="box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);">
 			<table id="WMDE_Banner-facts">
 				<tbody>
 				<tr>
@@ -639,7 +640,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 					<li>
 						<div class="lightbox-list-item last">
 							<span class="icon-hand-right"></span>
-							<span id="WMDE_BannerFullForm-taxes-link" class="list-item-title" onclick="toggleTaxBox()">Steuerlich absetzbar</span>
+								<span id="WMDE_BannerFullForm-taxes-link" class="list-item-title"
+									  onclick="toggleTaxBox()">Steuerlich absetzbar</span>
 						</div>
 					</li>
 				</ul>
@@ -650,7 +652,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 				<div class="banner-lightbox-title">
 					<span class="icon-bar-chart"></span>Wohin geht meine Spende?
-					<a target="_blank" href="http://wikimedia.de/wiki/Transparenz"><span class="logo-itz-white"></span></a>
+					<a target="_blank" href="http://wikimedia.de/wiki/Transparenz"><span
+							class="logo-itz-white"></span></a>
 				</div>
 				<p>
 					<img src="img/wmde-mittelverwendung-2015.png">
@@ -660,17 +663,21 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 					<div style="width: 200px; margin-right: 20px; float: left">
 						<p>
 							<strong>Die Organisation</strong><br>
-							Wikimedia besteht in Deutschland aus zwei Organisationen: Wikimedia Deutschland e.V. (WMDE)
+							Wikimedia besteht in Deutschland aus zwei Organisationen: Wikimedia Deutschland e.V.
+							(WMDE)
 							und dessen 100%iger
-							Tochtergesellschaft "Gemeinn&uuml;tzige Wikimedia F&ouml;rdergesellschaft mbH" (WMFG). Die F&ouml;rdergesellschaft
+							Tochtergesellschaft "Gemeinn&uuml;tzige Wikimedia F&ouml;rdergesellschaft mbH" (WMFG).
+							Die F&ouml;rdergesellschaft
 							ist
 							Empf&auml;ngerin der Spenden.
 						</p>
 
 						<p>
-							Sie hat den Zweck, Gelder an die US-amerikanische Wikimedia Foundation (WMF) zum Betrieb und
+							Sie hat den Zweck, Gelder an die US-amerikanische Wikimedia Foundation (WMF) zum Betrieb
+							und
 							Ausbau der
-							Wikimedia-Projekte und f&uuml;r internationale Programme weiterzuleiten. Ebenso leitet die F&ouml;rdergesellschaft
+							Wikimedia-Projekte und f&uuml;r internationale Programme weiterzuleiten. Ebenso leitet
+							die F&ouml;rdergesellschaft
 							Gelder
 							an
 							den Wikimedia Deutschland e.V. weiter, der die Projekte des Vereins ausf&uuml;hrt.
@@ -687,12 +694,14 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 						<p>
 							<strong style="color:#01b4dd;">Softwareentwicklung</strong><br>
-							hat das Ziel, die Qualit&auml;t der Wikimedia-Projekte zu erh&ouml;hen und ihre Bedienung zu
+							hat das Ziel, die Qualit&auml;t der Wikimedia-Projekte zu erh&ouml;hen und ihre
+							Bedienung zu
 							erleichtern.
 							Deshalb sorgt
 							das
 							Team f&uuml;r stetige Verbesserung der Software rund um die Wikimedia-Projekte
-							und entwickelt neuartige L&ouml;sungen, um auf die Bed&uuml;rfnisse der vielen Communitys zu
+							und entwickelt neuartige L&ouml;sungen, um auf die Bed&uuml;rfnisse der vielen
+							Communitys zu
 							reagieren.
 						</p>
 
@@ -717,7 +726,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 						<p>
 							<strong style="color:#01b4dd;">Kommunikation</strong><br>
-							hat die Aufgabe, Wikimedia Deutschland bei der Kommunikation seiner Ziele und Aufgaben zu
+							hat die Aufgabe, Wikimedia Deutschland bei der Kommunikation seiner Ziele und Aufgaben
+							zu
 							unterst&uuml;tzen.
 							Dazu
 							geh&ouml;ren Einzelbotschaften wie auch das Gesamtbild des Vereins &ndash; nach au&szlig;en
@@ -729,7 +739,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 							k&uuml;mmert sich um Partnerschaften zur Umsetzung gezielter Projektvorhaben und sorgt f&uuml;r
 							die Steuerung
 							und
-							Verkn&uuml;pfung der einzelnen Projekte des Vereins. Durch Monitoring und Evaluation wird
+							Verkn&uuml;pfung der einzelnen Projekte des Vereins. Durch Monitoring und Evaluation
+							wird
 							zudem Wirkung und Zielerreichung der Projekte verbessert. Daf&uuml;r wird eine
 							wirkungsorientiertes
 							Monitoringsystem
@@ -768,7 +779,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 					<div id="bitpay-amount">
 						<label for="bitpay-price" class="bitcoin-label">Betrag</label>
-						<input type="number" max="250" min="0" step="0.001" value="0.05" name="price" id="bitpay-price">
+						<input type="number" max="250" min="0" step="0.001" value="0.05" name="price"
+							   id="bitpay-price">
 						<span>BTC</span>
 					</div>
 
@@ -796,7 +808,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 				<div class="banner-lightbox-title">
 					<span class="icon-hand-right"></span>Steuerlich absetzbar
-					<a target="_blank" href="http://wikimedia.de/wiki/Transparenz"><span class="logo-itz-white"></span></a>
+					<a target="_blank" href="http://wikimedia.de/wiki/Transparenz"><span
+							class="logo-itz-white"></span></a>
 				</div>
 				<p>
 					Ist meine Spende steuerlich absetzbar?<br>
@@ -811,42 +824,53 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 				<p>
 					<a target="_blank"
 					   href="https://spenden.wikimedia.de/wiki/images/5/5c/Vereinfachter_Zuwendungsbescheid_Wikimedia_Foerdergesellschaft.pdf">Den
-						vereinfachten Zuwendungsbescheid f&uuml;r die Wikimedia F&ouml;rdergesellschaft k&ouml;nnen Sie
+						vereinfachten Zuwendungsbescheid f&uuml;r die Wikimedia F&ouml;rdergesellschaft k&ouml;nnen
+						Sie
 						hier herunterladen.</a>
 				</p>
 
 				<p>
-					Als Dankesch&ouml;n und Zeichen unserer Wertsch&auml;tzung stellen wir jedoch f&uuml;r jede Spende
+					Als Dankesch&ouml;n und Zeichen unserer Wertsch&auml;tzung stellen wir jedoch f&uuml;r jede
+					Spende
 					ab genau 15 Euro automatisch
-					eine Zuwendungsbescheinigung aus. Diese verschicken wir zum Ende des ersten Quartals des folgenden
+					eine Zuwendungsbescheinigung aus. Diese verschicken wir zum Ende des ersten Quartals des
+					folgenden
 					Jahres. Wenn Sie
-					Ihre Zuwendungsbest&auml;tigung eher ben&ouml;tigen, sagen Sie uns einfach Bescheid. Auf Nachfrage
+					Ihre Zuwendungsbest&auml;tigung eher ben&ouml;tigen, sagen Sie uns einfach Bescheid. Auf
+					Nachfrage
 					versenden wir die
-					Best&auml;tigung auch gern eher (bei Lastschriften und Kreditkartenzahlungen fr&uuml;hestens nach
+					Best&auml;tigung auch gern eher (bei Lastschriften und Kreditkartenzahlungen fr&uuml;hestens
+					nach
 					der 56t&auml;gigen
 					Widerspruchsfrist).
 				</p>
 
 				<p>
-					F&uuml;r Spenden unter 15 &euro; bieten wir in der Regel keine Zuwendungsbest&auml;tigung an, da dem
+					F&uuml;r Spenden unter 15 &euro; bieten wir in der Regel keine Zuwendungsbest&auml;tigung an, da
+					dem
 					Finanzamt der Kontoauszug in
 					Verbindung mit dem vereinfachten Zuwendungsbescheid als Nachweis der Spende ausreicht. Ebenso m&ouml;chten
 					wir die Kosten
-					f&uuml;r Verwaltung und Versand m&ouml;glichst gering halten. Wenn Sie dennoch eine Zuwendungsbest&auml;tigung
+					f&uuml;r Verwaltung und Versand m&ouml;glichst gering halten. Wenn Sie dennoch eine
+					Zuwendungsbest&auml;tigung
 					erhalten m&ouml;chten,
-					ist dies nat&uuml;rlich kein Problem. Gern stellen wir Ihnen eine Best&auml;tigung aus. Schreiben
+					ist dies nat&uuml;rlich kein Problem. Gern stellen wir Ihnen eine Best&auml;tigung aus.
+					Schreiben
 					Sie uns dazu einfach eine
 					E-Mail an spenden@wikimedia.de.
 				</p>
 
 				<p>
-					Bitte beachten Sie: Bei selbstst&auml;ndigen &Uuml;berweisungen m&uuml;ssen Sie die Adresse in den
+					Bitte beachten Sie: Bei selbstst&auml;ndigen &Uuml;berweisungen m&uuml;ssen Sie die Adresse in
+					den
 					Verwendungszweck eintragen, wenn
 					Sie eine Zuwendungsbest&auml;tigung erhalten m&ouml;chten. Komfortabler ist es jedoch, wenn Sie
 					mittels unseres
-					Spendenformulars per &Uuml;berweisung spenden. Dort k&ouml;nnen Sie Ihre Adresse direkt eingeben.
+					Spendenformulars per &Uuml;berweisung spenden. Dort k&ouml;nnen Sie Ihre Adresse direkt
+					eingeben.
 					Die Kontoverbindung wird
-					Ihnen dann im Anschluss mitsamt dem Code Ihrer Spende mitgeteilt. Diesen Code tragen Sie bitte bei
+					Ihnen dann im Anschluss mitsamt dem Code Ihrer Spende mitgeteilt. Diesen Code tragen Sie bitte
+					bei
 					Ihrer &Uuml;berweisung
 					in den Verwendungszweck ein.
 				</p>
@@ -899,7 +923,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 <script type="text/javascript">
 	$( document ).ready( function() {
 		$( 'body' ).prepend( $( '#centralNotice' ) );
-		$('#WMDE_Banner' ).hide();
+		$( '#WMDE_Banner' ).hide();
 		removeBannerSpace();
 
 //		var impCount = increaseImpCount();
@@ -909,7 +933,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 //		if ( wgAction === "view" ) {
 //			setTimeout( addBannerSpace, 7500 );
-			setTimeout( addBannerSpace, 1500 );
+		setTimeout( addBannerSpace, 1500 );
 //		}
 //		if ( wgUserName !== null ) $( '#wikilogin' ).val( 'yes' );
 		$( window ).resize( function() {
@@ -921,7 +945,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 //				$( '#banner-close-ct' ).attr( 'src', 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/org-43-141225-ctrl&rec=1' );
 			}
 //			hideBanner();
-			$('#WMDE_Banner' ).hide();
+			$( '#WMDE_Banner' ).hide();
 			removeBannerSpace();
 			return false;
 		} );

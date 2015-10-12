@@ -75,6 +75,14 @@ td#WMDE_BannerFullForm-wrapper {
     padding: 0;
 }
 
+#WMDE_BannerFullForm-shadow {
+    display: none;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+}
+
 #WMDE_BannerFullForm-payment td {
     font-weight: bold;
     padding: 4px 8px 0 8px;

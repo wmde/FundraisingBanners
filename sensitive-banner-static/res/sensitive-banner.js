@@ -74,6 +74,7 @@ function toggleDebitType() {
 
 function showFullForm() {
 	$( '#WMDE_BannerFullForm-arrow' ).hide();
+	$( '#WMDE_BannerFullForm-shadow' ).fadeIn();
 	$( '#WMDE_BannerFullForm-details' ).slideDown();
 	$( '#WMDE_BannerFullForm-info' ).slideDown();
 	$( '#WMDE_Banner' ).css( 'position', 'absolute' );
@@ -90,7 +91,8 @@ function hideFullForm() {
 		resetButtons();
 		isOpen = false;
 	} );
-	$( '#WMDE_BannerFullForm-info' ).slideUp();
+	$( '#WMDE_BannerFullForm-info' ).hide();
+	$( '#WMDE_BannerFullForm-shadow' ).fadeOut();
 }
 
 function debitNextStep() {
