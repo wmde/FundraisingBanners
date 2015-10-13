@@ -889,8 +889,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 				<ul>
 					<li>
 						<div class="lightbox-list-item">
-							<img src="img/global-sign.png"></span>
-							<img style="float: right;" src="img/owasp.png"></span>
+							<img src="img/global-sign.png">
+							<img style="float: right;" src="img/owasp.png">
 							<div style="clear: right; height: 7px;"></div>
 						</div>
 					</li>
