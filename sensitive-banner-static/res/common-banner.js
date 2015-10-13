@@ -1,6 +1,19 @@
 var finalDateTime = new Date( 2015, 0, 1, 5, 0, 0 );
 var goalSum = 8200000;
 
+$( function() {
+	$( '#amount-other-input' ).on( 'click', function() {
+		$( 'input:radio[name=betrag_auswahl]' ).prop( 'checked', false );
+		$( '#amount_other' ).prop( 'checked', true );
+	} );
+	$( '#amount_other' ).on( 'click', function() {
+		$( '#amount-other-input' ).trigger( 'click' );
+	} );
+	$( 'input:radio[name=betrag_auswahl]' ).on( 'click', function() {
+		$( '#amount_other' ).prop( 'checked', false );
+	} );
+} );
+
 function getDaysLeft() {
 	var daysLeft = Math.floor( new Date( finalDateTime - new Date() ) / 1000 / 60 / 60 / 24 );
 	return ( daysLeft < 0 ) ? 0 : daysLeft;
