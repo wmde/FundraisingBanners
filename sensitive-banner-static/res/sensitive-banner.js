@@ -5,6 +5,8 @@ var addressType = 'private';
 $( function() {
 	var paymentButtons = $( '#WMDE_BannerFullForm-payment button' );
 
+	unlockForm();
+
 	paymentButtons.on( 'click', function( e ) {
 		e.preventDefault();
 	} );
@@ -12,6 +14,13 @@ $( function() {
 	$( '#WMDE_BannerFullForm-next' ).on( 'click', function( e ) {
 		e.preventDefault();
 		debitNextStep();
+	} );
+
+	$( '#WMDE_BannerFullForm-finish' ).on( 'click', function( e ) {
+		e.preventDefault();
+		$( this ).trigger( "blur" );
+		$( this ).addClass( 'waiting' );
+		lockForm();
 	} );
 
 	$( '#WMDE_BannerFullForm-finish-sepa' ).on( 'click', function( e ) {
@@ -65,6 +74,18 @@ $( function() {
 		addressType = 'anonymous';
 	} );
 } );
+
+function lockForm() {
+	$( 'button' ).prop( 'disabled', true );
+	$( 'input' ).prop( 'disabled', true );
+	$( 'select' ).prop( 'disabled', true );
+}
+
+function unlockForm() {
+	$( 'button' ).prop( 'disabled', false );
+	$( 'input' ).prop( 'disabled', false );
+	$( 'select' ).prop( 'disabled', false );
+}
 
 function toggleDebitType() {
 	$( '#WMDE_Banner-sepa' ).slideToggle();

@@ -229,12 +229,30 @@ td#WMDE_BannerFullForm-wrapper {
     padding-right: 19px;
 }
 
-.mark-ok {
+button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sepa.waiting {
+    background: #e5e500 url('../img/form-submit-ok.png') scroll 2px center;; /* Old browsers */
+    background: -moz-linear-gradient(top, #e5e500 0%, #ffff00 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e500), color-stop(100%, #ffff00)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e5e500 0%, #ffff00 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #e5e500 0%, #ffff00 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e5e500 0%, #ffff00 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #e5e500 0%, #ffff00 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e500', endColorstr='#ffff00', GradientType=0); /* IE6-9 */
+    opacity: 0.6;
+}
+
+#WMDE_BannerFullForm-finish .mark-ok, #WMDE_BannerFullForm-finish-sepa .mark-ok {
     width: 17px;
     height: 13px;
     position: absolute;
     margin-left: 2px;
     background: transparent url('../img/form-submit-ok.png') scroll center center;
+}
+
+#WMDE_BannerFullForm-finish.waiting .mark-ok, #WMDE_BannerFullForm-finish-sepa.waiting .mark-ok {
+    width: 18px;
+    height: 18px;
+    background: transparent url('//upload.wikimedia.org/wikipedia/commons/4/42/Loading.gif') scroll center center;
 }
 
 #WMDE_BannerFullForm div.form-field-error-box {
