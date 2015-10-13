@@ -12,6 +12,14 @@ $( function() {
 	$( 'input:radio[name=betrag_auswahl]' ).on( 'click', function() {
 		$( '#amount_other' ).prop( 'checked', false );
 	} );
+	$( '#interval_onetime' ).on( 'click', function() {
+		$( '.interval-options' ).addClass( 'interval-hidden' );
+		$( '#interval_multiple' ).prop( 'checked', false );
+	} );
+	$( '#interval_multiple' ).on( 'click', function() {
+		$( '.interval-options' ).removeClass( 'interval-hidden' );
+		$( '#interval_onetime' ).prop( 'checked', false );
+	} );
 } );
 
 function getDaysLeft() {

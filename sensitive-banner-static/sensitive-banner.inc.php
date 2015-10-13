@@ -82,14 +82,12 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<td colspan="2">
 														<input checked="checked" class="amount-radio"
 															   id="interval_onetime"
-															   onclick="$('.interval-options').addClass('interval-hidden');$('#interval_multiple').attr('checked', false);"
 															   type="radio">
 														<label for="interval_onetime"
 															   class="interval-label">einmalig</label>
 													</td>
 													<td colspan="2">
 														<input class="amount-radio" id="interval_multiple"
-															   onclick="$('.interval-options').removeClass('interval-hidden');$('#interval_onetime').attr('checked', false);"
 															   type="radio">
 														<label for="interval_multiple"
 															   class="interval-label">regelmäßig</label>

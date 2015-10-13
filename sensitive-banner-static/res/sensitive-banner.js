@@ -7,6 +7,13 @@ $( function() {
 
 	unlockForm();
 
+	$( '#interval_onetime' ).on( 'click', function() {
+		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '158px' )
+	} );
+	$( '#interval_multiple' ).on( 'click', function() {
+		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '204px' )
+	} );
+
 	paymentButtons.on( 'click', function( e ) {
 		e.preventDefault();
 	} );
