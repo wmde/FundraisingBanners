@@ -205,7 +205,7 @@ td#WMDE_BannerFullForm-wrapper {
     display: block;
 }
 
-#WMDE_BannerFullForm button[type="submit"] {
+#WMDE_BannerFullForm button.submit {
     background: #ffff00 url('../img/form-submit-ok.png') scroll 2px center;; /* Old browsers */
     background: -moz-linear-gradient(top, #ffff00 0%, #e5e500 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffff00), color-stop(100%, #e5e500)); /* Chrome,Safari4+ */

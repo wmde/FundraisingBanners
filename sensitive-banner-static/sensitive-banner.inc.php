@@ -492,10 +492,10 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													</tr>
 													<tr>
 														<td>
-															<button type="submit" id="WMDE_BannerFullForm-next">
+															<button type="submit" class="submit" id="WMDE_BannerFullForm-next">
 																Weiter um Spende abzuschließen
 															</button>
-															<button type="submit" id="WMDE_BannerFullForm-finish">
+															<button type="submit" class="submit" id="WMDE_BannerFullForm-finish">
 																Jetzt f&uuml;r Wikipedia spenden <span
 																	class="mark-ok"></span>
 															</button>
@@ -588,7 +588,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td>
-														<button type="submit" id="WMDE_BannerFullForm-finish-sepa">
+														<button type="submit" class="submit" id="WMDE_BannerFullForm-finish-sepa">
 															Jetzt f&uuml;r Wikipedia spenden <span
 																class="mark-ok"></span>
 														</button>
