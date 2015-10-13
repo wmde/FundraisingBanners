@@ -87,6 +87,31 @@ $( function() {
 		$( '#WMDE_Banner-address' ).slideUp();
 		addressType = 'anonymous';
 	} );
+
+	// set validation event handlers
+	$( '#donationForm' ).on( 'banner:validationFailed', function() {
+		unlockForm();
+		$( '#WMDE_BannerFullForm-finish' ).removeClass( 'waiting' );
+	} );
+
+	$( '#donationForm input' ).on( 'banner:missingValue banner:invalidValue', function() {
+		var $elm = $(this),
+			$parent = $elm.parent();
+		$elm.removeClass( 'valid' ).addClass( 'invalid' );
+		$( '.validation', $parent ).removeClass( 'icon-ok' ).addClass( 'icon-bug' );
+		if ( !$( '.form-field-error-box', $parent ).length ) {
+			$parent.append( '<div class="form-field-error-box"><div class="form-field-error-arrow"></div><span class="form-field-error-text">Bitte korrigieren Sie dieses Feld.</span></div></div>' );
+		}
+	} );
+
+	$( '#donationForm input' ).on( 'banner:validValue', function() {
+		var $elm = $(this),
+			$parent = $elm.parent();
+		$elm.removeClass( 'invalid' ).addClass( 'valid' );
+		$( '.validation', $parent ).removeClass( 'icon-bug' ).addClass( 'icon-ok' );
+		$( '.form-field-error-box', $parent ).remove();
+	} );
+
 } );
 
 function lockForm() {

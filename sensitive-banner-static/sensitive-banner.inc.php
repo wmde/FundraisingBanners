@@ -446,7 +446,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																		   title="Groß- und Kleinbuchstaben, Bindestriche und Leerzeichen"
 																		   autocomplete="off" name="vorname"
 																		   id="first-name">
-																	<span class="validation icon-ok"></span>
+																	<span class="validation"></span>
 																</div>
 																<div style="float: left">
 																	<br/>
@@ -457,13 +457,6 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																		   autocomplete="off" name="nachname"
 																		   id="last-name">
 																	<span class="validation"></span>
-
-																	<div class="form-field-error-box">
-																		<div class="form-field-error-arrow"></div>
-											<span
-												class="form-field-error-text">Bitte f&uuml;llen Sie dieses Feld aus.</span>
-																	</div>
-																</div>
 															</td>
 														</tr>
 														</tbody>
@@ -475,16 +468,11 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														<tr>
 															<td>
 																<label for="street">Straße</label><br/>
-																<input type="text" class="required invalid"
+																<input type="text" class="required"
 																	   placeholder="z.B. Musterstraße 123"
 																	   autocomplete="off" name="strasse" id="street">
-																<span class="validation icon-bug"></span>
+																<span class="validation"></span>
 
-																<div class="form-field-error-box">
-																	<div class="form-field-error-arrow"></div>
-											<span
-												class="form-field-error-text">Bitte f&uuml;llen Sie dieses Feld aus.</span>
-																</div>
 															</td>
 														</tr>
 														<tr>
