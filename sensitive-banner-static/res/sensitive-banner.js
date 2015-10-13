@@ -30,7 +30,6 @@ $( function() {
 	} );
 
 	$( '#WMDE_BannerFullForm-finish' ).on( 'click', function( e ) {
-		e.preventDefault();
 		$( this ).trigger( "blur" );
 		$( this ).addClass( 'waiting' );
 		lockForm();
