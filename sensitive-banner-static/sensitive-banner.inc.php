@@ -7,10 +7,11 @@
 <script type="text/javascript" src="res/lightbox.js"></script>
 
 <div style="top: 0; display: block;" id="WMDE_Banner">
-	<form method="post" name="donationForm">
-		<div id="WMDE_BannerFullForm-shadow"></div>
 
-		<div style="box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);">
+	<div id="WMDE_BannerFullForm-shadow"></div>
+
+	<div style="box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);">
+		<form method="post" name="donationForm">
 			<table id="WMDE_Banner-facts">
 				<tbody>
 				<tr>
@@ -625,307 +626,308 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 				</tr>
 				</tbody>
 			</table>
-		</div>
-		<div id="WMDE_BannerFullForm-arrow"></div>
+		</form>
+	</div>
+	<div id="WMDE_BannerFullForm-arrow">&nbsp;</div>
 
-		<div id="WMDE_BannerFullForm-info">
-			<div id="WMDE_BannerFullForm-infolinks" class="banner-lightbox banner-lightbox-small">
-				<ul>
-					<li>
-						<div class="lightbox-list-item">
-							<span class="icon-bar-chart"></span>
+	<div id="WMDE_BannerFullForm-info">
+		<div id="WMDE_BannerFullForm-infolinks" class="banner-lightbox banner-lightbox-small">
+			<ul>
+				<li>
+					<div class="lightbox-list-item">
+						<span class="icon-bar-chart"></span>
 							<span id="WMDE_BannerFullForm-funds-link" class="list-item-title"
 								  onclick="toggleFundsBox()">Wohin geht das Geld?</span>
-						</div>
-					</li>
-					<li>
-						<div class="lightbox-list-item">
-							<span class="icon-hand-right"></span>
+					</div>
+				</li>
+				<li>
+					<div class="lightbox-list-item">
+						<span class="icon-hand-right"></span>
 							<span id="WMDE_BannerFullForm-bitcoin-link" class="list-item-title"
 								  onclick="toggleBitCoinBox()">Bitcoins spenden</span>
-						</div>
-					</li>
-					<li>
-						<div class="lightbox-list-item last">
-							<span class="icon-hand-right"></span>
+					</div>
+				</li>
+				<li>
+					<div class="lightbox-list-item last">
+						<span class="icon-hand-right"></span>
 								<span id="WMDE_BannerFullForm-taxes-link" class="list-item-title"
 									  onclick="toggleTaxBox()">Steuerlich absetzbar</span>
-						</div>
-					</li>
-				</ul>
-			</div>
-
-			<div id="WMDE_BannerFullForm-funds" class="banner-lightbox banner-lightbox-funds">
-				<span class="icon-cross banner-lightbox-close" onclick="hideFundsBox()"></span>
-
-				<div class="banner-lightbox-title">
-					<span class="icon-bar-chart"></span>Wohin geht meine Spende?
-					<a target="_blank" href="http://wikimedia.de/wiki/Transparenz"><span
-							class="logo-itz-white"></span></a>
-				</div>
-				<p>
-					<img src="img/wmde-mittelverwendung-2015.png">
-				</p>
-
-				<div style="position: relative">
-					<div style="width: 200px; margin-right: 20px; float: left">
-						<p>
-							<strong>Die Organisation</strong><br>
-							Wikimedia besteht in Deutschland aus zwei Organisationen: Wikimedia Deutschland e.V.
-							(WMDE)
-							und dessen 100%iger
-							Tochtergesellschaft "Gemeinn&uuml;tzige Wikimedia F&ouml;rdergesellschaft mbH" (WMFG).
-							Die F&ouml;rdergesellschaft
-							ist
-							Empf&auml;ngerin der Spenden.
-						</p>
-
-						<p>
-							Sie hat den Zweck, Gelder an die US-amerikanische Wikimedia Foundation (WMF) zum Betrieb
-							und
-							Ausbau der
-							Wikimedia-Projekte und f&uuml;r internationale Programme weiterzuleiten. Ebenso leitet
-							die F&ouml;rdergesellschaft
-							Gelder
-							an
-							den Wikimedia Deutschland e.V. weiter, der die Projekte des Vereins ausf&uuml;hrt.
-						</p>
 					</div>
-
-					<div style="padding-left: 20px; border-left: 1px solid #cfd2d9; width: 400px; float: left">
-						<p>
-							<strong style="color:#2fa037;">Mittel f&uuml;r die Wikimedia Foundation</strong><br>
-							Die Betreiberin der Wikimedia-Projekte nutzt die Spenden f&uuml;r Produktentwicklung,
-							Technik, internationale
-							Unterst&uuml;tzung und Aktivit&auml;ten rund um die Wikipedia.
-						</p>
-
-						<p>
-							<strong style="color:#01b4dd;">Softwareentwicklung</strong><br>
-							hat das Ziel, die Qualit&auml;t der Wikimedia-Projekte zu erh&ouml;hen und ihre
-							Bedienung zu
-							erleichtern.
-							Deshalb sorgt
-							das
-							Team f&uuml;r stetige Verbesserung der Software rund um die Wikimedia-Projekte
-							und entwickelt neuartige L&ouml;sungen, um auf die Bed&uuml;rfnisse der vielen
-							Communitys zu
-							reagieren.
-						</p>
-
-						<p>
-							<strong style="color:#01b4dd;">Ideenf&ouml;rderung</strong><br>
-							unterst&uuml;tzt die Freiwilligen in Form von Stipendien oder Reisekostenerstattungen,
-							verleiht technische
-							Ausr&uuml;stung,
-							um das Aufnehmen von Fotos, Videos und T&ouml;nen zu erm&ouml;glichen und leistet
-							logistische, administrative und organisatorische Hilfe bei der Durchf&uuml;hrung von
-							Community-Veranstaltungen.
-						</p>
-
-						<p>
-							<strong style="color:#01b4dd;">Bildung, Wissen und Kultur</strong><br>
-							hat die Aufgabe, im Bildungs-, Wissenschafts- und Kulturbereich durch Austausch und
-							Veranstaltungen f&uuml;r
-							freie
-							Inhalte zu werben. Au&szlig;erdem werden Forschungs- und Entwicklungsvorhaben
-							initiiert und innovative Projekte unterst&uuml;tzt.
-						</p>
-
-						<p>
-							<strong style="color:#01b4dd;">Kommunikation</strong><br>
-							hat die Aufgabe, Wikimedia Deutschland bei der Kommunikation seiner Ziele und Aufgaben
-							zu
-							unterst&uuml;tzen.
-							Dazu
-							geh&ouml;ren Einzelbotschaften wie auch das Gesamtbild des Vereins &ndash; nach au&szlig;en
-							wie innen.
-						</p>
-
-						<p>
-							<strong style="color:#01b4dd;">Zusammenarbeit und Entwicklung</strong><br>
-							k&uuml;mmert sich um Partnerschaften zur Umsetzung gezielter Projektvorhaben und sorgt f&uuml;r
-							die Steuerung
-							und
-							Verkn&uuml;pfung der einzelnen Projekte des Vereins. Durch Monitoring und Evaluation
-							wird
-							zudem Wirkung und Zielerreichung der Projekte verbessert. Daf&uuml;r wird eine
-							wirkungsorientiertes
-							Monitoringsystem
-							aufgebaut.
-						</p>
-
-						<p>
-							<strong style="color:#0196b5;">Unterst&uuml;tzende Bereiche und Verwaltung</strong><br>
-							Veranstaltungsmanagement, IT, Pr&auml;sidium, Vorstand, Verwaltung und Finanzen
-						</p>
-					</div>
-				</div>
-				<div style="clear:both"></div>
-				<div style="font-size: 0.9em; color: #666666; margin-top: 18px;">* inklusive Einnahmen durch
-					Mitgliedsbeitr&auml;ge,
-					Drittmittel und sonstige Einnahmen
-				</div>
-				<hr/>
-				<a title="Erfahren Sie mehr"
-				   target="_blank"
-				   href="https://meta.wikimedia.org/wiki/Wikimedia_Deutschland/2015_annual_plan/de"
-				   class="banner-lightbox-more">Erfahren Sie mehr</a>
-			</div>
-
-			<div id="WMDE_BannerFullForm-bitcoin" class="banner-lightbox banner-lightbox-small">
-				<span class="icon-cross banner-lightbox-close" onclick="hideBitCoinBox()"></span>
-
-				<div class="banner-lightbox-title">
-					<span class="icon-parcel"></span>Spenden Sie mit Bitcoins*
-				</div>
-				<form method="post" action="https://bitpay.com/checkout" id="bitpay-donate" target="_blank">
-					<input type="hidden" value="checkout" name="action">
-					<input type="hidden" value="Spenden Sie für Wikimedia" name="itemDesc">
-					<input type="hidden" value="high" name="transactionSpeed">
-					<input type="hidden" value="BTC" name="currency">
-
-					<div id="bitpay-amount">
-						<label for="bitpay-price" class="bitcoin-label">Betrag</label>
-						<input type="number" max="250" min="0" step="0.001" value="0.05" name="price"
-							   id="bitpay-price">
-						<span>BTC</span>
-					</div>
-
-					<input type="hidden"
-						   value="qzmQdxwfdUmodwKMJNf1ZLCaqI7nSBHdcjBHeApe31R0EUwzdqP6TqwS93hoPmzW8DC6OSBIEAdKv+eYfdHWWUhxxxpDBWngXiVUnfWE8IAJbCnHqmiNA+DxKrkKBZue9L62aCvon4jxDekKRyxNpYU/xSCkSeUoBvacSRn511l0CI5sXwMgMgDG1VCTEhOLc1FavrDfsquP8arPOomNOcydBn5OE8TXiLX0EndBjuPENr+pnWfP98GvAIFulO8pm9IlaN/xG5TNjU12HwN4hSTfTRi5vOVyd2DhjY7pXD2RzDdYDdd2Ym0phNLPR0oA"
-						   name="data">
-
-					<div id="bitpay-donate-button-wrapper">
-						<input width="126" type="image" height="48" alt="BitPay, the easy way to pay with bitcoins."
-							   onerror="this.onerror=null; this.src='https://bitpay.com/img/donate-button-md.png'"
-							   src="https://bitpay.com/img/donate-button.svg" name="submit"
-							   class="bitpay-donate-button">
-					</div>
-
-					<p id="bitpay-info-text">
-						* Nach Dr&uuml;cken des Spendenbuttons werden Sie auf eine gesicherte Seite unseres
-						Bitcoin-Dienstleisters BitPay
-						weitergeleitet.
-					</p>
-				</form>
-			</div>
-
-			<div id="WMDE_BannerFullForm-taxes" class="banner-lightbox banner-lightbox-tax">
-				<span class="icon-cross banner-lightbox-close" onclick="hideTaxBox()"></span>
-
-				<div class="banner-lightbox-title">
-					<span class="icon-hand-right"></span>Steuerlich absetzbar
-					<a target="_blank" href="http://wikimedia.de/wiki/Transparenz"><span
-							class="logo-itz-white"></span></a>
-				</div>
-				<p>
-					Ist meine Spende steuerlich absetzbar?<br>
-					<br>
-					Ja, Ihre Spende ist steuerlich absetzbar. Die Wikimedia F&ouml;rdergesellschaft ist als gemeinn&uuml;tzig
-					anerkannt und kann
-					somit Zuwendungsbescheinigungen ausstellen. Bis zu einem Betrag von 200 &euro; gen&uuml;gt dem
-					Finanzamt der sogenannten
-					Vereinfachte Zuwendungsbescheid in Verbindung mit Ihrem Kontoauszug als Nachweis der Spende.
-				</p>
-
-				<p>
-					<a target="_blank"
-					   href="https://spenden.wikimedia.de/wiki/images/5/5c/Vereinfachter_Zuwendungsbescheid_Wikimedia_Foerdergesellschaft.pdf">Den
-						vereinfachten Zuwendungsbescheid f&uuml;r die Wikimedia F&ouml;rdergesellschaft k&ouml;nnen
-						Sie
-						hier herunterladen.</a>
-				</p>
-
-				<p>
-					Als Dankesch&ouml;n und Zeichen unserer Wertsch&auml;tzung stellen wir jedoch f&uuml;r jede
-					Spende
-					ab genau 15 Euro automatisch
-					eine Zuwendungsbescheinigung aus. Diese verschicken wir zum Ende des ersten Quartals des
-					folgenden
-					Jahres. Wenn Sie
-					Ihre Zuwendungsbest&auml;tigung eher ben&ouml;tigen, sagen Sie uns einfach Bescheid. Auf
-					Nachfrage
-					versenden wir die
-					Best&auml;tigung auch gern eher (bei Lastschriften und Kreditkartenzahlungen fr&uuml;hestens
-					nach
-					der 56t&auml;gigen
-					Widerspruchsfrist).
-				</p>
-
-				<p>
-					F&uuml;r Spenden unter 15 &euro; bieten wir in der Regel keine Zuwendungsbest&auml;tigung an, da
-					dem
-					Finanzamt der Kontoauszug in
-					Verbindung mit dem vereinfachten Zuwendungsbescheid als Nachweis der Spende ausreicht. Ebenso m&ouml;chten
-					wir die Kosten
-					f&uuml;r Verwaltung und Versand m&ouml;glichst gering halten. Wenn Sie dennoch eine
-					Zuwendungsbest&auml;tigung
-					erhalten m&ouml;chten,
-					ist dies nat&uuml;rlich kein Problem. Gern stellen wir Ihnen eine Best&auml;tigung aus.
-					Schreiben
-					Sie uns dazu einfach eine
-					E-Mail an spenden@wikimedia.de.
-				</p>
-
-				<p>
-					Bitte beachten Sie: Bei selbstst&auml;ndigen &Uuml;berweisungen m&uuml;ssen Sie die Adresse in
-					den
-					Verwendungszweck eintragen, wenn
-					Sie eine Zuwendungsbest&auml;tigung erhalten m&ouml;chten. Komfortabler ist es jedoch, wenn Sie
-					mittels unseres
-					Spendenformulars per &Uuml;berweisung spenden. Dort k&ouml;nnen Sie Ihre Adresse direkt
-					eingeben.
-					Die Kontoverbindung wird
-					Ihnen dann im Anschluss mitsamt dem Code Ihrer Spende mitgeteilt. Diesen Code tragen Sie bitte
-					bei
-					Ihrer &Uuml;berweisung
-					in den Verwendungszweck ein.
-				</p>
-			</div>
-
-			<div style="clear:right"></div>
-			<div id="WMDE_BannerFullForm-security" class="banner-lightbox banner-lightbox-small">
-				<ul>
-					<li>
-						<div class="lightbox-list-item">
-							<img src="img/global-sign.png">
-							<img style="float: right;" src="img/owasp.png">
-							<div style="clear: right; height: 7px;"></div>
-						</div>
-					</li>
-					<li>
-						<div class="lightbox-list-item">
-							<span class="icon-list-item icon-lock"></span>
-							<span class="list-item-title">SSL-verschl&uuml;sselte Daten</span>
-
-							<p>
-								Ihre Spende wird &uuml;ber eine sichere SSL-
-								Verschl&uuml;sselung aufgenommen und liegt sp&auml;ter
-								auf deutschen Servern.
-							</p>
-						</div>
-					</li>
-					<li>
-						<div class="lightbox-list-item last">
-							<span class="icon-list-item icon-shield"></span>
-							<span class="list-item-title">Ihre Daten sind sicher</span>
-
-							<p>
-								Wir f&uuml;hlen uns dem Datenschutz verpflichtet.
-								Unsere Bestimmungen dazu k&ouml;nnen Sie
-								<a href="https://spenden.wikimedia.de/spenden/Datenschutz" target="_blank">hier</a>
-								einsehen.
-							</p>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div style="clear:right;"></div>
+				</li>
+			</ul>
 		</div>
 
-		<img id="banner-close-ct" src="" border="0" height="0" width="0">
-	</form>
+		<div id="WMDE_BannerFullForm-funds" class="banner-lightbox banner-lightbox-funds">
+			<span class="icon-cross banner-lightbox-close" onclick="hideFundsBox()"></span>
+
+			<div class="banner-lightbox-title">
+				<span class="icon-bar-chart"></span>Wohin geht meine Spende?
+				<a target="_blank" href="http://wikimedia.de/wiki/Transparenz"><span
+						class="logo-itz-white"></span></a>
+			</div>
+			<p>
+				<img src="img/wmde-mittelverwendung-2015.png">
+			</p>
+
+			<div style="position: relative">
+				<div style="width: 200px; margin-right: 20px; float: left">
+					<p>
+						<strong>Die Organisation</strong><br>
+						Wikimedia besteht in Deutschland aus zwei Organisationen: Wikimedia Deutschland e.V.
+						(WMDE)
+						und dessen 100%iger
+						Tochtergesellschaft "Gemeinn&uuml;tzige Wikimedia F&ouml;rdergesellschaft mbH" (WMFG).
+						Die F&ouml;rdergesellschaft
+						ist
+						Empf&auml;ngerin der Spenden.
+					</p>
+
+					<p>
+						Sie hat den Zweck, Gelder an die US-amerikanische Wikimedia Foundation (WMF) zum Betrieb
+						und
+						Ausbau der
+						Wikimedia-Projekte und f&uuml;r internationale Programme weiterzuleiten. Ebenso leitet
+						die F&ouml;rdergesellschaft
+						Gelder
+						an
+						den Wikimedia Deutschland e.V. weiter, der die Projekte des Vereins ausf&uuml;hrt.
+					</p>
+				</div>
+
+				<div style="padding-left: 20px; border-left: 1px solid #cfd2d9; width: 400px; float: left">
+					<p>
+						<strong style="color:#2fa037;">Mittel f&uuml;r die Wikimedia Foundation</strong><br>
+						Die Betreiberin der Wikimedia-Projekte nutzt die Spenden f&uuml;r Produktentwicklung,
+						Technik, internationale
+						Unterst&uuml;tzung und Aktivit&auml;ten rund um die Wikipedia.
+					</p>
+
+					<p>
+						<strong style="color:#01b4dd;">Softwareentwicklung</strong><br>
+						hat das Ziel, die Qualit&auml;t der Wikimedia-Projekte zu erh&ouml;hen und ihre
+						Bedienung zu
+						erleichtern.
+						Deshalb sorgt
+						das
+						Team f&uuml;r stetige Verbesserung der Software rund um die Wikimedia-Projekte
+						und entwickelt neuartige L&ouml;sungen, um auf die Bed&uuml;rfnisse der vielen
+						Communitys zu
+						reagieren.
+					</p>
+
+					<p>
+						<strong style="color:#01b4dd;">Ideenf&ouml;rderung</strong><br>
+						unterst&uuml;tzt die Freiwilligen in Form von Stipendien oder Reisekostenerstattungen,
+						verleiht technische
+						Ausr&uuml;stung,
+						um das Aufnehmen von Fotos, Videos und T&ouml;nen zu erm&ouml;glichen und leistet
+						logistische, administrative und organisatorische Hilfe bei der Durchf&uuml;hrung von
+						Community-Veranstaltungen.
+					</p>
+
+					<p>
+						<strong style="color:#01b4dd;">Bildung, Wissen und Kultur</strong><br>
+						hat die Aufgabe, im Bildungs-, Wissenschafts- und Kulturbereich durch Austausch und
+						Veranstaltungen f&uuml;r
+						freie
+						Inhalte zu werben. Au&szlig;erdem werden Forschungs- und Entwicklungsvorhaben
+						initiiert und innovative Projekte unterst&uuml;tzt.
+					</p>
+
+					<p>
+						<strong style="color:#01b4dd;">Kommunikation</strong><br>
+						hat die Aufgabe, Wikimedia Deutschland bei der Kommunikation seiner Ziele und Aufgaben
+						zu
+						unterst&uuml;tzen.
+						Dazu
+						geh&ouml;ren Einzelbotschaften wie auch das Gesamtbild des Vereins &ndash; nach au&szlig;en
+						wie innen.
+					</p>
+
+					<p>
+						<strong style="color:#01b4dd;">Zusammenarbeit und Entwicklung</strong><br>
+						k&uuml;mmert sich um Partnerschaften zur Umsetzung gezielter Projektvorhaben und sorgt f&uuml;r
+						die Steuerung
+						und
+						Verkn&uuml;pfung der einzelnen Projekte des Vereins. Durch Monitoring und Evaluation
+						wird
+						zudem Wirkung und Zielerreichung der Projekte verbessert. Daf&uuml;r wird eine
+						wirkungsorientiertes
+						Monitoringsystem
+						aufgebaut.
+					</p>
+
+					<p>
+						<strong style="color:#0196b5;">Unterst&uuml;tzende Bereiche und Verwaltung</strong><br>
+						Veranstaltungsmanagement, IT, Pr&auml;sidium, Vorstand, Verwaltung und Finanzen
+					</p>
+				</div>
+			</div>
+			<div style="clear:both"></div>
+			<div style="font-size: 0.9em; color: #666666; margin-top: 18px;">* inklusive Einnahmen durch
+				Mitgliedsbeitr&auml;ge,
+				Drittmittel und sonstige Einnahmen
+			</div>
+			<hr/>
+			<a title="Erfahren Sie mehr"
+			   target="_blank"
+			   href="https://meta.wikimedia.org/wiki/Wikimedia_Deutschland/2015_annual_plan/de"
+			   class="banner-lightbox-more">Erfahren Sie mehr</a>
+		</div>
+
+		<div id="WMDE_BannerFullForm-bitcoin" class="banner-lightbox banner-lightbox-small">
+			<span class="icon-cross banner-lightbox-close" onclick="hideBitCoinBox()"></span>
+
+			<div class="banner-lightbox-title">
+				<span class="icon-parcel"></span>Spenden Sie mit Bitcoins*
+			</div>
+			<form method="post" action="https://bitpay.com/checkout" id="bitpay-donate" target="_blank">
+				<input type="hidden" value="checkout" name="action">
+				<input type="hidden" value="Spenden Sie für Wikimedia" name="itemDesc">
+				<input type="hidden" value="high" name="transactionSpeed">
+				<input type="hidden" value="BTC" name="currency">
+
+				<div id="bitpay-amount">
+					<label for="bitpay-price" class="bitcoin-label">Betrag</label>
+					<input type="number" max="250" min="0" step="0.001" value="0.05" name="price"
+						   id="bitpay-price">
+					<span>BTC</span>
+				</div>
+
+				<input type="hidden"
+					   value="qzmQdxwfdUmodwKMJNf1ZLCaqI7nSBHdcjBHeApe31R0EUwzdqP6TqwS93hoPmzW8DC6OSBIEAdKv+eYfdHWWUhxxxpDBWngXiVUnfWE8IAJbCnHqmiNA+DxKrkKBZue9L62aCvon4jxDekKRyxNpYU/xSCkSeUoBvacSRn511l0CI5sXwMgMgDG1VCTEhOLc1FavrDfsquP8arPOomNOcydBn5OE8TXiLX0EndBjuPENr+pnWfP98GvAIFulO8pm9IlaN/xG5TNjU12HwN4hSTfTRi5vOVyd2DhjY7pXD2RzDdYDdd2Ym0phNLPR0oA"
+					   name="data">
+
+				<div id="bitpay-donate-button-wrapper">
+					<input width="126" type="image" height="48" alt="BitPay, the easy way to pay with bitcoins."
+						   onerror="this.onerror=null; this.src='https://bitpay.com/img/donate-button-md.png'"
+						   src="https://bitpay.com/img/donate-button.svg" name="submit"
+						   class="bitpay-donate-button">
+				</div>
+
+				<p id="bitpay-info-text">
+					* Nach Dr&uuml;cken des Spendenbuttons werden Sie auf eine gesicherte Seite unseres
+					Bitcoin-Dienstleisters BitPay
+					weitergeleitet.
+				</p>
+			</form>
+		</div>
+
+		<div id="WMDE_BannerFullForm-taxes" class="banner-lightbox banner-lightbox-tax">
+			<span class="icon-cross banner-lightbox-close" onclick="hideTaxBox()"></span>
+
+			<div class="banner-lightbox-title">
+				<span class="icon-hand-right"></span>Steuerlich absetzbar
+				<a target="_blank" href="http://wikimedia.de/wiki/Transparenz"><span
+						class="logo-itz-white"></span></a>
+			</div>
+			<p>
+				Ist meine Spende steuerlich absetzbar?<br>
+				<br>
+				Ja, Ihre Spende ist steuerlich absetzbar. Die Wikimedia F&ouml;rdergesellschaft ist als gemeinn&uuml;tzig
+				anerkannt und kann
+				somit Zuwendungsbescheinigungen ausstellen. Bis zu einem Betrag von 200 &euro; gen&uuml;gt dem
+				Finanzamt der sogenannten
+				Vereinfachte Zuwendungsbescheid in Verbindung mit Ihrem Kontoauszug als Nachweis der Spende.
+			</p>
+
+			<p>
+				<a target="_blank"
+				   href="https://spenden.wikimedia.de/wiki/images/5/5c/Vereinfachter_Zuwendungsbescheid_Wikimedia_Foerdergesellschaft.pdf">Den
+					vereinfachten Zuwendungsbescheid f&uuml;r die Wikimedia F&ouml;rdergesellschaft k&ouml;nnen
+					Sie
+					hier herunterladen.</a>
+			</p>
+
+			<p>
+				Als Dankesch&ouml;n und Zeichen unserer Wertsch&auml;tzung stellen wir jedoch f&uuml;r jede
+				Spende
+				ab genau 15 Euro automatisch
+				eine Zuwendungsbescheinigung aus. Diese verschicken wir zum Ende des ersten Quartals des
+				folgenden
+				Jahres. Wenn Sie
+				Ihre Zuwendungsbest&auml;tigung eher ben&ouml;tigen, sagen Sie uns einfach Bescheid. Auf
+				Nachfrage
+				versenden wir die
+				Best&auml;tigung auch gern eher (bei Lastschriften und Kreditkartenzahlungen fr&uuml;hestens
+				nach
+				der 56t&auml;gigen
+				Widerspruchsfrist).
+			</p>
+
+			<p>
+				F&uuml;r Spenden unter 15 &euro; bieten wir in der Regel keine Zuwendungsbest&auml;tigung an, da
+				dem
+				Finanzamt der Kontoauszug in
+				Verbindung mit dem vereinfachten Zuwendungsbescheid als Nachweis der Spende ausreicht. Ebenso m&ouml;chten
+				wir die Kosten
+				f&uuml;r Verwaltung und Versand m&ouml;glichst gering halten. Wenn Sie dennoch eine
+				Zuwendungsbest&auml;tigung
+				erhalten m&ouml;chten,
+				ist dies nat&uuml;rlich kein Problem. Gern stellen wir Ihnen eine Best&auml;tigung aus.
+				Schreiben
+				Sie uns dazu einfach eine
+				E-Mail an spenden@wikimedia.de.
+			</p>
+
+			<p>
+				Bitte beachten Sie: Bei selbstst&auml;ndigen &Uuml;berweisungen m&uuml;ssen Sie die Adresse in
+				den
+				Verwendungszweck eintragen, wenn
+				Sie eine Zuwendungsbest&auml;tigung erhalten m&ouml;chten. Komfortabler ist es jedoch, wenn Sie
+				mittels unseres
+				Spendenformulars per &Uuml;berweisung spenden. Dort k&ouml;nnen Sie Ihre Adresse direkt
+				eingeben.
+				Die Kontoverbindung wird
+				Ihnen dann im Anschluss mitsamt dem Code Ihrer Spende mitgeteilt. Diesen Code tragen Sie bitte
+				bei
+				Ihrer &Uuml;berweisung
+				in den Verwendungszweck ein.
+			</p>
+		</div>
+
+		<div style="clear:right"></div>
+		<div id="WMDE_BannerFullForm-security" class="banner-lightbox banner-lightbox-small">
+			<ul>
+				<li>
+					<div class="lightbox-list-item">
+						<img src="img/global-sign.png">
+						<img style="float: right;" src="img/owasp.png">
+
+						<div style="clear: right; height: 7px;"></div>
+					</div>
+				</li>
+				<li>
+					<div class="lightbox-list-item">
+						<span class="icon-list-item icon-lock"></span>
+						<span class="list-item-title">SSL-verschl&uuml;sselte Daten</span>
+
+						<p>
+							Ihre Spende wird &uuml;ber eine sichere SSL-
+							Verschl&uuml;sselung aufgenommen und liegt sp&auml;ter
+							auf deutschen Servern.
+						</p>
+					</div>
+				</li>
+				<li>
+					<div class="lightbox-list-item last">
+						<span class="icon-list-item icon-shield"></span>
+						<span class="list-item-title">Ihre Daten sind sicher</span>
+
+						<p>
+							Wir f&uuml;hlen uns dem Datenschutz verpflichtet.
+							Unsere Bestimmungen dazu k&ouml;nnen Sie
+							<a href="https://spenden.wikimedia.de/spenden/Datenschutz" target="_blank">hier</a>
+							einsehen.
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div style="clear:right;"></div>
+	</div>
+
+	<img id="banner-close-ct" src="" border="0" height="0" width="0">
 </div>
 
 <script type="text/javascript">
