@@ -53,7 +53,7 @@
 			adresstyp: $( '#' + formId + ' :input[name="adresstyp"]' ).val(),
 			anrede: $( '#' + formId + ' :input[name="anrede"]' ).val(),
 			bankname: $( '#' + formId + ' :input[name="bankname"]' ).val(),
-			betrag: $( '#' + formId + ' :input[name="betrag"]' ).val(),
+			betrag: getAmount(),
 			bic: $( '#' + formId + ' :input[name="bic"]' ).val(),
 			blz: $( '#' + formId + ' :input[name="blz"]' ).val(),
 			country: $( '#' + formId + ' :input[name="country"]' ).val(),
