@@ -3,7 +3,7 @@ var paySEPA = true;
 var addressType = 'private';
 
 $( function() {
-	var paymentButtons = $( '#WMDE_BannerFullForm-payment button' );
+	var paymentButtons = $( '#WMDE_BannerForm-payment button' );
 
 	unlockForm();
 
@@ -178,8 +178,8 @@ function showNonDebitParts( button ) {
 }
 
 function resetButtons() {
-	$( '#WMDE_BannerFullForm-payment button' ).trigger( "blur" );
-	$( '#WMDE_BannerFullForm-payment button' ).removeClass( 'active' );
+	$( '#WMDE_BannerForm-payment button' ).trigger( "blur" );
+	$( '#WMDE_BannerForm-payment button' ).removeClass( 'active' );
 }
 
 /* LightBoxes show and hide */

@@ -51,18 +51,17 @@
     width: 248px;
 }
 
-#WMDE_BannerFullForm table {
-    border: none;
-    border-collapse: collapse;
-    width: 100%;
-}
-
 #WMDE_BannerFullForm td {
     background: #eef0fc;
-    margin: 0;
     padding: 8px 8px 0 8px;
-    font-size: 13px;
-    white-space: nowrap;
+}
+
+#WMDE_BannerForm-wrapper {
+    padding: 0 8px 4px;
+}
+
+#WMDE_BannerForm-payment td {
+    padding: 4px 8px 0 8px;
 }
 
 #WMDE_BannerFullForm button:focus {
@@ -83,69 +82,6 @@ td#WMDE_BannerFullForm-wrapper {
     position: fixed;
     background: rgba(0, 0, 0, 0.8);
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#CC000000', endColorstr='#CC000000'); /* IE6-9 */
-}
-
-#WMDE_BannerFullForm-payment td {
-    font-weight: bold;
-    padding: 4px 8px 0 8px;
-}
-
-#WMDE_BannerFullForm-payment .amount-options td {
-    padding: 2px;
-}
-
-#WMDE_BannerFullForm-payment .amount-label {
-    width: 36px;
-    line-height: 22px;
-}
-
-#WMDE_BannerFullForm-payment .amount-radio {
-    margin: 3px 0 0 3px;
-}
-
-#WMDE_BannerFullForm-payment #amount-other-input {
-    width: 30px;
-}
-
-#WMDE_BannerFullForm-payment button {
-    cursor: pointer;
-    display: inline-block;
-    font-size: 13px !important;
-    font-weight: bold;
-    width: 110px;
-    border: 3px double #ddd;
-    border-radius: 8px;
-    background: #ffffff; /* Old browsers */
-    background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #e5e5e5)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e5e5e5', GradientType=0); /* IE6-9 */
-    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
-    margin: 0 1px;
-}
-
-#WMDE_BannerFullForm-payment button.active {
-    color: #FF6C00;
-    background: #e5e5e5; /* Old browsers */
-    background: -moz-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, #ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #e5e5e5 0%, #ffffff 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
-    box-shadow: none;
-}
-
-#WMDE_BannerFullForm-payment button:hover {
-    color: #0645ad;
-}
-
-#WMDE_BannerFullForm-payment button.active:hover {
-    color: #FF6C00;
 }
 
 #WMDE_BannerFullForm td.form-heading {

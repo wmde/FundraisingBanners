@@ -51,7 +51,6 @@
     width: 248px;
     height: 158px;
     background: #eef0fc;
-    padding: 0 8px 4px;
     border-left: 1px solid #c2cedb;
     border-right: 1px solid #c2cedb;
 }
@@ -60,33 +59,23 @@
     height: 100%;
 }
 
-#WMDE_BannerForm table {
+#WMDE_Banner table {
     border: none;
-    border-collapse: collapse;
+    border-collapse: collapse!important;
     width: 100%;
 }
 
+#WMDE_Banner {
+    font-size:13px
+}
+
 #WMDE_BannerForm td {
-    font-size: 13px;
     font-weight: bold;
     min-width: 55px;
     white-space: nowrap;
     margin: 0;
     vertical-align: middle;
     padding: 2px;
-}
-
-#WMDE_BannerForm .amount-label {
-    width: 36px;
-    line-height: 22px;
-}
-
-#WMDE_BannerForm .amount-radio {
-    margin: 3px 0 0 3px;
-}
-
-#WMDE_BannerForm #amount-other-input {
-    width: 36px;
 }
 
 #WMDE_BannerForm span label {
@@ -97,9 +86,32 @@
     height: 20%;
 }
 
-#WMDE_BannerForm button {
+#WMDE_BannerForm-payment td {
+    font-weight: bold;
+    padding: 4px 8px 0 8px;
+}
+
+#WMDE_BannerForm-payment .amount-options td {
+    padding: 2px;
+}
+
+#WMDE_BannerForm-payment .amount-label {
+    width: 36px;
+    line-height: 22px;
+}
+
+#WMDE_BannerForm-payment .amount-radio {
+    margin: 3px 0 0 3px;
+}
+
+#WMDE_BannerForm-payment #amount-other-input {
+    width: 30px;
+}
+
+#WMDE_BannerForm-payment button {
     cursor: pointer;
     display: inline-block;
+    font-size: 13px !important;
     font-weight: bold;
     width: 110px;
     border: 3px double #ddd;
@@ -116,7 +128,7 @@
     margin: 0 1px;
 }
 
-#WMDE_BannerForm button.active {
+#WMDE_BannerForm-payment button.active {
     color: #FF6C00;
     background: #e5e5e5; /* Old browsers */
     background: -moz-linear-gradient(top, #e5e5e5 0%, #ffffff 100%); /* FF3.6+ */
@@ -127,6 +139,14 @@
     background: linear-gradient(to bottom, #e5e5e5 0%, #ffffff 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
     box-shadow: none;
+}
+
+#WMDE_BannerForm-payment button:hover {
+    color: #0645ad;
+}
+
+#WMDE_BannerForm-payment button.active:hover {
+    color: #FF6C00;
 }
 
 #WMDE_BannerForm button:hover {

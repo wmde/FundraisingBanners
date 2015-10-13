@@ -77,7 +77,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 									<td id="WMDE_BannerFullForm-wrapper">
 										<div id="WMDE_BannerFullForm-step1">
 											<table>
-												<tbody id="WMDE_BannerFullForm-payment">
+												<tbody id="WMDE_BannerForm-payment">
 												<tr class="frequency-options">
 													<td colspan="2">
 														<input checked="checked" class="amount-radio"
