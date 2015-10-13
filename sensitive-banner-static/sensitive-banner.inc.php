@@ -342,7 +342,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<table>
 														<tbody>
 														<tr>
-															<td colspan="2">
+															<td>
 																<label for="company-name">Firma</label><br/>
 																<input type="text" placeholder="Firma"
 																	   autocomplete="off"
@@ -358,7 +358,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<table>
 														<tbody>
 														<tr>
-															<td colspan="2">
+															<td>
 																<input type="radio" id="salutation-1" checked="checked"
 																	   title="Frau"
 																	   value="Frau"
@@ -381,28 +381,31 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</td>
 														</tr>
 														<tr>
-															<td style="padding:8px 0 0 8px">
-																<label for="first-name">Name</label><br/>
-																<input type="text" class="required small-input"
-																	   placeholder="Vorname"
-																	   title="Groß- und Kleinbuchstaben, Bindestriche und Leerzeichen"
-																	   autocomplete="off" name="vorname"
-																	   id="first-name">
-																<span class="validation icon-ok"></span>
-															</td>
-															<td style="padding:8px 8px 0 5px">
-																<br/>
-																<input type="text" class="required small-input focused"
-																	   placeholder="Nachname"
-																	   title="Groß- und Kleinbuchstaben, Bindestriche, Leerzeichen und Punkte"
-																	   autocomplete="off" name="nachname"
-																	   id="last-name">
-																<span class="validation"></span>
+															<td>
+																<div style="float: left; padding-right: 6px">
+																	<label for="first-name">Name</label><br/>
+																	<input type="text" class="required small-input"
+																		   placeholder="Vorname"
+																		   title="Groß- und Kleinbuchstaben, Bindestriche und Leerzeichen"
+																		   autocomplete="off" name="vorname"
+																		   id="first-name">
+																	<span class="validation icon-ok"></span>
+																</div>
+																<div style="float: left">
+																	<br/>
+																	<input type="text"
+																		   class="required small-input focused"
+																		   placeholder="Nachname"
+																		   title="Groß- und Kleinbuchstaben, Bindestriche, Leerzeichen und Punkte"
+																		   autocomplete="off" name="nachname"
+																		   id="last-name">
+																	<span class="validation"></span>
 
-																<div class="form-field-error-box">
-																	<div class="form-field-error-arrow"></div>
+																	<div class="form-field-error-box">
+																		<div class="form-field-error-arrow"></div>
 											<span
 												class="form-field-error-text">Bitte f&uuml;llen Sie dieses Feld aus.</span>
+																	</div>
 																</div>
 															</td>
 														</tr>
@@ -413,7 +416,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<table>
 														<tbody>
 														<tr>
-															<td colspan="2">
+															<td>
 																<label for="street">Straße</label><br/>
 																<input type="text" class="required invalid"
 																	   placeholder="z.B. Musterstraße 123"
@@ -428,24 +431,26 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</td>
 														</tr>
 														<tr>
-															<td style="padding:8px 0 0 8px">
-																<label for="post-code">PLZ &amp; Ort</label><br/>
-																<input type="text" class="required small-input"
-																	   title="Fünfstellige Postleitzahl"
-																	   placeholder="z.B. 10117" autocomplete="off"
-																	   name="plz"
-																	   id="post-code">
-																<span class="validation"></span>
-															</td>
-															<td style="padding:8px 8px 0 5px">
-																<br/>
-																<input type="text" class="required small-input"
-																	   placeholder="z.B. Berlin"
-																	   autocomplete="off" name="ort" id="city">
-																<span class="validation"></span>
+															<td>
+																<div style="float: left; padding-right: 6px">
+																	<label for="post-code">PLZ &amp; Ort</label><br/>
+																	<input type="text" class="required small-input"
+																		   title="Fünfstellige Postleitzahl"
+																		   placeholder="z.B. 10117" autocomplete="off"
+																		   name="plz"
+																		   id="post-code">
+																	<span class="validation"></span>
+																</div>
+																<div style="float: left">
+																	<br/>
+																	<input type="text" class="required small-input"
+																		   placeholder="z.B. Berlin"
+																		   autocomplete="off" name="ort" id="city">
+																	<span class="validation"></span>
+																</div>
 															</td>
 														<tr>
-															<td colspan="2">
+															<td>
 																<label for="country">Land</label><br/>
 																<select title="Land" name="country" id="country">
 																	<option value="DE">Deutschland</option>
@@ -459,7 +464,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</td>
 														</tr>
 														<tr>
-															<td colspan="2">
+															<td>
 																<label for="email">E-Mail</label><br/>
 																<input type="text" placeholder="z.B. name@domain.de"
 																	   class="required"
@@ -492,10 +497,12 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													</tr>
 													<tr>
 														<td>
-															<button type="submit" class="submit" id="WMDE_BannerFullForm-next">
+															<button type="submit" class="submit"
+																	id="WMDE_BannerFullForm-next">
 																Weiter um Spende abzuschließen
 															</button>
-															<button type="submit" class="submit" id="WMDE_BannerFullForm-finish">
+															<button type="submit" class="submit"
+																	id="WMDE_BannerFullForm-finish">
 																Jetzt f&uuml;r Wikipedia spenden <span
 																	class="mark-ok"></span>
 															</button>
@@ -588,7 +595,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td>
-														<button type="submit" class="submit" id="WMDE_BannerFullForm-finish-sepa">
+														<button type="submit" class="submit"
+																id="WMDE_BannerFullForm-finish-sepa">
 															Jetzt f&uuml;r Wikipedia spenden <span
 																class="mark-ok"></span>
 														</button>

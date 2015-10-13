@@ -169,13 +169,20 @@ td#WMDE_BannerFullForm-wrapper {
     margin-right: 3px;
 }
 
-#WMDE_BannerFullForm input[type=text], #WMDE_BannerFullForm input[type=tel], #WMDE_BannerFullForm select {
+#WMDE_BannerFullForm input[type=text], #WMDE_BannerFullForm input[type=tel] {
     width: 244px;
 }
 
-#WMDE_BannerFullForm input.small-input, #WMDE_BannerFullForm select.small-input {
-    width: auto;
-    max-width: 111px;
+#WMDE_BannerFullForm select {
+    width: 248px;
+}
+
+#WMDE_BannerFullForm input.small-input {
+    width: 117px;
+}
+
+#WMDE_BannerFullForm select.small-input {
+    width: 96px;
 }
 
 #WMDE_BannerFullForm #send-information {
