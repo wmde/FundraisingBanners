@@ -18,7 +18,8 @@
 
 	Form.prototype._initSubmitHandler = function() {
 		var self = this;
-		$( '#' + banner.config.form.formId ).on( 'submit', function() {
+		var form = $( '#' + banner.config.form.formId );
+		form.on( 'submit', function() {
 			if( !self.validated && !self.validationPending ) {
 				self.validated = false;
 				self.validationPending = true;
@@ -28,9 +29,10 @@
 						self.validationPending = false;
 						if( validationResult.validated ) {
 							self.validated = true;
-							$( '#' + banner.config.form.formId ).submit();
+							form.submit();
 						} else {
 							self._applyValidationErrors( validationResult.fieldsMissingValue, validationResult.fieldsWithInvalidValue );
+							form.trigger( 'banner:validationFailed' );
 						}
 					} );
 			}
@@ -108,27 +110,15 @@
 		var self = this;
 		$( '#' + banner.config.form.formId + ' :input' ).each( function( index, element ) {
 			if( $.inArray( $( element ).attr( 'name' ), fieldsMissingValue ) > -1 ) {
-				self._markMissing( $( element ) );
+				$( element ).trigger ( 'banner:missingValue' );
 				return true;
 			}
 			if( $.inArray( $( element ).attr( 'name' ), fieldsWithInvalidValue ) > -1 ) {
-				self._markInvalid( $( element ) );
+				$( element ).trigger ( 'banner:invalidValue' );
 				return true;
 			}
-			self._markValid( $( element ) );
+			$( element ).trigger ( 'banner:validValue' );
 		} );
-	};
-
-	Form.prototype._markInvalid = function( $element ) {
-		$element.removeClass( 'valid' ).addClass( 'invalid' );
-	};
-
-	Form.prototype._markMissing = function( $element ) {
-		$element.removeClass( 'valid' ).addClass( 'invalid' );
-	};
-
-	Form.prototype._markValid = function( $element ) {
-		$element.removeClass( 'invalid' ).addClass( 'valid' );
 	};
 
 	banner.form = new Form();
