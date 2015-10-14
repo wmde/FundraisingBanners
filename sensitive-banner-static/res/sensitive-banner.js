@@ -8,10 +8,12 @@ $( function() {
 	unlockForm();
 
 	$( '#interval_onetime' ).on( 'click', function() {
-		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '158px' )
+		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '158px' );
+		$( '.interval-options input[name=interval]').prop( 'checked', false );
 	} );
 	$( '#interval_multiple' ).on( 'click', function() {
-		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '204px' )
+		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '204px' );
+		$( '#interval1').prop( 'checked', 'checked' );
 	} );
 
 	paymentButtons.on( 'click', function( e ) {
@@ -266,4 +268,3 @@ function hideTaxBox( whenDone ) {
 	} );
 
 }
-
