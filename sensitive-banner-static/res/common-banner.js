@@ -6,7 +6,7 @@ $( function() {
 		if ( Math.random() < 0.01 ) {
 			$( '#WMDE_Banner-close-ct' ).attr( 'src', 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/{{{BannerName}}}&rec=1' );
 		}
-		hideBanner();
+		mw.centralNotice.hideBanner();
 		removeBannerSpace();
 		return false;
 	} );
