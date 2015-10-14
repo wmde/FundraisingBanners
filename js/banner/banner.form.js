@@ -12,7 +12,11 @@
 		this.validated = false;
 		this.validationPending = false;
 		$( document ).ready( function() {
+			self.amountValidationAnchor = $( '#amount75' );
 			self._initSubmitHandler();
+			$( '#' + banner.config.form.formId + ' .amount-radio' ).on( 'click', function() {
+				self._clearElementValidity( self.amountValidationAnchor );
+			} );
 		} );
 	}
 
@@ -41,9 +45,18 @@
 	};
 
 	Form.prototype._clearValidity = function() {
+		var self = this;
 		$( '#' + banner.config.form.formId + ' :input' ).each( function( index, element ) {
-			$( element ).removeClass( 'valid' ).removeClass( 'invalid' );
+			self._clearElementValidity( $( element ) );
 		} );
+		self._clearElementValidity( this.amountValidationAnchor );
+	};
+
+	Form.prototype._clearElementValidity = function( $element ) {
+		var $parent = $element.parent();
+		$element.removeClass( 'invalid' ).removeClass( 'valid' );
+		$( '.validation', $parent ).removeClass( 'icon-bug' ).removeClass( 'icon-ok' );
+		$( '.form-field-error-box', $parent ).remove();
 	};
 
 	/**
@@ -107,7 +120,22 @@
 	 * @param {string[]} fieldsWithInvalidValue
 	 */
 	Form.prototype._applyValidationErrors = function( fieldsMissingValue, fieldsWithInvalidValue ) {
-		var self = this;
+		var self = this,
+			valueMissingIndex = $.inArray( 'betrag', fieldsMissingValue ),
+			valueInvalidIndex = $.inArray( 'betrag', fieldsWithInvalidValue );
+		if ( valueInvalidIndex > -1 ) {
+			this._showError( this.amountValidationAnchor, 'Bitte geben Sie einen gültigen Betrag ein.' );
+			fieldsWithInvalidValue.splice( valueInvalidIndex, 1 );
+			// Invalid values cause this
+			if ( valueMissingIndex > -1 ) {
+				fieldsMissingValue.splice( valueMissingIndex, 1 );
+			}
+		}
+		if ( valueMissingIndex > -1 ) {
+			this._showError( this.amountValidationAnchor, 'Bitte geben Sie einen Betrag ein.' );
+			fieldsMissingValue.splice( valueMissingIndex, 1 );
+		}
+
 		$( '#' + banner.config.form.formId + ' :input' ).each( function( index, element ) {
 			if( $.inArray( $( element ).attr( 'name' ), fieldsMissingValue ) > -1 ) {
 				self._markMissing( $( element ) );
@@ -132,19 +160,29 @@
 	};
 
 	Form.prototype._showError = function( $element ) {
-		var $parent = $element.parent();
-		$element.removeClass( 'valid' ).addClass( 'invalid' );
-		$( '.validation', $parent ).removeClass( 'icon-ok' ).addClass( 'icon-bug' );
+		var $parent = $element.parent(),
+			errorText;
+		if ( arguments.length > 1 ) {
+			errorText = arguments[1];
+		}
+		else {
+			errorText = 'Bitte korrigieren Sie dieses Feld.';
+		}
+		$element.addClass( 'invalid' );
+		$( '.validation', $parent ).addClass( 'icon-bug' );
 		if ( !$( '.form-field-error-box', $parent ).length ) {
-			$parent.append( '<div class="form-field-error-box"><div class="form-field-error-arrow"></div><span class="form-field-error-text">Bitte korrigieren Sie dieses Feld.</span></div></div>' );
+			$parent.append(
+				'<div class="form-field-error-box"><div class="form-field-error-arrow"></div><span class="form-field-error-text">' +
+				errorText +
+				'</span></div></div>'
+			);
 		}
 	}
 
 	Form.prototype._markValid = function( $element ) {
 		var $parent = $element.parent();
-		$element.removeClass( 'invalid' ).addClass( 'valid' );
-		$( '.validation', $parent ).removeClass( 'icon-bug' ).addClass( 'icon-ok' );
-		$( '.form-field-error-box', $parent ).remove();
+		$element.addClass( 'valid' );
+		$( '.validation', $parent ).addClass( 'icon-ok' );
 	};
 
 	banner.form = new Form();
