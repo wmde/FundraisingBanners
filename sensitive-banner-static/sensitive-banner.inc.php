@@ -429,7 +429,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																	   class="salutation-label">Herr</label>
 																<select name="titel" id="personal-title"
 																		class="small-input">
-																	<option data-behavior="placeholder">Kein Titel
+																	<option data-behavior="placeholder" value="">Kein Titel
 																	</option>
 																	<option value="Dr.">Dr.</option>
 																	<option value="Prof.">Prof.</option>
