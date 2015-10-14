@@ -14,6 +14,7 @@
 		$( document ).ready( function() {
 			self.amountValidationAnchor = $( '#amount75' );
 			self._initSubmitHandler();
+			self._initFieldClearHandlers();
 			$( '#' + banner.config.form.formId + ' .amount-radio' ).on( 'click', function() {
 				self._clearElementValidity( self.amountValidationAnchor );
 			} );
@@ -43,6 +44,40 @@
 			return self.validated;
 		} );
 	};
+
+	Form.prototype._initFieldClearHandlers = function() {
+		var clearBankData = function() {
+			$( '#' + banner.config.form.formId + ' input[name=bic]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=iban]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=konto]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=blz]').val( '' );
+		}
+		$( '#address-type-1' ).on( 'click', function() {
+			$( '#' + banner.config.form.formId + ' input[name=firma]').val('');
+		} );
+		$( '#address-type-2' ).on( 'click', function() {
+			$( '#' + banner.config.form.formId + ' input[name=vorname]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=nachname]').val( '' );
+			$( '#' + banner.config.form.formId + ' select[name=titel]').val( '' );
+		} );
+		$( '#address-type-3' ).on( 'click', function() {
+			$( '#' + banner.config.form.formId + ' input[name=firma]').val('');
+			$( '#' + banner.config.form.formId + ' input[name=vorname]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=nachname]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=anrede]').prop( 'checked', false );
+			$( '#' + banner.config.form.formId + ' select[name=titel]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=email]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=plz]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=ort]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=strasse]').val( '' );
+		} );
+		$( '#WMDE_BannerForm-payment button' ).each( function( index, element ) {
+			var $element = $( element );
+			if ( $element.data( 'payment-type' ) != 'BEZ' ) {
+				$element.on( 'click', clearBankData );
+			}
+		} );
+	}
 
 	Form.prototype._clearValidity = function() {
 		var self = this;
