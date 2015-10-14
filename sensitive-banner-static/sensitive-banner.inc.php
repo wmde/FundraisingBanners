@@ -625,6 +625,14 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 				</tr>
 				</tbody>
 			</table>
+
+			<input type="hidden" name="periode" id="periode" value=""/>
+			<input type="hidden" name="intervalType" id="intervalType" value="0"/>
+			<input type="hidden" id="form-page" name="form" value="{{{form-name}}}"/>
+			<input type="hidden" id="wikilogin" name="wikilogin" value="no"/>
+			<input type="hidden" id="impCount" name="impCount" value=""/>
+			<input type="hidden" id="bImpCount" name="bImpCount" value=""/>
+			<input type="hidden" id="zahlweise" name="zahlweise" value=""/>
 		</form>
 	</div>
 	<div id="WMDE_BannerFullForm-arrow">&nbsp;</div>
