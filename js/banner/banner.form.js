@@ -110,15 +110,41 @@
 		var self = this;
 		$( '#' + banner.config.form.formId + ' :input' ).each( function( index, element ) {
 			if( $.inArray( $( element ).attr( 'name' ), fieldsMissingValue ) > -1 ) {
-				$( element ).trigger ( 'banner:missingValue' );
+				self._markMissing( $( element ) );
 				return true;
 			}
 			if( $.inArray( $( element ).attr( 'name' ), fieldsWithInvalidValue ) > -1 ) {
-				$( element ).trigger ( 'banner:invalidValue' );
+				self._markInvalid( $( element ) );
 				return true;
 			}
-			$( element ).trigger ( 'banner:validValue' );
+			self._markValid( $( element ) );
 		} );
+	};
+
+	Form.prototype._markInvalid = function( $element ) {
+		this._showError( $element );
+	};
+
+	Form.prototype._markMissing = function( $element ) {
+		// Since the server-side validation does not get missing fields except for amount,
+		// we use a more generic error message and handle the errors the same
+		this._showError( $element );
+	};
+
+	Form.prototype._showError = function( $element ) {
+		var $parent = $element.parent();
+		$element.removeClass( 'valid' ).addClass( 'invalid' );
+		$( '.validation', $parent ).removeClass( 'icon-ok' ).addClass( 'icon-bug' );
+		if ( !$( '.form-field-error-box', $parent ).length ) {
+			$parent.append( '<div class="form-field-error-box"><div class="form-field-error-arrow"></div><span class="form-field-error-text">Bitte korrigieren Sie dieses Feld.</span></div></div>' );
+		}
+	}
+
+	Form.prototype._markValid = function( $element ) {
+		var $parent = $element.parent();
+		$element.removeClass( 'invalid' ).addClass( 'valid' );
+		$( '.validation', $parent ).removeClass( 'icon-bug' ).addClass( 'icon-ok' );
+		$( '.form-field-error-box', $parent ).remove();
 	};
 
 	banner.form = new Form();
