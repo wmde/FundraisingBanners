@@ -925,7 +925,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 		<div style="clear:right;"></div>
 	</div>
 
-	<img id="banner-close-ct" src="" border="0" height="0" width="0">
+	<img id="WMDE_Banner-close-ct" src="" border="0" height="0" width="0">
 </div>
 
 <script type="text/javascript">
@@ -946,16 +946,6 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 //		if ( wgUserName !== null ) $( '#wikilogin' ).val( 'yes' );
 		$( window ).resize( function() {
 			animateProgressBar();
-		} );
-
-		$( '#WMDE_Banner-close' ).click( function() {
-			if ( Math.random() < 0.01 ) {
-//				$( '#banner-close-ct' ).attr( 'src', 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/org-43-141225-ctrl&rec=1' );
-			}
-//			hideBanner();
-			$( '#WMDE_Banner' ).hide();
-			removeBannerSpace();
-			return false;
 		} );
 
 		var dayName = getCurrentGermanDay();

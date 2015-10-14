@@ -2,6 +2,15 @@ var finalDateTime = new Date( 2015, 0, 1, 5, 0, 0 );
 var goalSum = 8200000;
 
 $( function() {
+	$( '#WMDE_Banner-close' ).click( function() {
+		if ( Math.random() < 0.01 ) {
+			$( '#WMDE_Banner-close-ct' ).attr( 'src', 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/{{{BannerName}}}&rec=1' );
+		}
+		hideBanner();
+		removeBannerSpace();
+		return false;
+	} );
+
 	$( '#amount-other-input' ).on( 'click', function() {
 		$( 'input:radio[name=betrag_auswahl]' ).prop( 'checked', false );
 		$( '#amount_other' ).prop( 'checked', true );
