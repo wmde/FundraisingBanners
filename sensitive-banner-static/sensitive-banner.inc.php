@@ -253,23 +253,23 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td colspan="2" style="text-align: left">
-														<button onclick="showDebitDonation(this)">Lastschrift
+														<button data-payment-type="BEZ" onclick="showDebitDonation(this)">Lastschrift
 														</button>
 													</td>
 													<td colspan="2" style="text-align: right">
-														<button onclick="showDepositDonation(this)">Überweisung
+														<button data-payment-type="UEB" onclick="showDepositDonation(this)">Überweisung
 														</button>
 														<br>
 													</td>
 												</tr>
 												<tr>
 													<td colspan="2" style="padding:8px 0 0 8px; text-align: left">
-														<button onclick="showCreditDonation(this)">
+														<button data-payment-type="MCP" onclick="showCreditDonation(this)">
 															Kreditkarte
 														</button>
 													</td>
 													<td colspan="2" style="padding:8px 8px 0 5px; text-align: right">
-														<button id="btn-ppl" onclick="showPayPalDonation(this)">
+														<button id="btn-ppl" data-payment-type="PPL" onclick="showPayPalDonation(this)">
 															PayPal
 														</button>
 													</td>

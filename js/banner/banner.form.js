@@ -63,28 +63,46 @@
 	 * @return {Object}
 	 */
 	Form.prototype._getFormData = function() {
-		var formId = banner.config.form.formId;
-		return {
-			adresstyp: $( '#' + formId + ' :input[name="adresstyp"]' ).val(),
-			anrede: $( '#' + formId + ' :input[name="anrede"]' ).val(),
-			bankname: $( '#' + formId + ' :input[name="bankname"]' ).val(),
-			betrag: getAmount(),
-			bic: $( '#' + formId + ' :input[name="bic"]' ).val(),
-			blz: $( '#' + formId + ' :input[name="blz"]' ).val(),
-			country: $( '#' + formId + ' :input[name="country"]' ).val(),
-			email: $( '#' + formId + ' :input[name="email"]' ).val(),
-			firma: $( '#' + formId + ' :input[name="firma"]' ).val(),
-			iban: $( '#' + formId + ' :input[name="iban"]' ).val(),
-			konto: $( '#' + formId + ' :input[name="konto"]' ).val(),
-			nachname: $( '#' + formId + ' :input[name="nachname"]' ).val(),
-			ort: $( '#' + formId + ' :input[name="ort"]' ).val(),
-			periode: $( '#' + formId + ' :input[name="periode"]' ).val(),
-			plz: $( '#' + formId + ' :input[name="plz"]' ).val(),
-			strasse: $( '#' + formId + ' :input[name="strasse"]' ).val(),
-			titel: $( '#' + formId + ' :input[name="titel"]' ).val(),
-			vorname: $( '#' + formId + ' :input[name="vorname"]' ).val(),
-			zahlweise: $( '#' + formId + ' :input[name="zahlweise"]' ).val()
+		var formId = banner.config.form.formId,
+			formData = {
+				adresstyp: $( '#' + formId + ' input[name="adresstyp"]:checked' ).val(),
+				betrag: getAmount(),
+				periode: $( '#' + formId + ' :input[name="periode"]' ).val(),
+				zahlweise:  $( '#WMDE_BannerForm-payment button.active' ).data( 'payment-type' )
 		};
+		if ( formData.adresstyp !== 'anonym' ) {
+			$.extend( formData, {
+				country: $( '#' + formId + ' select[name="country"]' ).val(),
+				email: $( '#' + formId + ' :input[name="email"]' ).val(),
+				ort: $( '#' + formId + ' :input[name="ort"]' ).val(),
+				plz: $( '#' + formId + ' :input[name="plz"]' ).val(),
+				strasse: $( '#' + formId + ' :input[name="strasse"]' ).val()
+			} );
+		}
+		if ( formData.adresstyp === 'person' ) {
+			$.extend( formData, {
+				anrede: $( '#' + formId + ' input[name="anrede"]:checked' ).val(),
+				titel: $( '#' + formId + ' select[name="titel"]' ).val(),
+				vorname: $( '#' + formId + ' :input[name="vorname"]' ).val(),
+				nachname: $( '#' + formId + ' :input[name="nachname"]' ).val()
+			} );
+		}
+		else if ( formData.adresstyp === 'firma' ) {
+			$.extend( formData, {
+				firma: $( '#' + formId + ' :input[name="firma"]' ).val(),
+				anrede: 'Firma'
+			} );
+		}
+		if ( formData.zahlweise === 'BEZ' ) {
+			$.extend( formData, {
+				bankname: $( '#' + formId + ' :input[name="bankname"]' ).val(),
+				bic: $( '#' + formId + ' :input[name="bic"]' ).val(),
+				blz: $( '#' + formId + ' :input[name="blz"]' ).val(),
+				iban: $( '#' + formId + ' :input[name="iban"]' ).val(),
+				konto: $( '#' + formId + ' :input[name="konto"]' ).val()
+			} );
+		}
+		return formData;
 	};
 
 	/**
