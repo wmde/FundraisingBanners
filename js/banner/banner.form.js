@@ -73,7 +73,8 @@
 		} );
 		$( '#WMDE_BannerForm-payment button' ).each( function( index, element ) {
 			var $element = $( element );
-			if ( $element.data( 'payment-type' ) != 'BEZ' ) {
+
+			if ( $element.data( 'behavior' ) == 'clearBankData' ) {
 				$element.on( 'click', clearBankData );
 			}
 		} );
@@ -103,7 +104,7 @@
 				adresstyp: $( '#' + formId + ' input[name="adresstyp"]:checked' ).val(),
 				betrag: getAmount(),
 				periode: $( '#' + formId + ' :input[name="periode"]' ).val(),
-				zahlweise:  $( '#WMDE_BannerForm-payment button.active' ).data( 'payment-type' )
+				zahlweise:  $( '#zahlweise' )
 		};
 		if ( formData.adresstyp !== 'anonym' ) {
 			$.extend( formData, {
