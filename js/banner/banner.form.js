@@ -104,7 +104,7 @@
 				adresstyp: $( '#' + formId + ' input[name="adresstyp"]:checked' ).val(),
 				betrag: getAmount(),
 				periode: $( '#' + formId + ' :input[name="periode"]' ).val(),
-				zahlweise:  $( '#zahlweise' )
+				zahlweise:  $( '#zahlweise' ).val()
 		};
 		if ( formData.adresstyp !== 'anonym' ) {
 			$.extend( formData, {
