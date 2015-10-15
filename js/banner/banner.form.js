@@ -24,6 +24,7 @@
 	Form.prototype._initSubmitHandler = function() {
 		var self = this;
 		var form = $( '#' + banner.config.form.formId );
+		form.prop( 'action', banner.config.form.formAction );
 		form.on( 'submit', function() {
 			if( !self.validated && !self.validationPending ) {
 				self.validated = false;
@@ -34,6 +35,7 @@
 						self.validationPending = false;
 						if( validationResult.validated ) {
 							self.validated = true;
+							form.trigger( 'banner:validationSucceeded' );
 							form.submit();
 						} else {
 							self._applyValidationErrors( validationResult.fieldsMissingValue, validationResult.fieldsWithInvalidValue );

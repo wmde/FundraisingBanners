@@ -6,13 +6,15 @@
  */
 ( function( Banner ) {
 	'use strict';
-	
+
 	Banner.config = {
 		encryption: {
 			libUrl: '../js/lib/openpgp.min.js',
 			publicKey: ''
 		},
 		form: {
+			formId: '',
+			formAction: 'https://spenden.wikimedia.de/spenden/'
 		},
 		tracking: {
 			campaign: 'default',

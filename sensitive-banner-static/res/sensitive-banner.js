@@ -94,6 +94,10 @@ $( function() {
 		$( '#WMDE_BannerFullForm-finish' ).removeClass( 'waiting' );
 	} );
 
+	$( '#donationForm' ).on( 'banner:validationSucceeded', function() {
+		unlockForm();
+	} );
+
 } );
 
 function lockForm() {

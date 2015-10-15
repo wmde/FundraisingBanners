@@ -19,7 +19,7 @@
 	Banner.config.setConfig(
 		{
 			api: {
-				apiUrl: "http://spenden.wikimedia.dev/ajax.php"
+				apiUrl: 'http://spenden.wikimedia.dev/ajax.php'
 			},
 			encryption: {
 				publicKey:
@@ -55,7 +55,8 @@
 				'-----END PGP PUBLIC KEY BLOCK-----\n'
 			},
 			form: {
-				formId: 'donationForm'
+				formId: 'donationForm',
+				formAction: 'http://spenden.wikimedia.dev/spenden/index.php'
 			}
 		}
 	);
