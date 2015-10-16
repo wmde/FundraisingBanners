@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <link type="text/css" rel="stylesheet" href="css/lightbox.css">
+  <link type="text/css" rel="stylesheet" href="css/icon.css">
+  <script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="js/lightbox.js"></script>
+</head>
+
+<body>
+<div class="banner-lightbox banner-lightbox-small">
+  <span class="icon-cross banner-lightbox-close"></span>
+
+  <div class="banner-lightbox-title">
+    <span class="icon-parcel"></span>Spenden Sie mit Bitcoins*
+  </div>
+  <form method="post" action="https://bitpay.com/checkout" id="bitpay-donate" target="_blank">
+    <input type="hidden" value="checkout" name="action">
+    <input type="hidden" value="Spenden Sie für Wikimedia" name="itemDesc">
+    <input type="hidden" value="high" name="transactionSpeed">
+    <input type="hidden" value="BTC" name="currency">
+
+    <div id="bitpay-amount">
+      <label for="bitpay-price" class="bitcoin-label">Betrag</label>
+      <input type="number" max="250" min="0" step="0.001" value="0.05" name="price" id="bitpay-price">
+      <span>BTC</span>
+    </div>
+
+    <input type="hidden"
+           value="qzmQdxwfdUmodwKMJNf1ZLCaqI7nSBHdcjBHeApe31R0EUwzdqP6TqwS93hoPmzW8DC6OSBIEAdKv+eYfdHWWUhxxxpDBWngXiVUnfWE8IAJbCnHqmiNA+DxKrkKBZue9L62aCvon4jxDekKRyxNpYU/xSCkSeUoBvacSRn511l0CI5sXwMgMgDG1VCTEhOLc1FavrDfsquP8arPOomNOcydBn5OE8TXiLX0EndBjuPENr+pnWfP98GvAIFulO8pm9IlaN/xG5TNjU12HwN4hSTfTRi5vOVyd2DhjY7pXD2RzDdYDdd2Ym0phNLPR0oA"
+           name="data">
+
+    <div id="bitpay-donate-button-wrapper">
+      <input width="126" type="image" height="48" alt="BitPay, the easy way to pay with bitcoins."
+             onerror="this.onerror=null; this.src='https://bitpay.com/img/donate-button-md.png'"
+             src="https://bitpay.com/img/donate-button.svg" name="submit" class="bitpay-donate-button">
+    </div>
+
+    <p id="bitpay-info-text">
+      * Nach Dr&uuml;cken des Spendenbuttons werden Sie auf eine gesicherte Seite unseres Bitcoin-Dienstleisters BitPay
+      weitergeleitet.
+    </p>
+  </form>
+</div>
+</body>
+
+</html>
