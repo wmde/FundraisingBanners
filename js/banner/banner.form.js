@@ -53,7 +53,7 @@
 			$( '#' + banner.config.form.formId + ' input[name=iban]').val( '' );
 			$( '#' + banner.config.form.formId + ' input[name=konto]').val( '' );
 			$( '#' + banner.config.form.formId + ' input[name=blz]').val( '' );
-		}
+		};
 		$( '#address-type-1' ).on( 'click', function() {
 			$( '#' + banner.config.form.formId + ' input[name=firma]').val('');
 		} );
@@ -76,11 +76,11 @@
 		$( '#WMDE_BannerForm-payment button' ).each( function( index, element ) {
 			var $element = $( element );
 
-			if ( $element.data( 'behavior' ) == 'clearBankData' ) {
+			if ( $element.data( 'behavior' ) === 'clearBankData' ) {
 				$element.on( 'click', clearBankData );
 			}
 		} );
-	}
+	};
 
 	Form.prototype._clearValidity = function() {
 		var self = this;
@@ -101,6 +101,7 @@
 	 * @return {Object}
 	 */
 	Form.prototype._getFormData = function() {
+		/* globals getAmountValue */
 		var formId = banner.config.form.formId,
 			formData = {
 				adresstyp: $( '#' + formId + ' input[name="adresstyp"]:checked' ).val(),
@@ -233,7 +234,7 @@
 				'</span></div></div>'
 			);
 		}
-	}
+	};
 
 	Form.prototype._markValid = function( $element ) {
 		var $parent = $element.parent();
