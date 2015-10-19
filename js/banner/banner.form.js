@@ -11,9 +11,11 @@
 		var self = this;
 		this.validated = false;
 		this.validationPending = false;
+		this.bankCheckPending = false;
 		$( document ).ready( function() {
 			self.amountValidationAnchor = $( '#amount75' );
 			self._initSubmitHandler();
+			self._initBankDataHandler();
 			self._initFieldClearHandlers();
 			$( '#' + banner.config.form.formId + ' .amount-radio' ).on( 'click', function() {
 				self._clearElementValidity( self.amountValidationAnchor );
@@ -80,6 +82,64 @@
 				$element.on( 'click', clearBankData );
 			}
 		} );
+	};
+
+	Form.prototype._initBankDataHandler = function() {
+		$( '#account-number, #bank-code, #iban' ).on( 'change', this.checkBankData.bind( this ) );
+	};
+
+	Form.prototype.checkBankData = function ( evt ) {
+		var cleanBankData = function ( data, isIBAN ) {
+			data = data.toString();
+			if ( isIBAN ) {
+				data = data.toUpperCase();
+				return data.replace( /[^0-9A-Z]/g, '' );
+			} else {
+				return data.replace( /[^0-9]/g, '' );
+			}
+		},
+		self = this,
+		data, apiMethod;
+
+		if ( evt.target.id === 'account-number' || evt.target.id === 'bank-code' ) {
+			var accNumElm = $( '#account-number' );
+			var bankCodeElm = $( '#bank-code' );
+
+			if( accNumElm.val() === '' || bankCodeElm.val() === '' ) {
+				return;
+			}
+			data = {
+				accNum: cleanBankData( accNumElm.val(), false ),
+				bankCode: cleanBankData( bankCodeElm.val(), false )
+			};
+			apiMethod = banner.api.sendIbanGenerationRequest.bind( banner.api );
+		} else if ( evt.target.id === 'iban' ) {
+			data = { iban: cleanBankData(evt.target.value, true) };
+			apiMethod = banner.api.sendIbanCheckRequest.bind( banner.api );
+		}
+		$( '#bic, #iban, #account-number, #bank-code').each( function ( index, element ) {
+			self._clearElementValidity( $( element ) );
+		} );
+		this.bankCheckPending = true;
+		apiMethod( data ).then( this._setBankdataAfterCheck.bind( this ) );
+	};
+
+	Form.prototype._setBankdataAfterCheck = function ( data ) {
+		var $iban = $( '#iban' ),
+			errorMessage;
+		if ( data.status === 'OK' ) {
+			$iban.val( data.iban ? data.iban : '' );
+			$( '#bic' ).val( data.bic ? data.bic : '' );
+			$( '#account-number' ).val( data.account ? data.account : '' );
+			$( '#bank-code' ).val( data.bankCode ? data.bankCode : '' );
+
+		} else {
+			$iban.val( '' );
+			errorMessage = data.message || 'Die eingegebenen Bankdaten sind nicht korrekt.';
+			this._showError( $iban, errorMessage );
+			this._showError( $( '#account-number' ), errorMessage );
+		}
+		this.bankCheckPending = false;
 	};
 
 	Form.prototype._clearValidity = function() {
