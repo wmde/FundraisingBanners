@@ -3,7 +3,11 @@ var paySEPA = true;
 var addressType = 'private';
 
 $( function() {
-	var paymentButtons = $( '#WMDE_BannerForm-payment button' );
+	var paymentButtons = $( '#WMDE_BannerForm-payment button' ),
+		fundsBox = new BannerModalInfobox( 'funds' ),
+		taxesBox = new BannerModalInfobox( 'taxes' ),
+		bitcoinBox = new BannerModalInfobox( 'bitcoin' ),
+		dataProtectionBox = new BannerModalInfobox( 'dataprotection' );
 
 	unlockForm();
 
@@ -203,85 +207,48 @@ function resetButtons() {
 
 /* LightBoxes show and hide */
 
-function toggleFundsBox() {
-	if ( $( '#WMDE_BannerFullForm-funds-link' ).hasClass( 'opened' ) ) {
-		hideFundsBox();
-	} else {
-		showFundsBox();
+/**
+ * This class handles showing and hiding the info boxes that are linked.
+ * Whenever an infobox is opened, the other in foxes are closed.
+ */
+function BannerModalInfobox( boxName ) {
+	this.$box = $( '#WMDE_BannerFullForm-' + boxName );
+	this.$link = $( '#WMDE_BannerFullForm-' + boxName + '-link' );
+	this.boxName = boxName;
+	this.$box.on( 'banner:openInfobox', this.open.bind( this ) );
+	this.$box.on( 'banner:closeInfobox', this.close.bind( this ) );
+	this.$link.on( 'click', this.toggle.bind( this ) );
+	$( '.banner-lightbox-close', this.$box ).on( 'click', this.close.bind( this ) );
+}
+
+BannerModalInfobox.prototype.toggle = function ( e ) {
+	if ( this.$box.hasClass( 'opened' ) ) {
+		 this.$box.trigger( 'banner:closeInfobox' );
+	}
+	else {
+		this.$box.trigger( 'banner:openInfobox' );
 	}
 }
 
-function toggleBitCoinBox() {
-	if ( $( '#WMDE_BannerFullForm-bitcoin-link' ).hasClass( 'opened' ) ) {
-		hideBitCoinBox();
-	} else {
-		showBitCoinBox();
+BannerModalInfobox.prototype.open = function ( e ) {
+	// close other banners
+	$( '.banner-unique' ).trigger( 'banner:closeInfobox' );
+
+	// wait for the slide-out to be done before showing banner
+	$( '.banner-unique' ).promise().done( function () {
+		$( '#WMDE_BannerFullForm-info' ).addClass( this.boxName );
+		this.$box.addClass( 'opened' );
+		this.$box.slideDown();
+	}.bind( this ) );
+}
+
+BannerModalInfobox.prototype.close = function ( e ) {
+	if ( !this.$box.hasClass( 'opened' ) ) {
+		return;
 	}
-}
-
-function toggleTaxBox() {
-	if ( $( '#WMDE_BannerFullForm-taxes-link' ).hasClass( 'opened' ) ) {
-		hideTaxBox();
-	} else {
-		showTaxBox();
-	}
-}
-
-function showFundsBox() {
-	hideBitCoinBox( function() {
-		hideTaxBox( function() {
-			$( '#WMDE_BannerFullForm-info' ).addClass( 'funds' );
-			$( '#WMDE_BannerFullForm-funds' ).slideDown();
-		} );
-	} );
-}
-
-function showBitCoinBox() {
-	hideFundsBox( function() {
-		hideTaxBox( function() {
-			$( '#WMDE_BannerFullForm-bitcoin' ).slideDown();
-		} );
-	} );
-}
-
-function showTaxBox() {
-	hideFundsBox( function() {
-		hideBitCoinBox( function() {
-			$( '#WMDE_BannerFullForm-info' ).addClass( 'taxes' );
-			$( '#WMDE_BannerFullForm-taxes' ).slideDown();
-		} );
-	} );
-}
-
-function hideFundsBox( whenDone ) {
-	$( '#WMDE_BannerFullForm-funds' ).slideUp( 400, function() {
-		$( '#WMDE_BannerFullForm-info' ).removeClass( 'funds' );
-		$( '#WMDE_BannerFullForm-funds-link' ).removeClass( 'opened' );
-		if ( $.isFunction( whenDone ) ) {
-			whenDone();
-		}
-	} );
-
-}
-
-function hideBitCoinBox( whenDone ) {
-	$( '#WMDE_BannerFullForm-bitcoin' ).slideUp( 400, function() {
-		$( '#WMDE_BannerFullForm-bitcoin-link' ).removeClass( 'opened' );
-		if ( $.isFunction( whenDone ) ) {
-			whenDone();
-		}
-
-	} );
-}
-
-function hideTaxBox( whenDone ) {
-
-	$( '#WMDE_BannerFullForm-taxes' ).slideUp( 400, function() {
-		$( '#WMDE_BannerFullForm-info' ).removeClass( 'taxes' );
-		$( '#WMDE_BannerFullForm-taxes-link' ).removeClass( 'opened' );
-		if ( $.isFunction( whenDone ) ) {
-			whenDone();
-		}
-	} );
-
+	this.$box.slideUp( 400, function () {
+			this.$box.removeClass( 'opened' );
+			this.$link.removeClass( 'opened' );
+			$( '#WMDE_BannerFullForm-info' ).removeClass( this.boxName );
+	}.bind( this ) );
 }

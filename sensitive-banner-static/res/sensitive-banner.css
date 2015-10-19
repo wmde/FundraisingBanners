@@ -34,6 +34,10 @@
     display: none;
 }
 
+#WMDE_BannerFullForm-dataprotection {
+    display: none;
+}
+
 #WMDE_BannerFullForm-arrow {
     display: none;
     height: 27px;
@@ -291,19 +295,26 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
     width: 430px;
 }
 
+#WMDE_BannerFullForm-info.dataprotection {
+    width: 430px;
+}
+
 @media screen and (min-width: 1000px) {
-    #WMDE_BannerFullForm-info.taxes {
+    #WMDE_BannerFullForm-info.taxes,
+    #WMDE_BannerFullForm-info.dataprotection {
         width: 680px;
     }
 }
 
 @media screen and (min-width: 1250px) {
-    #WMDE_BannerFullForm-info.funds {
+    #WMDE_BannerFullForm-info.funds,
+    #WMDE_BannerFullForm-info.dataprotection {
         width: 940px;
     }
 }
 
-#WMDE_BannerFullForm-infolinks, #WMDE_BannerFullForm-security, #WMDE_BannerFullForm-taxes, #WMDE_BannerFullForm-bitcoin, #WMDE_BannerFullForm-funds {
+#WMDE_BannerFullForm-infolinks, #WMDE_BannerFullForm-security, #WMDE_BannerFullForm-taxes,
+#WMDE_BannerFullForm-bitcoin, #WMDE_BannerFullForm-funds, #WMDE_BannerFullForm-dataprotection {
     margin-top: 20px;
 }
 
@@ -311,6 +322,6 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
     float: right;
 }
 
-#WMDE_BannerFullForm-taxes, #WMDE_BannerFullForm-bitcoin, #WMDE_BannerFullForm-funds {
+#WMDE_BannerFullForm-taxes, #WMDE_BannerFullForm-bitcoin, #WMDE_BannerFullForm-funds, #WMDE_BannerFullForm-dataprotection  {
     float: left;
 }

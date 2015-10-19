@@ -643,29 +643,26 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 				<li>
 					<div class="lightbox-list-item">
 						<span class="icon-bar-chart"></span>
-							<span id="WMDE_BannerFullForm-funds-link" class="list-item-title"
-								  onclick="toggleFundsBox()">Wohin geht das Geld?</span>
+							<span id="WMDE_BannerFullForm-funds-link" class="list-item-title">Wohin geht das Geld?</span>
 					</div>
 				</li>
 				<li>
 					<div class="lightbox-list-item">
 						<span class="icon-hand-right"></span>
-							<span id="WMDE_BannerFullForm-bitcoin-link" class="list-item-title"
-								  onclick="toggleBitCoinBox()">Bitcoins spenden</span>
+							<span id="WMDE_BannerFullForm-bitcoin-link" class="list-item-title">Bitcoins spenden</span>
 					</div>
 				</li>
 				<li>
 					<div class="lightbox-list-item last">
 						<span class="icon-hand-right"></span>
-								<span id="WMDE_BannerFullForm-taxes-link" class="list-item-title"
-									  onclick="toggleTaxBox()">Steuerlich absetzbar</span>
+								<span id="WMDE_BannerFullForm-taxes-link" class="list-item-title">Steuerlich absetzbar</span>
 					</div>
 				</li>
 			</ul>
 		</div>
 
-		<div id="WMDE_BannerFullForm-funds" class="banner-lightbox banner-lightbox-funds">
-			<span class="icon-cross banner-lightbox-close" onclick="hideFundsBox()"></span>
+		<div id="WMDE_BannerFullForm-funds" class="banner-lightbox banner-unique banner-lightbox-funds">
+			<span class="icon-cross banner-lightbox-close"></span>
 
 			<div class="banner-lightbox-title">
 				<span class="icon-bar-chart"></span>Wohin geht meine Spende?
@@ -782,8 +779,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			   class="banner-lightbox-more">Erfahren Sie mehr</a>
 		</div>
 
-		<div id="WMDE_BannerFullForm-bitcoin" class="banner-lightbox banner-lightbox-small">
-			<span class="icon-cross banner-lightbox-close" onclick="hideBitCoinBox()"></span>
+		<div id="WMDE_BannerFullForm-bitcoin" class="banner-lightbox banner-unique banner-lightbox-small">
+			<span class="icon-cross banner-lightbox-close"></span>
 
 			<div class="banner-lightbox-title">
 				<span class="icon-parcel"></span>Spenden Sie mit Bitcoins*
@@ -820,8 +817,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			</form>
 		</div>
 
-		<div id="WMDE_BannerFullForm-taxes" class="banner-lightbox banner-lightbox-tax">
-			<span class="icon-cross banner-lightbox-close" onclick="hideTaxBox()"></span>
+		<div id="WMDE_BannerFullForm-taxes" class="banner-lightbox banner-unique banner-lightbox-tax">
+			<span class="icon-cross banner-lightbox-close"></span>
 
 			<div class="banner-lightbox-title">
 				<span class="icon-hand-right"></span>Steuerlich absetzbar
@@ -893,6 +890,120 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			</p>
 		</div>
 
+		<div id="WMDE_BannerFullForm-dataprotection" class="banner-lightbox banner-unique banner-lightbox-dataprotection">
+			<span class="icon-cross banner-lightbox-close"></span>
+
+			<div class="banner-lightbox-title">
+				<span class="icon-hand-right"></span>Datenschutzbestimmungen
+				<a target="_blank" href="http://wikimedia.de/wiki/Transparenz"><span
+						class="logo-itz-white"></span></a>
+			</div>
+
+  <p>
+    <strong>Erhebung und Verarbeitung personenbezogener Spenderdaten</strong><br>
+    Die Wikimedia Fördergesellschaft erhebt und verarbeitet verschiedene personenbezogene Spenderdaten,
+    darunter Spendenhöhe, Adresse, Telefonnummer, Spendenkommentar und E-Mail-Adresse. Steuerrechtliche
+    Vorgaben verlangen, dass wir Kontaktdaten und Spendensummen vorhalten.
+  </p>
+  <p>
+    Wir werden personenbezogene Spenderdaten nicht veröffentlichen, verkaufen, vermieten oder anderweitig
+    anbieten, es sei denn, der Spender hat dies erlaubt, etwa zur Veröffentlichung im Spendenticker, oder
+    dies ist aufgrund der anwendbaren gesetzlichen Bestimmungen erforderlich und zulässig. Sollte ein Spender
+    nicht ausdrücklich der Veröffentlichung seiner Spenderdaten zugestimmt haben, werden die Daten nach
+    Maßgabe der gesetzlichen Vorschriften des Datenschutzes vertraulich behandelt. Kontaktdaten von Spendern
+    werden vor allem zu den folgenden Zwecken verwendet:
+    </p><ul style="list-style: disc inside">
+      <li>Zustellung von Zuwendungsbestätigungen</li>
+      <li>Danksagungen für einzelne Spenden</li>
+      <li>auf ausdrücklichen Wunsch des Spenders hin: Versand von Informationen über aktuelle und zukünftige Aktivitäten von Wikimedia</li>
+      <li>Interne Auswertung und Buchhaltung</li>
+      <li>Mitteilungen an Finanzbehörden im Rahmen geltenden Rechts</li>
+      <li>Mitteilungen an Spender über Änderungen an dieser Richtlinie</li>
+    </ul>
+  <p></p>
+
+  <p>
+    <strong>Übermittlung personenbezogener Daten an Dritte</strong><br>
+    Zur Erfüllung unserer Aufgaben (Versand von Zuwendungsbestätigungen und Informationen) arbeiten wir mit
+    externen Auftragnehmern zusammen, die in unserem Auftrag für diese Zwecke gegebenenfalls personenbezogene
+    Daten verarbeiten. Diese Dienstleister sind vertraglich durch die Wikimedia Fördergesellschaft gebunden
+    und dürfen personenbezogene Daten, die sie in diesem Zusammenhang erhalten, nur für die jeweils vereinbarten
+    Zwecke verwenden.
+  </p>
+  <p>
+    <strong>Erhebung und Verarbeitung personenbezogener Besucherdaten</strong><br>
+    Personenbezogene Daten werden auf dieser Webseite im technisch notwendigem und zweckmäßigem Umfang erhoben.
+    In keinem Fall werden die erhobenen Daten verkauft. Im Folgenden erhalten Sie einen Überblick über die von
+    uns im Rahmen dieser Website erhobenen Nutzungsdaten.<br>
+    <br>
+    Log-Files: Bei der Nutzung dieses Angebots werden die von Ihrem Browser an den Server übermittelten Daten
+    erfasst und gespeichert. Dies umfasst üblicherweise Informationen über den Typ und die Version des von Ihnen
+    verwendeten Browsers, das verwendete Betriebssystem, die Referrer URL (die Webseite, von der aus Sie zu dieser
+    Website gelangt sind), den Hostnamen des zugreifenden Rechners (die IP-Adresse) sowie die Uhrzeit der
+    Serveranfrage. Als Daten werden diese Informationen ausschließlich für statistische Zwecke und zur Optimierung
+    unseres Internet-Angebots verwendet. Sie können der Nutzung dieser Daten per Email, Fax, Brief oder Telefon
+    widersprechen.<br>
+    <br>
+    Cookies: Diese Website verwendet an mehreren Stellen Cookies. Cookies sind kleine Textdateien, die Ihr Browser
+    speichert und die dazu dienen, die Benutzung einer Website einfacher, effektiver und sicherer zu machen. Cookies
+    richten auf Ihrem Rechner keinen Schaden an, nehmen minimalen Speicherplatz in Anspruch und enthalten keine Viren.
+  </p>
+  <p>
+    <strong>Wikimedia Donor Privacy Policy</strong><br>
+    Als Wikimedia-Länderverein unterstützen und befolgen wir die Wikimedia Donor Privacy Policy.
+    [http://wikimediafoundation.org/wiki/Donor_privacy_policy Hier] können Sie sich die Datenschutzerklärung der
+    Wikimedia Stiftung ansehen.
+  </p>
+  <p>
+    <strong>Verfahrensverzeichnis</strong><br>
+    <u>Verantwortliche Stelle</u><br>
+    Gemeinnützige Wikimedia Fördergesellschaft mbH<br>
+    Tempelhofer Ufer 23-24<br>
+    10963 Berlin<br><br>
+    <u>Geschäftsleitung</u><br>
+    Christian Rickerts<br><br>
+    <u>Leiter der Datenverarbeitung der verantwortlichen Stelle</u><br>
+    Till Mletzko<br><br>
+    <u>Externer Datenschutzbeauftragter</u><br>
+    Rechtsanwalt Thorsten Feldmann<br><br>
+    <u>Zweckbestimmungen der Datenerhebung, -verarbeitung oder –nutzung</u><br>
+    Entgegennahme von Spenden von natürlichen und juristischen Personen zum Zwecke der Förderung freien Wissens,
+    zu diesem Zweck Verarbeitung der Spenderdaten, damit verbundene Nebenzwecke. Nebenzwecke sind begleitende
+    oder unterstützende Funktionen wie im Wesentlichen die Personal-, Vermittler-, Lieferanten- und Dienstleisterverwaltung.
+    Zu den Verarbeitungszwecken gehören insbesondere auch die Zustellung von Zuwendungsbestätigungen, Danksagungen
+    für einzelne Spenden; auf ausdrücklichen Wunsch  des Spenders hin: Versand von Informationen über aktuelle und
+    zukünftige Aktivitäten; interne Auswertung und Buchhaltung; Mitteilungen an Finanzbehörden im Rahmen geltenden Rechts.<br><br>
+    <u>Betroffene Personengruppen und Daten oder Datenkategorien</u><br>
+    Es werden zu folgenden Gruppen zur Erfüllung der oben genannten Zwecke im Wesentlichen die im Folgenden aufgeführten
+    personenbezogenen Daten bzw. Datenkategorien erhoben, verarbeitet und genutzt:
+    </p><ul style="list-style: inside disc;">
+      <li>Spender: Name, Adressdaten, Spendenkommentar, E-Mail-Adresse , Bankverbindung, Telefonnummer, Geburtsdatum, Wikipedia-Benutzername</li>
+      <li>Mitarbeiter, Auszubildende, Praktikanten, Ruheständler, frühere Mitarbeiter und Unterhaltsberechtigte: Vertrags-, Stamm- und Abrechnungsdaten (Angaben zu Privat- und Geschäftsadresse, Tätigkeitsbereich, Ge-haltszahlungen, Name und Alter von Angehörigen soweit für Sozialleistungen relevant, Lohnsteuerdaten, Bankverbindungsdaten, dem Mitarbeiter  anvertrauten Vermögensgegenstände); Daten zur Personalverwaltung und - steuerung; Arbeitszeiterfassungsdaten sowie Zugangskontrolldaten; Terminverwaltungsdaten; Daten zur Kommunikation sowie zur Abwicklung und Kontrolle von Transaktionen wie der technischen Systeme; Notfallkontaktdaten zu vom Mitarbeiter ausgewählten Personen, die im Notfall kontaktiert werden sollen</li>
+      <li>Lieferanten/Dienstleister: Adressdaten; Kontaktkoordinaten; Bankverbindungen, Vertragsdaten; Terminverwaltungsdaten; Abrechnungs- und Leistungsdaten sowie Kontaktpersonen zu vorgenannten Gruppen.</li>
+      <li>Empfänger oder Kategorien von Empfängern, denen die Daten mitgeteilt werden können: Öffentliche Stellen, die Daten aufgrund gesetzlicher Vorschriften erhalten (z.B. Sozialversicherungsträger, Finanzbehörden, Aufsichtsbehörden). Interne Stellen, die an der Ausführung der jeweiligen Geschäftsprozesse beteiligt sind (im Wesentlichen: Personalverwaltung, Buchhaltung, Rechnungswesen, Einkauf, Marketing, Allgemeine Verwaltung, Vertrieb, Telekommunikation und EDV).</li>
+      <li>Externe Auftragnehmer (Dienstleistungsunternehmen) entsprechend § 11 BDSG.</li>
+      <li>Weitere externe Stellen wie z.B. Kreditinstitute (Gehaltszahlungen, Unternehmen soweit der Betroffene seine schriftliche Einwilligung erklärt hat oder eine Übermittlung aus überwiegendem berechtigtem Interesse zulässig ist.</li>
+    </ul>
+    <u>Regelfristen für die Löschung der Daten</u><br>
+    Der Gesetzgeber hat vielfältige Aufbewahrungspflichten und -fristen erlassen. Nach Ablauf dieser Fristen werden
+    die entsprechenden Daten routinemäßig gelöscht, wenn sie nicht mehr zur Vertragserfüllung erforderlich sind. So
+    werden die handelsrechtlichen oder finanzwirksamen Daten eines abgeschlossenen Geschäftsjahrs den rechtlichen
+    Vorschriften entsprechend nach weiteren zehn Jahren gelöscht, soweit keine längeren Aufbewahrungsfristen vorgeschrieben
+    oder aus berechtigten Gründen erforderlich sind. Kürzere Löschungsfristen werden auf besonderen Gebieten genutzt
+    (z.B. im Personalverwaltungsbereich wie z.B. abgelehnten Bewerbungen oder Abmahnungen). Sofern Daten hiervon nicht
+    berührt sind, werden sie gelöscht, wenn die oben genannten Zwecke wegfallen.<br>
+    Überprüfung gemäß § 35 Abs. 2 Nr. 4 BDSG spätestens nach vier Jahren<br><br>
+    <u>Geplante Datenübermittlung in Drittstaaten</u><br>
+    Keine
+  <p></p>
+  <p>
+    <strong>Fragen zum Datenschutz?</strong><br>
+    Sollten Sie Fragen oder Anmerkungen zum Datenschutz bei der Wikimedia Fördergesellschaft haben, wenden Sie sich bitte
+    mit Ihrem Anliegen per E-Mail an datenschutz[at]wikimedia.de.
+  </p>
+
+		</div>
+
 		<div style="clear:right"></div>
 		<div id="WMDE_BannerFullForm-security" class="banner-lightbox banner-lightbox-small">
 			<ul>
@@ -924,7 +1035,8 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 						<p>
 							Wir f&uuml;hlen uns dem Datenschutz verpflichtet.
 							Unsere Bestimmungen dazu k&ouml;nnen Sie
-							<a href="https://spenden.wikimedia.de/spenden/Datenschutz" target="_blank">hier</a>
+
+							<span class="list-item-title" id="WMDE_BannerFullForm-dataprotection-link">hier</span>
 							einsehen.
 						</p>
 					</div>
