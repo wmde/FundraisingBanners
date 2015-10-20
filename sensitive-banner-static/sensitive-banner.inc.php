@@ -952,7 +952,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
   <p>
     <strong>Wikimedia Donor Privacy Policy</strong><br>
     Als Wikimedia-Länderverein unterstützen und befolgen wir die Wikimedia Donor Privacy Policy.
-    [http://wikimediafoundation.org/wiki/Donor_privacy_policy Hier] können Sie sich die Datenschutzerklärung der
+    <a href="http://wikimediafoundation.org/wiki/Donor_privacy_policy">Hier</a> können Sie sich die Datenschutzerklärung der
     Wikimedia Stiftung ansehen.
   </p>
   <p>
