@@ -325,3 +325,17 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
 #WMDE_BannerFullForm-taxes, #WMDE_BannerFullForm-bitcoin, #WMDE_BannerFullForm-funds, #WMDE_BannerFullForm-dataprotection  {
     float: left;
 }
+
+.banner-lightbox-funds {
+    width: 650px;
+}
+
+.banner-lightbox-tax, .banner-lightbox-dataprotection {
+    width: 390px;
+}
+
+@media screen and (min-width: 1250px) {
+    .banner-lightbox-dataprotection {
+        width: 640px;
+    }
+}

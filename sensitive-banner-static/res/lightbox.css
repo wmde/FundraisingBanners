@@ -11,25 +11,6 @@
     width: 186px;
 }
 
-.banner-lightbox-funds {
-    width: 650px;
-}
-
-.banner-lightbox-tax {
-    width: 390px;
-}
-
-.banner-lightbox-dataprotection {
-    width: 390px;
-}
-
-@media screen and (min-width: 1250px) {
-    .banner-lightbox-dataprotection {
-        width: 640px;
-    }
-}
-
-
 .banner-lightbox-title {
     color: #545454;
     font-size: 10pt;
