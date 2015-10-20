@@ -1,19 +1,8 @@
+<?php include __DIR__ . '/../combine_assets.php'; ?>
 <link rel="stylesheet" href="res/common-banner.css">
-<link rel="stylesheet" href="res/sensitive-banner.css">
-<link rel="stylesheet" href="res/lightbox.css">
-<link rel="stylesheet" href="res/icon.css">
+<link rel="stylesheet" href="../css/sensitive_banner_all.css">
 <script type="text/javascript" src="res/common-banner.js"></script>
-<script type="text/javascript" src="res/sensitive-banner.js"></script>
-<script type="text/javascript" src="res/lightbox.js"></script>
-
-<script type="text/javascript" src="../js/banner/banner.js"></script>
-<script type="text/javascript" src="../js/banner/banner.config.js"></script>
-<script type="text/javascript">
-	Banner.config.encryption.libUrl = '../js/lib/openpgp.min.js';
-</script>
-<script type="text/javascript" src="../js/banner/banner.encryption.js"></script>
-<script type="text/javascript" src="../js/banner/banner.api.js"></script>
-<script type="text/javascript" src="../js/banner/banner.form.js"></script>
+<script type="text/javascript" src="../js/sensitive_banner_all.js"></script>
 <?php include __DIR__ . '/sensitive-banner-js-config.inc.php'; ?>
 
 <div style="top: 0; display: block;" id="WMDE_Banner">

@@ -6,6 +6,7 @@
 				apiUrl: 'https://test.wikimedia.de/spenden/ajax.php'
 			},
 			encryption: {
+				libUrl: '../js/lib/openpgp.min.js',
 				publicKey:
 				'-----BEGIN PGP PUBLIC KEY BLOCK-----\n' +
 				'Version: GnuPG v1\n' +
