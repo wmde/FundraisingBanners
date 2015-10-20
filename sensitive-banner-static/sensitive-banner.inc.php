@@ -529,13 +529,13 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td>
-														<p>Sie spenden 5,00&euro; and die Wikimedia F&ouml;rdergesellschaft</p>
+														<p>Sie spenden <span id="WMDE_BannerFullForm-confirm-amount">5,00</span>&euro; and die Wikimedia F&ouml;rdergesellschaft</p>
 
 														<p>Wikimedia F&ouml;rdergesellschaft<br/>
 															Tempelhofer Ufer 23-24<br/>
 															10963 Berlin</p>
 
-														<p><a>Betrag &auml;ndern</a></p>
+														<p><a class="WMDE_BannerFullForm-confirm-edit">Betrag &auml;ndern</a></p>
 
 														<p>Die Mandatsreferenznummer zur eindeutigen Identifizierung des
 															SEPA-Lastschriftmandats wird Ihnen separat per E-Mail
@@ -543,20 +543,20 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															behandelt. </p>
 														<hr/>
 														<p>
-															Herr Tester Testing<br/>
-															Teststr<br/>
-															31337 Teststadt<br/>
-															christoph.fischer@wikimedia.de
+															<span id="WMDE_BannerFullForm-confirm-salutation">Herr Tester Testing</span><br/>
+															<span id="WMDE_BannerFullForm-confirm-street">Teststr</span><br/>
+															<span id="WMDE_BannerFullForm-confirm-city">31337 Teststadt</span><br/>
+															<span id="WMDE_BannerFullForm-confirm-mail">christoph.fischer@wikimedia.de</span>
 														</p>
 
 														<p>
 															Sie zahlen per Lastschrift<br/><br/>
-															IBAN DE12500105170648489890<br/>
-															BIC INGDDEFFXXX<br/>
-															Bankname ING-DiBa
+															IBAN <span id="WMDE_BannerFullForm-confirm-IBAN">DE12500105170648489890</span><br/>
+															BIC <span id="WMDE_BannerFullForm-confirm-BIC">INGDDEFFXXX</span><br/>
+															Bankname <span id="WMDE_BannerFullForm-confirm-bank">ING-DiBa</span>
 														</p>
 
-														<p><a>Daten oder Zahlungsart &auml;ndern</a></p>
+														<p><a class="WMDE_BannerFullForm-confirm-edit">Daten oder Zahlungsart &auml;ndern</a></p>
 														<hr/>
 														<p>
 															<input type="checkbox" title="Bestätigung SEPA" value="1"
@@ -589,7 +589,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														</p>
 
 														<p>
-															Berlin, 23.12.2015
+															Berlin, <span id="WMDE_BannerFullForm-confirm-date">23.12.2015</span>
 														</p>
 													</td>
 												</tr>
