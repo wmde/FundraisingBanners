@@ -546,6 +546,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															<span id="WMDE_BannerFullForm-confirm-salutation">Herr Tester Testing</span><br/>
 															<span id="WMDE_BannerFullForm-confirm-street">Teststr</span><br/>
 															<span id="WMDE_BannerFullForm-confirm-city">31337 Teststadt</span><br/>
+															<span id="WMDE_BannerFullForm-confirm-country">Deutschland</span><br/>
 															<span id="WMDE_BannerFullForm-confirm-mail">christoph.fischer@wikimedia.de</span>
 														</p>
 
@@ -553,7 +554,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															Sie zahlen per Lastschrift<br/><br/>
 															IBAN <span id="WMDE_BannerFullForm-confirm-IBAN">DE12500105170648489890</span><br/>
 															BIC <span id="WMDE_BannerFullForm-confirm-BIC">INGDDEFFXXX</span><br/>
-															Bankname <span id="WMDE_BannerFullForm-confirm-bank">ING-DiBa</span>
+															Bankname <span id="WMDE_BannerFullForm-confirm-bankname">ING-DiBa</span>
 														</p>
 
 														<p><a class="WMDE_BannerFullForm-confirm-edit">Daten oder Zahlungsart &auml;ndern</a></p>
