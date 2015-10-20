@@ -306,6 +306,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</tr>
 															</tbody>
 														</table>
+														<input type="hidden" name="bankname" value="" id="bank-name" />
 													</div>
 												</div>
 												<table>

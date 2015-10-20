@@ -55,6 +55,7 @@
 			$( '#' + banner.config.form.formId + ' input[name=iban]').val( '' );
 			$( '#' + banner.config.form.formId + ' input[name=konto]').val( '' );
 			$( '#' + banner.config.form.formId + ' input[name=blz]').val( '' );
+			$( '#' + banner.config.form.formId + ' input[name=bankname]').val( '' );
 		};
 		$( '#address-type-1' ).on( 'click', function() {
 			$( '#' + banner.config.form.formId + ' input[name=firma]').val('');
@@ -132,7 +133,7 @@
 			$( '#bic' ).val( data.bic ? data.bic : '' );
 			$( '#account-number' ).val( data.account ? data.account : '' );
 			$( '#bank-code' ).val( data.bankCode ? data.bankCode : '' );
-
+			$( '#bank-name' ).val( data.bankName ? data.bankName: '' );
 		} else {
 			$iban.val( '' );
 			errorMessage = data.message || 'Die eingegebenen Bankdaten sind nicht korrekt.';
