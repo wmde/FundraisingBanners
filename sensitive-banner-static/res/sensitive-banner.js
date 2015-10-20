@@ -24,11 +24,6 @@ $( function() {
 		e.preventDefault();
 	} );
 
-	$( '#WMDE_BannerFullForm-next' ).on( 'click', function( e ) {
-		e.preventDefault();
-		debitNextStep();
-	} );
-
 	$( '#WMDE_BannerFullForm-finish' ).on( 'click', function( e ) {
 		$( this ).trigger( "blur" );
 		$( this ).addClass( 'waiting' );
@@ -37,10 +32,22 @@ $( function() {
 
 	$( '#WMDE_BannerFullForm-finish-sepa' ).on( 'click', function( e ) {
 		e.preventDefault();
-		$( '#WMDE_BannerFullForm-step2' ).slideToggle( 400, function() {
-			$( '#WMDE_BannerFullForm-step1' ).slideToggle();
-		} );
-		hideFullForm();
+		if ( $( '#confirm_sepa').prop( 'checked' ) && $( '#confirm_shortterm' ).prop( 'checked' ) ) {
+			$( '#donationForm' ).submit();
+		}
+		else {
+			$( '#confirm_sepa, #confirm_shortterm' ).each( function (index, element ) {
+				var $element = $( element ), p;
+				if ( $element.prop( 'checked' ) ) {
+					return;
+				}
+				p = $element.parent();
+				p.css( { border: 'red 1px solid' } );
+				$element.on( 'click', function () {
+					p.css( { border: 'none' } );
+				});
+			} );
+		}
 	} );
 
 	$( '#WMDE_BannerFullForm-close-step1' ).on( 'click', function() {
@@ -94,8 +101,15 @@ $( function() {
 		$( '#WMDE_BannerFullForm-finish' ).removeClass( 'waiting' );
 	} );
 
-	$( '#donationForm' ).on( 'banner:validationSucceeded', function() {
+	$( '#donationForm' ).on( 'banner:validationSucceeded', function( evt ) {
 		unlockForm();
+		if ( $( '#zahlweise' ).val() === 'BEZ' ) {
+			debitNextStep();
+			evt.preventDefault();
+		}
+		else {
+			this.submit();
+		}
 	} );
 
 } );

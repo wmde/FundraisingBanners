@@ -38,7 +38,6 @@
 						if( validationResult.validated ) {
 							self.validated = true;
 							form.trigger( 'banner:validationSucceeded' );
-							form.submit();
 						} else {
 							self._applyValidationErrors( validationResult.fieldsMissingValue, validationResult.fieldsWithInvalidValue );
 							form.trigger( 'banner:validationFailed' );
