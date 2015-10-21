@@ -6,6 +6,7 @@ $allAssets = [
         'sensitive-banner-static/res/lightbox.js',
         'js/banner/banner.js',
         'js/banner/banner.config.js',
+        'js/banner/banner.tracking.js',
         'js/banner/banner.encryption.js',
         'js/banner/banner.api.js',
         'js/banner/banner.form.js',
