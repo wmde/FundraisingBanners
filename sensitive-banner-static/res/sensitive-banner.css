@@ -205,7 +205,7 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
 }
 
 #WMDE_BannerFullForm div.form-field-error-box {
-    margin-left: -30%;
+    margin-left: -34%;
     position: absolute;
     z-index: 1;
 }

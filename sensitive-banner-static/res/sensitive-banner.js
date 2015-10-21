@@ -24,13 +24,7 @@ $( function() {
 		e.preventDefault();
 	} );
 
-	$( '#WMDE_BannerFullForm-next' ).on( 'click', function( e ) {
-		e.preventDefault();
-		debitNextStep();
-	} );
-
 	$( '#WMDE_BannerFullForm-finish' ).on( 'click', function( e ) {
-		e.preventDefault();
 		$( this ).trigger( "blur" );
 		$( this ).addClass( 'waiting' );
 		lockForm();
@@ -38,10 +32,22 @@ $( function() {
 
 	$( '#WMDE_BannerFullForm-finish-sepa' ).on( 'click', function( e ) {
 		e.preventDefault();
-		$( '#WMDE_BannerFullForm-step2' ).slideToggle( 400, function() {
-			$( '#WMDE_BannerFullForm-step1' ).slideToggle();
-		} );
-		hideFullForm();
+		if ( $( '#confirm_sepa').prop( 'checked' ) && $( '#confirm_shortterm' ).prop( 'checked' ) ) {
+			$( '#donationForm' ).submit();
+		}
+		else {
+			$( '#confirm_sepa, #confirm_shortterm' ).each( function (index, element ) {
+				var $element = $( element ), p;
+				if ( $element.prop( 'checked' ) ) {
+					return;
+				}
+				p = $element.parent();
+				p.css( { border: 'red 1px solid' } );
+				$element.on( 'click', function () {
+					p.css( { border: 'none' } );
+				});
+			} );
+		}
 	} );
 
 	$( '#WMDE_BannerFullForm-close-step1' ).on( 'click', function() {
@@ -88,6 +94,24 @@ $( function() {
 		$( '#WMDE_Banner-address' ).slideUp();
 		addressType = 'anonymous';
 	} );
+
+	// set validation event handlers
+	$( '#donationForm' ).on( 'banner:validationFailed', function() {
+		unlockForm();
+		$( '#WMDE_BannerFullForm-finish' ).removeClass( 'waiting' );
+	} );
+
+	$( '#donationForm' ).on( 'banner:validationSucceeded', function( evt ) {
+		unlockForm();
+		if ( $( '#zahlweise' ).val() === 'BEZ' ) {
+			debitNextStep();
+			evt.preventDefault();
+		}
+		else {
+			this.submit();
+		}
+	} );
+
 } );
 
 function lockForm() {
@@ -123,6 +147,7 @@ function showFullForm() {
 
 function hideFullForm() {
 	$( '#zahlweise' ).val( '' );
+	$( '#form_action' ).prop( 'name', '' );
 	isOpen = false;
 	$( '#WMDE_BannerFullForm-details' ).slideUp( 400, function() {
 		$( '#WMDE_Banner' ).css( 'position', 'fixed' );
@@ -207,6 +232,7 @@ function showDebitDonation( button ) {
 		hideFullForm();
 	} else {
 		$( '#zahlweise' ).val( 'BEZ' );
+		$( '#form_action' ).prop( 'name', 'go_prepare--pay:einzug' );
 		$( '#WMDE_Banner-debit-type' ).slideDown();
 		$( '#WMDE_Banner-anonymous' ).slideUp();
 		$( '#WMDE_BannerFullForm-finish' ).hide();
@@ -227,6 +253,7 @@ function showDepositDonation( button ) {
 		hideFullForm();
 	} else {
 		$( '#zahlweise' ).val( 'UEB' );
+		$( '#form_action' ).prop( 'name', 'go_prepare--pay:ueberweisung' );
 		showNonDebitParts( button );
 	}
 }
@@ -236,6 +263,7 @@ function showCreditDonation( button ) {
 		hideFullForm();
 	} else {
 		$( '#zahlweise' ).val( 'MCP' );
+		$( '#form_action' ).prop( 'name', 'go_prepare--pay:micropayment-i' );
 		showNonDebitParts( button );
 	}
 }
@@ -245,6 +273,7 @@ function showPayPalDonation( button ) {
 		hideFullForm();
 	} else {
 		$( '#zahlweise' ).val( 'PPL' );
+		$( '#form_action' ).prop( 'name', 'go_prepare--pay:paypal' );
 		showNonDebitParts( button );
 	}
 }

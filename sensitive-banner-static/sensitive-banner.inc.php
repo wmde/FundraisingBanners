@@ -1,17 +1,16 @@
+<?php include __DIR__ . '/../combine_assets.php'; ?>
 <link rel="stylesheet" href="res/common-banner.css">
-<link rel="stylesheet" href="res/sensitive-banner.css">
-<link rel="stylesheet" href="res/lightbox.css">
-<link rel="stylesheet" href="res/icon.css">
+<link rel="stylesheet" href="../css/sensitive_banner_all.css">
 <script type="text/javascript" src="res/common-banner.js"></script>
-<script type="text/javascript" src="res/sensitive-banner.js"></script>
-<script type="text/javascript" src="res/lightbox.js"></script>
+<script type="text/javascript" src="../js/sensitive_banner_all.js"></script>
+<?php include __DIR__ . '/sensitive-banner-js-config.inc.php'; ?>
 
 <div style="top: 0; display: block;" id="WMDE_Banner">
 
 	<div id="WMDE_BannerFullForm-shadow"></div>
 
 	<div style="box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);">
-		<form method="post" name="donationForm">
+		<form method="post" name="donationForm" id="donationForm">
 			<table id="WMDE_Banner-facts">
 				<tbody>
 				<tr>
@@ -200,19 +199,19 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														</button>
 													</td>
 													<td colspan="2" style="text-align: right">
-														<button onclick="showDepositDonation(this)">Überweisung
+														<button data-behavior="clearBankData" onclick="showDepositDonation(this)">Überweisung
 														</button>
 														<br>
 													</td>
 												</tr>
 												<tr>
 													<td colspan="2" style="padding:8px 0 0 8px; text-align: left">
-														<button onclick="showCreditDonation(this)">
+														<button data-behavior="clearBankData" onclick="showCreditDonation(this)">
 															Kreditkarte
 														</button>
 													</td>
 													<td colspan="2" style="padding:8px 8px 0 5px; text-align: right">
-														<button id="btn-ppl" onclick="showPayPalDonation(this)">
+														<button id="btn-ppl" data-behavior="clearBankData" onclick="showPayPalDonation(this)">
 															PayPal
 														</button>
 													</td>
@@ -296,6 +295,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</tr>
 															</tbody>
 														</table>
+														<input type="hidden" name="bankname" value="" id="bank-name" />
 													</div>
 												</div>
 												<table>
@@ -372,7 +372,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																	   class="salutation-label">Herr</label>
 																<select name="titel" id="personal-title"
 																		class="small-input">
-																	<option data-behavior="placeholder">Kein Titel
+																	<option data-behavior="placeholder" value="">Kein Titel
 																	</option>
 																	<option value="Dr.">Dr.</option>
 																	<option value="Prof.">Prof.</option>
@@ -389,7 +389,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																		   title="Groß- und Kleinbuchstaben, Bindestriche und Leerzeichen"
 																		   autocomplete="off" name="vorname"
 																		   id="first-name">
-																	<span class="validation icon-ok"></span>
+																	<span class="validation"></span>
 																</div>
 																<div style="float: left">
 																	<br/>
@@ -400,13 +400,6 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																		   autocomplete="off" name="nachname"
 																		   id="last-name">
 																	<span class="validation"></span>
-
-																	<div class="form-field-error-box">
-																		<div class="form-field-error-arrow"></div>
-											<span
-												class="form-field-error-text">Bitte f&uuml;llen Sie dieses Feld aus.</span>
-																	</div>
-																</div>
 															</td>
 														</tr>
 														</tbody>
@@ -418,16 +411,11 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 														<tr>
 															<td>
 																<label for="street">Straße</label><br/>
-																<input type="text" class="required invalid"
+																<input type="text" class="required"
 																	   placeholder="z.B. Musterstraße 123"
 																	   autocomplete="off" name="strasse" id="street">
-																<span class="validation icon-bug"></span>
+																<span class="validation"></span>
 
-																<div class="form-field-error-box">
-																	<div class="form-field-error-arrow"></div>
-											<span
-												class="form-field-error-text">Bitte f&uuml;llen Sie dieses Feld aus.</span>
-																</div>
 															</td>
 														</tr>
 														<tr>
@@ -630,6 +618,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			<input type="hidden" name="periode" id="periode" value=""/>
 			<input type="hidden" name="intervalType" id="intervalType" value="0"/>
 			<input type="hidden" id="form-page" name="form" value="{{{form-name}}}"/>
+			<input type="hidden" id="form_action" name="" value="Jetzt für Wikipedia spenden" />
 			<input type="hidden" id="wikilogin" name="wikilogin" value="no"/>
 			<input type="hidden" id="impCount" name="impCount" value=""/>
 			<input type="hidden" id="bImpCount" name="bImpCount" value=""/>
@@ -952,7 +941,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
   <p>
     <strong>Wikimedia Donor Privacy Policy</strong><br>
     Als Wikimedia-Länderverein unterstützen und befolgen wir die Wikimedia Donor Privacy Policy.
-    [http://wikimediafoundation.org/wiki/Donor_privacy_policy Hier] können Sie sich die Datenschutzerklärung der
+    <a href="http://wikimediafoundation.org/wiki/Donor_privacy_policy">Hier</a> können Sie sich die Datenschutzerklärung der
     Wikimedia Stiftung ansehen.
   </p>
   <p>
