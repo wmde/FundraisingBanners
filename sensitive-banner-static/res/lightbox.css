@@ -80,7 +80,7 @@
 }
 
 .logo-itz-white {
-    background: transparent url("../img/itz_logo_white.png") no-repeat scroll center center;
+    /*background: transparent url("../img/itz_logo_white.png") no-repeat scroll center center;*/
     float: right;
     display: block;
     height: 30px;
