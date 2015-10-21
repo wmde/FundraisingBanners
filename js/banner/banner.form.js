@@ -144,7 +144,7 @@
 
 	Form.prototype._clearValidity = function() {
 		var self = this;
-		$( '#' + banner.config.form.formId + ' :input' ).each( function( index, element ) {
+		$( '#' + banner.config.form.formId + ' :input:not([type=hidden])' ).each( function( index, element ) {
 			self._clearElementValidity( $( element ) );
 		} );
 		self._clearElementValidity( this.amountValidationAnchor );
@@ -253,7 +253,7 @@
 			fieldsMissingValue.splice( valueMissingIndex, 1 );
 		}
 
-		$( '#' + banner.config.form.formId + ' :input' ).each( function( index, element ) {
+		$( '#' + banner.config.form.formId + ' :input:not([type=hidden])' ).each( function( index, element ) {
 			if( $.inArray( $( element ).attr( 'name' ), fieldsMissingValue ) > -1 ) {
 				self._markMissing( $( element ) );
 				return true;
