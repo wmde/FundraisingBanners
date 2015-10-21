@@ -136,9 +136,68 @@ function debitNextStep() {
 	$( '#WMDE_BannerFullForm-step1' ).slideToggle( 400, function() {
 		$( '#WMDE_BannerFullForm-step2' ).slideToggle();
 	} );
+
+	fillConfirmationValues();
+
 	$( "html, body" ).animate( {
 		scrollTop: 0
 	}, "slow" );
+}
+
+function fillConfirmationValues() {
+	$( '#WMDE_BannerFullForm-confirm-amount' ).text( getAmount() );
+	$( '#WMDE_BannerFullForm-confirm-salutation' ).text( getSalutation() );
+	$( '#WMDE_BannerFullForm-confirm-street' ).text( $( '#street' ).val() );
+	$( '#WMDE_BannerFullForm-confirm-city' ).text( $( '#post-code' ).val() + ' ' + $( '#city' ).val() );
+	$( '#WMDE_BannerFullForm-confirm-country' ).text( getCountryByCode ( $( '#country' ).val() ) );
+	$( '#WMDE_BannerFullForm-confirm-mail' ).text( $( '#email' ).val() );
+	$( '#WMDE_BannerFullForm-confirm-IBAN' ).text( $( '#iban' ).val() );
+	$( '#WMDE_BannerFullForm-confirm-BIC' ).text( $( '#bic' ).val() );
+	$( '#WMDE_BannerFullForm-confirm-bankname' ).text( $( '#bank-name' ).val() );
+}
+
+function getSalutation() {
+	var companyName = $( '#company-name' ).val();
+	if ( companyName !== '' ) {
+		return companyName;
+	}
+
+	var firstName = $( '#first-name' ).val();
+	var lastName = $( '#last-name' ).val();
+	var title = $( '#personal-title' ).val();
+	var salutation = '';
+
+	if ( firstName !== '' && lastName !== '' ) {
+		salutation += $( 'input[name=anrede]:checked' ).val();
+		if ( title !== 'Kein Titel' ) {
+			salutation += ' ' + title;
+		}
+		salutation += ' ' + firstName + ' ' + lastName;
+		return salutation;
+	}
+
+	return false;
+}
+
+function getCountryByCode( code ) {
+	switch ( code ) {
+		case 'DE':
+			return 'Deutschland';
+		case 'AT':
+			return 'Österreich';
+		case 'CH':
+			return 'Schweiz';
+		case 'IT':
+			return 'Italien';
+		case 'LI':
+			return 'Liechtenstein';
+		case 'LU':
+			return 'Luxemburg';
+		case 'BE':
+			return 'Belgien';
+		default:
+			return '';
+	}
 }
 
 /* Payment methods show and hide */
@@ -221,34 +280,34 @@ function BannerModalInfobox( boxName ) {
 	$( '.banner-lightbox-close', this.$box ).on( 'click', this.close.bind( this ) );
 }
 
-BannerModalInfobox.prototype.toggle = function ( e ) {
+BannerModalInfobox.prototype.toggle = function( e ) {
 	if ( this.$box.hasClass( 'opened' ) ) {
-		 this.$box.trigger( 'banner:closeInfobox' );
+		this.$box.trigger( 'banner:closeInfobox' );
 	}
 	else {
 		this.$box.trigger( 'banner:openInfobox' );
 	}
 }
 
-BannerModalInfobox.prototype.open = function ( e ) {
+BannerModalInfobox.prototype.open = function( e ) {
 	// close other banners
 	$( '.banner-unique' ).trigger( 'banner:closeInfobox' );
 
 	// wait for the slide-out to be done before showing banner
-	$( '.banner-unique' ).promise().done( function () {
+	$( '.banner-unique' ).promise().done( function() {
 		$( '#WMDE_BannerFullForm-info' ).addClass( this.boxName );
 		this.$box.addClass( 'opened' );
 		this.$box.slideDown();
 	}.bind( this ) );
 }
 
-BannerModalInfobox.prototype.close = function ( e ) {
+BannerModalInfobox.prototype.close = function( e ) {
 	if ( !this.$box.hasClass( 'opened' ) ) {
 		return;
 	}
-	this.$box.slideUp( 400, function () {
-			this.$box.removeClass( 'opened' );
-			this.$link.removeClass( 'opened' );
-			$( '#WMDE_BannerFullForm-info' ).removeClass( this.boxName );
+	this.$box.slideUp( 400, function() {
+		this.$box.removeClass( 'opened' );
+		this.$link.removeClass( 'opened' );
+		$( '#WMDE_BannerFullForm-info' ).removeClass( this.boxName );
 	}.bind( this ) );
 }
