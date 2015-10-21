@@ -101,7 +101,7 @@
 	 *                  - message ( if status is ERR )
 	 */
 	Api.prototype.sendIbanGenerationRequest = function ( data ) {
-		return this.sendEncryptedRequest(
+		return this._sendEncryptedRequest(
 			banner.config.api.ibanModule,
 			banner.config.api.ibanGenerationAction,
 			data
@@ -124,7 +124,7 @@
 	 *                  - message ( if status is ERR )
 	 */
 	Api.prototype.sendIbanCheckRequest = function ( data ) {
-		return this.sendEncryptedRequest(
+		return this._sendEncryptedRequest(
 			banner.config.api.ibanModule,
 			banner.config.api.ibanCheckAction,
 			data
