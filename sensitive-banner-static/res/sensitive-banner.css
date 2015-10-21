@@ -273,6 +273,11 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
     float: left;
 }
 
+#WMDE_Banner #globalsign-siteseal {
+    width: 125px;
+    float: left;
+}
+
 #confirm_sepa {
     margin-bottom: 240px;
 }
