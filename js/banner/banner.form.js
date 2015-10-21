@@ -161,7 +161,7 @@
 	 * @return {Object}
 	 */
 	Form.prototype._getFormData = function() {
-		/* globals getAmountValue */
+		/* globals getAmount */
 		var formId = banner.config.form.formId,
 			formData = {
 				adresstyp: $( '#' + formId + ' input[name="adresstyp"]:checked' ).val(),
