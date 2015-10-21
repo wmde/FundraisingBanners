@@ -92,6 +92,7 @@ $( function() {
 		$( '#WMDE_BannerFullForm-company' ).slideUp();
 		$( '#WMDE_Banner-person' ).slideUp();
 		$( '#WMDE_Banner-address' ).slideUp();
+		$( '#send-information' ).prop( 'checked', false );
 		addressType = 'anonymous';
 	} );
 
