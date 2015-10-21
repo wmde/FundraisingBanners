@@ -4,7 +4,7 @@
  * @licence GNU GPL v2+
  * @author Kai Nissen <kai.nissen@wikimedia.de>
  */
-( function( Banner ) {
+( function ( Banner ) {
 	'use strict';
 
 	var EP;
@@ -13,7 +13,7 @@
 		var self = this;
 		this.initialized = false;
 
-		$( document ).ready( function() {
+		$( document ).ready( function () {
 			self.initCryptLib();
 		} );
 	}
@@ -30,7 +30,7 @@
 			url: Banner.config.encryption.libUrl,
 			dataType: 'script',
 			cache: true,
-			success: function() {
+			success: function () {
 				self.initialized = true;
 			}
 		} );
@@ -38,15 +38,17 @@
 
 	/**
 	 * Encrypts a message and puts the encrypted data into the given field
-	 * @param data The message to encrypt
+	 *
+	 * @param {string} data The message to encrypt
 	 * @return {Promise}
 	 */
 	EP.encrypt = function ( data ) {
+		var publicKey;
 		if ( this.initialized ) {
-			var publicKey = openpgp.key.readArmored( Banner.config.encryption.publicKey );
+			publicKey = openpgp.key.readArmored( Banner.config.encryption.publicKey );
 
 			return openpgp.encryptMessage( publicKey.keys, data )
-				.then( function( pgpMessage ) {
+				.then( function ( pgpMessage ) {
 					return pgpMessage;
 				} );
 		}

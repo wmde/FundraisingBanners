@@ -1,10 +1,10 @@
 /**
  * Donation API used in the banner
  *
- * @license GNU GPL v2+
+ * @licence GNU GPL v2+
  * @author Leszek Manicki <leszek.manicki@wikimedia.de>
  */
-( function( banner, $ ) {
+( function ( banner, $ ) {
 	'use strict';
 
 	function Api() {
@@ -28,12 +28,12 @@
 	 * @param {Object} data
 	 * @return {Promise}
 	 */
-	Api.prototype.sendEncryptedRequest = function( module, action, data ) {
+	Api.prototype._sendEncryptedRequest = function ( module, action, data ) {
 		var self = this;
 		return banner.encryption.encrypt( $.param( data ) )
-			.then( function( encryptedData ) {
-				return self.sendRequest( module, action, {
-					enc: self.encodeBase64( encryptedData )
+			.then( function ( encryptedData ) {
+				return self._sendRequest( module, action, {
+					enc: self._encodeBase64( encryptedData )
 				} );
 			} );
 	};
@@ -44,7 +44,7 @@
 	 * @param {Object} data
 	 * @return {string}
 	 */
-	Api.prototype.encodeBase64 = function( data ) {
+	Api.prototype._encodeBase64 = function ( data ) {
 		return window.btoa( data );
 	};
 
@@ -56,7 +56,7 @@
 	 * @param {Object} data
 	 * @return {Object} jQuery XMLHttpRequest (jqXHR)
 	 */
-	Api.prototype.sendRequest = function( module, action, data ) {
+	Api.prototype._sendRequest = function ( module, action, data ) {
 		var requestData = data;
 		$.extend( requestData, { module: module, action: action } );
 		return $.ajax( {
@@ -77,8 +77,8 @@
 	 *                  - invalid: array containing names of fields with invalid values,
 	 *                  - missing: array containing names of missing obligatory fields.
 	 */
-	Api.prototype.sendValidationRequest = function( data ) {
-		return this.sendEncryptedRequest(
+	Api.prototype.sendValidationRequest = function ( data ) {
+		return this._sendEncryptedRequest(
 			banner.config.api.validationModule,
 			banner.config.api.validationAction,
 			data
@@ -87,6 +87,7 @@
 
 	/**
 	 * Sends a reqeust to the API to generate IBAN and BIC from bank data
+	 *
 	 * @param {Object} data
 	 * @return {Promise}
 	 *         Resolved parameter:
@@ -109,6 +110,7 @@
 
 	/**
 	 * Sends a reqeust to the API to check the validate of an IBAN
+	 *
 	 * @param {Object} data
 	 * @return {Promise}
 	 *         Resolved parameter:

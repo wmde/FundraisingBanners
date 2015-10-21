@@ -1,12 +1,12 @@
 /**
-* @license GNU GPL v2+
+* @licence GNU GPL v2+
 * @author Leszek Manicki <leszek.manicki@wikimedia.de>
 */
-( function( banner, QUnit ) {
+( function ( banner, QUnit ) {
 
 	QUnit.module( 'Banner.api tests' );
 
-	QUnit.test( 'When given valid data Api.validateData returns status OK', function( assert ) {
+	QUnit.test( 'When given valid data Api.validateData returns status OK', function ( assert ) {
 		var data = {
 			betrag: '5.00',
 			periode: '0',
@@ -25,13 +25,13 @@
 		done = assert.async();
 
 		banner.api.sendValidationRequest( data )
-			.then( function( responseData ) {
+			.then( function ( responseData ) {
 				assert.equal( responseData.status, 'OK' );
 				done();
 			} );
 	} );
 
-	QUnit.test( 'When given data missing obligatory fields Api.validateData returns status error and list of missing fields', function( assert ) {
+	QUnit.test( 'When given data missing obligatory fields Api.validateData returns status error and list of missing fields', function ( assert ) {
 		var data = {
 			periode: '0',
 			zahlweise: 'UEB',
@@ -48,14 +48,14 @@
 		done = assert.async();
 
 		banner.api.sendValidationRequest( data )
-			.then( function( responseData ) {
+			.then( function ( responseData ) {
 				assert.equal( responseData.status, 'ERR' );
 				assert.deepEqual( responseData.missing, [ 'betrag', 'nachname' ] );
 				done();
 			} );
 	} );
 
-	QUnit.test( 'When given data containing invalid values Api.validateData returns status error and list of fields with invalid values', function( assert ) {
+	QUnit.test( 'When given data containing invalid values Api.validateData returns status error and list of fields with invalid values', function ( assert ) {
 		var data = {
 				betrag: '5.00',
 				periode: '0',
@@ -74,7 +74,7 @@
 			done = assert.async();
 
 		banner.api.sendValidationRequest( data )
-			.then( function( responseData ) {
+			.then( function ( responseData ) {
 				assert.equal( responseData.status, 'ERR' );
 				assert.deepEqual( responseData.invalid, [ 'email', 'plz' ] );
 				done();

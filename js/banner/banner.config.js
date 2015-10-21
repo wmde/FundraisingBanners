@@ -4,7 +4,7 @@
  * @licence GNU GPL v2+
  * @author Kai Nissen <kai.nissen@wikimedia.de>
  */
-( function( Banner ) {
+( function ( Banner ) {
 	'use strict';
 
 	Banner.config = {
@@ -52,7 +52,7 @@
 				}
 			}
 		},
-		setConfig: function( settings ) {
+		setConfig: function ( settings ) {
 			$.extend( true, Banner.config, settings );
 		}
 	};
