@@ -41,7 +41,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 											<div id="daysLeft" style="display: block;">Nur noch <span id="numDaysLeft">0 Tage</span>
 											</div>
 											<div style="position: absolute; bottom: 0; right: 0">
-												<img src="mw-files/Pbar-tip-small.png">
+												<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Pbar-tip-small.png">
 											</div>
 										</div>
 										<div style="width: 0px;" id="donationRemaining"></div>
@@ -1000,7 +1000,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			<ul>
 				<li>
 					<div class="lightbox-list-item">
-						<!--- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT ---><table id="globalsign-siteseal" width="125" title="CLICK TO VERIFY: This site uses a GlobalSign SSL Certificate to secure your personal information." ><tr><td><span id="ss_img_wrapper_gmogs_image_90-35_en_dblue"><a href="https://www.globalsign.com/" target=_blank title="GlobalSign Site Seal" rel="nofollow"><img alt="SSL" border=0 id="ss_img" src="//seal.globalsign.com/SiteSeal/images/gs_noscript_90-35_en.gif"></a></span><script type="text/javascript" src="//seal.globalsign.com/SiteSeal/gmogs_image_90-35_en_dblue.js"></script></td></tr></table><!--- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT --->
+						<!--- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT ---><table id="globalsign-siteseal" width="125" title="CLICK TO VERIFY: This site uses a GlobalSign SSL Certificate to secure your personal information." ><tr><td><span id="ss_img_wrapper_gmogs_image_90-35_en_dblue"><a href="https://www.globalsign.com/" target=_blank title="GlobalSign Site Seal" rel="nofollow"><img alt="SSL" border=0 id="ss_img" src="//seal.globalsign.com/SiteSeal/images/gs_noscript_90-35_en.gif"></a></span><script type="text/javascript" src="https//seal.globalsign.com/SiteSeal/gmogs_image_90-35_en_dblue.js"></script></td></tr></table><!--- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT --->
 						<img style="float: right;" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/OWASP_Logo.png" width="36" height="36">
 
 						<div style="clear: right; height: 7px;"></div>
