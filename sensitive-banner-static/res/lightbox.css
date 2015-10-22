@@ -108,8 +108,8 @@
 
 #bitpay-price {
     padding: 0;
-    width: 90px;
-    margin-left: 20px;
+    width: 86px;
+    margin-left: 16px;
     margin-right: 1px;
 }
 
@@ -125,4 +125,8 @@
 
 #bitpay-donate-button-wrapper {
     text-align: right;
+}
+
+#bitpay-donate-button-wrapper input {
+    border: 0;
 }
