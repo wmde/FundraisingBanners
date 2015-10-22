@@ -5,7 +5,7 @@
 <script type="text/javascript" src="../js/sensitive_banner_all.js"></script>
 <?php include __DIR__ . '/sensitive-banner-js-config.inc.php'; ?>
 
-<div style="top: 0; display: block;" id="WMDE_Banner">
+<div id="WMDE_Banner">
 
 	<div id="WMDE_BannerFullForm-shadow"></div>
 
