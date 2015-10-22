@@ -794,9 +794,9 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 					   name="data">
 
 				<div id="bitpay-donate-button-wrapper">
-					<input width="126" type="image" height="48" alt="BitPay, the easy way to pay with bitcoins."
-						   onerror="this.onerror=null; this.src='https://bitpay.com/img/donate-button-md.png'"
-						   src="https://bitpay.com/img/donate-button.svg" name="submit"
+					<input width="126" type="image" height="48" alt="Jetzt mit Bitcoin spenden."
+						   src="https://upload.wikimedia.org/wikipedia/commons/6/62/Bitcoin_-_jetzt_spenden.svg"
+						   name="submit"
 						   class="bitpay-donate-button">
 				</div>
 
