@@ -619,6 +619,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			<input type="hidden" name="intervalType" id="intervalType" value="0"/>
 			<input type="hidden" id="form-page" name="form" value="{{{form-name}}}"/>
 			<input type="hidden" id="form_action" name="" value="Jetzt für Wikipedia spenden" />
+			<input type="hidden" id="donationIframe" name="iframe" value="" />
 			<input type="hidden" id="wikilogin" name="wikilogin" value="no"/>
 			<input type="hidden" id="impCount" name="impCount" value=""/>
 			<input type="hidden" id="bImpCount" name="bImpCount" value=""/>
