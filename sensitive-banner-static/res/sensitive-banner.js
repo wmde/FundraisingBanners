@@ -30,25 +30,7 @@ $( function() {
 		lockForm();
 	} );
 
-	$( '#WMDE_BannerFullForm-finish-sepa' ).on( 'click', function( e ) {
-		e.preventDefault();
-		if ( $( '#confirm_sepa').prop( 'checked' ) && $( '#confirm_shortterm' ).prop( 'checked' ) ) {
-			$( '#donationForm' ).submit();
-		}
-		else {
-			$( '#confirm_sepa, #confirm_shortterm' ).each( function (index, element ) {
-				var $element = $( element ), p;
-				if ( $element.prop( 'checked' ) ) {
-					return;
-				}
-				p = $element.parent();
-				p.css( { border: 'red 1px solid' } );
-				$element.on( 'click', function () {
-					p.css( { border: 'none' } );
-				});
-			} );
-		}
-	} );
+	$( '#WMDE_BannerFullForm-finish-sepa' ).on( 'click', handleSepaValidation );
 
 	$( '#WMDE_BannerFullForm-close-step1' ).on( 'click', function() {
 		hideFullForm();
@@ -114,6 +96,33 @@ $( function() {
 	} );
 
 } );
+
+/**
+ * Handle clicks on the button on the SEPA confirmation page.
+ *
+ * When checkboxes are ok, submit the form, if not, highlight missing checkboxes.
+ *
+ * @param evt {Event} Button click event
+ */
+function handleSepaValidation ( evt ) {
+	evt.preventDefault();
+	if ( $( '#confirm_sepa').prop( 'checked' ) && $( '#confirm_shortterm' ).prop( 'checked' ) ) {
+		$( '#donationForm' ).submit();
+	}
+	else {
+		$( '#confirm_sepa, #confirm_shortterm' ).each( function (index, element ) {
+			var $element = $( element ), $parent;
+			if ( $element.prop( 'checked' ) ) {
+				return;
+			}
+			$parent = $element.parent();
+			$parent.css( { border: 'red 1px solid' } );
+			$element.one( 'click', function () {
+				$parent.css( { border: 'none' } );
+			} );
+		} );
+	}
+}
 
 function lockForm() {
 	$( 'button' ).prop( 'disabled', true );
