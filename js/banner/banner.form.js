@@ -17,9 +17,6 @@
 			self._initSubmitHandler();
 			self._initBankDataHandler();
 			self._initFieldClearHandlers();
-			$( '#' + banner.config.form.formId + ' .amount-radio' ).on( 'click', function () {
-				self._clearElementValidity( self.amountValidationAnchor );
-			} );
 		} );
 	}
 
@@ -237,22 +234,8 @@
 	 * @param {string[]} fieldsWithInvalidValue
 	 */
 	Form.prototype._applyValidationErrors = function ( fieldsMissingValue, fieldsWithInvalidValue ) {
-		var self = this,
-			valueMissingIndex = $.inArray( 'betrag', fieldsMissingValue ),
-			valueInvalidIndex = $.inArray( 'betrag', fieldsWithInvalidValue );
-		if ( valueInvalidIndex > -1 ) {
-			this._showError( this.amountValidationAnchor, 'Bitte geben Sie einen gültigen Betrag ein.' );
-			fieldsWithInvalidValue.splice( valueInvalidIndex, 1 );
-			// Invalid values cause this
-			if ( valueMissingIndex > -1 ) {
-				fieldsMissingValue.splice( valueMissingIndex, 1 );
-			}
-		}
-		if ( valueMissingIndex > -1 ) {
-			this._showError( this.amountValidationAnchor, 'Bitte geben Sie einen Betrag ein.' );
-			fieldsMissingValue.splice( valueMissingIndex, 1 );
-		}
-
+		var self = this;
+		this._applyAmountValidationErrors( fieldsMissingValue, fieldsWithInvalidValue );
 		$( '#' + banner.config.form.formId + ' :input:not([type=hidden])' ).each( function ( index, element ) {
 			if ( $.inArray( $( element ).attr( 'name' ), fieldsMissingValue ) > -1 ) {
 				self._markMissing( $( element ) );
@@ -266,6 +249,29 @@
 		} );
 	};
 
+	Form.prototype._applyAmountValidationErrors = function ( fieldsMissingValue, fieldsWithInvalidValue ) {
+		var valueMissingIndex = $.inArray( 'betrag', fieldsMissingValue ),
+			valueInvalidIndex = $.inArray( 'betrag', fieldsWithInvalidValue ),
+			errorBox, errorText = '';
+		if ( valueInvalidIndex > -1 ) {
+			errorText = 'Bitte geben Sie einen gültigen Betrag ein.' ;
+			fieldsWithInvalidValue.splice( valueInvalidIndex, 1 );
+			// Invalid values cause this
+			if ( valueMissingIndex > -1 ) {
+				fieldsMissingValue.splice( valueMissingIndex, 1 );
+			}
+		}
+		if ( valueMissingIndex > -1 ) {
+			errorText = 'Bitte geben Sie einen Betrag ein.';
+			fieldsMissingValue.splice( valueMissingIndex, 1 );
+		}
+		if ( errorText ) {
+			errorBox = this._showError( this.amountValidationAnchor, errorText );
+			this._addErrorRemovalHandler( $( '#' + banner.config.form.formId + ' .amount-radio' ), errorBox, 'click' );
+			this._addErrorRemovalHandler( $( '#amount-other-input' ), errorBox );
+		}
+	};
+
 	Form.prototype._markInvalid = function ( $element ) {
 		this._showError( $element );
 	};
@@ -276,9 +282,15 @@
 		this._showError( $element );
 	};
 
+	/**
+	 * Set the element parent class to "invalid", show invalid icon and add error text
+	 *
+	 * @param {jQuery} $element
+	 * @return {jQuery} The error box
+	 */
 	Form.prototype._showError = function ( $element ) {
 		var $parent = $element.parent(),
-			errorText;
+			errorText, $errorBox;
 		if ( arguments.length > 1 ) {
 			errorText = arguments[ 1 ];
 		} else {
@@ -287,12 +299,22 @@
 		$element.addClass( 'invalid' );
 		$( '.validation', $parent ).addClass( 'icon-bug' );
 		if ( !$( '.form-field-error-box', $parent ).length ) {
-			$parent.append(
+			$errorBox = $(
 				'<div class="form-field-error-box"><div class="form-field-error-arrow"></div><span class="form-field-error-text">' +
 				errorText +
 				'</span></div></div>'
 			);
+			$parent.append( $errorBox );
+			this._addErrorRemovalHandler( $element, $errorBox );
 		}
+		return $errorBox;
+	};
+
+	Form.prototype._addErrorRemovalHandler = function ( $element, $errorBox, eventName ) {
+		eventName = eventName || 'focus';
+		$element.one( eventName, function () {
+			$errorBox.remove();
+		} );
 	};
 
 	Form.prototype._markValid = function ( $element ) {
