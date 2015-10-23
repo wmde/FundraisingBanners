@@ -1,5 +1,4 @@
 var isOpen = false;
-var paySEPA = true;
 var addressType = 'private';
 
 $( function() {
@@ -10,6 +9,7 @@ $( function() {
 		dataProtectionBox = new BannerModalInfobox( 'dataprotection' );
 
 	unlockForm();
+	toggleDebitType();
 
 	$( '#interval_onetime' ).on( 'click', function() {
 		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '158px' );
@@ -137,9 +137,13 @@ function unlockForm() {
 }
 
 function toggleDebitType() {
-	$( '#WMDE_Banner-sepa' ).slideToggle();
-	$( '#WMDE_BannerFullForm-nosepa' ).slideToggle();
-	paySEPA = !paySEPA;
+	if ( $( 'input:radio[name=debit-type]:checked' ).val() === 'sepa' ) {
+		$( '#WMDE_BannerFullForm-nosepa' ).slideUp();
+		$( '#WMDE_Banner-sepa' ).slideDown();
+	} else {
+		$( '#WMDE_Banner-sepa' ).slideUp();
+		$( '#WMDE_BannerFullForm-nosepa' ).slideDown();
+	}
 }
 
 function showFullForm() {
