@@ -41,7 +41,7 @@
 			},
 			form: {
 				formId: 'donationForm',
-				formAction: 'https://test.wikimedia.de/spenden/index.php'
+				formAction: 'https://test.wikimedia.de/spenden/index.php?piwik_campaign={{{CampaignName}}}&piwik_kwd={{{BannerName}}}'
 			}
 		}
 	);
