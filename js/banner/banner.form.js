@@ -133,7 +133,7 @@
 			$( '#bank-name' ).val( data.bankName ? data.bankName : '' );
 		} else {
 			$iban.val( '' );
-			errorMessage = data.message || 'Die eingegebenen Bankdaten sind nicht korrekt.';
+			errorMessage = 'Die eingegebenen Bankdaten sind nicht korrekt.';
 			this._showError( $iban, errorMessage );
 			this._showError( $( '#account-number' ), errorMessage );
 		}
