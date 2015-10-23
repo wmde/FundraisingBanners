@@ -194,6 +194,7 @@ function fillConfirmationValues() {
 	$( '#WMDE_BannerFullForm-confirm-IBAN' ).text( $( '#iban' ).val() );
 	$( '#WMDE_BannerFullForm-confirm-BIC' ).text( $( '#bic' ).val() );
 	$( '#WMDE_BannerFullForm-confirm-bankname' ).text( $( '#bank-name' ).val() );
+	$( '#WMDE_BannerFullForm-confirm-date' ).text( getCurrentDateString() );
 }
 
 function getSalutation() {
@@ -238,6 +239,19 @@ function getCountryByCode( code ) {
 		default:
 			return '';
 	}
+}
+
+function getCurrentDateString() {
+	var now = new Date(),
+		day = now.getDate(),
+		month = now.getMonth() + 1;
+	return ( day < 10 ? '0' : '' )
+		+ day
+		+ '.'
+		+ ( month < 10  ? '0' : '' )
+		+ month
+		+ '.'
+		+ now.getFullYear();
 }
 
 /* Payment methods show and hide */
