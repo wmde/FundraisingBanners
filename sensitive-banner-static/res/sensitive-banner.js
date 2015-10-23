@@ -9,6 +9,7 @@ $( function() {
 		dataProtectionBox = new BannerModalInfobox( 'dataprotection' );
 
 	unlockForm();
+	toggleDebitType();
 
 	$( '#interval_onetime' ).on( 'click', function() {
 		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '158px' );
