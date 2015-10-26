@@ -29,16 +29,12 @@
 			libUrl = Banner.config.encryption.libUrl,
 			legacyEncryption, legacyLibPath;
 
-		//if ( typeof Uint8Array !== "undefined " ) {
+		if ( typeof Uint8Array === "undefined " ) {
 			libUrl = Banner.config.encryption.legacyLibUrl;
 			legacyLibPath = libUrl.substring( 0, libUrl.lastIndexOf( '/' ) + 1 );
 			this.useLegacyEncryption = true;
-		//}
-		// TODO remove these four lines, it's only when the libs aren't loaded dynamically
-		legacyEncryption = new LegacyPGP( legacyLibPath );
-		self.encrypt = legacyEncryption.encrypt.bind( legacyEncryption );
-		self.initialized = true;
-		return;
+		}
+
 		$.ajax( {
 			url: libUrl,
 			dataType: 'script',
