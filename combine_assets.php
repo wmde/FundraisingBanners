@@ -4,6 +4,7 @@ $allAssets = [
     'js/sensitive_banner_all.js' => [
         'sensitive-banner-static/res/sensitive-banner.js',
         'sensitive-banner-static/res/lightbox.js',
+        'js/lib/function-bind.min.js',
         'js/banner/banner.js',
         'js/banner/banner.config.js',
         'js/banner/banner.encryption.js',
