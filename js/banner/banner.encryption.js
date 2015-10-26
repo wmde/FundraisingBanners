@@ -36,7 +36,7 @@
 		$.ajax( {
 			url: libUrl,
 			dataType: 'script',
-			cache: false,
+			cache: true,
 			success: function () {
 				var legacyEncryption;
 				if ( self.useLegacyEncryption ) {
