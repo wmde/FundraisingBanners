@@ -44,6 +44,9 @@ $( function() {
 		unlockForm();
 	} );
 
+	$( '.WMDE_BannerFullForm-confirm-edit' ).on( 'click', function () {
+		debitBackToFirstStep();
+	} );
 
 	paymentButtons.hover( function() {
 			if ( !isOpen ) $( '#WMDE_BannerFullForm-arrow' ).show();
@@ -252,6 +255,17 @@ function getCurrentDateString() {
 		+ month
 		+ '.'
 		+ now.getFullYear();
+}
+
+function debitBackToFirstStep() {
+	$( '#donationForm' ).trigger( 'banner:validationReset' );
+	$( '#WMDE_BannerFullForm-step2' ).slideToggle( 400, function () {
+		$( '#WMDE_BannerFullForm-step1' ).slideToggle();
+	} );
+
+	$( 'html, body' ).animate( {
+		scrollTop: 0
+	}, 'slow' );
 }
 
 /* Payment methods show and hide */
