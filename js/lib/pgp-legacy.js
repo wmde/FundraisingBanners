@@ -1,6 +1,13 @@
 /* globals Promise, getPublicKey, randomString, hex2s, GPGpkesk, GPGsed */
 
-function LegacyPGP( libPath ) {}
+
+/**
+ * A wrapper class for the HaenWIN PGP functions.
+ * This wrapper provides a drop-in replacement for the openPGP class.
+ *
+ * @author Gabriel Birke <gabriel.birke@wikimedia.de>
+ */
+function LegacyPGP() {}
 
 LegacyPGP.prototype.encrypt = function ( data ) {
     return new Promise( function (resolve, reject) {

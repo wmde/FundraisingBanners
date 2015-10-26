@@ -26,12 +26,10 @@
 	 */
 	EP.initCryptLib = function () {
 		var self = this,
-			libUrl = Banner.config.encryption.libUrl,
-			legacyEncryption, legacyLibPath;
+			libUrl = Banner.config.encryption.libUrl;
 
 		if ( typeof Uint8Array === "undefined " ) {
 			libUrl = Banner.config.encryption.legacyLibUrl;
-			legacyLibPath = libUrl.substring( 0, libUrl.lastIndexOf( '/' ) + 1 );
 			this.useLegacyEncryption = true;
 		}
 
@@ -40,6 +38,7 @@
 			dataType: 'script',
 			cache: false,
 			success: function () {
+				var legacyEncryption;
 				if ( self.useLegacyEncryption ) {
 					legacyEncryption = new LegacyPGP( legacyLibPath );
 					self.encrypt = legacyEncryption.encrypt.bind( legacyEncryption );
