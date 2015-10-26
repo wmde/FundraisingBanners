@@ -164,6 +164,7 @@ td#WMDE_BannerFullForm-wrapper {
     text-decoration: none;
     text-align: center;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
 #WMDE_BannerFullForm-finish, #WMDE_BannerFullForm-finish-sepa {
@@ -254,6 +255,7 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
 #WMDE_BannerFullForm a {
     color: black;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 #WMDE_BannerFullForm-step2 {
