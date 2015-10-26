@@ -28,7 +28,7 @@
 		var self = this,
 			libUrl = Banner.config.encryption.libUrl;
 
-		if ( typeof Uint8Array === "undefined " ) {
+		if ( typeof Uint8Array === 'undefined' ) {
 			libUrl = Banner.config.encryption.legacyLibUrl;
 			this.useLegacyEncryption = true;
 		}
@@ -40,7 +40,7 @@
 			success: function () {
 				var legacyEncryption;
 				if ( self.useLegacyEncryption ) {
-					legacyEncryption = new LegacyPGP( legacyLibPath );
+					legacyEncryption = new LegacyPGP();
 					self.encrypt = legacyEncryption.encrypt.bind( legacyEncryption );
 				}
 				self.initialized = true;
