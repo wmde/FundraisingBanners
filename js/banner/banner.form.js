@@ -17,6 +17,7 @@
 			self._initSubmitHandler();
 			self._initBankDataHandler();
 			self._initFieldClearHandlers();
+			self._initValidationResetHandler();
 		} );
 	}
 
@@ -83,6 +84,14 @@
 
 	Form.prototype._initBankDataHandler = function () {
 		$( '#account-number, #bank-code, #iban' ).on( 'change', this.checkBankData.bind( this ) );
+	};
+
+	Form.prototype._initValidationResetHandler = function () {
+		var self = this,
+			form = $( '#' + banner.config.form.formId );
+		form.on( 'banner:validationReset', function () {
+			self.validated = false;
+		} );
 	};
 
 	Form.prototype.checkBankData = function ( evt ) {
