@@ -12,7 +12,7 @@
 	function Encryption() {
 		var self = this;
 		this.initialized = false;
-		this.useLegacyEncryption = true;
+		this.useLegacyEncryption = false;
 
 		$( document ).ready( function () {
 			self.initCryptLib();
