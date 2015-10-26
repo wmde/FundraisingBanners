@@ -3,10 +3,10 @@
  * Copyright 2005-2006 Herbert Hanewinkel, www.haneWIN.de
  * version 2.0, check www.haneWIN.de for the latest version
 
- * This software is provided as-is, without express or implied warranty.
+ * This software is provided as-is, without express or implied warranty.  
  * Permission to use, copy, modify, distribute or sell this software, with or
  * without fee, for any purpose and by any individual or organization, is hereby
- * granted, provided that the above copyright notice and this paragraph appear
+ * granted, provided that the above copyright notice and this paragraph appear 
  * in all copies. Distribution as a part of an application or binary must
  * include the above copyright notice in the documentation and/or other
  * materials provided with the application or distribution.
@@ -15,7 +15,7 @@
 /* We need an unpredictable session key of 128 bits ( = 2^128 possible keys).
  * If we generate the session key with a PRNG from a small seed we get only
  * a small number of session keys, e.g. 4 bytes seed => 2^32 keys, a brute
- * force attack could try all 2^32 session keys.
+ * force attack could try all 2^32 session keys. 
  * (see RFC 1750 - Randomness Recommendations for Security.)
  *
  * Sources for randomness in Javascript are limited.
@@ -45,8 +45,8 @@ function rnTimer()
  {
   t ^= randomByte();
   rnArray[(rnNext++)&255] ^= t;
- }
- window.setTimeout(rnTimer, randomByte()|128);
+ } 
+ window.setTimeout(rnTimer,randomByte()|128);
 }
 
 // rnTimer() and mouseMoveCollect() are started on page load.
@@ -95,7 +95,7 @@ function crc24(data)
    {
     crc<<=1;
     if(crc & 0x1000000) crc^=0x1864cfb;
-   }
+   }       
  }
  return String.fromCharCode((crc>>16)&255)
         +String.fromCharCode((crc>>8)&255)
@@ -116,7 +116,7 @@ function GPGencrypt(key, text)
  var rblock = new Array(bpbl);
  var ct = new Array(bpbl+2);
  var expandedKey = new Array();
-
+ 
  var ciphertext = '';
 
  // append zero padding
@@ -124,7 +124,7 @@ function GPGencrypt(key, text)
  {
   for(i=(len%bpbl); i<bpbl; i++) text+='\0';
  }
-
+ 
  expandedKey = keyExpansion(key);
 
  // set up initialisation vector and random byte vector
@@ -144,7 +144,7 @@ function GPGencrypt(key, text)
  // append check octets
  ct[bpbl]   = (iblock[0] ^ rblock[bpbl-2]);
  ct[bpbl+1] = (iblock[1] ^ rblock[bpbl-1]);
-
+ 
  for(i = 0; i < bpbl+2; i++) ciphertext += String.fromCharCode(ct[i]);
 
  // resync
@@ -178,13 +178,13 @@ function GPGpkt(tag, len)
 // GPG public key encryted session key packet (1)
 
 function GPGpkesk(keyId, keytyp, symAlgo, sessionkey, pkey)
-{
+{ 
  var el = [3,5,9,17,513,2049,4097,8193];
  var mod=new Array();
  var exp=new Array();
  var enc='';
-
- var s = window.atob(pkey);
+ 
+ var s = r2s(pkey);
  var l = Math.floor((s.charCodeAt(0)*256 + s.charCodeAt(1)+7)/8);
 
  mod = mpi2b(s.substr(0,l+2));

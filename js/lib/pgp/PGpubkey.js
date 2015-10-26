@@ -3,10 +3,10 @@
  * Copyright 2005 Herbert Hanewinkel, www.haneWIN.de
  * version 1.1, check www.haneWIN.de for the latest version
 
- * This software is provided as-is, without express or implied warranty.
+ * This software is provided as-is, without express or implied warranty.  
  * Permission to use, copy, modify, distribute or sell this software, with or
  * without fee, for any purpose and by any individual or organization, is hereby
- * granted, provided that the above copyright notice and this paragraph appear
+ * granted, provided that the above copyright notice and this paragraph appear 
  * in all copies. Distribution as a part of an application or binary must
  * include the above copyright notice in the documentation and/or other materials
  * provided with the application or distribution.
@@ -38,7 +38,7 @@ function getPublicKey(text)
     this.pkey = '';
     return;
   }
-
+ 
   var a=text.indexOf('\n\n',i);
   if(a>0) a += 2;
   else
@@ -47,8 +47,8 @@ function getPublicKey(text)
     if(a>0) a += 3;
   }
 
-  var e=text.indexOf('\n=',i);
-  if(a>0 && e>0) text = text.slice(a,e);
+  var e=text.indexOf('\n=',i); 
+  if(a>0 && e>0) text = text.slice(a,e); 
   else
   {
     alert('Invalid PGP Public Key Block');
@@ -59,8 +59,8 @@ function getPublicKey(text)
     this.pkey = '';
     return;
   }
-
-  var s=window.atob(text);
+ 
+  var s=r2s(text);
 
   for(var i=0; i < s.length;)
   {
@@ -74,7 +74,7 @@ function getPublicKey(text)
       len=s.charCodeAt(i++);
       if(len >191 && len <224) len=((len-192)<<8) + s.charCodeAt(i++);
       else if(len==255) len = (s.charCodeAt(i++)<<24) + (s.charCodeAt(i++)<<16) + (s.charCodeAt(i++)<<8) + s.charCodeAt(i++);
-      else if(len>223 &&len<255) len = (1<<(len&0x1f));
+      else if(len>223 &&len<255) len = (1<<(len&0x1f)); 
     }
     else
     {
@@ -95,7 +95,7 @@ function getPublicKey(text)
       this.vers=vers;
 
       var time=(s.charCodeAt(i++)<<24) + (s.charCodeAt(i++)<<16) + (s.charCodeAt(i++)<<8) + s.charCodeAt(i++);
-
+      
       if(vers==2 || vers==3) var valid=s.charCodeAt(i++)<<8 + s.charCodeAt(i++);
 
       var algo=s.charCodeAt(i++);
@@ -110,7 +110,7 @@ function getPublicKey(text)
         var le = Math.floor((s.charCodeAt(i)*256 + s.charCodeAt(i+1)+7)/8);
         i+=le+2;
 
-        this.pkey=window.btoa(s.substr(m,lm+le+4));
+        this.pkey=s2r(s.substr(m,lm+le+4));
         this.type="RSA";
 
         if(vers==3)
@@ -120,7 +120,7 @@ function getPublicKey(text)
         }
         else if(vers==4)
         {
-          var pkt = String.fromCharCode(0x99) + String.fromCharCode(len>>8)
+          var pkt = String.fromCharCode(0x99) + String.fromCharCode(len>>8) 
                     + String.fromCharCode(len&255)+s.substr(k, len);
           var fp = str_sha1(pkt);
           this.fp=s2hex(fp);
@@ -146,16 +146,16 @@ function getPublicKey(text)
         var ly = Math.floor((s.charCodeAt(i)*256 + s.charCodeAt(i+1)+7)/8);
         i+=ly+2;
 
-        this.pkey=window.btoa(s.substr(m,lp+lg+ly+6));
+        this.pkey=s2r(s.substr(m,lp+lg+ly+6));
 
-        var pkt = String.fromCharCode(0x99) + String.fromCharCode(len>>8)
+        var pkt = String.fromCharCode(0x99) + String.fromCharCode(len>>8) 
                     + String.fromCharCode(len&255)+s.substr(k, len);
         var fp = str_sha1(pkt);
         this.fp=s2hex(fp);
         this.keyid=s2hex(fp.substr(fp.length-8,8));
         this.type="ELGAMAL";
         found = 3;
-      }
+      } 
       else
       {
         i = k + len;
@@ -172,12 +172,12 @@ function getPublicKey(text)
     }
   }
   if(found < 2)
-  {
+  {  
       this.vers = '';
       this.fp = '';
       this.keyid = '';
       if(found == 0)
-          this.user = "No public key packet found.";
+          this.user = "No public key packet found."; 
       else if(found == 1)
       {
           this.user = "public key algorithm is " + algo + " not RSA or ELGAMAL.";
