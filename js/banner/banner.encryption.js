@@ -12,6 +12,7 @@
 	function Encryption() {
 		var self = this;
 		this.initialized = false;
+		this.useLegacyEncryption = true;
 
 		$( document ).ready( function () {
 			self.initCryptLib();
@@ -24,13 +25,29 @@
 	 * Load the encryption library
 	 */
 	EP.initCryptLib = function () {
-		var self = this;
+		var self = this,
+			libUrl = Banner.config.encryption.libUrl,
+			legacyEncryption, legacyLibPath;
 
+		//if ( typeof Uint8Array !== "undefined " ) {
+			libUrl = Banner.config.encryption.legacyLibUrl;
+			legacyLibPath = libUrl.substring( 0, libUrl.lastIndexOf( '/' ) + 1 );
+			this.useLegacyEncryption = true;
+		//}
+		// TODO remove these four lines, it's only when the libs aren't loaded dynamically
+		legacyEncryption = new LegacyPGP( legacyLibPath );
+		self.encrypt = legacyEncryption.encrypt.bind( legacyEncryption );
+		self.initialized = true;
+		return;
 		$.ajax( {
-			url: Banner.config.encryption.libUrl,
+			url: libUrl,
 			dataType: 'script',
-			cache: true,
+			cache: false,
 			success: function () {
+				if ( self.useLegacyEncryption ) {
+					legacyEncryption = new LegacyPGP( legacyLibPath );
+					self.encrypt = legacyEncryption.encrypt.bind( legacyEncryption );
+				}
 				self.initialized = true;
 			}
 		} );

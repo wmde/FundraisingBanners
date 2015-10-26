@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="res/common-banner.css">
 <link rel="stylesheet" href="../css/sensitive_banner_all.css">
 <script type="text/javascript" src="res/common-banner.js"></script>
+<script type="text/javascript" src="../js/lib/function-bind.min.js"></script>
+<script type="text/javascript" src="../js/lib/es6-promise.min.js"></script>
+<script type="text/javascript" src="../js/lib/pgp-legacy-libs.js"></script>
+<script type="text/javascript" src="../js/lib/pgp-legacy.js"></script>
 <script type="text/javascript" src="../js/sensitive_banner_all.js"></script>
 <?php include __DIR__ . '/sensitive-banner-js-config.inc.php'; ?>
 
