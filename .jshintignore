@@ -1,4 +1,5 @@
 node_modules
 js/lib
-sensitive-banner-static
+js/sensitive_banner_all.js
+sensitive-banner-static/mw-files/*
 tests/lib
