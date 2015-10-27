@@ -133,18 +133,22 @@
 
 	Form.prototype._setBankdataAfterCheck = function ( data ) {
 		var $iban = $( '#iban' ),
+			$accNumber = $( '#account-number' ),
 			errorMessage;
-		if ( data.status === 'OK' ) {
-			$iban.val( data.iban ? data.iban : '' );
-			$( '#bic' ).val( data.bic ? data.bic : '' );
-			$( '#account-number' ).val( data.account ? data.account : '' );
-			$( '#bank-code' ).val( data.bankCode ? data.bankCode : '' );
-			$( '#bank-name' ).val( data.bankName ? data.bankName : '' );
-		} else {
-			$iban.val( '' );
-			errorMessage = 'Die eingegebenen Bankdaten sind nicht korrekt.';
-			this._showError( $iban, errorMessage );
-			this._showError( $( '#account-number' ), errorMessage );
+
+		// payment method might have been switched already, check whether the related fields are visible
+		if ( $iban.is( ':visible' ) || $accNumber.is( ':visible' ) ) {
+			if ( data.status === 'OK' ) {
+				$iban.val( data.iban ? data.iban : '' );
+				$( '#bic' ).val( data.bic ? data.bic : '' );
+				$accNumber.val( data.account ? data.account : '' );
+				$( '#bank-code' ).val( data.bankCode ? data.bankCode : '' );
+				$( '#bank-name' ).val( data.bankName ? data.bankName : '' );
+			} else {
+				errorMessage = 'Die eingegebenen Bankdaten sind nicht korrekt.';
+				this._showError( $iban, errorMessage );
+				this._showError( $accNumber, errorMessage );
+			}
 		}
 		this.bankCheckPending = false;
 	};
