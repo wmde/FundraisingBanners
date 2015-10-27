@@ -145,7 +145,6 @@
 				$( '#bank-code' ).val( data.bankCode ? data.bankCode : '' );
 				$( '#bank-name' ).val( data.bankName ? data.bankName : '' );
 			} else {
-				$iban.val( '' );
 				errorMessage = 'Die eingegebenen Bankdaten sind nicht korrekt.';
 				this._showError( $iban, errorMessage );
 				this._showError( $accNumber, errorMessage );
