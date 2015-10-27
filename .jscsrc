@@ -25,7 +25,7 @@
 		"node_modules/**",
 		"js/lib/**",
 		"js/sensitive_banner_all.js",
-		"sensitive-banner-static/**",
+		"sensitive-banner-static/mw-files/**",
 		"tests/lib/**",
 		"vendor/**"
 	]
