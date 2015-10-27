@@ -828,7 +828,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 			<p>
 				<a target="_blank"
-				   href="https://spenden.wikimedia.de/wiki/images/5/5c/Vereinfachter_Zuwendungsbescheid_Wikimedia_Foerdergesellschaft.pdf">Den
+				   href="https://spenden.wikimedia.de/wiki/images/3/33/Vereinfachter_Zuwendungsbescheid_Foerdergesellschaft_2015.pdf">Den
 					vereinfachten Zuwendungsbescheid f&uuml;r die Wikimedia F&ouml;rdergesellschaft k&ouml;nnen
 					Sie
 					hier herunterladen.</a>
@@ -837,21 +837,18 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			<p>
 				Als Dankesch&ouml;n und Zeichen unserer Wertsch&auml;tzung stellen wir jedoch f&uuml;r jede
 				Spende
-				ab genau 15 Euro automatisch
+				ab genau 5 Euro automatisch
 				eine Zuwendungsbescheinigung aus. Diese verschicken wir zum Ende des ersten Quartals des
 				folgenden
 				Jahres. Wenn Sie
 				Ihre Zuwendungsbest&auml;tigung eher ben&ouml;tigen, sagen Sie uns einfach Bescheid. Auf
 				Nachfrage
 				versenden wir die
-				Best&auml;tigung auch gern eher (bei Lastschriften und Kreditkartenzahlungen fr&uuml;hestens
-				nach
-				der 56t&auml;gigen
-				Widerspruchsfrist).
+				Best&auml;tigung auch gern eher.
 			</p>
 
 			<p>
-				F&uuml;r Spenden unter 15 &euro; bieten wir in der Regel keine Zuwendungsbest&auml;tigung an, da
+				F&uuml;r Spenden unter 5 &euro; bieten wir in der Regel keine Zuwendungsbest&auml;tigung an, da
 				dem
 				Finanzamt der Kontoauszug in
 				Verbindung mit dem vereinfachten Zuwendungsbescheid als Nachweis der Spende ausreicht. Ebenso m&ouml;chten
@@ -862,7 +859,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 				ist dies nat&uuml;rlich kein Problem. Gern stellen wir Ihnen eine Best&auml;tigung aus.
 				Schreiben
 				Sie uns dazu einfach eine
-				E-Mail an spenden@wikimedia.de.
+				E-Mail an <a href="mailto:spenden@wikimedia.de">spenden@wikimedia.de</a>.
 			</p>
 
 			<p>
