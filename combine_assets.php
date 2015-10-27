@@ -5,6 +5,7 @@ $allAssets = [
         'sensitive-banner-static/res/sensitive-banner.js',
         'sensitive-banner-static/res/lightbox.js',
         'js/lib/function-bind.min.js',
+        'js/lib/base64.min.js',
         'js/banner/banner.js',
         'js/banner/banner.config.js',
         'js/banner/banner.encryption.js',
@@ -13,7 +14,7 @@ $allAssets = [
     ],
     'js/lib/pgp-legacy-libs.js' => [
         'js/lib/es6-promise.min.js',
-        'js/lib/base64.min.js', # The legacy PGP library is not compatible with the base64 polyfill so we have to include two libraries for base64 encoding :(
+        # The legacy PGP library is not compatible with the base64 polyfill so we have to include two libraries for base64 encoding :(
         'js/lib/pgp/base64.js',
         'js/lib/pgp/rsa.js',
         'js/lib/pgp/aes-enc.js',
