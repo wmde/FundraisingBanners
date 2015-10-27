@@ -28,7 +28,7 @@
 		var self = this,
 			libUrl = Banner.config.encryption.libUrl;
 
-		if ( typeof Uint8Array === 'undefined' ) {
+		if ( typeof window.crypto === 'undefined' || window.crypto.getRandomValues === 'undefined' ) {
 			libUrl = Banner.config.encryption.legacyLibUrl;
 			this.useLegacyEncryption = true;
 		}
