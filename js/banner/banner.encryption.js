@@ -7,12 +7,21 @@
 ( function ( Banner ) {
 	'use strict';
 
-	var EP;
+	var EP,
+		browserSupportsCryptoAPI = function () {
+			if ( typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues ) {
+				return true;
+			} else if ( typeof window !== 'undefined' && typeof window.msCrypto === 'object'
+				&& typeof window.msCrypto.getRandomValues === 'function' ) {
+				return true;
+			}
+			return false;
+		};
 
 	function Encryption() {
 		var self = this;
 		this.initialized = false;
-		this.useLegacyEncryption = false;
+		this.useLegacyEncryption = !browserSupportsCryptoAPI();
 
 		$( document ).ready( function () {
 			self.initCryptLib();
@@ -28,9 +37,8 @@
 		var self = this,
 			libUrl = Banner.config.encryption.libUrl;
 
-		if ( typeof window.crypto === 'undefined' || window.crypto.getRandomValues === 'undefined' ) {
+		if ( this.useLegacyEncryption ) {
 			libUrl = Banner.config.encryption.legacyLibUrl;
-			this.useLegacyEncryption = true;
 		}
 
 		$.ajax( {
