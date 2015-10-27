@@ -1,10 +1,10 @@
 /*jshint latedef: nofunc */
 /*jshint unused: false */
 /* globals getAmount */
-var isOpen = false;
-var addressType = 'private';
+var isOpen = false,
+	addressType = 'private';
 
-$( function() {
+$( function () {
 	var paymentButtons = $( '#WMDE_BannerForm-payment button' ),
 		fundsBox = new BannerModalInfobox( 'funds' ),
 		taxesBox = new BannerModalInfobox( 'taxes' ),
@@ -14,33 +14,33 @@ $( function() {
 	unlockForm();
 	toggleDebitType();
 
-	$( '#interval_onetime' ).on( 'click', function() {
+	$( '#interval_onetime' ).on( 'click', function () {
 		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '158px' );
 		$( '.interval-options input[name=interval]' ).prop( 'checked', false );
 	} );
-	$( '#interval_multiple' ).on( 'click', function() {
+	$( '#interval_multiple' ).on( 'click', function () {
 		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '204px' );
 		$( '#interval1' ).prop( 'checked', 'checked' );
 	} );
 
-	paymentButtons.on( 'click', function( e ) {
+	paymentButtons.on( 'click', function ( e ) {
 		e.preventDefault();
 	} );
 
-	$( '#WMDE_BannerFullForm-finish' ).on( 'click', function( e ) {
-		$( this ).trigger( "blur" );
+	$( '#WMDE_BannerFullForm-finish' ).on( 'click', function ( e ) {
+		$( this ).trigger( 'blur' );
 		$( this ).addClass( 'waiting' );
 		lockForm();
 	} );
 
 	$( '#WMDE_BannerFullForm-finish-sepa' ).on( 'click', handleSepaValidation );
 
-	$( '#WMDE_BannerFullForm-close-step1' ).on( 'click', function() {
+	$( '#WMDE_BannerFullForm-close-step1' ).on( 'click', function () {
 		hideFullForm();
 		unlockForm();
 	} );
-	$( '#WMDE_BannerFullForm-close-step2' ).on( 'click', function() {
-		$( '#WMDE_BannerFullForm-step2' ).slideToggle( 400, function() {
+	$( '#WMDE_BannerFullForm-close-step2' ).on( 'click', function () {
+		$( '#WMDE_BannerFullForm-step2' ).slideToggle( 400, function () {
 			$( '#WMDE_BannerFullForm-step1' ).slideToggle();
 		} );
 		hideFullForm();
@@ -51,32 +51,32 @@ $( function() {
 		debitBackToFirstStep();
 	} );
 
-	paymentButtons.hover( function() {
+	paymentButtons.hover( function () {
 			if ( !isOpen ) { $( '#WMDE_BannerFullForm-arrow' ).show(); }
 		},
-		function() {
+		function () {
 			$( '#WMDE_BannerFullForm-arrow' ).hide();
 		} );
 
-	$( 'input[name=\'debit-type\']' ).on( 'click', function() {
+	$( 'input[name=\'debit-type\']' ).on( 'click', function () {
 		toggleDebitType();
 	} );
 
-	$( '#address-type-1' ).on( 'click', function() {
+	$( '#address-type-1' ).on( 'click', function () {
 		$( '#WMDE_BannerFullForm-company' ).slideUp();
 		$( '#WMDE_Banner-person' ).slideDown();
 		$( '#WMDE_Banner-address' ).slideDown();
 		addressType = 'private';
 	} );
 
-	$( '#address-type-2' ).on( 'click', function() {
+	$( '#address-type-2' ).on( 'click', function () {
 		$( '#WMDE_Banner-person' ).slideUp();
 		$( '#WMDE_BannerFullForm-company' ).slideDown();
 		$( '#WMDE_Banner-address' ).slideDown();
 		addressType = 'company';
 	} );
 
-	$( '#address-type-3' ).on( 'click', function() {
+	$( '#address-type-3' ).on( 'click', function () {
 		$( '#WMDE_BannerFullForm-company' ).slideUp();
 		$( '#WMDE_Banner-person' ).slideUp();
 		$( '#WMDE_Banner-address' ).slideUp();
@@ -85,18 +85,17 @@ $( function() {
 	} );
 
 	// set validation event handlers
-	$( '#donationForm' ).on( 'banner:validationFailed', function() {
+	$( '#donationForm' ).on( 'banner:validationFailed', function () {
 		unlockForm();
 		$( '#WMDE_BannerFullForm-finish' ).removeClass( 'waiting' );
 	} );
 
-	$( '#donationForm' ).on( 'banner:validationSucceeded', function( evt ) {
+	$( '#donationForm' ).on( 'banner:validationSucceeded', function ( evt ) {
 		unlockForm();
 		if ( $( '#zahlweise' ).val() === 'BEZ' ) {
 			debitNextStep();
 			evt.preventDefault();
-		}
-		else {
+		} else {
 			this.submit();
 		}
 	} );
@@ -108,16 +107,16 @@ $( function() {
  *
  * When checkboxes are ok, submit the form, if not, highlight missing checkboxes.
  *
- * @param evt {Event} Button click event
+ * @param {Event} evt Button click event
  */
-function handleSepaValidation ( evt ) {
+function handleSepaValidation( evt ) {
 	evt.preventDefault();
-	if ( $( '#confirm_sepa').prop( 'checked' ) && $( '#confirm_shortterm' ).prop( 'checked' ) ) {
+	if ( $( '#confirm_sepa' ).prop( 'checked' ) && $( '#confirm_shortterm' ).prop( 'checked' ) ) {
 		$( '#donationForm' ).submit();
-	}
-	else {
-		$( '#confirm_sepa, #confirm_shortterm' ).each( function (index, element ) {
-			var $element = $( element ), $parent;
+	} else {
+		$( '#confirm_sepa, #confirm_shortterm' ).each( function ( index, element ) {
+			var $element = $( element ),
+				$parent;
 			if ( $element.prop( 'checked' ) ) {
 				return;
 			}
@@ -170,7 +169,7 @@ function hideFullForm() {
 	$( '#form_action' ).prop( 'name', '' );
 	$( '#donationIframe' ).val( '' );
 	isOpen = false;
-	$( '#WMDE_BannerFullForm-details' ).slideUp( 400, function() {
+	$( '#WMDE_BannerFullForm-details' ).slideUp( 400, function () {
 		$( '#WMDE_Banner' ).css( 'position', 'fixed' );
 		resetButtons();
 	} );
@@ -179,15 +178,15 @@ function hideFullForm() {
 }
 
 function debitNextStep() {
-	$( '#WMDE_BannerFullForm-step1' ).slideToggle( 400, function() {
+	$( '#WMDE_BannerFullForm-step1' ).slideToggle( 400, function () {
 		$( '#WMDE_BannerFullForm-step2' ).slideToggle();
 	} );
 
 	fillConfirmationValues();
 
-	$( "html, body" ).animate( {
+	$( 'html, body' ).animate( {
 		scrollTop: 0
-	}, "slow" );
+	}, 'slow' );
 }
 
 function fillConfirmationValues() {
@@ -195,7 +194,7 @@ function fillConfirmationValues() {
 	$( '#WMDE_BannerFullForm-confirm-salutation' ).text( getSalutation() );
 	$( '#WMDE_BannerFullForm-confirm-street' ).text( $( '#street' ).val() );
 	$( '#WMDE_BannerFullForm-confirm-city' ).text( $( '#post-code' ).val() + ' ' + $( '#city' ).val() );
-	$( '#WMDE_BannerFullForm-confirm-country' ).text( getCountryByCode ( $( '#country' ).val() ) );
+	$( '#WMDE_BannerFullForm-confirm-country' ).text( getCountryByCode( $( '#country' ).val() ) );
 	$( '#WMDE_BannerFullForm-confirm-mail' ).text( $( '#email' ).val() );
 	$( '#WMDE_BannerFullForm-confirm-IBAN' ).text( $( '#iban' ).val() );
 	$( '#WMDE_BannerFullForm-confirm-BIC' ).text( $( '#bic' ).val() );
@@ -204,15 +203,15 @@ function fillConfirmationValues() {
 }
 
 function getSalutation() {
-	var companyName = $( '#company-name' ).val();
+	var companyName = $( '#company-name' ).val(),
+		firstName = $( '#first-name' ).val(),
+		lastName = $( '#last-name' ).val(),
+		title = $( '#personal-title' ).val(),
+		salutation = '';
+
 	if ( companyName !== '' ) {
 		return companyName;
 	}
-
-	var firstName = $( '#first-name' ).val();
-	var lastName = $( '#last-name' ).val();
-	var title = $( '#personal-title' ).val();
-	var salutation = '';
 
 	if ( firstName !== '' && lastName !== '' ) {
 		salutation += $( 'input[name=anrede]:checked' ).val();
@@ -339,7 +338,7 @@ function showNonDebitParts( button ) {
 }
 
 function resetButtons() {
-	$( '#WMDE_BannerForm-payment button' ).trigger( "blur" );
+	$( '#WMDE_BannerForm-payment button' ).trigger( 'blur' );
 	$( '#WMDE_BannerForm-payment button' ).removeClass( 'active' );
 }
 
@@ -359,32 +358,31 @@ function BannerModalInfobox( boxName ) {
 	$( '.banner-lightbox-close', this.$box ).on( 'click', this.close.bind( this ) );
 }
 
-BannerModalInfobox.prototype.toggle = function( e ) {
+BannerModalInfobox.prototype.toggle = function ( e ) {
 	if ( this.$box.hasClass( 'opened' ) ) {
 		this.$box.trigger( 'banner:closeInfobox' );
-	}
-	else {
+	} else {
 		this.$box.trigger( 'banner:openInfobox' );
 	}
 };
 
-BannerModalInfobox.prototype.open = function( e ) {
+BannerModalInfobox.prototype.open = function ( e ) {
 	// close other banners
 	$( '.banner-unique' ).trigger( 'banner:closeInfobox' );
 
 	// wait for the slide-out to be done before showing banner
-	$( '.banner-unique' ).promise().done( function() {
+	$( '.banner-unique' ).promise().done( function () {
 		$( '#WMDE_BannerFullForm-info' ).addClass( this.boxName );
 		this.$box.addClass( 'opened' );
 		this.$box.slideDown();
 	}.bind( this ) );
 };
 
-BannerModalInfobox.prototype.close = function( e ) {
+BannerModalInfobox.prototype.close = function ( e ) {
 	if ( !this.$box.hasClass( 'opened' ) ) {
 		return;
 	}
-	this.$box.slideUp( 400, function() {
+	this.$box.slideUp( 400, function () {
 		this.$box.removeClass( 'opened' );
 		this.$link.removeClass( 'opened' );
 		$( '#WMDE_BannerFullForm-info' ).removeClass( this.boxName );
