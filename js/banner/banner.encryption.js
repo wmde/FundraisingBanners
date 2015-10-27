@@ -7,21 +7,12 @@
 ( function ( Banner ) {
 	'use strict';
 
-	var EP,
-		browserSupportsCryptoAPI = function () {
-			if ( typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues ) {
-				return true;
-			} else if ( typeof window !== 'undefined' && typeof window.msCrypto === 'object'
-				&& typeof window.msCrypto.getRandomValues === 'function' ) {
-				return true;
-			}
-			return false;
-		};
+	var EP;
 
 	function Encryption() {
 		var self = this;
 		this.initialized = false;
-		this.useLegacyEncryption = !browserSupportsCryptoAPI();
+		this.useLegacyEncryption = !this._browserSupportsCryptoAPI();
 
 		$( document ).ready( function () {
 			self.initCryptLib();
@@ -29,6 +20,19 @@
 	}
 
 	EP = Encryption.prototype;
+
+	/**
+	 * Check if the browser supports the window.crypto API
+	 */
+	EP._browserSupportsCryptoAPI = function () {
+		if ( typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues ) {
+			return true;
+		} else if ( typeof window !== 'undefined' && typeof window.msCrypto === 'object'
+			&& typeof window.msCrypto.getRandomValues === 'function' ) {
+			return true;
+		}
+		return false;
+	};
 
 	/**
 	 * Load the encryption library
