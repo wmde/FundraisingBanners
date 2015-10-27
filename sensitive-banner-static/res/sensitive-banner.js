@@ -52,7 +52,9 @@ $( function () {
 	} );
 
 	paymentButtons.hover( function () {
-			if ( !isOpen ) { $( '#WMDE_BannerFullForm-arrow' ).show(); }
+			if ( !isOpen ) {
+				$( '#WMDE_BannerFullForm-arrow' ).show();
+			}
 		},
 		function () {
 			$( '#WMDE_BannerFullForm-arrow' ).hide();

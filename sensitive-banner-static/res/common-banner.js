@@ -55,8 +55,12 @@ function getSecsPassed() {
 		maxSecs = Math.floor( new Date( finalDateTime - startDateObj ) / 1000 ),
 		secsPassed = Math.floor( ( new Date() - startDateObj ) / 1000 );
 
-	if ( secsPassed < 0 ) { secsPassed = 0; }
-	if ( secsPassed > maxSecs ) { secsPassed = maxSecs; }
+	if ( secsPassed < 0 ) {
+		secsPassed = 0;
+	}
+	if ( secsPassed > maxSecs ) {
+		secsPassed = maxSecs;
+	}
 
 	return secsPassed;
 }
