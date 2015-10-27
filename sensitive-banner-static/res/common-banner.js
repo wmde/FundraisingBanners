@@ -1,3 +1,6 @@
+/*jshint latedef: nofunc */
+/*jshint unused: false */
+/* globals mw, alert */
 var finalDateTime = new Date( 2015, 0, 1, 5, 0, 0 );
 var goalSum = 8200000;
 
@@ -43,7 +46,7 @@ function getDaysRemaining() {
 		$( '#donationRemaining' ).width( 0 );
 		$( '#donationRemaining' ).html( '' );
 	}
-	return ( daysRemaining != 1 ) ? daysRemaining + " Tage" : "1 Tag";
+	return ( daysRemaining !== 1 ) ? daysRemaining + " Tage" : "1 Tag";
 }
 
 function getSecsPassed() {
@@ -53,14 +56,14 @@ function getSecsPassed() {
 	var maxSecs = Math.floor( new Date( finalDateTime - startDateObj ) / 1000 );
 
 	var secsPassed = Math.floor( (new Date() - startDateObj) / 1000 );
-	if ( secsPassed < 0 ) secsPassed = 0;
-	if ( secsPassed > maxSecs ) secsPassed = maxSecs;
+	if ( secsPassed < 0 ) { secsPassed = 0; }
+	if ( secsPassed > maxSecs ) { secsPassed = maxSecs; }
 
 	return secsPassed;
 }
 
 function getApprDonationsRaw( rand ) {
-	var startDonations = parseInt( "{{{donations-collected-base}}}" );
+	var startDonations = parseInt( "{{{donations-collected-base}}}", 10 );
 	var secsPast = getSecsPassed();
 
 	//TODO manually hack to fix older banners from 2014
@@ -69,7 +72,7 @@ function getApprDonationsRaw( rand ) {
 }
 
 function getApprDonatorsRaw( rand ) {
-	var startDonators = parseInt( "{{{donators-base}}}" );
+	var startDonators = parseInt( "{{{donators-base}}}", 10 );
 
 	var secsPast = getSecsPassed();
 
@@ -120,7 +123,7 @@ function getCurrentGermanDay() {
 }
 
 function addPointsToNum( num ) {
-	num = parseInt( num ) + "";
+	num = parseInt( num, 10 ) + "";
 	num = num.replace( /\./g, ',' );
 	return num.replace( /(\d)(?=(\d\d\d)+(?!\d))/g, "$1." );
 }
@@ -130,7 +133,7 @@ function floorF( num ) {
 }
 
 function increaseImpCount() {
-	impCount = parseInt( $.cookie( 'centralnotice_banner_impression_count' ) ) | 0;
+	var impCount = parseInt( $.cookie( 'centralnotice_banner_impression_count' ), 10 ) || 0;
 	$.cookie( 'centralnotice_banner_impression_count', impCount + 1, { expires: 7, path: '/' } );
 	return impCount + 1;
 }
@@ -142,7 +145,7 @@ function increaseBannerImpCount( bannerId ) {
 		var impCountCookie = $.cookie( 'centralnotice_single_banner_impression_count' );
 		var bannerImpCount = impCountCookie.split( "|" );
 		if ( bannerImpCount[0] === bannerId ) {
-			impCount = parseInt( bannerImpCount[1] );
+			impCount = parseInt( bannerImpCount[1], 10 );
 		}
 	}
 	$.cookie( 'centralnotice_single_banner_impression_count', bannerId + '|' + (impCount + 1), {
@@ -269,13 +272,13 @@ function animateProgressBar() {
 	$( '#daysLeft' ).hide();
 
 	var barWidth = $( '#donationMeter' ).width();
-	var dTarget = parseInt( "8300000" );
+	var dTarget = parseInt( "8300000", 10 );
 	var dCollected = getApprDonationsRaw();
 	var dRemaining = dTarget - dCollected;
 
 	var fWidth = dCollected / dTarget * barWidth;
 	var maxFillWidth = barWidth - $( '#donationRemaining' ).width() - 16;
-	widthToFill = (fWidth > maxFillWidth) ? maxFillWidth : fWidth;
+	var widthToFill = (fWidth > maxFillWidth) ? maxFillWidth : fWidth;
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
 		duration: 2500,
