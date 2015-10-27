@@ -2,3 +2,4 @@ node_modules
 js/lib
 sensitive-banner-static
 tests/lib
+js/sensitive_banner_all.js

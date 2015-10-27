@@ -40,7 +40,9 @@
 			success: function () {
 				var legacyEncryption;
 				if ( self.useLegacyEncryption ) {
+					/*jshint -W117 *//* Ignore undefined LegacyPGP (it's loaded dynamically) */
 					legacyEncryption = new LegacyPGP();
+					/*jshint +W117 */
 					self.encrypt = legacyEncryption.encrypt.bind( legacyEncryption );
 				}
 				self.initialized = true;
