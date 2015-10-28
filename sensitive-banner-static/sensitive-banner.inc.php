@@ -1019,13 +1019,13 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 					<div class="lightbox-list-item last">
 						<span class="icon-list-item icon-shield"></span>
 						<span class="list-item-title">Ihre Daten sind sicher</span>
-
 						<p>
-							Wir f&uuml;hlen uns dem Datenschutz verpflichtet.
-							Unsere Bestimmungen dazu k&ouml;nnen Sie
-
+							Die Wikimedia F&ouml;rder-
+							gesellschaft verarbeitet Ihre persönlichen Daten gem&auml;&szlig;
+							den Datenschutzbe-
+							stimmungen, die
 							<span class="list-item-title" id="WMDE_BannerFullForm-dataprotection-link">hier</span>
-							einsehen.
+							eingesehen werden können.
 						</p>
 					</div>
 				</li>
