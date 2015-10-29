@@ -83,8 +83,7 @@ $( function() {
 
 	// Enter key in input fields should trigger the correct submit button
 	$( '#donationForm input[type=text]' ).keypress( function ( evt ) {
-		if( evt.which == 13 )
-		{
+		if( evt.key == 'Enter' || evt.which === 13 ) {
 			evt.preventDefault();
 			$( '#donationForm .submit:visible' ).first().trigger( 'click' );
 		}
