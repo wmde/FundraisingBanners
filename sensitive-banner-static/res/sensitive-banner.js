@@ -87,7 +87,7 @@ $( function() {
 			evt.preventDefault();
 			$( '#donationForm .submit:visible' ).first().trigger( 'click' );
 		}
-	});
+	} );
 
 	// set validation event handlers
 	$( '#donationForm' ).on( 'banner:validationFailed', function() {
