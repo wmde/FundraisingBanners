@@ -132,13 +132,13 @@ function handleSepaValidation( evt ) {
 }
 
 function lockForm() {
-	$( 'button' ).prop( 'disabled', true );
+	$( '#WMDE_BannerForm-payment button' ).prop( 'disabled', true );
 	$( 'input' ).prop( 'disabled', true );
 	$( 'select' ).prop( 'disabled', true );
 }
 
 function unlockForm() {
-	$( 'button' ).prop( 'disabled', false );
+	$( '#WMDE_BannerForm-payment button' ).prop( 'disabled', false );
 	$( 'input' ).prop( 'disabled', false );
 	$( 'select' ).prop( 'disabled', false );
 }

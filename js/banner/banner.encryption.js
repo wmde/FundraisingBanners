@@ -12,6 +12,7 @@
 	function Encryption() {
 		var self = this;
 		this.initialized = false;
+		this.useLegacyEncryption = !this._browserSupportsCryptoAPI();
 
 		$( document ).ready( function () {
 			self.initCryptLib();
@@ -21,16 +22,41 @@
 	EP = Encryption.prototype;
 
 	/**
+	 * Check if the browser supports the window.crypto API
+	 */
+	EP._browserSupportsCryptoAPI = function () {
+		if ( typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues ) {
+			return true;
+		} else if ( typeof window !== 'undefined' && typeof window.msCrypto === 'object'
+			&& typeof window.msCrypto.getRandomValues === 'function' ) {
+			return true;
+		}
+		return false;
+	};
+
+	/**
 	 * Load the encryption library
 	 */
 	EP.initCryptLib = function () {
-		var self = this;
+		var self = this,
+			libUrl = Banner.config.encryption.libUrl;
+
+		if ( this.useLegacyEncryption ) {
+			libUrl = Banner.config.encryption.legacyLibUrl;
+		}
 
 		$.ajax( {
-			url: Banner.config.encryption.libUrl,
+			url: libUrl,
 			dataType: 'script',
 			cache: true,
 			success: function () {
+				var legacyEncryption;
+				if ( self.useLegacyEncryption ) {
+					/*jshint -W117 *//* Ignore undefined LegacyPGP (it's loaded dynamically) */
+					legacyEncryption = new LegacyPGP();
+					/*jshint +W117 */
+					self.encrypt = legacyEncryption.encrypt.bind( legacyEncryption );
+				}
 				self.initialized = true;
 			}
 		} );

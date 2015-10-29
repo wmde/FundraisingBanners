@@ -10,6 +10,7 @@
 	Banner.config = {
 		encryption: {
 			libUrl: '../js/lib/openpgp.min.js',
+			legacyLibUrl: '../js/lib/pgp-legacy-libs.js',
 			publicKey: ''
 		},
 		form: {

@@ -3,3 +3,4 @@ js/lib
 js/sensitive_banner_all.js
 sensitive-banner-static/mw-files/*
 tests/lib
+js/sensitive_banner_all.js

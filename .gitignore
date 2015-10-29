@@ -8,7 +8,8 @@ node_modules
 
 sensitive-banner-static/sensitive-banner-js-config.inc.php
 
-# combined assets, they are compiled auzomatically
+# combined assets, they are compiled automatically
 js/sensitive_banner_all.js
 css/sensitive_banner_all.css
+js/lib/pgp-legacy-libs.js 
 

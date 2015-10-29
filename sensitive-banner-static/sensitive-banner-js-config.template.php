@@ -7,6 +7,7 @@
 			},
 			encryption: {
 				libUrl: '../js/lib/openpgp.min.js',
+				legacyLibUrl: '../js/lib/pgp-legacy-libs.js',
 				publicKey:
 				'-----BEGIN PGP PUBLIC KEY BLOCK-----\n' +
 				'Version: GnuPG v1\n' +
