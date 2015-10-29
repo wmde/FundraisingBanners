@@ -468,12 +468,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																	   value="1"
 																	   name="info"
 																	   id="send-information">
-																<label id="send-information-label" for="send-information">Bitte
-																	informiert mich
-																	in
-																	Zukunft, wenn
-																	Wikipedia meine Hilfe
-																	braucht.</label>
+																<label id="send-information-label" for="send-information">Ich bin damit einverstanden, dass Wikimedia mich per E-Mail kontaktiert, wenn Wikipedia meine Unterstützung benötigt.</label>
 																<a title="Einmal im Jahr bitten wir die Leserinnen und Leser Wikipedias um Unterstützung. Wir würden uns freuen, wenn wir in Zukunft auf Sie zählen können, wenn es um die Verbreitung Freien Wissens geht."
 																   href="#" class="icon-question-sign"></a>
 															</td>
