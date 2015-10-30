@@ -371,7 +371,7 @@ BannerModalInfobox.prototype.toggle = function( e ) {
 	else {
 		this.$box.trigger( 'banner:openInfobox' );
 	}
-}
+};
 
 BannerModalInfobox.prototype.open = function( e ) {
 	// close other banners
@@ -383,7 +383,7 @@ BannerModalInfobox.prototype.open = function( e ) {
 		this.$box.addClass( 'opened' );
 		this.$box.slideDown();
 	}.bind( this ) );
-}
+};
 
 BannerModalInfobox.prototype.close = function( e ) {
 	if ( !this.$box.hasClass( 'opened' ) ) {
@@ -394,4 +394,4 @@ BannerModalInfobox.prototype.close = function( e ) {
 		this.$link.removeClass( 'opened' );
 		$( '#WMDE_BannerFullForm-info' ).removeClass( this.boxName );
 	}.bind( this ) );
-}
+};
