@@ -619,6 +619,9 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 			<input type="hidden" id="impCount" name="impCount" value=""/>
 			<input type="hidden" id="bImpCount" name="bImpCount" value=""/>
 			<input type="hidden" id="zahlweise" name="zahlweise" value=""/>
+			<input type="hidden" id="periode_orig" name="periode_orig" value=""/>
+			<input type="hidden" id="zahlweise_orig" name="zahlweise_orig" value=""/>
+			<input type="hidden" id="betrag_orig" name="betrag_orig" value=""/>
 		</form>
 	</div>
 	<div id="WMDE_BannerFullForm-arrow">&nbsp;</div>
