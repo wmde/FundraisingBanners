@@ -136,7 +136,7 @@ function initWatchingInitialPeriodValues() {
 }
 
 function storeIntervalSelection( selectedInput ) {
-	if ( selectedInput.prop( 'id' ) == 'interval_onetime' ) {
+	if ( selectedInput.prop( 'id' ) === 'interval_onetime' ) {
 		setInitialValue( 'periode', 0 );
 	} else {
 		setInitialValue( 'periode', selectedInput.val() );
@@ -156,7 +156,7 @@ function initWatchingInitialAmountValues() {
 }
 
 function getAmountSelectionOrInput( selected ) {
-	if ( selected.prop( 'id' ) == 'amount-other' ) {
+	if ( selected.prop( 'id' ) === 'amount-other' ) {
 		return $( 'amount-other-input' ).val();
 	} else {
 		return selected.val();
