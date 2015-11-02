@@ -32,10 +32,43 @@ $allAssets = [
     ],
 ];
 
-foreach ( $allAssets as $outfileName => $assets ) {
+function combinewithUglifyJS( $uglifyCommand, $sourcemapRoot, $outfileName, $assets ) {
+    $sourceMapName = $outfileName . '.map';
+    chdir( __DIR__ );
+    $assets = array_map( function( $asset ) { return  __DIR__ . '/' . $asset; }, $assets );
+    $depth = substr_count( __DIR__, '/' );
+    $cmd = "$uglifyCommand -o $outfileName  --source-map $sourceMapName -p $depth --source-map-url ../$sourceMapName " .
+           "--source-map-root $sourcemapRoot " . implode( ' ', $assets ) . " >> /tmp/uglify.log";
+    error_log($cmd);
+    #`$cmd`;
+}
+
+function combineWithPHP( $outfileName, $assets ) {
     $outfile = fopen( __DIR__ . '/' . $outfileName, 'w' );
     foreach ( $assets as $asset ) {
         fwrite( $outfile, file_get_contents(  __DIR__ . '/' . $asset ) );
     }
     fclose( $outfile );
+}
+
+error_log("ugstart");
+$uglifyCommand = trim( `which uglifyjs` );
+error_log("ugend -- $uglifyCommand");
+$sourcemapRoot = '';
+if ( !empty( $_SERVER['SERVER_NAME'] ) && !empty( $_SERVER['REQUEST_SCHEME'] ) ) {
+    $sourcemapRoot = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'];
+    if ( !empty( $_SERVER['SERVER_PORT'] ) && !( $_SERVER['SERVER_PORT'] == 80 || $_SERVER['SERVER_PORT'] == 443 ) ) {
+        $sourcemapRoot .= ':' . $_SERVER['SERVER_PORT'];
+    }
+    $sourcemapRoot .= '/';
+}
+
+foreach ( $allAssets as $outfileName => $assets ) {
+    if ( $uglifyCommand && $sourcemapRoot && preg_match( '/\.js$/', $outfileName ) ) {
+        combinewithUglifyJS( $uglifyCommand, $sourcemapRoot, $outfileName, $assets );
+    }
+    else {
+        combineWithPHP( $outfileName, $assets );
+    }
+
 }
