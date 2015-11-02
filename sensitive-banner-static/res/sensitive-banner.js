@@ -13,6 +13,7 @@ $( function () {
 
 	unlockForm();
 	toggleDebitType();
+	initWatchingInitialValues();
 
 	$( '#interval_onetime' ).on( 'click', function () {
 		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '158px' );
@@ -111,6 +112,75 @@ $( function () {
 	} );
 
 } );
+
+function initWatchingInitialValues() {
+	initWatchingInitialPeriodValues();
+	initWatchingInitialAmountValues();
+	// Payment type initial value is handled by the payment button event handlers
+}
+
+/**
+ * If a payment period is selected, store its value, otherwise add event
+ * handlers to store the first period that is selected.
+ */
+function initWatchingInitialPeriodValues() {
+	var intervalOnetime = $( '#interval_onetime' ),
+		intervalMultipleIsSelected = $( '#interval_multiple:checked' ),
+		intervals = $( 'input[name=interval]' ),
+		selectedInterval = intervals.filter( ':checked' );
+
+	if ( intervalOnetime.prop( 'checked' ) ) {
+		storeIntervalSelection( intervalOnetime );
+	} else if ( intervalMultipleIsSelected.length && selectedInterval.length ) {
+		storeIntervalSelection( selectedInterval );
+	} else {
+		intervalOnetime.one( 'click', function () {
+			storeIntervalSelection( $( this ) );
+		} );
+		intervals.one( 'click', function () {
+			storeIntervalSelection( $( this ) );
+		} );
+	}
+}
+
+function storeIntervalSelection( selectedInput ) {
+	if ( selectedInput.prop( 'id' ) === 'interval_onetime' ) {
+		setInitialValue( 'periode', 0 );
+	} else {
+		setInitialValue( 'periode', selectedInput.val() );
+	}
+}
+
+function initWatchingInitialAmountValues() {
+	var amounts = $( '.amount-options .amount-radio' ),
+		selectedAmount = amounts.filter( ':checked' );
+	if ( selectedAmount.length ) {
+		setInitialValue( 'betrag', getAmountSelectionOrInput( selectedAmount ) );
+	} else {
+		amounts.one( 'click', function () {
+			getAmountSelectionOrInput( $( this ) );
+		} );
+	}
+}
+
+function getAmountSelectionOrInput( selected ) {
+	if ( selected.prop( 'id' ) === 'amount-other' ) {
+		return $( 'amount-other-input' ).val();
+	} else {
+		return selected.val();
+	}
+}
+
+/**
+ * Store the first value a user selected for for payment type, amount and period
+ */
+function setInitialValue( name, value ) {
+	var elem = $( '#' + name + '_orig' );
+	if ( !elem.data( 'has-value' ) ) {
+		elem.data( 'has-value', true );
+		elem.val( value );
+	}
+}
 
 /**
  * Handle clicks on the button on the SEPA confirmation page.
@@ -297,6 +367,7 @@ function showDebitDonation( button ) {
 		resetButtons();
 		$( button ).addClass( 'active' );
 		showFullForm();
+		setInitialValue( 'zahlweise', 'BEZ' );
 	}
 }
 
@@ -312,6 +383,7 @@ function showDepositDonation( button ) {
 		$( '#form_action' ).prop( 'name', 'go_prepare--pay:ueberweisung' );
 		$( '#donationIframe' ).val( '' );
 		showNonDebitParts( button );
+		setInitialValue( 'zahlweise', 'UEB' );
 	}
 }
 
@@ -323,6 +395,7 @@ function showCreditDonation( button ) {
 		$( '#form_action' ).prop( 'name', 'go_prepare--pay:micropayment-i' );
 		$( '#donationIframe' ).val( 'micropayment-iframe' );
 		showNonDebitParts( button );
+		setInitialValue( 'zahlweise', 'MCP' );
 	}
 }
 
@@ -334,6 +407,7 @@ function showPayPalDonation( button ) {
 		$( '#form_action' ).prop( 'name', 'go_prepare--pay:paypal' );
 		$( '#donationIframe' ).val( '' );
 		showNonDebitParts( button );
+		setInitialValue( 'zahlweise', 'PPL' );
 	}
 }
 
