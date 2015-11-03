@@ -512,7 +512,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 												</tr>
 												<tr>
 													<td>
-														<p>Sie spenden <span id="WMDE_BannerFullForm-confirm-amount">5,00</span>&euro; and die Wikimedia F&ouml;rdergesellschaft</p>
+														<p>Sie spenden <span id="WMDE_BannerFullForm-confirm-amount">5,00</span>&euro; an die Wikimedia F&ouml;rdergesellschaft</p>
 
 														<p>Wikimedia F&ouml;rdergesellschaft<br/>
 															Tempelhofer Ufer 23-24<br/>
