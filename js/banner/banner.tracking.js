@@ -4,7 +4,7 @@
  * @licence GNU GPL v2+
  * @author Kai Nissen <kai.nissen@wikimedia.de>
  */
-( function ( Banner ) {
+( function ( Banner, $ ) {
 	'use strict';
 
 	var TP;
@@ -12,6 +12,7 @@
 	function Tracking() {
 		var self = this;
 		this._tracker = null;
+		this._eventsTracked = [];
 
 		$( document ).ready( function () {
 			self.initTrackingLib();
@@ -86,13 +87,17 @@
 	 * bind click events to elements as configured
 	 */
 	TP.initClickHandlers = function () {
+		var self = this;
 		$.each( Banner.config.tracking.events, function ( key, settings ) {
 			$( settings.clickElement ).click( function () {
-				Banner.tracking.trackVirtualPageView( key );
+				if ( $.inArray( key, self._eventsTracked ) === -1 ) {
+					Banner.tracking.trackVirtualPageView( key );
+					self._eventsTracked.push( key );
+				}
 			} );
 		} );
 	};
 
 	Banner.tracking = new Tracking();
 
-} )( Banner );
+} )( Banner, jQuery );

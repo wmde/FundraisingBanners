@@ -43,6 +43,25 @@
 			form: {
 				formId: 'donationForm',
 				formAction: 'https://test.wikimedia.de/spenden/index.php?piwik_campaign={{{CampaignName}}}&piwik_kwd={{{BannerName}}}'
+			},
+			tracking: {
+				keyword: '{{{BannerName}}}',
+				libUrl: 'https://test.wikimedia.de/piwik.js',
+				trackerUrl: 'https://test.wikimedia.de/piwik.php',
+				siteId: 1,
+				baseUrl: 'https://spenden.wikimedia.de/',
+				events: {
+					BANNER_CLOSED: {
+						sample: 0.01,
+						clickElement: '#WMDE_Banner-close',
+						pathName: 'banner-closed'
+					},
+					BANNER_EXPANDED: {
+						sample: 0.01,
+						clickElement: '#WMDE_BannerForm-payment button',
+						pathName: 'banner-expanded'
+					}
+				}
 			}
 		}
 	);
