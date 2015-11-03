@@ -319,6 +319,7 @@
 			);
 			$parent.append( $errorBox );
 			this._addErrorRemovalHandler( $element, $errorBox );
+			this._addErrorRemovalHandler( $( '#WMDE_BannerForm-payment button' ), $errorBox, 'click' );
 		}
 		return $errorBox;
 	};
