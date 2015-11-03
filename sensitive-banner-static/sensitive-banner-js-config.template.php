@@ -3,7 +3,7 @@
 	Banner.config.setConfig(
 		{
 			api: {
-				apiUrl: 'https://test.wikimedia.de/spenden/ajax.php'
+				apiUrl: 'https://test.wikimedia.de/ajax.php'
 			},
 			encryption: {
 				libUrl: '../js/lib/openpgp.min.js',
