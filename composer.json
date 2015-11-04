@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "WMDE\\AssetManagement\\": "src"
+        }
+    },
+    "require": {
+        "symfony/console": "^2.7"
+    }
+}

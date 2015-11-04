@@ -5,11 +5,15 @@
 .idea/
 
 node_modules
+vendor
 
 sensitive-banner-static/sensitive-banner-js-config.inc.php
 
 # combined assets, they are compiled automatically
 js/sensitive_banner_all.js
+js/sensitive_banner_all.js.map
 css/sensitive_banner_all.css
 js/lib/pgp-legacy-libs.js 
+js/lib/pgp-legacy-libs.js.map
+
 
