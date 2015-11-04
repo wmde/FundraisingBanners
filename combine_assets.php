@@ -38,9 +38,8 @@ function combinewithUglifyJS( $uglifyCommand, $sourcemapRoot, $outfileName, $ass
     $assets = array_map( function( $asset ) { return  __DIR__ . '/' . $asset; }, $assets );
     $depth = substr_count( __DIR__, '/' );
     $cmd = "$uglifyCommand -o $outfileName  --source-map $sourceMapName -p $depth --source-map-url ../$sourceMapName " .
-           "--source-map-root $sourcemapRoot " . implode( ' ', $assets ) . " >> /tmp/uglify.log";
-    error_log($cmd);
-    #`$cmd`;
+           "--source-map-root $sourcemapRoot " . implode( ' ', $assets ) . " >> /dev/null";
+    `$cmd`;
 }
 
 function combineWithPHP( $outfileName, $assets ) {
@@ -51,10 +50,9 @@ function combineWithPHP( $outfileName, $assets ) {
     fclose( $outfile );
 }
 
-error_log("ugstart");
 $uglifyCommand = trim( `which uglifyjs` );
-error_log("ugend -- $uglifyCommand");
 $sourcemapRoot = '';
+# TODO get source map root from cmd line if needed
 if ( !empty( $_SERVER['SERVER_NAME'] ) && !empty( $_SERVER['REQUEST_SCHEME'] ) ) {
     $sourcemapRoot = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'];
     if ( !empty( $_SERVER['SERVER_PORT'] ) && !( $_SERVER['SERVER_PORT'] == 80 || $_SERVER['SERVER_PORT'] == 443 ) ) {
