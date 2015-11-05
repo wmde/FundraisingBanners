@@ -181,7 +181,7 @@ function validateForm() {
 			break;
 	}
 
-	if ( $( '#interval_multiple' ).attr( 'checked' ) === 'checked' ) {
+	if ( $( '#interval_multiple' ).is( ':checked' ) ) {
 		if ( $( 'input[name=interval]:checked', form ).length !== 1 ) {
 			alert( 'Es wurde kein Zahlungsintervall ausgewählt.' );
 			return false;
