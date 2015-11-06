@@ -41,7 +41,7 @@
     line-height: 1.1em;
     padding-left: 20px;
     margin-top: 0;
-    display: none;
+    display: block;
 }
 
 .banner-lightbox hr {
@@ -130,3 +130,4 @@
 #bitpay-donate-button-wrapper input {
     border: 0;
 }
+

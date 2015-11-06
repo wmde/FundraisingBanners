@@ -991,7 +991,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 		</div>
 
 		<div style="clear:right"></div>
-		<div id="WMDE_BannerFullForm-security" class="banner-lightbox banner-lightbox-small">
+		<div id="WMDE_BannerFullForm-security" class="banner-lightbox banner-lightbox-small" style="margin-top: 43px;>
 			<ul>
 				<li>
 					<div class="lightbox-list-item">
@@ -1002,7 +1002,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 					</div>
 				</li>
 				<li>
-					<div class="lightbox-list-item">
+					<div class="lightbox-list-item opened">
 						<span class="icon-list-item icon-lock"></span>
 						<span class="list-item-title">SSL-verschl&uuml;sselte Daten</span>
 
@@ -1014,7 +1014,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 					</div>
 				</li>
 				<li>
-					<div class="lightbox-list-item last">
+					<div class="lightbox-list-item last opened">
 						<span class="icon-list-item icon-shield"></span>
 						<span class="list-item-title">Ihre Daten sind sicher</span>
 						<p>
