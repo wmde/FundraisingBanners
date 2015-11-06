@@ -659,7 +659,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 						class="logo-itz-white"></span></a>
 			</div>
 			<p>
-				<img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Wmde-mittelverwendung-2015.png">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/WMDE-Mittelverwendung-2016.png/660px-WMDE-Mittelverwendung-2016.png">
 			</p>
 
 			<div style="position: relative">
