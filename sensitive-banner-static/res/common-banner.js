@@ -1,7 +1,7 @@
 /*jshint latedef: nofunc */
 /*jshint unused: false */
 /* globals mw, alert */
-var finalDateTime = new Date( 2015, 0, 1, 5, 0, 0 ),
+var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	goalSum = 8200000;
 
 $( function () {
