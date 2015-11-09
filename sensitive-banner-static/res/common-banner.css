@@ -92,7 +92,15 @@
     padding: 4px 8px 0 8px;
 }
 
+#WMDE_BannerForm-payment td:last-child {
+    padding: 4px 8px 0 2px;
+}
+
 #WMDE_BannerForm-payment .amount-options td {
+    padding: 2px 0 2px 2px;
+}
+
+#WMDE_BannerForm-payment .amount-options td:last-child {
     padding: 2px;
 }
 

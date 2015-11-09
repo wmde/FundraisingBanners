@@ -151,7 +151,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															   value="25" type="radio">
 														<label class="amount-label" for="amount25">25 €</label>
 													</td>
-													<td style="padding-right: 8px">
+													<td>
 														<input class="amount-radio" name="betrag_auswahl"
 															   onclick="document.donationForm.amountGiven.value = ''"
 															   id="amount50"
@@ -183,7 +183,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															   type="radio">
 														<label class="amount-label" for="amount250">250 €</label>
 													</td>
-													<td style="padding-right: 8px">
+													<td>
 														<input class="amount-radio" name="betrag" id="amount_other"
 															   value=""
 															   type="radio">
