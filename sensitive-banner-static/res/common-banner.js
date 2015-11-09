@@ -1,6 +1,6 @@
 /*jshint latedef: nofunc */
 /*jshint unused: false */
-/* globals mw, alert */
+/* globals mw, alert, GlobalBannerSettings */
 var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	goalSum = 8700000,
 	baseDate = replaceWikiVars( '{{{donations-date-base}}}' ),
@@ -325,12 +325,12 @@ function animateProgressBar() {
  * placeholders with values fram a global object
  */
 function replaceWikiVars( text ) {
-    var re = /\{\{\{([^\}]+)\}\}\}/,
-        wikiVarMatch;
-    while ( ( wikiVarMatch = re.exec( text ) ) !== null ) {
-        if ( GlobalBannerSettings[ wikiVarMatch[ 1 ] ] ) {
-            text = text.replace( wikiVarMatch[0], GlobalBannerSettings[ wikiVarMatch[ 1 ] ] );
-        }
-    }
-    return text;
+	var re = /\{\{\{([^\}]+)\}\}\}/,
+		wikiVarMatch;
+	while ( ( wikiVarMatch = re.exec( text ) ) !== null ) {
+		if ( GlobalBannerSettings[ wikiVarMatch[ 1 ] ] ) {
+			text = text.replace( wikiVarMatch[ 0 ], GlobalBannerSettings[ wikiVarMatch[ 1 ] ] );
+		}
+	}
+	return text;
 }
