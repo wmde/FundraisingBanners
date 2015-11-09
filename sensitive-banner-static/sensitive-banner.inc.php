@@ -1,4 +1,10 @@
-<?php include __DIR__ . '/../combine_assets.php'; ?>
+<?php
+// Re-Create all assets on the fly
+use WMDE\AssetManagement\CombinatorFactory;
+require( __DIR__ . '/../vendor/autoload.php' );
+$allAssets = include( __DIR__ . '/../assets_config.php' );
+CombinatorFactory::createCombinatorForServer()->combineAll( $allAssets );
+?>
 <link rel="stylesheet" href="res/common-banner.css">
 <link rel="stylesheet" href="../css/sensitive_banner_all.css">
 <script type="text/javascript" src="res/common-banner.js"></script>

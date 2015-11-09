@@ -14,7 +14,6 @@ class UglifyCombinator implements FileCombination {
         $this->sourceMapRoot = $sourceMapRoot;
         $this->sourceMapUrlPrefix = $sourceMapUrlPrefix;
         $this->javaScriptRoot = $javaScriptRoot;
-
     }
 
     public function combineFiles( array $sourceFiles, $destinationFile )
@@ -36,8 +35,9 @@ class UglifyCombinator implements FileCombination {
 
         $cmd = $this->executable . " -o $destinationFile  --source-map $sourceMapName -p $depth " .
             " --source-map-url {$this->sourceMapUrlPrefix}$sourceMapName " .
-            "--source-map-root {$this->sourceMapRoot} " . implode( ' ', $assets ) . " >> /dev/null";
-        exec( $cmd ) ;
+            "--source-map-root {$this->sourceMapRoot} " . implode( ' ', $assets );
+        exec( $cmd, $shellOutput, $returnCode );
+        //error_log( implode( "\n", $shellOutput ) );
         chdir( $oldDir );
     }
 

@@ -12,7 +12,11 @@ class CopyCombinator implements FileCombination {
     }
 
     public function combineFiles( array $sourceFiles, $destinationFile ) {
-        $outfile = fopen( $this->javaScriptRoot . '/' . $destinationFile, 'w' );
+        $fileName = $this->javaScriptRoot . '/' . $destinationFile;
+        $outfile = fopen( $fileName, 'w' );
+        if( !$outfile ) {
+            throw new \RuntimeException( 'Could not open output file ' . $fileName );
+        }
         foreach ( $sourceFiles as $asset ) {
             fwrite( $outfile, file_get_contents(  $this->javaScriptRoot . '/' . $asset ) );
         }
