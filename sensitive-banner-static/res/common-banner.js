@@ -1,8 +1,14 @@
 /*jshint latedef: nofunc */
 /*jshint unused: false */
 /* globals mw, alert */
-var finalDateTime = new Date( 2015, 0, 1, 5, 0, 0 ),
-	goalSum = 8200000;
+var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
+	goalSum = 8700000,
+	baseDate = '{{{donations-date-base}}}',
+	collectedBase = parseInt( '{{{donations-collected-base}}}', 10 ),
+	donorsBase = parseInt( '{{{donators-base}}}', 10 ),
+	donationsPerMinApproximation = parseFloat( '{{{appr-donations-per-minute}}}' ),
+	donorsPerMinApproximation = parseFloat( '{{{appr-donators-per-minute}}}' )
+	;
 
 $( function () {
 	$( '#WMDE_Banner-close' ).click( function () {
@@ -50,7 +56,7 @@ function getDaysRemaining() {
 }
 
 function getSecsPassed() {
-	var startDate = '{{{donations-date-base}}}'.split( '-' ),
+	var startDate = baseDate.split( '-' ),
 		startDateObj = new Date( startDate[ 0 ], startDate[ 1 ] - 1, startDate[ 2 ] ),
 		maxSecs = Math.floor( new Date( finalDateTime - startDateObj ) / 1000 ),
 		secsPassed = Math.floor( ( new Date() - startDateObj ) / 1000 );
@@ -66,23 +72,21 @@ function getSecsPassed() {
 }
 
 function getApprDonationsRaw( rand ) {
-	var startDonations = parseInt( '{{{donations-collected-base}}}', 10 ),
+	var startDonations = collectedBase,
 		secsPast = getSecsPassed();
 
-	// TODO manually hack to fix older banners from 2014
-	// return startDonations + getApprDonationsFor( secsPast, rand );
-	return 8300000;
+	return startDonations + getApprDonationsFor( secsPast, rand );
 }
 
 function getApprDonatorsRaw( rand ) {
-	var startDonators = parseInt( '{{{donators-base}}}', 10 ),
+	var startDonators = donorsBase,
 		secsPast = getSecsPassed();
 
 	return startDonators + getApprDonatorsFor( secsPast, rand );
 }
 
 function getApprDonationsFor( secsPast, rand ) {
-	var apprDontionsMinute = parseFloat( '{{{appr-donations-per-minute}}}' ),
+	var apprDontionsMinute = donationsPerMinApproximation,
 		randFactor = 0;
 
 	if ( rand === true ) {
@@ -93,7 +97,7 @@ function getApprDonationsFor( secsPast, rand ) {
 }
 
 function getApprDonatorsFor( secsPast, rand ) {
-	var apprDonatorsMinute = parseFloat( '{{{appr-donators-per-minute}}}' ),
+	var apprDonatorsMinute = donorsPerMinApproximation,
 		randFactor = 0;
 
 	if ( rand === true ) {
@@ -270,6 +274,9 @@ function removeBannerSpace() {
 
 function animateProgressBar() {
 	var donationFillElement = $( '#donationFill' ),
+		daysLeftElement = $( '#daysLeft' ),
+		donationValueElement = $( '#donationValue' ),
+		remainingValueElement = $( 'valRem' ),
 		preFillValue = 0,
 		barWidth, dTarget, dCollected, dRemaining, fWidth, maxFillWidth, widthToFill;
 
@@ -277,7 +284,7 @@ function animateProgressBar() {
 	donationFillElement.stop();
 	donationFillElement.width( preFillValue + 'px' );
 
-	$( '#daysLeft' ).hide();
+	daysLeftElement.hide();
 
 	barWidth = $( '#donationMeter' ).width();
 	dTarget = parseInt( '8300000', 10 );
@@ -289,7 +296,7 @@ function animateProgressBar() {
 	widthToFill = ( fWidth > maxFillWidth ) ? maxFillWidth : fWidth;
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
-		duration: 2500,
+		duration: 3000,
 		progress: function () {
 			var dFill = donationFillElement.width() / widthToFill * fWidth,
 				pFill = dFill / barWidth,
@@ -303,11 +310,12 @@ function animateProgressBar() {
 			vRem = vRem.toFixed( 1 );
 			vRem = vRem.replace( '.', ',' );
 
-			$( '#valRem' ).html( vRem );
-			$( '#donationValue' ).html( dColl );
+			remainingValueElement.html( vRem );
+			donationValueElement.html( dColl );
 		},
 		complete: function () {
-			$( 'div#daysLeft' ).show();
+			$( '#donationRemaining' ).show();
+			daysLeftElement.show();
 		}
 	} );
 }
