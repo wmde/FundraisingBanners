@@ -53,6 +53,7 @@
     font-size: 15px;
     color: white;
     font-weight: bold;
+    display: none;
 }
 
 #daysLeft {
@@ -68,4 +69,7 @@
 #donationMeterTip {
     position: absolute;
     right: 0;
+    background: url( '//upload.wikimedia.org/wikipedia/commons/8/89/Pbar-tip-small.png' ) no-repeat center center;
+    width: 8px;
+    height: 20px;
 }
