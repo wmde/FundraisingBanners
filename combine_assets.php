@@ -27,6 +27,7 @@ $allAssets = [
     ],
     'css/sensitive_banner_all.css' => [
         'sensitive-banner-static/res/sensitive-banner.css',
+        'sensitive-banner-static/res/progressbar.css',
         'sensitive-banner-static/res/lightbox.css',
         'sensitive-banner-static/res/icon.css'
     ],
