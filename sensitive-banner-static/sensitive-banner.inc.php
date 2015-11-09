@@ -183,7 +183,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															   type="radio">
 														<label class="amount-label" for="amount250">250 €</label>
 													</td>
-													<td >
+													<td>
 														<input class="amount-radio" name="betrag" id="amount_other"
 															   value=""
 															   type="radio">
