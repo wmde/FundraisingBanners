@@ -296,7 +296,7 @@ function animateProgressBar() {
 	widthToFill = ( fWidth > maxFillWidth ) ? maxFillWidth : fWidth;
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
-		duration: 2500,
+		duration: 3000,
 		progress: function () {
 			var dFill = donationFillElement.width() / widthToFill * fWidth,
 				pFill = dFill / barWidth,
