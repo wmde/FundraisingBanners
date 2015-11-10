@@ -336,3 +336,4 @@ function replaceWikiVars( text ) {
 	}
 	return text;
 }
+
