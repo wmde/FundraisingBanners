@@ -454,7 +454,7 @@ function getFillWidth( donationBarWidth, donationTarget, donationsCollected ) {
  * placeholders with values fram a global object
  */
 function replaceWikiVars( text ) {
-	var re = /\{\{\{([^\}]+)\}\}\}/,
+	var re = /\{\{\{([^\}]+)\}\}\}/g,
 		wikiVarMatch;
 	while ( ( wikiVarMatch = re.exec( text ) ) !== null ) {
 		if ( GlobalBannerSettings[ wikiVarMatch[ 1 ] ] ) {
