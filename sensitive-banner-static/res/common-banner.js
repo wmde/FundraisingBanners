@@ -322,6 +322,7 @@ function animateProgressBar() {
 			donationValueElement.html( dColl );
 		},
 		complete: function () {
+			$( '#donationText' ).show();
 			$( '#donationRemaining' ).show();
 			daysLeftElement.show();
 		}
