@@ -278,7 +278,8 @@ function animateProgressBar() {
 		donationValueElement = $( '#donationValue' ),
 		remainingValueElement = $( 'valRem' ),
 		preFillValue = 0,
-		barWidth, dTarget, dCollected, dRemaining, fWidth, maxFillWidth, widthToFill;
+		barWidth, dTarget, dCollected, dRemaining, fWidth, maxFillWidth, widthToFill,
+		fillToBarRatio;
 
 	donationFillElement.clearQueue();
 	donationFillElement.stop();
@@ -294,6 +295,13 @@ function animateProgressBar() {
 	fWidth = dCollected / dTarget * barWidth;
 	maxFillWidth = barWidth - $( '#donationRemaining' ).width() - 16;
 	widthToFill = ( fWidth > maxFillWidth ) ? maxFillWidth : fWidth;
+	fillToBarRatio = widthToFill / barWidth;
+	if ( fillToBarRatio < 0.15 ) {
+		widthToFill = 0.15 * barWidth;
+		if ( widthToFill > 100 ) {
+			widthToFill = 100;
+		}
+	}
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
 		duration: 3000,
@@ -314,6 +322,7 @@ function animateProgressBar() {
 			donationValueElement.html( dColl );
 		},
 		complete: function () {
+			$( '#donationText' ).show();
 			$( '#donationRemaining' ).show();
 			daysLeftElement.show();
 		}
