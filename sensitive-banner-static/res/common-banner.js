@@ -8,6 +8,9 @@ var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	donorsBase = parseInt( replaceWikiVars( '{{{donators-base}}}' ), 10 ),
 	donationsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donations-per-minute}}}' ) ),
 	donorsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donators-per-minute}}}' ) ),
+	noIntervalSelectedMessage = replaceWikiVars( '{{{no-interval-message}}}' ) || 'Es wurde kein Zahlungsintervall ausgewählt.',
+	amountTooLowMessage = replaceWikiVars( '{{{amount-too-low-message}}}' ) || 'Der Mindestbetrag beträgt 1 Euro.',
+	amountTooHighMessage = replaceWikiVars( '{{{amount-too-high-message}}}' ) || 'Der Spendenbetrag ist zu hoch.',
 	allBannersImpCookie = 'centralnotice_banner_impression_count',
 	singleBannerImpCookie = 'centralnotice_single_banner_impression_count',
 	bannerCloseTrackRatio = replaceWikiVars( '{{{banner-close-track-ratio}}}' ) || 0.01,
@@ -230,10 +233,10 @@ function validateForm() {
 
 	// Check amount is at least the minimum
 	if ( amount < 1 || error ) {
-		alert( 'Der Mindestbetrag beträgt 1 Euro.' );
+		alert( amountTooLowMessage );
 		return false;
 	} else if ( amount > 99999 ) {
-		alert( 'Der Spendenbetrag ist zu hoch.' );
+		alert( amountTooHighMessage );
 		return false;
 	}
 	return amount;
@@ -248,7 +251,7 @@ function validateAndSetPeriod() {
 	var form = document.donationForm;
 	if ( $( '#interval_multiple' ).is( ':checked' ) ) {
 		if ( $( 'input[name=interval]:checked', form ).length !== 1 ) {
-			alert( 'Es wurde kein Zahlungsintervall ausgewählt.' );
+			alert( noIntervalSelectedMessage );
 			return false;
 		} else {
 			$( '#intervalType' ).val( '1' );
