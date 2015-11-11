@@ -210,6 +210,7 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
     color: #C25959;
     padding: 2px 2px 2px 18px;
     font-size: 13px;
+    white-space: nowrap;
 }
 
 #WMDE_BannerFullForm div.form-field-error-arrow {
@@ -221,12 +222,21 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
     margin: auto;
 }
 
+#WMDE_BannerFullForm-step1 div, #WMDE_BannerFullForm-step1 td {
+    position: relative;
+}
+
 #WMDE_BannerFullForm .validation {
     position: absolute;
     height: 11px;
     width: 11px;
-    margin-left: -15px;
-    margin-top: 3px;
+    right: 14px;
+    bottom: 3px;
+}
+
+#WMDE_BannerFullForm div > .validation {
+    right: 4px;
+    padding: inherit;
 }
 
 #WMDE_BannerFullForm .icon-bug {
