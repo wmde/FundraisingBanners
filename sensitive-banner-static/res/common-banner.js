@@ -276,7 +276,7 @@ function animateProgressBar() {
 	var donationFillElement = $( '#donationFill' ),
 		daysLeftElement = $( '#daysLeft' ),
 		donationValueElement = $( '#donationValue' ),
-		remainingValueElement = $( 'valRem' ),
+		remainingValueElement = $( '#valRem' ),
 		preFillValue = 0,
 		barWidth, dTarget, dCollected, dRemaining, fWidth, maxFillWidth, widthToFill,
 		fillToBarRatio;
@@ -311,22 +311,26 @@ function animateProgressBar() {
 
 				dColl = dTarget * pFill / 1000000,
 				vRem = ( dTarget - ( dTarget * pFill ) ) / 1000000;
-
-			dColl = dColl.toFixed( 1 );
-			dColl = dColl.replace( '.', ',' );
-
-			vRem = vRem.toFixed( 1 );
-			vRem = vRem.replace( '.', ',' );
-
-			remainingValueElement.html( vRem );
-			donationValueElement.html( dColl );
+			setCollectedAndRemaining( dColl, vRem );
 		},
 		complete: function () {
+			setCollectedAndRemaining( dCollected / 1000000, dRemaining / 1000000 );
 			$( '#donationText' ).show();
 			$( '#donationRemaining' ).show();
 			daysLeftElement.show();
 		}
 	} );
+
+	function setCollectedAndRemaining( donationsCollected, donationsRemaining ) {
+		donationsCollected = donationsCollected.toFixed( 1 );
+		donationsCollected = donationsCollected.replace( '.', ',' );
+
+		donationsRemaining = donationsRemaining.toFixed( 1 );
+		donationsRemaining = donationsRemaining.replace( '.', ',' );
+
+		remainingValueElement.html( donationsRemaining );
+		donationValueElement.html( donationsCollected );
+	}
 }
 
 /**
