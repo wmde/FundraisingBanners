@@ -17,7 +17,7 @@ if ( $.cookie( 'centralnotice_wmde15_hide_cookie' ) === '1' ) {
 	showBanner = false;
 }
 
-if ( typeof mw !== 'undefined' && typeof mw.centralNotice !== 'undefined' ) {
+if ( onMediaWiki() ) {
 	mw.centralNotice.bannerData.alterImpressionData = function ( impressionData ) {
 		if ( showBanner ) {
 			return true;
@@ -285,10 +285,11 @@ function getAmount() {
 
 function addBannerSpace() {
 	var expandableBannerHeight = $( 'div#WMDE_Banner' ).height() + 44,
-			bannerDivElement = $( '#WMDE_Banner' );
+			bannerDivElement = $( '#WMDE_Banner' ),
+			skin = getSkin();
 
 	if ( showBanner ) {
-		switch ( 'vector' ) {
+		switch ( skin ) {
 			// switch ( skin ) { TODO fix when non-static
 			case 'vector':
 				bannerDivElement.css( 'top', 0 - expandableBannerHeight );
@@ -310,12 +311,16 @@ function addBannerSpace() {
 }
 
 function removeBannerSpace() {
-	switch ( 'vector' ) {
-		// switch ( skin ) { TODO fix when non-static
+	var $intervalOptionsContainer = $( 'div.interval-options' ),
+		expandableBannerHeight = $intervalOptionsContainer.height();
+	switch ( getSkin() ) {
 		case 'vector':
 			$( '#mw-panel' ).css( 'top', 160 );
 			$( '#mw-head' ).css( 'top', 0 );
 			$( '#mw-page-base' ).css( 'padding-top', 0 );
+			break;
+		case 'minerva':
+			$( '#mw-mf-viewport' ).css( 'top', expandableBannerHeight );
 			break;
 		case 'monobook':
 			$( '#globalWrapper' ).css( 'position', 'relative' );
@@ -331,8 +336,7 @@ function addSpaceForIntervalOptions() {
 		return;
 	}
 
-	// switch ( getSkin() ) { TODO fix when non-static
-	switch ( 'vector' ) {
+	switch ( getSkin() ) {
 		case 'vector':
 			$( '#mw-panel' ).css( { top: parseInt( $( '#mw-panel' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
 			$( '#mw-head' ).css( { top: parseInt( $( '#mw-head' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
@@ -340,6 +344,9 @@ function addSpaceForIntervalOptions() {
 			break;
 		case 'minerva':
 			$( '#mw-mf-viewport' ).css( { top: parseInt( $( '#mw-mf-viewport' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			break;
+		case 'minerva':
+			$( '#mw-mf-viewport' ).css( 'top', 0 );
 			break;
 		case 'monobook':
 			$( '#globalWrapper' ).css( { top: parseInt( $( '#globalWrapper' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
@@ -354,8 +361,7 @@ function removeSpaceForIntervalOptions() {
 		return;
 	}
 
-	// switch ( getSkin() ) { TODO fix when non-static
-	switch ( 'vector' ) {
+	switch ( getSkin() ) {
 		case 'vector':
 			$( '#mw-panel' ).css( { top: ( parseInt( $( '#mw-panel' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
 			$( '#mw-head' ).css( { top: ( parseInt( $( '#mw-head' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
@@ -455,4 +461,15 @@ function replaceWikiVars( text ) {
 		}
 	}
 	return text;
+}
+
+function getSkin() {
+	if ( onMediaWiki() ) {
+		return mw.config.get( 'skin' );
+	}
+	return 'vector';
+}
+
+function onMediaWiki() {
+	return typeof mw === 'object' && typeof mw.centralNotice !== 'undefined';
 }
