@@ -103,6 +103,7 @@ $( function () {
 
 	$( '#donationForm' ).on( 'banner:validationSucceeded', function ( evt ) {
 		unlockForm();
+		$( '#WMDE_BannerFullForm-finish' ).removeClass( 'waiting' );
 		if ( $( '#zahlweise' ).val() === 'BEZ' ) {
 			debitNextStep();
 			evt.preventDefault();

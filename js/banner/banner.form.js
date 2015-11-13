@@ -12,6 +12,7 @@
 		this.validated = false;
 		this.validationPending = false;
 		this.bankCheckPending = false;
+		this.invalidElements = 0;
 		$( document ).ready( function () {
 			self.amountValidationAnchor = $( '#amount75' );
 			self._initSubmitHandler();
@@ -153,8 +154,12 @@
 		this.bankCheckPending = false;
 	};
 
+	/**
+	 * Remove positive and negative validation information from all form fields
+	 */
 	Form.prototype._clearValidity = function () {
 		var self = this;
+		this.invalidElements = 0;
 		$( '#' + banner.config.form.formId + ' :input:not([type=hidden])' ).each( function ( index, element ) {
 			self._clearElementValidity( $( element ) );
 		} );
@@ -252,10 +257,12 @@
 		$( '#' + banner.config.form.formId + ' :input:not([type=hidden])' ).each( function ( index, element ) {
 			if ( $.inArray( $( element ).attr( 'name' ), fieldsMissingValue ) > -1 ) {
 				self._markMissing( $( element ) );
+				self.invalidElements++;
 				return true;
 			}
 			if ( $.inArray( $( element ).attr( 'name' ), fieldsWithInvalidValue ) > -1 ) {
 				self._markInvalid( $( element ) );
+				self.invalidElements++;
 				return true;
 			}
 			self._markValid( $( element ) );
@@ -280,8 +287,11 @@
 		}
 		if ( errorText ) {
 			errorBox = this._showError( this.amountValidationAnchor, errorText );
-			this._addErrorRemovalHandler( $( '#' + banner.config.form.formId + ' .amount-radio' ), errorBox, 'click' );
-			this._addErrorRemovalHandler( $( '#amount-other-input' ), errorBox );
+			if ( errorBox ) {
+				this._addErrorRemovalHandler( $( '#' + banner.config.form.formId + ' .amount-radio' ), errorBox, 'click' );
+				this._addErrorRemovalHandler( $( '#amount-other-input' ), errorBox );
+			}
+			this.invalidElements++;
 		}
 	};
 
@@ -312,6 +322,10 @@
 		$element.addClass( 'invalid' );
 		$( '.validation', $parent ).addClass( 'icon-bug' );
 		if ( !$( '.form-field-error-box', $parent ).length ) {
+			// Only show one error box
+			if ( this.invalidElements ) {
+				return;
+			}
 			$errorBox = $(
 				'<div class="form-field-error-box"><div class="form-field-error-arrow"></div><span class="form-field-error-text">' +
 				errorText +
