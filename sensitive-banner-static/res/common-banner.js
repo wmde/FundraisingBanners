@@ -275,7 +275,7 @@ function removeBannerSpace() {
 }
 
 function addSpaceForIntervalOptions() {
-	var expandableBannerHeight = $( 'div.interval-options' ).height()
+	var expandableBannerHeight = $( 'div.interval-options' ).height();
 	if ( $( 'div.interval-options' ).is( ':visible' ) ) {
 		return;
 	}
