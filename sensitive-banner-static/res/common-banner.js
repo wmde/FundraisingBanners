@@ -2,7 +2,7 @@
 /*jshint unused: false */
 /* globals mw, alert, GlobalBannerSettings */
 var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
-	goalSum = 8700000,
+	goalSum = 8600000,
 	baseDate = replaceWikiVars( '{{{donations-date-base}}}' ),
 	collectedBase = parseInt( replaceWikiVars( '{{{donations-collected-base}}}' ), 10 ),
 	donorsBase = parseInt( replaceWikiVars( '{{{donators-base}}}' ), 10 ),
@@ -288,19 +288,16 @@ function animateProgressBar() {
 	daysLeftElement.hide();
 
 	barWidth = $( '#donationMeter' ).width();
-	dTarget = parseInt( '8300000', 10 );
+	dTarget = goalSum;
 	dCollected = getApprDonationsRaw();
 	dRemaining = dTarget - dCollected;
 
 	fWidth = dCollected / dTarget * barWidth;
 	maxFillWidth = barWidth - $( '#donationRemaining' ).width() - 16;
-	widthToFill = ( fWidth > maxFillWidth ) ? maxFillWidth : fWidth;
+	widthToFill = Math.min( maxFillWidth, fWidth );
 	fillToBarRatio = widthToFill / barWidth;
 	if ( fillToBarRatio < 0.15 ) {
-		widthToFill = 0.15 * barWidth;
-		if ( widthToFill > 100 ) {
-			widthToFill = 100;
-		}
+		widthToFill = Math.max( 100, 0.15 * barWidth );
 	}
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
