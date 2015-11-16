@@ -297,7 +297,7 @@ function animateProgressBar() {
 	// Fill at least 15%
 	widthToFill = Math.max( 0.15 * barWidth, widthToFill );
 	// Fill at least 100px (in case 15% fill is lower than 100px)
-	widthToFill = Math.max( 100, widthToFill );	
+	widthToFill = Math.max( 100, widthToFill );
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
 		duration: 3000,
