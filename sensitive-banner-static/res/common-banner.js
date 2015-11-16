@@ -275,46 +275,44 @@ function removeBannerSpace() {
 }
 
 function addSpaceForIntervalOptions() {
+	var expandableBannerHeight = $( 'div.interval-options' ).height()
 	if ( $( 'div.interval-options' ).is( ':visible' ) ) {
 		return;
 	}
-	var expandableBannerHeight = $( 'div.interval-options' ).height(),
-			bannerDivElement = $( '#WMDE_Banner-wrapper' );
 
 	switch ( getSkin() ) {
 		case 'vector':
-			$( '#mw-panel' ).css( { top: parseInt( $('#mw-panel' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
-			$( '#mw-head' ).css( { top: parseInt( $('#mw-head' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
-			$( '#mw-page-base' ).css( { paddingTop: parseInt( $('#mw-page-base' ).css( 'padding-top' ), 10 ) + expandableBannerHeight + 'px' } );
+			$( '#mw-panel' ).css( { top: parseInt( $( '#mw-panel' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			$( '#mw-head' ).css( { top: parseInt( $( '#mw-head' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			$( '#mw-page-base' ).css( { paddingTop: parseInt( $( '#mw-page-base' ).css( 'padding-top' ), 10 ) + expandableBannerHeight + 'px' } );
 			break;
 		case 'minerva':
-			$( '#mw-mf-viewport' ).css( { top: parseInt( $('#mw-mf-viewport' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			$( '#mw-mf-viewport' ).css( { top: parseInt( $( '#mw-mf-viewport' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
 			break;
 		case 'monobook':
-			$( '#globalWrapper' ).css( { top: parseInt( $('#globalWrapper' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			$( '#globalWrapper' ).css( { top: parseInt( $( '#globalWrapper' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
 			break;
 	}
 }
 
 function removeSpaceForIntervalOptions() {
+	var expandableBannerHeight = $( 'div.interval-options' ).height() + 5;
+
 	if ( !$( 'div.interval-options' ).is( ':visible' ) ) {
 		return;
 	}
-	var expandableBannerHeight = $( 'div.interval-options' ).height() + 5,
-			bannerDivElement = $( '#WMDE_Banner-wrapper' ),
-			skin = getSkin();
 
-	switch ( skin ) {
+	switch ( getSkin() ) {
 		case 'vector':
-			$( '#mw-panel' ).css( { top: ( parseInt( $('#mw-panel' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
-			$( '#mw-head' ).css( { top: ( parseInt( $('#mw-head' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
-			$( '#mw-page-base' ).css( { paddingTop: ( parseInt( $('#mw-page-base' ).css( 'padding-top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			$( '#mw-panel' ).css( { top: ( parseInt( $( '#mw-panel' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			$( '#mw-head' ).css( { top: ( parseInt( $( '#mw-head' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			$( '#mw-page-base' ).css( { paddingTop: ( parseInt( $( '#mw-page-base' ).css( 'padding-top' ), 10 ) - expandableBannerHeight ) + 'px' } );
 			break;
 		case 'minerva':
-			$( '#mw-mf-viewport' ).css( { top: ( parseInt( $('#mw-mf-viewport' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			$( '#mw-mf-viewport' ).css( { top: ( parseInt( $( '#mw-mf-viewport' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
 			break;
 		case 'monobook':
-			$( '#globalWrapper' ).css( { top: ( parseInt( $('#globalWrapper' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			$( '#globalWrapper' ).css( { top: ( parseInt( $( '#globalWrapper' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
 			break;
 	}
 }
