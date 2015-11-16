@@ -31,10 +31,12 @@ $( function () {
 		$( '#amount_other' ).prop( 'checked', false );
 	} );
 	$( '#interval_onetime' ).on( 'click', function () {
+		removeSpaceForIntervalOptions();
 		$( '.interval-options' ).addClass( 'interval-hidden' );
 		$( '#interval_multiple' ).prop( 'checked', false );
 	} );
 	$( '#interval_multiple' ).on( 'click', function () {
+		addSpaceForIntervalOptions();
 		$( '.interval-options' ).removeClass( 'interval-hidden' );
 		$( '#interval_onetime' ).prop( 'checked', false );
 	} );
@@ -268,6 +270,51 @@ function removeBannerSpace() {
 		case 'monobook':
 			$( '#globalWrapper' ).css( 'position', 'relative' );
 			$( '#globalWrapper' ).css( 'top', 0 );
+			break;
+	}
+}
+
+function addSpaceForIntervalOptions() {
+	if ( $( 'div.interval-options' ).is( ':visible' ) ) {
+		return;
+	}
+	var expandableBannerHeight = $( 'div.interval-options' ).height(),
+			bannerDivElement = $( '#WMDE_Banner-wrapper' );
+
+	switch ( getSkin() ) {
+		case 'vector':
+			$( '#mw-panel' ).css( { top: parseInt( $('#mw-panel' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			$( '#mw-head' ).css( { top: parseInt( $('#mw-head' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			$( '#mw-page-base' ).css( { paddingTop: parseInt( $('#mw-page-base' ).css( 'padding-top' ), 10 ) + expandableBannerHeight + 'px' } );
+			break;
+		case 'minerva':
+			$( '#mw-mf-viewport' ).css( { top: parseInt( $('#mw-mf-viewport' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			break;
+		case 'monobook':
+			$( '#globalWrapper' ).css( { top: parseInt( $('#globalWrapper' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			break;
+	}
+}
+
+function removeSpaceForIntervalOptions() {
+	if ( !$( 'div.interval-options' ).is( ':visible' ) ) {
+		return;
+	}
+	var expandableBannerHeight = $( 'div.interval-options' ).height() + 5,
+			bannerDivElement = $( '#WMDE_Banner-wrapper' ),
+			skin = getSkin();
+
+	switch ( skin ) {
+		case 'vector':
+			$( '#mw-panel' ).css( { top: ( parseInt( $('#mw-panel' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			$( '#mw-head' ).css( { top: ( parseInt( $('#mw-head' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			$( '#mw-page-base' ).css( { paddingTop: ( parseInt( $('#mw-page-base' ).css( 'padding-top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			break;
+		case 'minerva':
+			$( '#mw-mf-viewport' ).css( { top: ( parseInt( $('#mw-mf-viewport' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			break;
+		case 'monobook':
+			$( '#globalWrapper' ).css( { top: ( parseInt( $('#globalWrapper' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
 			break;
 	}
 }
