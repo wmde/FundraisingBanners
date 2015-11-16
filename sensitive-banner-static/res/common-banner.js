@@ -280,7 +280,8 @@ function addSpaceForIntervalOptions() {
 		return;
 	}
 
-	switch ( getSkin() ) {
+	// switch ( getSkin() ) { TODO fix when non-static
+	switch ( 'vector' ) {
 		case 'vector':
 			$( '#mw-panel' ).css( { top: parseInt( $( '#mw-panel' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
 			$( '#mw-head' ).css( { top: parseInt( $( '#mw-head' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
@@ -302,7 +303,8 @@ function removeSpaceForIntervalOptions() {
 		return;
 	}
 
-	switch ( getSkin() ) {
+	// switch ( getSkin() ) { TODO fix when non-static
+	switch ( 'vector' ) {
 		case 'vector':
 			$( '#mw-panel' ).css( { top: ( parseInt( $( '#mw-panel' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
 			$( '#mw-head' ).css( { top: ( parseInt( $( '#mw-head' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
