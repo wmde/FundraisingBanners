@@ -294,10 +294,8 @@ function animateProgressBar() {
 	fWidth = dCollected / dTarget * barWidth;
 	maxFillWidth = barWidth - $( '#donationRemaining' ).width() - 16;
 	widthToFill = Math.min( maxFillWidth, fWidth );
-	// Fill at least 15%
-	widthToFill = Math.max( 0.15 * barWidth, widthToFill );
-	// Fill at least 100px (in case 15% fill is lower than 100px)
-	widthToFill = Math.max( 100, widthToFill );
+	// Fill at least 100px or 15% (in case 15% fill is lower than 100px)
+	widthToFill = Math.max( 100, 0.15 * barWidth, widthToFill );
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
 		duration: 3000,
