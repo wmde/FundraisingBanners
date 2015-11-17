@@ -2,7 +2,7 @@
 /*jshint unused: false */
 /* globals mw, alert, GlobalBannerSettings */
 var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
-	goalSum = 8700000,
+	goalSum = 8600000,
 	baseDate = replaceWikiVars( '{{{donations-date-base}}}' ),
 	collectedBase = parseInt( replaceWikiVars( '{{{donations-collected-base}}}' ), 10 ),
 	donorsBase = parseInt( replaceWikiVars( '{{{donators-base}}}' ), 10 ),
@@ -278,8 +278,7 @@ function animateProgressBar() {
 		donationValueElement = $( '#donationValue' ),
 		remainingValueElement = $( '#valRem' ),
 		preFillValue = 0,
-		barWidth, dTarget, dCollected, dRemaining, fWidth, maxFillWidth, widthToFill,
-		fillToBarRatio;
+		barWidth, dTarget, dCollected, dRemaining, fWidth, maxFillWidth, widthToFill;
 
 	donationFillElement.clearQueue();
 	donationFillElement.stop();
@@ -288,20 +287,15 @@ function animateProgressBar() {
 	daysLeftElement.hide();
 
 	barWidth = $( '#donationMeter' ).width();
-	dTarget = parseInt( '8300000', 10 );
+	dTarget = goalSum;
 	dCollected = getApprDonationsRaw();
 	dRemaining = dTarget - dCollected;
 
 	fWidth = dCollected / dTarget * barWidth;
 	maxFillWidth = barWidth - $( '#donationRemaining' ).width() - 16;
-	widthToFill = ( fWidth > maxFillWidth ) ? maxFillWidth : fWidth;
-	fillToBarRatio = widthToFill / barWidth;
-	if ( fillToBarRatio < 0.15 ) {
-		widthToFill = 0.15 * barWidth;
-		if ( widthToFill > 100 ) {
-			widthToFill = 100;
-		}
-	}
+	widthToFill = Math.min( maxFillWidth, fWidth );
+	// Fill at least 100px or 15% (in case 15% fill is lower than 100px)
+	widthToFill = Math.max( 100, 0.15 * barWidth, widthToFill );
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
 		duration: 3000,

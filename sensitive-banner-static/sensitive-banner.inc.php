@@ -4,10 +4,10 @@
 <script type="text/javascript">
 // This script block only needs to be initialized on wp.de
 window.GlobalBannerSettings = {
-	'donations-date-base': '2015-11-10',
-	'donations-collected-base': '6025000',
-	'donators-base': '282100',
-	'appr-donations-per-minute': '104',
+	'donations-date-base': '2015-11-12',
+	'donations-collected-base': '640000',
+	'donators-base': '0',
+	'appr-donations-per-minute': '75',
 	'appr-donators-per-minute': '5.5',
 	'BannerName': 'wpde-151110-sensitive'
 };
