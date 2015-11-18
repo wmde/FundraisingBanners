@@ -11,7 +11,7 @@ var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	;
 
 $( function () {
-	if ( mw && parseInt( $.cookie( 'centralnotice_wmde15_hide_cookie' ) ) === 1 ) {
+	if ( mw && parseInt( $.cookie( 'centralnotice_wmde15_hide_cookie' ), 10 ) === 1 ) {
 		mw.centralNotice.bannerData.hideResult = true;
 		mw.centralNotice.bannerData.hideReason = 'close';
 		return;
