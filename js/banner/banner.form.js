@@ -177,14 +177,16 @@
 	 * @return {Object}
 	 */
 	Form.prototype._getFormData = function () {
-		/* globals getAmount */
+		/* globals getAmount, validateAndSetPeriod */
 		var formId = banner.config.form.formId,
-			formData = {
-				adresstyp: $( '#' + formId + ' input[name="adresstyp"]:checked' ).val(),
-				betrag: getAmount(),
-				periode: $( '#' + formId + ' :input[name="periode"]' ).val(),
-				zahlweise:  $( '#zahlweise' ).val()
-			};
+			formData;
+		validateAndSetPeriod();
+		formData = {
+			adresstyp: $( '#' + formId + ' input[name="adresstyp"]:checked' ).val(),
+			betrag: getAmount(),
+			periode: $( '#' + formId + ' :input[name="periode"]' ).val(),
+			zahlweise:  $( '#zahlweise' ).val()
+		};
 		if ( formData.adresstyp !== 'anonym' ) {
 			$.extend( formData, {
 				country: $( '#' + formId + ' select[name="country"]' ).val(),

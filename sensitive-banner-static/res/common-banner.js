@@ -185,18 +185,7 @@ function validateForm() {
 			break;
 	}
 
-	if ( $( '#interval_multiple' ).is( ':checked' ) ) {
-		if ( $( 'input[name=interval]:checked', form ).length !== 1 ) {
-			alert( 'Es wurde kein Zahlungsintervall ausgewählt.' );
-			return false;
-		} else {
-			$( '#intervalType' ).val( '1' );
-			$( '#periode' ).val( $( 'input[name=interval]:checked', form ).val() );
-		}
-	} else {
-		$( '#periode' ).val( '0' );
-	}
-
+	validateAndSetPeriod();
 	amount = getAmount();
 
 	// Check amount is at least the minimum
@@ -208,6 +197,27 @@ function validateForm() {
 		return false;
 	}
 	return amount;
+}
+
+/**
+ * Check the "interval" radio buttons and change the "period" and "intervalType" fields accordingly.
+ * If "periodically" is selected but no interval is selected, this function
+ * will display an error message via alert.
+ */
+function validateAndSetPeriod() {
+	var form = document.donationForm;
+	if ( $( '#interval_multiple' ).is( ':checked' ) ) {
+		if ( $( 'input[name=interval]:checked', form ).length !== 1 ) {
+			alert( 'Es wurde kein Zahlungsintervall ausgewählt.' );
+			return false;
+		} else {
+			$( '#intervalType' ).val( '1' );
+			$( '#periode' ).val( $( 'input[name=interval]:checked', form ).val() );
+		}
+	} else {
+		$( '#periode' ).val( '0' );
+		$( '#intervalType' ).val( '0' );
+	}
 }
 
 function getAmount() {
