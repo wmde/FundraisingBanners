@@ -273,21 +273,13 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
 }
 
 #confirm_sepa, #confirm_shortterm {
-    margin: 1px 3px 0 0;
-    float: left;
+    position: absolute;
+    left: -8px;
 }
 
 #WMDE_Banner #globalsign-siteseal {
     width: 125px;
     float: left;
-}
-
-#confirm_sepa {
-    margin-bottom: 260px;
-}
-
-#confirm_shortterm {
-    margin-bottom: 90px;
 }
 
 #WMDE_BannerFullForm-info {
@@ -343,6 +335,11 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
 
 #WMDE_BannerFullForm-dataprotection-link {
     margin: 0;
+}
+
+p.check_confirm {
+    position: relative;
+    padding-left: 15px;
 }
 
 .banner-lightbox-funds {

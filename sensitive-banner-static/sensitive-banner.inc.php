@@ -553,7 +553,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 														<p><a class="WMDE_BannerFullForm-confirm-edit">Daten oder Zahlungsart &auml;ndern</a></p>
 														<hr/>
-														<p>
+														<p class="check_confirm">
 															<input type="checkbox" title="Bestätigung SEPA" value="1"
 																   name="confirm_sepa" id="confirm_sepa">
 															<label for="confirm_sepa">
@@ -571,7 +571,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</label>
 														</p>
 
-														<p>
+														<p class="check_confirm">
 															<input type="checkbox" title="Bestätigung Fristverkürzung"
 																   value="1" name="confirm_shortterm"
 																   id="confirm_shortterm">
