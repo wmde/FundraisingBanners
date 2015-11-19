@@ -165,10 +165,6 @@ function getCurrentGermanDay() {
 	}
 }
 
-function centralNoticeExists() {
-	return typeof mw !== 'undefined' && typeof mw.centralNotice !== 'undefined';
-}
-
 function addPointsToNum( num ) {
 	// jscs:disable disallowImplicitTypeConversion
 	num = parseInt( num, 10 ) + '';
