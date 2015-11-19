@@ -3,6 +3,9 @@
 /* globals mw, alert, GlobalBannerSettings */
 var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	goalSum = 8600000,
+	/* jshint -W079 */
+	GlobalBannerSettings = typeof GlobalBannerSettings !== 'undefined' ? GlobalBannerSettings : {},
+	/* jshint +W079 */
 	baseDate = replaceWikiVars( '{{{donations-date-base}}}' ),
 	collectedBase = parseInt( replaceWikiVars( '{{{donations-collected-base}}}' ), 10 ),
 	donorsBase = parseInt( replaceWikiVars( '{{{donators-base}}}' ), 10 ),
