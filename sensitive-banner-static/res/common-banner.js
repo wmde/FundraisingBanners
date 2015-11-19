@@ -337,7 +337,10 @@ function replaceWikiVars( text ) {
 	while ( ( wikiVarMatch = re.exec( text ) ) !== null ) {
 		if ( GlobalBannerSettings[ wikiVarMatch[ 1 ] ] ) {
 			text = text.replace( wikiVarMatch[ 0 ], GlobalBannerSettings[ wikiVarMatch[ 1 ] ] );
+		} else {
+			text = text.replace( wikiVarMatch[ 0 ], '' );
 		}
 	}
 	return text;
 }
+
