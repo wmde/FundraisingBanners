@@ -275,8 +275,9 @@ function removeBannerSpace() {
 }
 
 function addSpaceForIntervalOptions() {
-	var expandableBannerHeight = $( 'div.interval-options' ).height();
-	if ( $( 'div.interval-options' ).is( ':visible' ) ) {
+	var $intervalOptionsContainer = $( 'div.interval-options' ),
+		expandableBannerHeight = $intervalOptionsContainer.height();
+	if ( $intervalOptionsContainer && $intervalOptionsContainer.is( ':visible' ) ) {
 		return;
 	}
 
@@ -297,9 +298,9 @@ function addSpaceForIntervalOptions() {
 }
 
 function removeSpaceForIntervalOptions() {
-	var expandableBannerHeight = $( 'div.interval-options' ).height() + 5;
-
-	if ( !$( 'div.interval-options' ).is( ':visible' ) ) {
+	var $intervalOptionsContainer = $( 'div.interval-options' ),
+		expandableBannerHeight = $intervalOptionsContainer.height() + 5;
+	if ( $intervalOptionsContainer && !$intervalOptionsContainer.is( ':visible' ) ) {
 		return;
 	}
 
