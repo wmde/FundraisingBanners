@@ -11,12 +11,19 @@ var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	;
 
 $( function () {
+	if ( mw && parseInt( $.cookie( 'centralnotice_wmde15_hide_cookie' ), 10 ) === 1 ) {
+		mw.centralNotice.bannerData.hideResult = true;
+		mw.centralNotice.bannerData.hideReason = 'close';
+		return;
+	}
+
 	$( '#WMDE_Banner-close' ).click( function () {
 		if ( Math.random() < 0.01 ) {
 			$( '#WMDE_Banner-close-ct' ).attr( 'src', replaceWikiVars( 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/{{{BannerName}}}&rec=1' ) );
 		}
-		mw.centralNotice.hideBanner();
+		$( '#WMDE_Banner' ).hide();
 		removeBannerSpace();
+		$.cookie( 'centralnotice_wmde15_hide_cookie', 1, { expires: new Date( '2015/12/31 23:59:59' ), path: '/' } );
 		return false;
 	} );
 
