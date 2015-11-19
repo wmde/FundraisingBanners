@@ -31,10 +31,12 @@ $( function () {
 		$( '#amount_other' ).prop( 'checked', false );
 	} );
 	$( '#interval_onetime' ).on( 'click', function () {
+		removeSpaceForIntervalOptions();
 		$( '.interval-options' ).addClass( 'interval-hidden' );
 		$( '#interval_multiple' ).prop( 'checked', false );
 	} );
 	$( '#interval_multiple' ).on( 'click', function () {
+		addSpaceForIntervalOptions();
 		$( '.interval-options' ).removeClass( 'interval-hidden' );
 		$( '#interval_onetime' ).prop( 'checked', false );
 	} );
@@ -278,6 +280,52 @@ function removeBannerSpace() {
 		case 'monobook':
 			$( '#globalWrapper' ).css( 'position', 'relative' );
 			$( '#globalWrapper' ).css( 'top', 0 );
+			break;
+	}
+}
+
+function addSpaceForIntervalOptions() {
+	var $intervalOptionsContainer = $( 'div.interval-options' ),
+		expandableBannerHeight = $intervalOptionsContainer.height();
+	if ( $intervalOptionsContainer && $intervalOptionsContainer.is( ':visible' ) ) {
+		return;
+	}
+
+	// switch ( getSkin() ) { TODO fix when non-static
+	switch ( 'vector' ) {
+		case 'vector':
+			$( '#mw-panel' ).css( { top: parseInt( $( '#mw-panel' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			$( '#mw-head' ).css( { top: parseInt( $( '#mw-head' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			$( '#mw-page-base' ).css( { paddingTop: parseInt( $( '#mw-page-base' ).css( 'padding-top' ), 10 ) + expandableBannerHeight + 'px' } );
+			break;
+		case 'minerva':
+			$( '#mw-mf-viewport' ).css( { top: parseInt( $( '#mw-mf-viewport' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			break;
+		case 'monobook':
+			$( '#globalWrapper' ).css( { top: parseInt( $( '#globalWrapper' ).css( 'top' ), 10 ) + expandableBannerHeight + 'px' } );
+			break;
+	}
+}
+
+function removeSpaceForIntervalOptions() {
+	var $intervalOptionsContainer = $( 'div.interval-options' ),
+		expandableBannerHeight = $intervalOptionsContainer.height() + 5;
+	if ( $intervalOptionsContainer && !$intervalOptionsContainer.is( ':visible' ) ) {
+		return;
+	}
+
+	// switch ( getSkin() ) { TODO fix when non-static
+	switch ( 'vector' ) {
+		case 'vector':
+			$( '#mw-panel' ).css( { top: ( parseInt( $( '#mw-panel' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			$( '#mw-head' ).css( { top: ( parseInt( $( '#mw-head' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			$( '#mw-page-base' ).css( { paddingTop: ( parseInt( $( '#mw-page-base' ).css( 'padding-top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			break;
+		case 'minerva':
+			$( '#mw-mf-viewport' ).css( { top: ( parseInt( $( '#mw-mf-viewport' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
+			break;
+		case 'monobook':
+			$( '#globalWrapper' ).css( { top: ( parseInt( $( '#globalWrapper' ).css( 'top' ), 10 ) - expandableBannerHeight ) + 'px' } );
 			break;
 	}
 }
