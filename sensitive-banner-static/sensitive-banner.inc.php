@@ -9,10 +9,12 @@ window.GlobalBannerSettings = {
 	'donators-base': '0',
 	'appr-donations-per-minute': '75',
 	'appr-donators-per-minute': '5.5',
+	'campaign-start-date': '2015-11-12',
 	'BannerName': 'wpde-151110-sensitive'
 };
 </script>
 <script type="text/javascript" src="res/common-banner.js"></script>
+<script type="text/javascript" src="../fulltop-banner/res/countCampaignDays.js"></script>
 <script type="text/javascript" src="../js/sensitive_banner_all.js"></script>
 <?php include __DIR__ . '/sensitive-banner-js-config.inc.php'; ?>
 
@@ -31,7 +33,8 @@ window.GlobalBannerSettings = {
 							<tr>
 								<td style="height: 1%" valign="top">
 									<p id="WMDE_Banner-text"><i>Liebe Leserinnen und Leser:</i> Verzeihen Sie die
-										Störung. Einmal im Jahr bitten wir Sie um Ihre Unterstützung. Um
+										Störung. Heute ist der <span id="campaignDay">3.</span> Tag unserer Spendenkampagne.
+										Einmal im Jahr bitten wir Sie um Ihre Unterstützung. Um
 										Wikipedias Unabhängigkeit zu schützen, gibt es keine Werbung. Wir
 										finanzieren uns durch Spenden von durchschnittlich 20 €. <span
 											class="btext-highlight">Jetzt
@@ -553,7 +556,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 														<p><a class="WMDE_BannerFullForm-confirm-edit">Daten oder Zahlungsart &auml;ndern</a></p>
 														<hr/>
-														<p>
+														<p class="check_confirm">
 															<input type="checkbox" title="Bestätigung SEPA" value="1"
 																   name="confirm_sepa" id="confirm_sepa">
 															<label for="confirm_sepa">
@@ -571,15 +574,14 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 															</label>
 														</p>
 
-														<p>
+														<p class="check_confirm">
 															<input type="checkbox" title="Bestätigung Fristverkürzung"
 																   value="1" name="confirm_shortterm"
 																   id="confirm_shortterm">
 															<label for="confirm_shortterm">
-																Mit SEPA wurde eine Informationsfrist für Lastschriften
-																eingeführt. Ich bin damit einverstanden,
-																dass ich spätestens 5 Tage vor der geplanten Abbuchung
-																der Spende per Email benachrichtigt werde.
+																Mit SEPA wurde eine Informationsfrist für Lastschriften eingeführt.
+																Ich bin damit einverstanden, dass ich spätestens 2 Tage vor der
+																geplanten Abbuchung der Spende per Email benachrichtigt werde.
 															</label>
 														</p>
 
@@ -1076,5 +1078,6 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 
 		$( "span#numDaysLeft" ).text( getDaysRemaining() );
 		$( "span#donorsValue" ).html( addPointsToNum( Math.floor( getApprDonatorsRaw() ) ) );
+		$( "span#campaignDay").text( getCampaignDayString() );
 	} );
 </script>
