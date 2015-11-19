@@ -576,10 +576,9 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 																   value="1" name="confirm_shortterm"
 																   id="confirm_shortterm">
 															<label for="confirm_shortterm">
-																Mit SEPA wurde eine Informationsfrist für Lastschriften
-																eingeführt. Ich bin damit einverstanden,
-																dass ich spätestens 5 Tage vor der geplanten Abbuchung
-																der Spende per Email benachrichtigt werde.
+																Mit SEPA wurde eine Informationsfrist für Lastschriften eingeführt.
+																Ich bin damit einverstanden, dass ich spätestens 2 Tage vor der 
+																geplanten Abbuchung der Spende per Email benachrichtigt werde.
 															</label>
 														</p>
 
