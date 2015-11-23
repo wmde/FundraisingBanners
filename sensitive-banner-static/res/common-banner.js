@@ -301,7 +301,7 @@ function addBannerSpace() {
 		case 'vector':
 			bannerDivElement.css( 'top', 0 );
 			bannerDivElement.css( 'display', 'block' );
-			$( '#mw-panel' ).css( 'top' expandableBannerHeight + 160 );
+			$( '#mw-panel' ).css( 'top', expandableBannerHeight + 160 );
 			$( '#mw-head' ).css( 'top', expandableBannerHeight );
 			$( '#mw-page-base' ).css ( 'paddingTop', expandableBannerHeight );
 			break;
