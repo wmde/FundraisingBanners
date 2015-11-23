@@ -102,9 +102,14 @@ $( function () {
 	} );
 
 	$( '#donationForm' ).on( 'banner:validationSucceeded', function ( evt ) {
+		var zahlweiseVal = $( '#zahlweise' ).val(),
+			// Paypal page takes some time to load
+			spinnerTimout = zahlweiseVal === 'PPL' ? 2000 : 0 ;
 		unlockForm();
-		$( '#WMDE_BannerFullForm-finish' ).removeClass( 'waiting' );
-		if ( $( '#zahlweise' ).val() === 'BEZ' ) {
+		window.setTimeout( function () {
+			$( '#WMDE_BannerFullForm-finish' ).removeClass( 'waiting' );
+		}, spinnerTimout );
+		if ( zahlweiseVal === 'BEZ' ) {
 			debitNextStep();
 			evt.preventDefault();
 		} else {
