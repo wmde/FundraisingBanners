@@ -24,14 +24,26 @@
 
 	Form.prototype._initSubmitHandler = function () {
 		var self = this,
-			form = $( '#' + banner.config.form.formId );
+			form = $( '#' + banner.config.form.formId ),
+			formData;
 		form.prop( 'action', banner.config.form.formAction );
 		form.on( 'submit', function () {
 			if ( !self.validated && !self.validationPending ) {
 				self.validated = false;
 				self.validationPending = true;
 				self._clearValidity();
-				self.validateData( self._getFormData() )
+				try {
+					formData = self._getFormData();
+				}
+				catch (err) {
+					if ( err.alertMessage ) {
+						alert( err.alertMessage );
+					}
+					self.validationPending = false;
+					form.trigger( 'banner:validationFailed' );
+					return self.validated;
+				}
+				self.validateData( formData )
 					.then( function ( validationResult ) {
 						self.validationPending = false;
 						if ( validationResult.validated ) {
@@ -179,11 +191,19 @@
 	Form.prototype._getFormData = function () {
 		/* globals getAmount, validateAndSetPeriod */
 		var formId = banner.config.form.formId,
-			formData;
-		validateAndSetPeriod();
+			formData, amount, err;
+		if ( validateAndSetPeriod() === false ) {
+			throw new Error( 'Period was not set.' );
+		}
+		amount = getAmount();
+		if ( amount === false || amount < 1 ) {
+			err = new Error( 'Amount was not set.' );
+			err.alertMessage = 'Der Mindestbetrag beträgt 1 Euro.';
+			throw err;
+		}
 		formData = {
 			adresstyp: $( '#' + formId + ' input[name="adresstyp"]:checked' ).val(),
-			betrag: getAmount(),
+			betrag: amount,
 			periode: $( '#' + formId + ' :input[name="periode"]' ).val(),
 			zahlweise:  $( '#zahlweise' ).val()
 		};

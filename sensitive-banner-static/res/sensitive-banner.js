@@ -21,7 +21,6 @@ $( function () {
 	} );
 	$( '#interval_multiple' ).on( 'click', function () {
 		$( '#WMDE_BannerForm-wrapper' ).css( 'height', '204px' );
-		$( '#interval1' ).prop( 'checked', 'checked' );
 	} );
 
 	paymentButtons.on( 'click', function ( e ) {
