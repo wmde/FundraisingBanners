@@ -325,6 +325,29 @@ function addBannerSpaceWithRollo() {
 	}
 	switch ( skin ) {
 		case 'vector':
+			bannerDivElement.css( 'top', 0 );
+			bannerDivElement.css( 'display', 'block' );
+			$( '#mw-panel' ).css( 'top' expandableBannerHeight + 160 );
+			$( '#mw-head' ).css( 'top', expandableBannerHeight );
+			$( '#mw-page-base' ).css ( 'paddingTop', expandableBannerHeight );
+			break;
+		case 'monobook':
+			$( '#globalWrapper' ).css( 'position', 'relative' );
+			$( '#globalWrapper' ).css( 'top', expandableBannerHeight );
+			bannerDivElement.css( 'top', '-20px' );
+			bannerDivElement.css( 'background', 'none' );
+			break;
+	}	
+	setTimeout( animateProgressBar, 1000 );
+}
+
+function addBannerSpaceWithRollo() {
+	var expandableBannerHeight = $( 'div#WMDE_Banner' ).height() + 44,
+		bannerDivElement = $( '#WMDE_Banner' );
+
+	switch ( 'vector' ) {
+		// switch ( skin ) { TODO fix when non-static
+		case 'vector':
 			bannerDivElement.css( 'top', 0 - expandableBannerHeight );
 			$( '#mw-panel' ).animate( { top: expandableBannerHeight + 160 }, 1000 );
 			$( '#mw-head' ).animate( { top: expandableBannerHeight }, 1000 );
