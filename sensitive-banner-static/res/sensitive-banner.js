@@ -104,7 +104,7 @@ $( function () {
 	$( '#donationForm' ).on( 'banner:validationSucceeded', function ( evt ) {
 		var zahlweiseVal = $( '#zahlweise' ).val(),
 			// Paypal page takes some time to load
-			spinnerTimout = zahlweiseVal === 'PPL' ? 2000 : 0 ;
+			spinnerTimout = zahlweiseVal === 'PPL' ? 4000 : 0 ;
 		unlockForm();
 		window.setTimeout( function () {
 			$( '#WMDE_BannerFullForm-finish' ).removeClass( 'waiting' );
