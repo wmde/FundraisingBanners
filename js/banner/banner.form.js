@@ -23,6 +23,7 @@
 	}
 
 	Form.prototype._initSubmitHandler = function () {
+		/* globals alert */
 		var self = this,
 			form = $( '#' + banner.config.form.formId ),
 			formData;
@@ -34,8 +35,7 @@
 				self._clearValidity();
 				try {
 					formData = self._getFormData();
-				}
-				catch (err) {
+				} catch ( err ) {
 					if ( err.alertMessage ) {
 						alert( err.alertMessage );
 					}
