@@ -14,8 +14,8 @@ if ( $.cookie( 'centralnotice_wmde15_hide_cookie' ) === '1' ) {
 	showBanner = false;
 }
 
-if ( typeof mediaWiki !== 'undefined' ) {
-	mediaWiki.centralNotice.bannerData.alterImpressionData = function ( impressionData ) {
+if ( typeof mw !== 'undefined' && typeof mw.centralNotice !== 'undefined' ) {
+	mw.centralNotice.bannerData.alterImpressionData = function ( impressionData ) {
 		if ( showBanner ) {
 			return true;
 		}
