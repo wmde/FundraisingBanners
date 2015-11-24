@@ -26,7 +26,6 @@ if ( mediawiki ) {
 	};
 }
 
-
 $( function () {
 	$( '#WMDE_Banner-close' ).click( function () {
 		if ( Math.random() < 0.01 ) {
@@ -271,10 +270,10 @@ function getAmount() {
 }
 
 function addBannerSpace() {
-	if ( showBanner ) {
-		var expandableBannerHeight = $( 'div#WMDE_Banner' ).height() + 44,
+	var expandableBannerHeight = $( 'div#WMDE_Banner' ).height() + 44,
 			bannerDivElement = $( '#WMDE_Banner' );
 
+	if ( showBanner ) {
 		switch ( 'vector' ) {
 			// switch ( skin ) { TODO fix when non-static
 			case 'vector':
