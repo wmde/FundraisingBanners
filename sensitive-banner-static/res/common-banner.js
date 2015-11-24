@@ -7,23 +7,34 @@ var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	collectedBase = parseInt( replaceWikiVars( '{{{donations-collected-base}}}' ), 10 ),
 	donorsBase = parseInt( replaceWikiVars( '{{{donators-base}}}' ), 10 ),
 	donationsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donations-per-minute}}}' ) ),
-	donorsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donators-per-minute}}}' ) )
-	;
+	donorsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donators-per-minute}}}' ) ),
+	showBanner = true;
 
-$( function () {
-	if ( mw && parseInt( $.cookie( 'centralnotice_wmde15_hide_cookie' ), 10 ) === 1 ) {
+if ( $.cookie( 'centralnotice_wmde15_hide_cookie' ) === '1' ) {
+	showBanner = false;
+}
+
+if ( typeof mw !== 'undefined' && typeof mw.centralNotice !== 'undefined' ) {
+	mw.centralNotice.bannerData.alterImpressionData = function ( impressionData ) {
+		if ( showBanner ) {
+			return true;
+		}
+
 		mw.centralNotice.bannerData.hideResult = true;
 		mw.centralNotice.bannerData.hideReason = 'close';
-		return;
-	}
+		return false;
+	};
+}
 
+$( function () {
 	$( '#WMDE_Banner-close' ).click( function () {
 		if ( Math.random() < 0.01 ) {
 			$( '#WMDE_Banner-close-ct' ).attr( 'src', replaceWikiVars( 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/{{{BannerName}}}&rec=1' ) );
 		}
 		$( '#WMDE_Banner' ).hide();
 		removeBannerSpace();
-		$.cookie( 'centralnotice_wmde15_hide_cookie', 1, { expires: new Date( '2015/12/31 23:59:59' ), path: '/' } );
+		setBannerClosedCookie( 'centralnotice_wmde15_hide_cookie' );
+
 		return false;
 	} );
 
@@ -48,6 +59,14 @@ $( function () {
 		$( '#interval_onetime' ).prop( 'checked', false );
 	} );
 } );
+
+function setBannerClosedCookie( cookieName ) {
+	var currentDate = new Date(),
+		expiryDate;
+
+	expiryDate = new Date( currentDate.getFullYear() + 1, 0, 1 );
+	$.cookie( cookieName, 1, { expires: expiryDate, path: '/' } );
+}
 
 function getDaysLeft() {
 	var daysLeft = Math.floor( new Date( finalDateTime - new Date() ) / 1000 / 60 / 60 / 24 );
@@ -254,26 +273,28 @@ function getAmount() {
 
 function addBannerSpace() {
 	var expandableBannerHeight = $( 'div#WMDE_Banner' ).height() + 44,
-		bannerDivElement = $( '#WMDE_Banner' );
+			bannerDivElement = $( '#WMDE_Banner' );
 
-	switch ( 'vector' ) {
-		// switch ( skin ) { TODO fix when non-static
-		case 'vector':
-			bannerDivElement.css( 'top', 0 - expandableBannerHeight );
-			$( '#mw-panel' ).animate( { top: expandableBannerHeight + 160 }, 1000 );
-			$( '#mw-head' ).animate( { top: expandableBannerHeight }, 1000 );
-			$( '#mw-page-base' ).animate( { paddingTop: expandableBannerHeight }, 1000 );
-			break;
-		case 'monobook':
-			$( '#globalWrapper' ).css( 'position', 'relative' );
-			$( '#globalWrapper' ).css( 'top', expandableBannerHeight );
-			bannerDivElement.css( 'top', '-20px' );
-			bannerDivElement.css( 'background', 'none' );
-			break;
+	if ( showBanner ) {
+		switch ( 'vector' ) {
+			// switch ( skin ) { TODO fix when non-static
+			case 'vector':
+				bannerDivElement.css( 'top', 0 - expandableBannerHeight );
+				$( '#mw-panel' ).animate( { top: expandableBannerHeight + 160 }, 1000 );
+				$( '#mw-head' ).animate( { top: expandableBannerHeight }, 1000 );
+				$( '#mw-page-base' ).animate( { paddingTop: expandableBannerHeight }, 1000 );
+				break;
+			case 'monobook':
+				$( '#globalWrapper' ).css( 'position', 'relative' );
+				$( '#globalWrapper' ).css( 'top', expandableBannerHeight );
+				bannerDivElement.css( 'top', '-20px' );
+				bannerDivElement.css( 'background', 'none' );
+				break;
+		}
+		bannerDivElement.css( 'display', 'block' );
+		bannerDivElement.animate( { top: 0 }, 1000 );
+		setTimeout( animateProgressBar, 1000 );
 	}
-	bannerDivElement.css( 'display', 'block' );
-	bannerDivElement.animate( { top: 0 }, 1000 );
-	setTimeout( animateProgressBar, 1000 );
 }
 
 function removeBannerSpace() {
