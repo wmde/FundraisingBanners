@@ -26,8 +26,9 @@
 		/* globals alert */
 		var self = this,
 			form = $( '#' + banner.config.form.formId ),
+			formAction = banner.config.form.formAction.replace( '&amp;', '&' ), // wikipedia.de mangles & chars
 			formData;
-		form.prop( 'action', banner.config.form.formAction );
+		form.prop( 'action', formAction );
 		form.on( 'submit', function () {
 			if ( !self.validated && !self.validationPending ) {
 				self.validated = false;
