@@ -8,6 +8,8 @@ var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	donorsBase = parseInt( replaceWikiVars( '{{{donators-base}}}' ), 10 ),
 	donationsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donations-per-minute}}}' ) ),
 	donorsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donators-per-minute}}}' ) ),
+	allBannersImpCookie = 'centralnotice_banner_impression_count',
+	singleBannerImpCookie = 'centralnotice_single_banner_impression_count',
 	showBanner = true;
 
 if ( $.cookie( 'centralnotice_wmde15_hide_cookie' ) === '1' ) {
@@ -168,24 +170,33 @@ function floorF( num ) {
 	return Math.floor( num * 100 ) / 100;
 }
 
+function getImpCount() {
+	return parseInt( $.cookie( allBannersImpCookie ), 10 ) || 0;
+}
+
+function getBannerImpCount( bannerId ) {
+	var cookieValue, cookieData;
+
+	if ( $.cookie( singleBannerImpCookie ) ) {
+		cookieValue = $.cookie( singleBannerImpCookie );
+		cookieData = cookieValue.split( '|' );
+		if ( cookieData[ 0 ] === bannerId ) {
+			return parseInt( cookieData[ 1 ], 10 );
+		}
+	}
+	return 0;
+}
+
 function increaseImpCount() {
-	var impCount = parseInt( $.cookie( 'centralnotice_banner_impression_count' ), 10 ) || 0;
-	$.cookie( 'centralnotice_banner_impression_count', impCount + 1, { expires: 7, path: '/' } );
+	var impCount = getImpCount();
+	$.cookie( allBannersImpCookie, impCount + 1, { expires: 7, path: '/' } );
 	return impCount + 1;
 }
 
 function increaseBannerImpCount( bannerId ) {
-	var impCount = 0,
-		impCountCookie, bannerImpCount;
+	var impCount = getBannerImpCount( bannerId );
 
-	if ( $.cookie( 'centralnotice_single_banner_impression_count' ) ) {
-		impCountCookie = $.cookie( 'centralnotice_single_banner_impression_count' );
-		bannerImpCount = impCountCookie.split( '|' );
-		if ( bannerImpCount[ 0 ] === bannerId ) {
-			impCount = parseInt( bannerImpCount[ 1 ], 10 );
-		}
-	}
-	$.cookie( 'centralnotice_single_banner_impression_count', bannerId + '|' + ( impCount + 1 ), {
+	$.cookie( singleBannerImpCookie, bannerId + '|' + ( impCount + 1 ), {
 		expires: 7,
 		path: '/'
 	} );
