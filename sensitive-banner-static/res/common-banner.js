@@ -14,7 +14,7 @@ if ( $.cookie( 'centralnotice_wmde15_hide_cookie' ) === '1' ) {
 	showBanner = false;
 }
 
-if ( mediawiki ) {
+if ( typeof mediawiki !== 'undefined' ) {
 	mediaWiki.centralNotice.bannerData.alterImpressionData = function ( impressionData ) {
 		if ( showBanner ) {
 			return true;
@@ -61,7 +61,9 @@ $( function () {
 } );
 
 function setBannerClosedCookie( cookieName ) {
-	var currentDate = new Date();
+	var currentDate = new Date(),
+		expiryDate;
+
 	expiryDate = new Date( currentDate.getFullYear() + 1, 0, 1 );
 	$.cookie( cookieName, 1, { expires: expiryDate, path: '/' } );
 }
