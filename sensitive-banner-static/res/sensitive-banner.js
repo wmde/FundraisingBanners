@@ -61,6 +61,10 @@ $( function () {
 			$( '#WMDE_BannerFullForm-arrow' ).hide();
 		} );
 
+	$( '#WMDE_BannerFullForm-hint' ).on( 'click', function () {
+		$( '#btn-ppl' ).trigger( 'click' );
+	} );
+
 	$( 'input[name=\'debit-type\']' ).on( 'click', function () {
 		toggleDebitType();
 	} );
@@ -234,6 +238,7 @@ function toggleDebitType() {
 
 function showFullForm() {
 	$( '#WMDE_BannerFullForm-arrow' ).hide();
+	$( '#WMDE_BannerFullForm-hint' ).hide();
 	$( '#WMDE_BannerFullForm-shadow' ).fadeIn();
 	$( '#WMDE_BannerFullForm-details' ).slideDown();
 	$( '#WMDE_BannerFullForm-info' ).slideDown();
@@ -253,6 +258,7 @@ function hideFullForm() {
 	$( '#WMDE_BannerFullForm-details' ).slideUp( 400, function () {
 		$( '#WMDE_Banner' ).css( 'position', 'fixed' );
 		resetButtons();
+		$( '#WMDE_BannerFullForm-hint' ).show();
 	} );
 	$( '#WMDE_BannerFullForm-info' ).hide();
 	$( '#WMDE_BannerFullForm-shadow' ).fadeOut();
