@@ -337,6 +337,41 @@ button#WMDE_BannerFullForm-finish.waiting, button#WMDE_BannerFullForm-finish-sep
     margin: 0;
 }
 
+#WMDE_BannerFullForm-hint {
+    position: absolute;
+    right: 20px;
+    height: 45px;
+    width: 256px;
+    background: #eef0fc;
+    border-left: 1px solid #c2cedb;
+    border-right: 1px solid #c2cedb;text-align: center;color: #575757;border-bottom: 1px solid #c2cedb;box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);margin-top: -7px;
+}
+
+#WMDE_BannerFullForm-hint hr {
+    width: 248px;
+    margin-top: 7px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-color: rgba(169, 169, 169, 0.4);
+    border-color: rgba(169, 169, 169, 0.4);
+    color: rgba(169, 169, 169, 0.4);
+}
+span#WMDE_BannerFullForm-hint-text:before {
+    content: "\e613";
+    font-family: icomoon;
+    margin: 1.5em;
+    color: black;
+    font-weight: bold;
+}
+
+span#WMDE_BannerFullForm-hint-text:after {
+    content: "\e613";
+    font-family: icomoon;
+    margin: 1.5em;
+    color: black;
+    font-weight: bold;
+}
+
 p.check_confirm {
     position: relative;
     padding-left: 15px;
