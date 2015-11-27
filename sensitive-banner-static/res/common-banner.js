@@ -10,6 +10,7 @@ var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	donorsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donators-per-minute}}}' ) ),
 	allBannersImpCookie = 'centralnotice_banner_impression_count',
 	singleBannerImpCookie = 'centralnotice_single_banner_impression_count',
+	bannerCloseTrackRatio = replaceWikiVars( '{{{banner-close-track-ratio}}}' ) || 0.01,
 	showBanner = true;
 
 if ( $.cookie( 'centralnotice_wmde15_hide_cookie' ) === '1' ) {
@@ -30,8 +31,8 @@ if ( typeof mw !== 'undefined' && typeof mw.centralNotice !== 'undefined' ) {
 
 $( function () {
 	$( '#WMDE_Banner-close' ).click( function () {
-		if ( Math.random() < 0.01 ) {
-			$( '#WMDE_Banner-close-ct' ).attr( 'src', replaceWikiVars( 'https://spenden.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/{{{BannerName}}}&rec=1' ) );
+		if ( Math.random() < bannerCloseTrackRatio ) {
+			$( '#WMDE_Banner-close-ct' ).attr( 'src', replaceWikiVars( 'https://tracking.wikimedia.de/piwik/piwik.php?idsite=1&url=https://spenden.wikimedia.de/banner-closed/{{{BannerName}}}&rec=1' ) );
 		}
 		$( '#WMDE_Banner' ).hide();
 		removeBannerSpace();
