@@ -37,13 +37,14 @@
 	 * @param {string} eventName
 	 */
 	TP.trackVirtualPageView = function ( eventName ) {
+		var virtualUrl;
 		if ( this.shouldTrack( eventName, this.getRandomNumber() ) ) {
-			this._tracker.trackPageView(
-				Banner.config.tracking.baseUrl +
+			virtualUrl = Banner.config.tracking.baseUrl +
 				Banner.config.tracking.events[ eventName ].pathName +
 				'/' +
-				Banner.config.tracking.keyword
-			);
+				Banner.config.tracking.keyword;
+			this._tracker.setCustomUrl( virtualUrl );
+			this._tracker.trackPageView( virtualUrl );
 		}
 	};
 
