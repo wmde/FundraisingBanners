@@ -1065,7 +1065,7 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 //		}
 //		if ( wgUserName !== null ) $( '#wikilogin' ).val( 'yes' );
 		$( window ).resize( function() {
-			animateProgressBar();
+			setProgressBarSize();
 		} );
 
 		var dayName = getCurrentGermanDay();

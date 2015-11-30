@@ -375,7 +375,7 @@ function animateProgressBar() {
 		donationValueElement = $( '#donationValue' ),
 		remainingValueElement = $( '#valRem' ),
 		preFillValue = 0,
-		barWidth, dTarget, dCollected, dRemaining, fWidth, maxFillWidth, widthToFill;
+		barWidth, dTarget, dCollected, dRemaining, fWidth, widthToFill;
 
 	donationFillElement.clearQueue();
 	donationFillElement.stop();
@@ -387,12 +387,8 @@ function animateProgressBar() {
 	dTarget = goalSum;
 	dCollected = getApprDonationsRaw();
 	dRemaining = dTarget - dCollected;
-
 	fWidth = dCollected / dTarget * barWidth;
-	maxFillWidth = barWidth - $( '#donationRemaining' ).width() - 16;
-	widthToFill = Math.min( maxFillWidth, fWidth );
-	// Fill at least 100px or 15% (in case 15% fill is lower than 100px)
-	widthToFill = Math.max( 100, 0.15 * barWidth, widthToFill );
+	widthToFill = getFillWidth( barWidth, dTarget, dCollected);
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
 		duration: 3000,
@@ -422,6 +418,25 @@ function animateProgressBar() {
 		remainingValueElement.html( donationsRemaining );
 		donationValueElement.html( donationsCollected );
 	}
+}
+
+function setProgressBarSize() {
+	var donationFillElement = $( '#donationFill' ),
+		barWidth, dCollected;
+	barWidth = $( '#donationMeter' ).width();
+	dCollected = getApprDonationsRaw();
+	donationFillElement.width( getFillWidth( barWidth, goalSum, dCollected) + 'px' );
+}
+
+function getFillWidth( donationBarWidth, donationTarget, donationsCollected ) {
+	var widthToFill,
+		maxFillWidth = donationBarWidth - $( '#donationRemaining' ).width() - 16;
+		fWidth = donationsCollected / donationTarget * donationBarWidth;
+
+	widthToFill = Math.min( maxFillWidth, fWidth );
+	// Fill at least 100px or 15% (in case 15% fill is lower than 100px)
+	widthToFill = Math.max( 100, 0.15 * donationBarWidth, widthToFill );
+	return widthToFill;
 }
 
 /**
