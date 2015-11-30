@@ -388,7 +388,7 @@ function animateProgressBar() {
 	dCollected = getApprDonationsRaw();
 	dRemaining = dTarget - dCollected;
 	fWidth = dCollected / dTarget * barWidth;
-	widthToFill = getFillWidth( barWidth, dTarget, dCollected);
+	widthToFill = getFillWidth( barWidth, dTarget, dCollected );
 
 	donationFillElement.animate( { width: widthToFill + 'px' }, {
 		duration: 3000,
@@ -425,12 +425,12 @@ function setProgressBarSize() {
 		barWidth, dCollected;
 	barWidth = $( '#donationMeter' ).width();
 	dCollected = getApprDonationsRaw();
-	donationFillElement.width( getFillWidth( barWidth, goalSum, dCollected) + 'px' );
+	donationFillElement.width( getFillWidth( barWidth, goalSum, dCollected ) + 'px' );
 }
 
 function getFillWidth( donationBarWidth, donationTarget, donationsCollected ) {
 	var widthToFill,
-		maxFillWidth = donationBarWidth - $( '#donationRemaining' ).width() - 16;
+		maxFillWidth = donationBarWidth - $( '#donationRemaining' ).width() - 16,
 		fWidth = donationsCollected / donationTarget * donationBarWidth;
 
 	widthToFill = Math.min( maxFillWidth, fWidth );
@@ -455,4 +455,3 @@ function replaceWikiVars( text ) {
 	}
 	return text;
 }
-
