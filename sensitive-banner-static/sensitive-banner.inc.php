@@ -145,7 +145,6 @@ vorüber.</span> Über 14 Millionen Mal wird unser Spendenaufruf täglich angeze
 													<td style="padding-left: 8px">
 														<input class="amount-radio" name="betrag_auswahl"
 															   onclick="document.donationForm.amountGiven.value = ''"
-															   checked="checked"
 															   id="amount5"
 															   value="5"
 															   type="radio">

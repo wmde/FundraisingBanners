@@ -3,6 +3,9 @@
 /* globals mw, alert, GlobalBannerSettings */
 var finalDateTime = new Date( 2016, 0, 1, 5, 0, 0 ),
 	goalSum = 8600000,
+	/* jshint -W079 */
+	GlobalBannerSettings = typeof GlobalBannerSettings !== 'undefined' ? GlobalBannerSettings : {},
+	/* jshint +W079 */
 	baseDate = replaceWikiVars( '{{{donations-date-base}}}' ),
 	collectedBase = parseInt( replaceWikiVars( '{{{donations-collected-base}}}' ), 10 ),
 	donorsBase = parseInt( replaceWikiVars( '{{{donators-base}}}' ), 10 ),
@@ -288,29 +291,55 @@ function getAmount() {
 
 function addBannerSpace() {
 	var expandableBannerHeight = $( 'div#WMDE_Banner' ).height() + 44,
-			bannerDivElement = $( '#WMDE_Banner' ),
-			skin = getSkin();
+		bannerDivElement = $( '#WMDE_Banner' ),
+		skin = getSkin();
 
-	if ( showBanner ) {
-		switch ( skin ) {
-			// switch ( skin ) { TODO fix when non-static
-			case 'vector':
-				bannerDivElement.css( 'top', 0 - expandableBannerHeight );
-				$( '#mw-panel' ).animate( { top: expandableBannerHeight + 160 }, 1000 );
-				$( '#mw-head' ).animate( { top: expandableBannerHeight }, 1000 );
-				$( '#mw-page-base' ).animate( { paddingTop: expandableBannerHeight }, 1000 );
-				break;
-			case 'monobook':
-				$( '#globalWrapper' ).css( 'position', 'relative' );
-				$( '#globalWrapper' ).css( 'top', expandableBannerHeight );
-				bannerDivElement.css( 'top', '-20px' );
-				bannerDivElement.css( 'background', 'none' );
-				break;
-		}
-		bannerDivElement.css( 'display', 'block' );
-		bannerDivElement.animate( { top: 0 }, 1000 );
-		setTimeout( animateProgressBar, 1000 );
+	if ( !showBanner ) {
+		return;
 	}
+	switch ( skin ) {
+		case 'vector':
+			bannerDivElement.css( 'top', 0 );
+			bannerDivElement.css( 'display', 'block' );
+			$( '#mw-panel' ).css( 'top', expandableBannerHeight + 160 );
+			$( '#mw-head' ).css( 'top', expandableBannerHeight );
+			$( '#mw-page-base' ).css( 'paddingTop', expandableBannerHeight );
+			break;
+		case 'monobook':
+			$( '#globalWrapper' ).css( 'position', 'relative' );
+			$( '#globalWrapper' ).css( 'top', expandableBannerHeight );
+			bannerDivElement.css( 'top', '-20px' );
+			bannerDivElement.css( 'background', 'none' );
+			break;
+	}
+	setTimeout( animateProgressBar, 1000 );
+}
+
+function addBannerSpaceWithRollo() {
+	var expandableBannerHeight = $( 'div#WMDE_Banner' ).height() + 44,
+		bannerDivElement = $( '#WMDE_Banner' ),
+		skin = getSkin();
+
+	if ( !showBanner ) {
+		return;
+	}
+	switch ( skin ) {
+		case 'vector':
+			bannerDivElement.css( 'top', 0 - expandableBannerHeight );
+			$( '#mw-panel' ).animate( { top: expandableBannerHeight + 160 }, 1000 );
+			$( '#mw-head' ).animate( { top: expandableBannerHeight }, 1000 );
+			$( '#mw-page-base' ).animate( { paddingTop: expandableBannerHeight }, 1000 );
+			break;
+		case 'monobook':
+			$( '#globalWrapper' ).css( 'position', 'relative' );
+			$( '#globalWrapper' ).css( 'top', expandableBannerHeight );
+			bannerDivElement.css( 'top', '-20px' );
+			bannerDivElement.css( 'background', 'none' );
+			break;
+	}
+	bannerDivElement.css( 'display', 'block' );
+	bannerDivElement.animate( { top: 0 }, 1000 );
+	setTimeout( animateProgressBar, 1000 );
 }
 
 function removeBannerSpace() {
@@ -454,7 +483,7 @@ function getFillWidth( donationBarWidth, donationTarget, donationsCollected ) {
  * placeholders with values fram a global object
  */
 function replaceWikiVars( text ) {
-	var re = /\{\{\{([^\}]+)\}\}\}/,
+	var re = /\{\{\{([^\}]+)\}\}\}/g,
 		wikiVarMatch;
 	while ( ( wikiVarMatch = re.exec( text ) ) !== null ) {
 		if ( GlobalBannerSettings[ wikiVarMatch[ 1 ] ] ) {
