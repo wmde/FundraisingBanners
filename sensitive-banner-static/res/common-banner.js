@@ -337,6 +337,9 @@ function addBannerSpaceWithRollo() {
 			bannerDivElement.css( 'background', 'none' );
 			break;
 	}
+	bannerDivElement.css( 'display', 'block' );
+	bannerDivElement.animate( { top: 0 }, 1000 );
+	setTimeout( animateProgressBar, 1000 );
 }
 
 function removeBannerSpace() {
