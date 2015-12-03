@@ -1,0 +1,26 @@
+@media screen and (max-width: 1300px) {
+    #WMDE_Banner input, select, button {
+        font-size: 17px;
+    }
+
+    #WMDE_BannerForm-payment button {
+        height: 55px;
+        width: 150px
+    }
+
+    #WMDE_BannerForm-payment #amount-other-input {
+        width: 36px;
+    }
+
+    #WMDE_BannerForm-payment td {
+        font-size: 17px;
+    }
+
+    #WMDE_BannerForm-payment .frequency-options td {
+        padding-top: 17px;
+    }
+
+    #WMDE_BannerForm-payment .frequency-options td:last-child {
+        padding-top: 17px !important;
+    }
+}
