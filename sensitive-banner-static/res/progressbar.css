@@ -5,7 +5,7 @@
 
 #donationMeterCell {
     padding:0 10px 0 35px;
-    vertical-align: middle;
+    vertical-align: middle!important;
 }
 
 #donationMeterWrapper {
