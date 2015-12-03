@@ -260,9 +260,12 @@ function validateAndSetPeriod() {
 			$( '#intervalType' ).val( '1' );
 			$( '#periode' ).val( $( 'input[name=interval]:checked', form ).val() );
 		}
-	} else {
+	} else if ( $( '#interval_onetime' ).is( ':checked' ) )  {
 		$( '#periode' ).val( '0' );
 		$( '#intervalType' ).val( '0' );
+	} else {
+		alert( noIntervalSelectedMessage );
+		return false;
 	}
 }
 
