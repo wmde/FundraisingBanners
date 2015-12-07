@@ -450,3 +450,22 @@ body.rtl #WMDE_Banner-payment ul li {
 #WMDE_Banner-payment legend {
     display: block;
 }
+
+@media (max-height : 720px)  {
+    #WMDE_Banner-message {
+        font-size: .9em;
+        width: 60%}
+    #WMDE_Banner-message p { line-height: 1.2em; }
+    #WMDE_Banner-form { width: 40%; }
+    #WMDE_Banner-window button { font-size: .9em; }
+    #WMDE_Banner-frequency label  { font-size: .9em; }
+    #WMDE_Banner-amounts .predefined_amount  {
+        font-size: .9em;
+        height: initial;
+    }
+    #WMDE_Banner-footer { font-size: .8em; }
+    #WMDE_Banner-payment .WMDE_Banner-btn { min-height: 2em; }
+    .WMDE_Banner-btn { padding: .5em 0.1em; }
+    #amount_custom input { margin-top: 0.1em; }
+    #amount_custom .WMDE_Banner-btn { padding: 0 }
+}
