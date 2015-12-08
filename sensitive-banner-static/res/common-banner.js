@@ -1,7 +1,7 @@
 /*jshint latedef: nofunc */
 /*jshint unused: false */
 /* globals mw, alert, GlobalBannerSettings */
-var finalDateTime = new Date( 2015, 12, 31, 23, 59, 59 ),
+var finalDateTime = new Date( 2015, 11, 31, 23, 59, 59 ),
 	goalSum = 8600000,
 	/* jshint -W079 */
 	GlobalBannerSettings = typeof GlobalBannerSettings !== 'undefined' ? GlobalBannerSettings : {},
