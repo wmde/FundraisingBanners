@@ -231,7 +231,9 @@ function validateForm() {
 			break;
 	}
 
-	validateAndSetPeriod();
+	if ( !validateAndSetPeriod() ) {
+		return false;
+	}
 	amount = getAmount();
 
 	// Check amount is at least the minimum
@@ -267,6 +269,7 @@ function validateAndSetPeriod() {
 		alert( noIntervalSelectedMessage );
 		return false;
 	}
+	return true;
 }
 
 function getAmount() {
