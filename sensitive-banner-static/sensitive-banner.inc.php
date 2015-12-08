@@ -13,7 +13,7 @@ window.GlobalBannerSettings = {
 	'BannerName': 'wpde-151110-sensitive'
 };
 </script>
-<script type="text/javascript" src="res/common-banner.js"></script>
+<script type="text/javascript" src="../js/common-banner.js"></script>
 <script type="text/javascript" src="../fulltop-banner/res/countCampaignDays.js"></script>
 <script type="text/javascript" src="../js/sensitive_banner_all.js"></script>
 <?php include __DIR__ . '/sensitive-banner-js-config.inc.php'; ?>
