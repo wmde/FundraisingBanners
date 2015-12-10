@@ -17,7 +17,17 @@ var finalDateTime = new Date( 2015, 11, 31, 23, 59, 59 ),
 	allBannersImpCookie = 'centralnotice_banner_impression_count',
 	singleBannerImpCookie = 'centralnotice_single_banner_impression_count',
 	bannerCloseTrackRatio = replaceWikiVars( '{{{banner-close-track-ratio}}}' ) || 0.01,
-	showBanner = true;
+	showBanner = true,
+	messages = {
+		en: {
+			day: 'day',
+			days: 'days'
+		},
+		de: {
+			day: 'Tag',
+			days: 'Tage'
+		}
+	};
 
 if ( $.cookie( 'centralnotice_wmde15_hide_cookie' ) === '1' ) {
 	showBanner = false;
@@ -82,14 +92,15 @@ function getDaysLeft() {
 	return ( daysLeft < 0 ) ? 0 : daysLeft;
 }
 
-function getDaysRemaining() {
-	var daysRemaining = getDaysLeft();
+function getDaysRemaining( language ) {
+	var daysRemaining = getDaysLeft(),
+		lang = language || 'de';
 	// TODO manually hack to fix older banners from 2014
 	if ( daysRemaining === 0 ) {
 		$( '#donationRemaining' ).width( 0 );
 		$( '#donationRemaining' ).html( '' );
 	}
-	return ( daysRemaining !== 1 ) ? daysRemaining + ' Tage' : '1 Tag';
+	return daysRemaining + ' ' + ( daysRemaining > 1 ? messages[ lang ].days : messages[ lang ].day );
 }
 
 function getSecsPassed() {
