@@ -100,7 +100,7 @@ function getDaysRemaining( language ) {
 		$( '#donationRemaining' ).width( 0 );
 		$( '#donationRemaining' ).html( '' );
 	}
-	return daysRemaining + ' ' + ( daysRemaining > 1 ? messages[lang]['days'] : messages[lang]['day'] );
+	return daysRemaining + ' ' + ( daysRemaining > 1 ? messages[ lang ].days : messages[ lang ].day );
 }
 
 function getSecsPassed() {
