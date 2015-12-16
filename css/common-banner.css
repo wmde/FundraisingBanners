@@ -247,6 +247,18 @@
     background-color: yellow;
     padding: 1px 5px;
 }
+#WMDE_Banner #banner-text-highlight span {
+    padding: 1px 0;
+}
+#WMDE_Banner #banner-text-highlight span:first-child {
+    padding-left: 5px;
+}
+#WMDE_Banner #banner-text-highlight span:last-child {
+    padding-right: 5px;
+}
+#WMDE_Banner span.highlight {
+    background-color: yellow;
+}
 
 #amtTarget {
     color: rgba(0, 0, 0, 0.5);
