@@ -1,5 +1,5 @@
 <?php include __DIR__ . '/../combine_assets.php'; ?>
-<link rel="stylesheet" href="res/common-banner.css">
+<link rel="stylesheet" href="../css/common-banner.css">
 <link rel="stylesheet" href="../css/sensitive_banner_all.css">
 <script type="text/javascript">
 // This script block only needs to be initialized on wp.de
@@ -13,8 +13,8 @@ window.GlobalBannerSettings = {
 	'BannerName': 'wpde-151110-sensitive'
 };
 </script>
-<script type="text/javascript" src="res/common-banner.js"></script>
-<script type="text/javascript" src="../fulltop-banner/res/countCampaignDays.js"></script>
+<script type="text/javascript" src="../js/common-banner.js"></script>
+<script type="text/javascript" src="../js/countCampaignDays.js"></script>
 <script type="text/javascript" src="../js/sensitive_banner_all.js"></script>
 <?php include __DIR__ . '/sensitive-banner-js-config.inc.php'; ?>
 

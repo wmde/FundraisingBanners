@@ -2,8 +2,8 @@
 
 $allAssets = [
     'js/sensitive_banner_all.js' => [
-        'sensitive-banner-static/res/sensitive-banner.js',
-        'sensitive-banner-static/res/lightbox.js',
+        'sensitive-banner/js/sensitive-banner.js',
+        'sensitive-banner/js/lightbox.js',
         'js/lib/function-bind.min.js',
         'js/lib/base64.min.js',
         'js/banner/banner.js',
@@ -26,10 +26,10 @@ $allAssets = [
         'js/lib/pgp-legacy.js'
     ],
     'css/sensitive_banner_all.css' => [
-        'sensitive-banner-static/res/sensitive-banner.css',
-        'sensitive-banner-static/res/progressbar.css',
-        'sensitive-banner-static/res/lightbox.css',
-        'sensitive-banner-static/res/icon.css'
+        'sensitive-banner/css/sensitive-banner.css',
+        'sensitive-banner/css/progressbar.css',
+        'sensitive-banner/css/lightbox.css',
+        'sensitive-banner/css/icon.css'
     ],
 ];
 
