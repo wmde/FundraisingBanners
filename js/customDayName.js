@@ -2,8 +2,6 @@
 
 var customDayNames = {
 	'06.12': 'Nikolaustag',
-	'13.12': '3. Advent',
-	'20.12': '4. Advent',
 	'24.12': 'Weihnachtstag',
 	'25.12': '1. Weihnachtstag',
 	'26.12': '2. Weihnachtstag'
