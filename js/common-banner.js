@@ -528,5 +528,5 @@ function bannerClosedCookieIsSet() {
 	if ( bannerClosedCookieValue !== '1' ) {
 		return $.cookie( 'centralnotice_wmde15_hide_cookie' ) === bannerClosedCookieValue;
 	}
-	return $.cookie( 'centralnotice_wmde15_hide_cookie' ) !== null;
+	return $.cookie( 'centralnotice_wmde15_hide_cookie' ) !== null && typeof $.cookie( 'centralnotice_wmde15_hide_cookie' ) !== 'undefined';
 }
