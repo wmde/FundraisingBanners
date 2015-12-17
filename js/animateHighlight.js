@@ -25,20 +25,20 @@ function highlightNthCharacter( $elem, n, className ) {
 	$elem.find( 'span:nth-child(' + n + ')' ).addClass( className );
 }
 
-function doHighlightStep( step, $elem, highlightClass, numSteps, speed ) {
+function doHighlightStep( step, $elem, highlightClass, numSteps, stepDuration ) {
 	highlightNthCharacter( $elem, step, highlightClass );
 	if ( step < numSteps ) {
 		setTimeout(
 			function () {
-				doHighlightStep( step + 1, $elem, highlightClass, numSteps, speed );
+				doHighlightStep( step + 1, $elem, highlightClass, numSteps, stepDuration );
 			},
-			speed
+			stepDuration
 		);
 	}
 }
-function animateHighlight( $elem, highlightClass, speed, startCharacter, endCharacter ) {
+function animateHighlight( $elem, highlightClass, stepDuration, startCharacter, endCharacter ) {
 	startCharacter = startCharacter || 0;
 	endCharacter = endCharacter || getNumberOfCharacters( $elem );
 	addCharacterSpans( $elem, startCharacter, endCharacter );
-	doHighlightStep( 0, $elem, highlightClass, $elem.children( 'span' ).length, speed );
+	doHighlightStep( 0, $elem, highlightClass, $elem.children( 'span' ).length, stepDuration );
 }
