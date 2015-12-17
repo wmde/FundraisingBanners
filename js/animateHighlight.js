@@ -1,38 +1,44 @@
 /*jshint unused: false */
 
-function addCharacterSpans( $elem, className ) {
+function addCharacterSpans( $elem, startCharacter, endCharacter ) {
 	var text = $elem.text(),
-		i = 0,
+		i = startCharacter,
 		$newContainer = $( '<span/>' );
-	while ( i < text.length ) {
-		$newContainer.append( $( '<span/>' ).text( text[ i ] ).addClass( className ) );
+	if ( startCharacter > 0 ) {
+		$newContainer.append( text.substring( 0, startCharacter ) );
+	}
+	while ( i < endCharacter ) {
+		$newContainer.append( $( '<span/>' ).text( text[ i ] ) );
 		i++;
+	}
+	if ( endCharacter < text.length ) {
+		$newContainer.append( text.substring( endCharacter ) );
 	}
 	$elem.html( $newContainer.html() );
 }
 
 function getNumberOfCharacters( $elem ) {
-	return $elem.children( 'span' ).length;
+	return $elem.text().length;
 }
 
 function highlightNthCharacter( $elem, n, className ) {
 	$elem.find( 'span:nth-child(' + n + ')' ).addClass( className );
 }
 
-function doHighlightStep( step, $elem, highlightClass, endStep, speed ) {
+function doHighlightStep( step, $elem, highlightClass, speed ) {
 	highlightNthCharacter( $elem, step, highlightClass );
-	if ( step < endStep ) {
+	if ( step < $elem.children( 'span' ).length ) {
 		setTimeout(
 			function () {
-				doHighlightStep( step + 1, $elem, highlightClass, endStep, speed );
+				doHighlightStep( step + 1, $elem, highlightClass, speed );
 			},
 			speed
 		);
 	}
 }
 function animateHighlight( $elem, highlightClass, speed, startCharacter, endCharacter ) {
-	addCharacterSpans( $elem );
 	startCharacter = startCharacter || 0;
 	endCharacter = endCharacter || getNumberOfCharacters( $elem );
-	doHighlightStep( startCharacter, $elem, highlightClass, endCharacter, speed );
+	addCharacterSpans( $elem, startCharacter, endCharacter );
+	doHighlightStep( 0, $elem, highlightClass, speed );
 }
