@@ -25,12 +25,12 @@ function highlightNthCharacter( $elem, n, className ) {
 	$elem.find( 'span:nth-child(' + n + ')' ).addClass( className );
 }
 
-function doHighlightStep( step, $elem, highlightClass, speed ) {
+function doHighlightStep( step, $elem, highlightClass, numSteps, speed ) {
 	highlightNthCharacter( $elem, step, highlightClass );
-	if ( step < $elem.children( 'span' ).length ) {
+	if ( step < numSteps ) {
 		setTimeout(
 			function () {
-				doHighlightStep( step + 1, $elem, highlightClass, speed );
+				doHighlightStep( step + 1, $elem, highlightClass, numSteps, speed );
 			},
 			speed
 		);
@@ -40,5 +40,5 @@ function animateHighlight( $elem, highlightClass, speed, startCharacter, endChar
 	startCharacter = startCharacter || 0;
 	endCharacter = endCharacter || getNumberOfCharacters( $elem );
 	addCharacterSpans( $elem, startCharacter, endCharacter );
-	doHighlightStep( 0, $elem, highlightClass, speed );
+	doHighlightStep( 0, $elem, highlightClass, $elem.children( 'span' ).length, speed );
 }
