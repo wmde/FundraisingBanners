@@ -17,6 +17,8 @@ var finalDateTime = new Date( 2015, 11, 31, 23, 59, 59 ),
 	allBannersImpCookie = 'centralnotice_banner_impression_count',
 	singleBannerImpCookie = 'centralnotice_single_banner_impression_count',
 	bannerCloseTrackRatio = replaceWikiVars( '{{{banner-close-track-ratio}}}' ) || 0.01,
+	bannerClosedCookie = replaceWikiVars( '{{{banner-closed-cookie}}}' ),
+	bannerClosedCookieValue = replaceWikiVars( '{{{banner-closed-cookie-custom-value}}}' ) || '1',
 	showBanner = true,
 	messages = {
 		en: {
@@ -29,7 +31,7 @@ var finalDateTime = new Date( 2015, 11, 31, 23, 59, 59 ),
 		}
 	};
 
-if ( $.cookie( 'centralnotice_wmde15_hide_cookie' ) === '1' ) {
+if ( bannerClosedCookieIsSet() ) {
 	showBanner = false;
 }
 
@@ -52,7 +54,7 @@ $( function () {
 		}
 		$( '#WMDE_Banner' ).hide();
 		removeBannerSpace();
-		setBannerClosedCookie( 'centralnotice_wmde15_hide_cookie' );
+		setBannerClosedCookie();
 
 		return false;
 	} );
@@ -79,12 +81,12 @@ $( function () {
 	} );
 } );
 
-function setBannerClosedCookie( cookieName ) {
+function setBannerClosedCookie() {
 	var currentDate = new Date(),
 		expiryDate;
 
 	expiryDate = new Date( currentDate.getFullYear() + 1, 0, 1 );
-	$.cookie( cookieName, 1, { expires: expiryDate, path: '/' } );
+	$.cookie( bannerClosedCookie, bannerClosedCookieValue, { expires: expiryDate, path: '/' } );
 }
 
 function getDaysLeft() {
@@ -521,4 +523,11 @@ function getSkin() {
 
 function onMediaWiki() {
 	return typeof mw === 'object' && typeof mw.centralNotice !== 'undefined';
+}
+
+function bannerClosedCookieIsSet() {
+	if ( bannerClosedCookieValue !== '1' ) {
+		return $.cookie( bannerClosedCookie ) === bannerClosedCookieValue;
+	}
+	return $.cookie( bannerClosedCookie ) !== null && typeof $.cookie( bannerClosedCookie ) !== 'undefined';
 }
