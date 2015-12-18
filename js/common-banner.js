@@ -17,6 +17,7 @@ var finalDateTime = new Date( 2015, 11, 31, 23, 59, 59 ),
 	allBannersImpCookie = 'centralnotice_banner_impression_count',
 	singleBannerImpCookie = 'centralnotice_single_banner_impression_count',
 	bannerCloseTrackRatio = replaceWikiVars( '{{{banner-close-track-ratio}}}' ) || 0.01,
+	bannerClosedCookie = replaceWikiVars( '{{{banner-closed-cookie}}}' ),
 	bannerClosedCookieValue = replaceWikiVars( '{{{banner-closed-cookie-custom-value}}}' ) || '1',
 	showBanner = true,
 	messages = {
@@ -53,7 +54,7 @@ $( function () {
 		}
 		$( '#WMDE_Banner' ).hide();
 		removeBannerSpace();
-		setBannerClosedCookie( 'centralnotice_wmde15_hide_cookie' );
+		setBannerClosedCookie();
 
 		return false;
 	} );
@@ -80,12 +81,12 @@ $( function () {
 	} );
 } );
 
-function setBannerClosedCookie( cookieName ) {
+function setBannerClosedCookie() {
 	var currentDate = new Date(),
 		expiryDate;
 
 	expiryDate = new Date( currentDate.getFullYear() + 1, 0, 1 );
-	$.cookie( cookieName, bannerClosedCookieValue, { expires: expiryDate, path: '/' } );
+	$.cookie( bannerClosedCookie, bannerClosedCookieValue, { expires: expiryDate, path: '/' } );
 }
 
 function getDaysLeft() {
@@ -526,7 +527,7 @@ function onMediaWiki() {
 
 function bannerClosedCookieIsSet() {
 	if ( bannerClosedCookieValue !== '1' ) {
-		return $.cookie( 'centralnotice_wmde15_hide_cookie' ) === bannerClosedCookieValue;
+		return $.cookie( bannerClosedCookie ) === bannerClosedCookieValue;
 	}
-	return $.cookie( 'centralnotice_wmde15_hide_cookie' ) !== null && typeof $.cookie( 'centralnotice_wmde15_hide_cookie' ) !== 'undefined';
+	return $.cookie( bannerClosedCookie ) !== null && typeof $.cookie( bannerClosedCookie ) !== 'undefined';
 }
