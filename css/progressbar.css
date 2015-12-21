@@ -12,6 +12,7 @@
     position: relative;
     margin: 4px 10px 4px 35px;
     max-width: 1200px;
+    background: #FF6C00;
     border: 2px solid #FFE238;
     border-radius: 8px;
 }
@@ -19,7 +20,6 @@
 #donationMeter {
     margin: 0 auto;
     height: 20px;
-    background: #FF6C00;
 }
 
 #donationFill {
