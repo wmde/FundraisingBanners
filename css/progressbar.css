@@ -12,20 +12,20 @@
     position: relative;
     margin: 4px 10px 4px 35px;
     max-width: 1200px;
+    border: 2px solid #FFE238;
+    border-radius: 8px;
 }
 
 #donationMeter {
     margin: 0 auto;
     height: 20px;
     background: #FF6C00;
-    border: 2px solid #FF6C00;
-    border-radius: 8px;
 }
 
 #donationFill {
     position: absolute;
-    top: 2px;
-    left: 2px;
+    top: 0;
+    left: 0;
     width: 90px;
     height: 20px;
     background: #FFFFFF;
@@ -58,7 +58,7 @@
 
 #donationRemaining {
     position: absolute;
-    top: 3px;
+    top: 1px;
     right: 10px;
     font-size: 15px;
     color: white;
