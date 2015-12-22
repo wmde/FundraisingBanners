@@ -7,7 +7,7 @@ var customDayNames = {
 	},
 	'24.12': {
 		de: 'Weihnachtstag',
-		en: 'Christmas Eve'
+		en: 'Christmas Day'
 	},
 	'25.12': {
 		de: '1. Weihnachtstag',
@@ -15,7 +15,7 @@ var customDayNames = {
 	},
 	'26.12': {
 		de: '2. Weihnachtstag',
-		en: 'Boxing Day'
+		en: 'Christmas Day'
 	}
 };
 
