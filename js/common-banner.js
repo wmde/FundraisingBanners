@@ -482,7 +482,7 @@ function setProgressBarSize() {
 	var donationFillElement = $( '#donationFill' ),
 		barWidth, dCollected;
 	barWidth = $( '#donationMeter' ).width();
-	dCollected = getApprDonationsRaw( false );
+	dCollected = getApprDonationsRaw();
 	donationFillElement.width( getFillWidth( barWidth, goalSum, dCollected ) + 'px' );
 }
 
