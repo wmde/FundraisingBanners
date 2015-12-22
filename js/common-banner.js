@@ -453,13 +453,12 @@ function animateProgressBar() {
 		progress: function () {
 			var dFill = donationFillElement.width() / widthToFill * fWidth,
 				pFill = dFill / barWidth,
-
-				dColl = dTarget * pFill / 1000000,
-				vRem = ( dTarget - ( dTarget * pFill ) ) / 1000000;
+				dColl = dTarget * pFill,
+				vRem = dTarget - ( dTarget * pFill ) ;
 			setCollectedAndRemaining( dColl, vRem );
 		},
 		complete: function () {
-			setCollectedAndRemaining( dCollected / 1000000, dRemaining / 1000000 );
+			setCollectedAndRemaining( dCollected, dRemaining );
 			$( '#donationText' ).show();
 			$( '#donationRemaining' ).show();
 			daysLeftElement.show();
@@ -467,15 +466,17 @@ function animateProgressBar() {
 	} );
 
 	function setCollectedAndRemaining( donationsCollected, donationsRemaining ) {
-		donationsCollected = donationsCollected.toFixed( 1 );
-		donationsCollected = donationsCollected.replace( '.', ',' );
-
-		donationsRemaining = donationsRemaining.toFixed( 1 );
-		donationsRemaining = donationsRemaining.replace( '.', ',' );
-
-		remainingValueElement.html( donationsRemaining );
-		donationValueElement.html( donationsCollected );
+		remainingValueElement.html( formatMillion( donationsRemaining ) );
+		donationValueElement.html( formatMillion( donationsCollected ) );
 	}
+}
+
+function formatMillion( value ) {
+	value = value / 1000000;
+	value = value.toFixed( 1 );
+	// TODO Find a way to skip the next step for english locale
+	value = value.replace( '.', ',' );
+	return value;
 }
 
 function setProgressBarSize() {
