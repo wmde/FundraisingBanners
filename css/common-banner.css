@@ -247,7 +247,7 @@
     background-color: yellow;
     padding: 1px 5px;
 }
-#WMDE_Banner span.highlight {
+#WMDE_Banner .highlight {
     background-color: yellow;
 }
 
