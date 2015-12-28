@@ -260,6 +260,26 @@ function validateForm() {
 	return amount;
 }
 
+function showAmountError() {
+	$( '#WMDE_Banner-amounts-error-text' ).show();
+	$( '#WMDE_Banner-amounts' ).addClass( 'fieldset-error' );
+}
+
+function hideAmountError() {
+	$( '#WMDE_Banner-amounts-error-text' ).hide();
+	$( '#WMDE_Banner-amounts' ).removeClass( 'fieldset-error' );
+}
+
+function showFrequencyError() {
+	$( '#WMDE_Banner-frequency-error-text' ).show();
+	$( '#WMDE_Banner-frequency' ).addClass( 'fieldset-error' );
+}
+
+function hideFrequencyError() {
+	$( '#WMDE_Banner-frequency-error-text' ).hide();
+	$( '#WMDE_Banner-frequency' ).removeClass( 'fieldset-error' );
+}
+
 /**
  * Check the "interval" radio buttons and change the "period" and "intervalType" fields accordingly.
  * If "periodically" is selected but no interval is selected, this function
