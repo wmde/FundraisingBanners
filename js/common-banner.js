@@ -261,9 +261,8 @@ function validateForm() {
 	} else if ( amount > 99999 ) {
 		showAmountError( amountTooHighMessage );
 		return false;
-	} else {
-		hideAmountError();
 	}
+	hideAmountError();
 	return amount;
 }
 
