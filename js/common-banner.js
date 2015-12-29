@@ -267,7 +267,7 @@ function validateForm() {
 }
 
 function showAmountError( text ) {
-	if( $( '#WMDE_Banner-amounts-error-text' ).length < 1 ) {
+	if ( $( '#WMDE_Banner-amounts-error-text' ).length < 1 ) {
 		alert( text );
 		return;
 	}
@@ -281,7 +281,7 @@ function hideAmountError() {
 }
 
 function showFrequencyError( text ) {
-	if( $( '#WMDE_Banner-frequency-error-text' ).length < 1 ) {
+	if ( $( '#WMDE_Banner-frequency-error-text' ).length < 1 ) {
 		alert( text );
 		return;
 	}
