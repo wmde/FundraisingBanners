@@ -260,3 +260,24 @@
     top: 3px;
     width: 70px;
 }
+
+/* --- Error Msg --- */
+
+#WMDE_Banner-amounts.fieldset-error, #WMDE_Banner-frequency.fieldset-error {
+    float: left;
+    border: 2px solid red;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin-left: -2px;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+#WMDE_Banner-amounts-error-text, #WMDE_Banner-frequency-error-text {
+    color: red;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.2em;
+}

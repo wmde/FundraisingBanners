@@ -11,7 +11,7 @@ var finalDateTime = new Date( 2015, 11, 31, 23, 59, 59 ),
 	donorsBase = parseInt( replaceWikiVars( '{{{donators-base}}}' ), 10 ),
 	donationsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donations-per-minute}}}' ) ),
 	donorsPerMinApproximation = parseFloat( replaceWikiVars( '{{{appr-donators-per-minute}}}' ) ),
-	noIntervalSelectedMessage = replaceWikiVars( '{{{no-interval-message}}}' ) || 'Es wurde kein Zahlungsintervall ausgewählt.',
+	noIntervalSelectedMessage = replaceWikiVars( '{{{no-interval-message}}}' ) || 'Bitte wählen Sie ein Zahlungsintervall.',
 	amountTooLowMessage = replaceWikiVars( '{{{amount-too-low-message}}}' ) || 'Der Mindestbetrag beträgt 1 Euro.',
 	amountTooHighMessage = replaceWikiVars( '{{{amount-too-high-message}}}' ) || 'Der Spendenbetrag ist zu hoch.',
 	allBannersImpCookie = 'centralnotice_banner_impression_count',
@@ -68,16 +68,21 @@ $( function () {
 	} );
 	$( 'input:radio[name=betrag_auswahl]' ).on( 'click', function () {
 		$( '#amount_other' ).prop( 'checked', false );
+		hideAmountError();
 	} );
 	$( '#interval_onetime' ).on( 'click', function () {
 		removeSpaceForIntervalOptions();
 		$( '.interval-options' ).addClass( 'interval-hidden' );
 		$( '#interval_multiple' ).prop( 'checked', false );
+		hideFrequencyError();
 	} );
 	$( '#interval_multiple' ).on( 'click', function () {
 		addSpaceForIntervalOptions();
 		$( '.interval-options' ).removeClass( 'interval-hidden' );
 		$( '#interval_onetime' ).prop( 'checked', false );
+	} );
+	$( 'input:radio[name=interval]' ).on( 'click', function () {
+		hideFrequencyError();
 	} );
 } );
 
@@ -251,13 +256,42 @@ function validateForm() {
 
 	// Check amount is at least the minimum
 	if ( amount < 1 || error ) {
-		alert( amountTooLowMessage );
+		showAmountError( amountTooLowMessage );
 		return false;
 	} else if ( amount > 99999 ) {
-		alert( amountTooHighMessage );
+		showAmountError( amountTooHighMessage );
 		return false;
 	}
+	hideAmountError();
 	return amount;
+}
+
+function showAmountError( text ) {
+	if ( $( '#WMDE_Banner-amounts-error-text' ).length < 1 ) {
+		alert( text );
+		return;
+	}
+	$( '#WMDE_Banner-amounts-error-text' ).text( text ).show();
+	$( '#WMDE_Banner-amounts' ).addClass( 'fieldset-error' );
+}
+
+function hideAmountError() {
+	$( '#WMDE_Banner-amounts-error-text' ).hide();
+	$( '#WMDE_Banner-amounts' ).removeClass( 'fieldset-error' );
+}
+
+function showFrequencyError( text ) {
+	if ( $( '#WMDE_Banner-frequency-error-text' ).length < 1 ) {
+		alert( text );
+		return;
+	}
+	$( '#WMDE_Banner-frequency-error-text' ).text( text ).show();
+	$( '#WMDE_Banner-frequency' ).addClass( 'fieldset-error' );
+}
+
+function hideFrequencyError() {
+	$( '#WMDE_Banner-frequency-error-text' ).hide();
+	$( '#WMDE_Banner-frequency' ).removeClass( 'fieldset-error' );
 }
 
 /**
@@ -269,7 +303,7 @@ function validateAndSetPeriod() {
 	var form = document.donationForm;
 	if ( $( '#interval_multiple' ).is( ':checked' ) ) {
 		if ( $( 'input[name=interval]:checked', form ).length !== 1 ) {
-			alert( noIntervalSelectedMessage );
+			showFrequencyError( noIntervalSelectedMessage );
 			return false;
 		} else {
 			$( '#intervalType' ).val( '1' );
@@ -279,9 +313,10 @@ function validateAndSetPeriod() {
 		$( '#periode' ).val( '0' );
 		$( '#intervalType' ).val( '0' );
 	} else {
-		alert( noIntervalSelectedMessage );
+		showFrequencyError( noIntervalSelectedMessage );
 		return false;
 	}
+	hideFrequencyError();
 	return true;
 }
 
