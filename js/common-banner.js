@@ -267,6 +267,10 @@ function validateForm() {
 }
 
 function showAmountError( text ) {
+	if( $( '#WMDE_Banner-amounts-error-text' ).length < 1 ) {
+		alert( text );
+		return;
+	}
 	$( '#WMDE_Banner-amounts-error-text' ).text( text ).show();
 	$( '#WMDE_Banner-amounts' ).addClass( 'fieldset-error' );
 }
@@ -277,6 +281,10 @@ function hideAmountError() {
 }
 
 function showFrequencyError( text ) {
+	if( $( '#WMDE_Banner-frequency-error-text' ).length < 1 ) {
+		alert( text );
+		return;
+	}
 	$( '#WMDE_Banner-frequency-error-text' ).text( text ).show();
 	$( '#WMDE_Banner-frequency' ).addClass( 'fieldset-error' );
 }
