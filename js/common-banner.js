@@ -1,7 +1,8 @@
 /*jshint latedef: nofunc */
 /*jshint unused: false */
 /* globals mw, alert, GlobalBannerSettings */
-var finalDateTime = new Date( 2015, 11, 31, 23, 59, 59 ),
+var currentDate = new Date(),
+	finalDateTime = new Date( 2015, 11, 31, 23, 59, 59 ),
 	goalSum = 8600000,
 	/* jshint -W079 */
 	GlobalBannerSettings = typeof GlobalBannerSettings !== 'undefined' ? GlobalBannerSettings : {},
@@ -18,6 +19,7 @@ var finalDateTime = new Date( 2015, 11, 31, 23, 59, 59 ),
 	singleBannerImpCookie = 'centralnotice_single_banner_impression_count',
 	bannerCloseTrackRatio = replaceWikiVars( '{{{banner-close-track-ratio}}}' ) || 0.01,
 	bannerClosedCookie = replaceWikiVars( '{{{banner-closed-cookie}}}' ),
+	bannerClosedCookieExpiryDate = parseDateString( replaceWikiVars( '{{{banner-closed-cookie-expiry-date}}}' ) ) || new Date( currentDate.getFullYear() + 1, 0, 1 ),
 	bannerClosedCookieValue = replaceWikiVars( '{{{banner-closed-cookie-custom-value}}}' ) || '1',
 	showBanner = true,
 	messages = {
@@ -86,12 +88,16 @@ $( function () {
 	} );
 } );
 
-function setBannerClosedCookie() {
-	var currentDate = new Date(),
-		expiryDate;
+function parseDateString( dateString ) {
+	var dateParts = dateString.split( '-' );
+	if ( dateParts.length !== 3 ) {
+		return false;
+	}
+	return new Date( dateParts[ 0 ], dateParts[ 1 ] - 1, dateParts[ 2 ] );
+}
 
-	expiryDate = new Date( currentDate.getFullYear() + 1, 0, 1 );
-	$.cookie( bannerClosedCookie, bannerClosedCookieValue, { expires: expiryDate, path: '/' } );
+function setBannerClosedCookie() {
+	$.cookie( bannerClosedCookie, bannerClosedCookieValue, { expires: bannerClosedCookieExpiryDate, path: '/' } );
 }
 
 function getDaysLeft() {
@@ -111,10 +117,9 @@ function getDaysRemaining( language ) {
 }
 
 function getSecsPassed() {
-	var startDate = baseDate.split( '-' ),
-		startDateObj = new Date( startDate[ 0 ], startDate[ 1 ] - 1, startDate[ 2 ] ),
-		maxSecs = Math.floor( new Date( finalDateTime - startDateObj ) / 1000 ),
-		secsPassed = Math.floor( ( new Date() - startDateObj ) / 1000 );
+	var startDate = parseDateString( baseDate ),
+		maxSecs = Math.floor( new Date( finalDateTime - startDate ) / 1000 ),
+		secsPassed = Math.floor( ( new Date() - startDate ) / 1000 );
 
 	if ( secsPassed < 0 ) {
 		secsPassed = 0;
@@ -163,7 +168,7 @@ function getApprDonatorsFor( secsPast, rand ) {
 }
 
 function getCurrentGermanDay() {
-	switch ( new Date().getDay() ) {
+	switch ( currentDate.getDay() ) {
 		case 0:
 			return 'Sonntag';
 		case 1:
