@@ -70,6 +70,7 @@ $( function () {
 	} );
 	$( 'input:radio[name=betrag_auswahl]' ).on( 'click', function () {
 		$( '#amount_other' ).prop( 'checked', false );
+		$( '#amount-other-input' ).val( '' );
 		hideAmountError();
 	} );
 	$( '#interval_onetime' ).on( 'click', function () {
